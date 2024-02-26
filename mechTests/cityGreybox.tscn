@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://ck8jmxbk38api"]
+[gd_scene load_steps=30 format=3 uid="uid://ck8jmxbk38api"]
 
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://addons/fpc/character.tscn" id="1_grb3a"]
 [ext_resource type="Shader" path="res://sky.gdshader" id="2_075gl"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bi0fxrjgc2m8x" path="res://courtyardSpritemapLighting.png" id="5_1skrm"]
 [ext_resource type="ArrayMesh" uid="uid://dv57hnhev4ewt" path="res://courtyard.obj" id="5_hkspr"]
 [ext_resource type="Texture2D" uid="uid://dxk7wv5lmb01u" path="res://courtyardSpritemap.png" id="6_bqkgb"]
+[ext_resource type="Texture2D" uid="uid://dp1dfhdoexord" path="res://courtyardSpritemapRoughness.png" id="6_posl6"]
 [ext_resource type="Texture2D" uid="uid://bvu1coc7mcfmw" path="res://floor.png" id="8_mbgyn"]
 
 [sub_resource type="Gradient" id="Gradient_qpyyj"]
@@ -107,9 +108,18 @@ alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 cull_mode = 2
 albedo_texture = ExtResource("6_bqkgb")
+roughness_texture = ExtResource("6_posl6")
 emission_enabled = true
 emission_energy_multiplier = 0.3
 emission_texture = ExtResource("5_1skrm")
+normal_texture = ExtResource("6_posl6")
+anisotropy_flowmap = ExtResource("6_posl6")
+ao_light_affect = 1.0
+ao_texture = ExtResource("6_posl6")
+heightmap_scale = -0.2
+heightmap_texture = ExtResource("6_posl6")
+subsurf_scatter_texture = ExtResource("5_1skrm")
+backlight_texture = ExtResource("5_1skrm")
 texture_filter = 0
 
 [node name="cityGreybox" type="Node3D"]
