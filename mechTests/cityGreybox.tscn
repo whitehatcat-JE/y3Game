@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://ck8jmxbk38api"]
+[gd_scene load_steps=29 format=3 uid="uid://ck8jmxbk38api"]
 
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://addons/fpc/character.tscn" id="1_grb3a"]
 [ext_resource type="Shader" path="res://sky.gdshader" id="2_075gl"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bi0fxrjgc2m8x" path="res://courtyardSpritemapLighting.png" id="5_1skrm"]
 [ext_resource type="ArrayMesh" uid="uid://dv57hnhev4ewt" path="res://courtyard.obj" id="5_hkspr"]
 [ext_resource type="Texture2D" uid="uid://dxk7wv5lmb01u" path="res://courtyardSpritemap.png" id="6_bqkgb"]
+[ext_resource type="Texture2D" uid="uid://bvu1coc7mcfmw" path="res://floor.png" id="8_mbgyn"]
 
 [sub_resource type="Gradient" id="Gradient_qpyyj"]
 interpolation_mode = 2
@@ -117,9 +118,16 @@ texture_filter = 0
 
 [node name="CSGBox3D" type="CSGBox3D" parent="festival"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 21.635)
+visible = false
 calculate_tangents = false
 use_collision = true
 size = Vector3(83, 1, 64.27)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="festival"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 42.169)
+calculate_tangents = false
+use_collision = true
+size = Vector3(83, 1, 16.2429)
 
 [node name="CSGBox3D16" type="CSGBox3D" parent="festival"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -21)
@@ -609,7 +617,7 @@ operation = 2
 size = Vector3(3, 16, 13)
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="festival"]
-transform = Transform3D(-4.37114e-08, 0, 2.86, 0, 1, 0, -1, 0, -1.25015e-07, 0.2, 6, 42.0215)
+transform = Transform3D(-4.37114e-08, 0, 2.86, 0, 1, 0, -1, 0, -1.25015e-07, -0.0622821, 6, 42.0215)
 operation = 2
 calculate_tangents = false
 use_collision = true
@@ -769,8 +777,7 @@ light_color = Color(1, 0.956863, 0.729412, 1)
 light_energy = 1.318
 light_indirect_energy = 1.25
 shadow_enabled = true
-shadow_bias = 0.169
-shadow_blur = 0.921
+shadow_bias = 0.09
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_mbhlm")
@@ -820,6 +827,15 @@ transform = Transform3D(-7.80561e-08, 0, 1.78571, 0, 1.78571, 0, -1.78571, 0, -7
 visible = false
 use_collision = true
 size = Vector3(4.45776, 8, 1.58783)
+
+[node name="floorSprite" type="Sprite3D" parent="Courtyard"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 11.495, 0.005, 28.049)
+pixel_size = 0.124
+shaded = true
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("8_mbgyn")
+metadata/_edit_lock_ = true
 
 [node name="leftArches" type="Sprite3D" parent="."]
 transform = Transform3D(0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, 0.984808, -18.1684, 4.96929, -7.01571)
