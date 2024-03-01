@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://ck8jmxbk38api"]
+[gd_scene load_steps=43 format=3 uid="uid://ck8jmxbk38api"]
 
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://addons/fpc/character.tscn" id="1_grb3a"]
 [ext_resource type="Shader" path="res://sky.gdshader" id="2_075gl"]
@@ -19,6 +19,7 @@
 [ext_resource type="ArrayMesh" uid="uid://ddmc0ow5ijc4x" path="res://columnsRight.obj" id="11_ffdaw"]
 [ext_resource type="ArrayMesh" uid="uid://qiqh5m878ktv" path="res://fountain.obj" id="11_ojs8s"]
 [ext_resource type="Texture2D" uid="uid://d2y33l18m1pd6" path="res://fountain.png" id="11_upw68"]
+[ext_resource type="Texture2D" uid="uid://bu4lb6sftcjby" path="res://rug.png" id="12_btngs"]
 
 [sub_resource type="Gradient" id="Gradient_qpyyj"]
 interpolation_mode = 2
@@ -877,16 +878,32 @@ use_collision = true
 size = Vector3(4.45776, 8, 1.58783)
 
 [node name="Columns" type="MeshInstance3D" parent="Courtyard"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4527, 13.6275, 10.7649)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5598, 13.6275, 10.7649)
 material_override = SubResource("StandardMaterial3D_m1njf")
 mesh = ExtResource("10_ny6o8")
 skeleton = NodePath("../..")
 
+[node name="rug" type="Sprite3D" parent="Courtyard/Columns"]
+transform = Transform3D(0.642788, 0.766044, 3.34849e-08, 7.65995e-16, -4.37114e-08, 1, 0.766044, -0.642788, -2.80971e-08, -15.7143, -13.5714, 2.5)
+pixel_size = 0.124
+shaded = true
+alpha_cut = 2
+texture_filter = 0
+texture = ExtResource("12_btngs")
+
 [node name="ColumnsRight" type="MeshInstance3D" parent="Courtyard"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.9401, 13.6275, 10.7649)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.0115, 13.6275, 10.7649)
 material_override = SubResource("StandardMaterial3D_m1njf")
 mesh = ExtResource("11_ffdaw")
 skeleton = NodePath("../..")
+
+[node name="rug" type="Sprite3D" parent="Courtyard/ColumnsRight"]
+transform = Transform3D(0.642787, -0.766044, -3.34848e-08, -8.8199e-16, -4.37114e-08, 1, -0.766044, -0.642787, -2.80971e-08, -9.99998, -13.5714, 2.67857)
+pixel_size = 0.124
+shaded = true
+alpha_cut = 2
+texture_filter = 0
+texture = ExtResource("12_btngs")
 
 [node name="fountain" type="MeshInstance3D" parent="Courtyard"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5473, 0.259516, 28.622)
