@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://ck8jmxbk38api"]
+[gd_scene load_steps=59 format=3 uid="uid://ck8jmxbk38api"]
 
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://addons/fpc/character.tscn" id="1_grb3a"]
 [ext_resource type="Shader" path="res://sky.gdshader" id="2_075gl"]
@@ -12,14 +12,26 @@
 [ext_resource type="Texture2D" uid="uid://dxk7wv5lmb01u" path="res://courtyardSpritemap.png" id="6_bqkgb"]
 [ext_resource type="Texture2D" uid="uid://dp1dfhdoexord" path="res://courtyardSpritemapRoughness.png" id="6_posl6"]
 [ext_resource type="Texture2D" uid="uid://bvu1coc7mcfmw" path="res://floor.png" id="8_mbgyn"]
+[ext_resource type="Texture2D" uid="uid://cwvxevf2x0y2t" path="res://wall.png" id="9_7pimf"]
 [ext_resource type="Texture2D" uid="uid://c55u5bvqanl2g" path="res://columns.png" id="9_v5aqq"]
 [ext_resource type="Texture2D" uid="uid://dp1vx2tm5fcb1" path="res://columnsEmission.png" id="10_4v18u"]
+[ext_resource type="ArrayMesh" uid="uid://dbfy8db1eoyi2" path="res://wall.obj" id="10_kppph"]
 [ext_resource type="ArrayMesh" uid="uid://os1jany8k015" path="res://columns.obj" id="10_ny6o8"]
 [ext_resource type="Texture2D" uid="uid://bwtxei5xvjedo" path="res://floatingMoon.png" id="10_qncfs"]
 [ext_resource type="ArrayMesh" uid="uid://ddmc0ow5ijc4x" path="res://columnsRight.obj" id="11_ffdaw"]
 [ext_resource type="ArrayMesh" uid="uid://qiqh5m878ktv" path="res://fountain.obj" id="11_ojs8s"]
 [ext_resource type="Texture2D" uid="uid://d2y33l18m1pd6" path="res://fountain.png" id="11_upw68"]
+[ext_resource type="ArrayMesh" uid="uid://dllyj0ff0oqj7" path="res://wallFlipped.obj" id="11_vy7nc"]
 [ext_resource type="Texture2D" uid="uid://bu4lb6sftcjby" path="res://rug.png" id="12_btngs"]
+[ext_resource type="ArrayMesh" uid="uid://cvytjdhlvukev" path="res://columnsSmall.obj" id="21_xx63t"]
+[ext_resource type="ArrayMesh" uid="uid://cpc6q7hiqkcd1" path="res://columnsSmallFlipped.obj" id="22_uj80r"]
+[ext_resource type="ArrayMesh" uid="uid://ctwtto7gbsoeh" path="res://solarShade.obj" id="23_rbheq"]
+[ext_resource type="ArrayMesh" uid="uid://badkdq7jlfwvc" path="res://solarShadeFlipped.obj" id="24_if0sx"]
+[ext_resource type="Texture2D" uid="uid://dsphsdhhch774" path="res://pavilion.png" id="24_or2ia"]
+[ext_resource type="ArrayMesh" uid="uid://b0m7l2ogq1ut5" path="res://pavilion.obj" id="25_3xfmb"]
+[ext_resource type="ArrayMesh" uid="uid://c5wqpxxlv01a5" path="res://testRobot.obj" id="25_r02h0"]
+[ext_resource type="Texture2D" uid="uid://0ov86xtyumrm" path="res://testRobotSpritemap.png" id="26_460ue"]
+[ext_resource type="Texture2D" uid="uid://ff4cketo6hti" path="res://testRobotSpritemapGlow.png" id="27_d5jq3"]
 
 [sub_resource type="Gradient" id="Gradient_qpyyj"]
 interpolation_mode = 2
@@ -108,8 +120,6 @@ albedo_color = Color(0, 0.0551948, 0.53125, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_wvfal"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_180s6"]
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ji3y2"]
 transparency = 2
 alpha_scissor_threshold = 0.5
@@ -128,6 +138,14 @@ heightmap_scale = -0.2
 heightmap_texture = ExtResource("6_posl6")
 subsurf_scatter_texture = ExtResource("5_1skrm")
 backlight_texture = ExtResource("5_1skrm")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ed7fo"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("9_7pimf")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m1njf"]
@@ -160,6 +178,40 @@ subsurf_scatter_strength = 1.0
 albedo_color = Color(0, 0.231373, 1, 1)
 subsurf_scatter_enabled = true
 subsurf_scatter_strength = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r6c8f"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("9_v5aqq")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3y7s6"]
+cull_mode = 2
+albedo_texture = ExtResource("9_v5aqq")
+emission_enabled = true
+emission_energy_multiplier = 0.6
+emission_texture = ExtResource("10_4v18u")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1qdou"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("26_460ue")
+emission_enabled = true
+emission_texture = ExtResource("27_d5jq3")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m2be8"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("24_or2ia")
+texture_filter = 0
 
 [node name="cityGreybox" type="Node3D"]
 
@@ -836,24 +888,6 @@ transform = Transform3D(55.332, 0, 0, 0, -7.2866e-06, 1, 0, -166.698, -4.37114e-
 material_override = SubResource("StandardMaterial3D_lqyfd")
 mesh = SubResource("QuadMesh_wvfal")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(10, 0, 0, 0, 4.29, 0, 0, 0, 2.992, 0, 14.7, -6.9)
-visible = false
-mesh = SubResource("BoxMesh_180s6")
-skeleton = NodePath("../entrance")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.2, 0, 0, 0, 6.6924, 0, 0, 0, 2.992, 3.9, 11.7, -6.9)
-visible = false
-mesh = SubResource("BoxMesh_180s6")
-skeleton = NodePath("../entrance")
-
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.2, 0, 0, 0, 6.6924, 0, 0, 0, 2.992, -3.9, 11.7, -6.9)
-visible = false
-mesh = SubResource("BoxMesh_180s6")
-skeleton = NodePath("../entrance")
-
 [node name="Courtyard2" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.628, 0, -5.49015e-08, 0, 0.628, 0, 5.49015e-08, 0, -0.628, -15.8399, 0.516253, -76.9303)
 material_override = SubResource("StandardMaterial3D_ji3y2")
@@ -865,17 +899,29 @@ transform = Transform3D(0.56, 0, 0, 0, 0.56, 0, 0, 0, 0.56, -6.46647, 0.498935, 
 material_override = SubResource("StandardMaterial3D_ji3y2")
 mesh = ExtResource("5_hkspr")
 
-[node name="CSGBox3D73" type="CSGBox3D" parent="Courtyard"]
-transform = Transform3D(-7.80561e-08, 0, 1.78571, 0, 1.78571, 0, -1.78571, 0, -7.80561e-08, 5.44031, 7.14476, -4.03048)
-visible = false
-use_collision = true
-size = Vector3(4.4292, 8, 1.58179)
+[node name="Wall" type="MeshInstance3D" parent="Courtyard"]
+transform = Transform3D(0.939693, 0, -0.34202, 0, 1, 0, 0.34202, 0, 0.939693, -13.9885, 0.00190175, -2.44941)
+material_override = SubResource("StandardMaterial3D_ed7fo")
+mesh = ExtResource("10_kppph")
+skeleton = NodePath("../..")
 
-[node name="CSGBox3D74" type="CSGBox3D" parent="Courtyard"]
-transform = Transform3D(-7.80561e-08, 0, 1.78571, 0, 1.78571, 0, -1.78571, 0, -7.80561e-08, 17.5435, 7.14476, -4.00498)
-visible = false
-use_collision = true
-size = Vector3(4.45776, 8, 1.58783)
+[node name="Wall4" type="MeshInstance3D" parent="Courtyard"]
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -20.9527, 0.00190175, 55.0506)
+material_override = SubResource("StandardMaterial3D_ed7fo")
+mesh = ExtResource("10_kppph")
+skeleton = NodePath("../..")
+
+[node name="Wall2" type="MeshInstance3D" parent="Courtyard"]
+transform = Transform3D(0.939693, 0, 0.34202, 0, 1, 0, -0.34202, 0, 0.939693, 2.61869, 0.00190175, 9.87202)
+material_override = SubResource("StandardMaterial3D_ed7fo")
+mesh = ExtResource("11_vy7nc")
+skeleton = NodePath("../..")
+
+[node name="Wall3" type="MeshInstance3D" parent="Courtyard"]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 69.583, 0.00190175, 29.5149)
+material_override = SubResource("StandardMaterial3D_ed7fo")
+mesh = ExtResource("11_vy7nc")
+skeleton = NodePath("../..")
 
 [node name="Columns" type="MeshInstance3D" parent="Courtyard"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5598, 13.6275, 10.7649)
@@ -935,97 +981,6 @@ texture_filter = 0
 texture = ExtResource("8_mbgyn")
 metadata/_edit_lock_ = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Courtyard/floorSprite"]
-transform = Transform3D(1, 0, 0, 0, 1, -1.55964e-12, 0, 1.55964e-12, 1, 25.5, -17.7143, 7)
-size = Vector3(14, 14, 1)
-
-[node name="CSGBox3D39" type="CSGBox3D" parent="Courtyard/floorSprite"]
-transform = Transform3D(0.965926, 0.258819, 1.13128e-08, -0.258819, 0.965926, -1.49186e-09, -1.13133e-08, -1.48679e-09, 1, 47.5975, -10.9528, 1.85714)
-size = Vector3(1, 18, 5)
-
-[node name="CSGBox3D43" type="CSGBox3D" parent="Courtyard/floorSprite"]
-transform = Transform3D(1, 0, 0, 0, 1, -1.01608e-12, 0, 1.01608e-12, 1, 59.526, -15.4528, -0.142857)
-size = Vector3(9, 9, 1)
-
-[node name="CSGBox3D50" type="CSGBox3D" parent="Courtyard/floorSprite"]
-transform = Transform3D(0.963782, -0.254887, -0.0784707, 0.25, 0.965926, -0.0669873, 0.092871, 0.0449435, 0.994663, -53.5153, -6.99387, 3.65822)
-size = Vector3(7.9, 6, 1)
-
-[node name="CSGBox3D51" type="CSGBox3D" parent="Courtyard/floorSprite"]
-transform = Transform3D(0.963782, -0.254887, -0.0784707, 0.25, 0.965926, -0.0669873, 0.092871, 0.0449435, 0.994663, -50.814, -13.7207, 3.74645)
-size = Vector3(6, 6, 1)
-
-[node name="CSGBox3D46" type="CSGBox3D" parent="Courtyard/floorSprite"]
-transform = Transform3D(1, 0, 0, 0, 1, -1.5099e-12, 0, 1.5099e-12, 1, 47.0975, -20.7385, 0.357143)
-size = Vector3(2, 2, 2)
-
-[node name="CSGBox3D47" type="CSGBox3D" parent="Courtyard/floorSprite"]
-transform = Transform3D(1, 0, 0, 0, 1, -1.52411e-12, 0, 1.52411e-12, 1, 45.4766, -23.2984, 0.357143)
-size = Vector3(2, 2, 2)
-
-[node name="CSGBox3D48" type="CSGBox3D" parent="Courtyard/floorSprite"]
-transform = Transform3D(0.866025, -0.5, -2.18549e-08, 0.5, 0.866025, -5.85756e-09, 2.18557e-08, -5.85468e-09, 1, 48.6909, -22.9413, 0.357143)
-size = Vector3(2, 2, 2)
-
-[node name="CSGBox3D49" type="CSGBox3D" parent="Courtyard/floorSprite"]
-transform = Transform3D(0.866025, -0.5, -2.18549e-08, 0.5, 0.866025, -5.85761e-09, 2.18557e-08, -5.85468e-09, 1, 46.6953, -21.16, 1.82143)
-
-[node name="CSGBox3D44" type="CSGBox3D" parent="Courtyard/floorSprite"]
-transform = Transform3D(0.952586, -0.163527, -0.256593, 0.151247, 0.986221, -0.0670254, 0.264018, 0.0250387, 0.964193, 57.9791, -3.18722, 6.3246)
-size = Vector3(15, 5, 1)
-
-[node name="CSGBox3D45" type="CSGBox3D" parent="Courtyard/floorSprite"]
-transform = Transform3D(0.14766, 0.987138, 0.0612806, -0.923773, 0.159786, -0.348012, -0.353327, -0.00522204, 0.935485, 45.65, -23.1555, 2.59705)
-size = Vector3(6, 4, 1)
-
-[node name="CSGBox3D41" type="CSGBox3D" parent="Courtyard/floorSprite"]
-transform = Transform3D(0.5, 0.866026, 3.78531e-08, -0.866026, 0.5, -2.18573e-08, -3.78555e-08, -2.1853e-08, 1, 15.9413, 25.7972, 1.85714)
-size = Vector3(1, 15, 5)
-
-[node name="CSGBox3D42" type="CSGBox3D" parent="Courtyard/floorSprite"]
-transform = Transform3D(0.5, -0.866025, -3.78528e-08, 0.866025, 0.5, -2.18568e-08, 3.78549e-08, -2.1853e-08, 1, -16.2016, 25.7972, 1.85714)
-size = Vector3(1, 15, 5)
-
-[node name="CSGBox3D40" type="CSGBox3D" parent="Courtyard/floorSprite"]
-transform = Transform3D(0.965926, -0.258819, -1.13126e-08, 0.258819, 0.965926, -1.49185e-09, 1.13134e-08, -1.48671e-09, 1, -47.0454, -10.9528, 1.85714)
-size = Vector3(1, 18, 5)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="Courtyard/floorSprite"]
-transform = Transform3D(1, 0, 0, 0, 1, -2.33413e-12, 0, 2.33413e-12, 1, 19, -24.2143, 3.5)
-size = Vector3(1, 1, 8)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="Courtyard/floorSprite"]
-transform = Transform3D(1, 0, 0, 0, 1, -2.35545e-12, 0, 2.35545e-12, 1, 32.0357, -24.2143, 3.5)
-size = Vector3(1, 1, 8)
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="Courtyard/floorSprite"]
-transform = Transform3D(1, 0, 0, 0, 1, -2.36966e-12, 0, 2.36966e-12, 1, 32.0357, -11.1786, 3.5)
-size = Vector3(1, 1, 8)
-
-[node name="CSGBox3D5" type="CSGBox3D" parent="Courtyard/floorSprite"]
-transform = Transform3D(1, 0, 0, 0, 1, -2.38742e-12, 0, 2.38742e-12, 1, 19, -11.1786, 3.5)
-size = Vector3(1, 1, 8)
-
-[node name="CSGBox3D6" type="CSGBox3D" parent="Courtyard/floorSprite"]
-transform = Transform3D(1, 0, 0, 0, 1, -1.57385e-12, 0, 1.57385e-12, 1, -26.2857, -17.7143, 7)
-size = Vector3(14, 14, 1)
-
-[node name="CSGBox3D7" type="CSGBox3D" parent="Courtyard/floorSprite"]
-transform = Transform3D(1, 0, 0, 0, 1, -2.34834e-12, 0, 2.34834e-12, 1, -32.7857, -24.2143, 3.5)
-size = Vector3(1, 1, 8)
-
-[node name="CSGBox3D8" type="CSGBox3D" parent="Courtyard/floorSprite"]
-transform = Transform3D(1, 0, 0, 0, 1, -2.36966e-12, 0, 2.36966e-12, 1, -19.75, -24.2143, 3.5)
-size = Vector3(1, 1, 8)
-
-[node name="CSGBox3D9" type="CSGBox3D" parent="Courtyard/floorSprite"]
-transform = Transform3D(1, 0, 0, 0, 1, -2.38387e-12, 0, 2.38387e-12, 1, -19.75, -11.1786, 3.5)
-size = Vector3(1, 1, 8)
-
-[node name="CSGBox3D10" type="CSGBox3D" parent="Courtyard/floorSprite"]
-transform = Transform3D(1, 0, 0, 0, 1, -2.40163e-12, 0, 2.40163e-12, 1, -32.7857, -11.1786, 3.5)
-size = Vector3(1, 1, 8)
-
 [node name="CSGBox3D11" type="CSGBox3D" parent="Courtyard/floorSprite"]
 transform = Transform3D(1, 0, 0, 0, 1, -3.57758e-12, 0, 3.57758e-12, 1, 0.107131, -0.099987, -2.98023e-07)
 visible = false
@@ -1048,6 +1003,36 @@ shaded = true
 alpha_cut = 1
 texture_filter = 0
 texture = ExtResource("10_qncfs")
+
+[node name="ColumnsSmall" type="MeshInstance3D" parent="Courtyard"]
+transform = Transform3D(-1, 0, -1.06437e-07, 0, 1, 0, 1.06437e-07, 0, -1, 2.61869, 13.6209, 48.2649)
+material_override = SubResource("StandardMaterial3D_r6c8f")
+mesh = ExtResource("21_xx63t")
+skeleton = NodePath("../..")
+
+[node name="ColumnsSmall2" type="MeshInstance3D" parent="Courtyard"]
+transform = Transform3D(-1, 0, -1.06437e-07, 0, 1, 0, 1.06437e-07, 0, -1, -25.9527, 13.6209, 48.2649)
+material_override = SubResource("StandardMaterial3D_r6c8f")
+mesh = ExtResource("22_uj80r")
+skeleton = NodePath("../..")
+
+[node name="SolarShade" type="MeshInstance3D" parent="Courtyard"]
+transform = Transform3D(0.482963, 0, 0.129409, 0, 0.5, 0, -0.129409, 0, 0.482963, -15.7742, 7.50191, 32.1934)
+material_override = SubResource("StandardMaterial3D_3y7s6")
+mesh = ExtResource("23_rbheq")
+skeleton = NodePath("../..")
+
+[node name="SolarShade2" type="MeshInstance3D" parent="Courtyard"]
+transform = Transform3D(0.482963, 0, -0.12941, 0, 0.5, 0, 0.12941, 0, 0.482963, 45.833, 7.50191, 34.3363)
+material_override = SubResource("StandardMaterial3D_3y7s6")
+mesh = ExtResource("24_if0sx")
+skeleton = NodePath("../..")
+
+[node name="TestRobot" type="MeshInstance3D" parent="Courtyard"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 22.2615, 4.64476, 28.622)
+mesh = ExtResource("25_r02h0")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1qdou")
 
 [node name="leftArches" type="Sprite3D" parent="."]
 transform = Transform3D(0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, 0.984808, -18.1684, 4.96929, -7.01571)
@@ -1567,3 +1552,13 @@ pixel_size = 0.07
 shaded = true
 texture_filter = 0
 texture = ExtResource("2_b84pj")
+
+[node name="Pavilion" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.6, 0.7, 19.6)
+material_override = SubResource("StandardMaterial3D_m2be8")
+mesh = ExtResource("25_3xfmb")
+
+[node name="Pavilion2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.4, 0.7, 18.6)
+material_override = SubResource("StandardMaterial3D_m2be8")
+mesh = ExtResource("25_3xfmb")

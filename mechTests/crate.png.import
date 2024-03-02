@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c53a3i0usnrwj"
-path="res://.godot/imported/testArch-export.png-87d5070856f4e9f0cc1785d2d45bfc19.ctex"
+uid="uid://chd6vvv73fieh"
+path="res://.godot/imported/crate.png-b83caf405963e4d199b63b1a11f14613.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://testArch-export.png"
-dest_files=["res://.godot/imported/testArch-export.png-87d5070856f4e9f0cc1785d2d45bfc19.ctex"]
+source_file="res://crate.png"
+dest_files=["res://.godot/imported/crate.png-b83caf405963e4d199b63b1a11f14613.ctex"]
 
 [params]
 
