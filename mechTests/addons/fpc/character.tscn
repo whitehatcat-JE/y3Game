@@ -112,7 +112,6 @@ _data = {
 }
 
 [sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_dtbp6"]
-auto_exposure_enabled = true
 
 [sub_resource type="Animation" id="Animation_gh776"]
 resource_name = "RESET"
