@@ -943,7 +943,7 @@ BACKWARD = "backward"
 jump_animation = false
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.707107, 0.604136, -0.36745, 0, 0.519653, 0.854377, 0.707107, 0.604136, -0.36745, 0, 18.0363, 13.6116)
+transform = Transform3D(-0.707107, 0.604136, -0.36745, 0, 0.519653, 0.854377, 0.707107, 0.604136, -0.36745, -0.0607176, 18.0363, 13.5153)
 light_color = Color(1, 0.956863, 0.729412, 1)
 light_energy = 1.318
 light_indirect_energy = 1.25
