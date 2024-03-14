@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://ck8jmxbk38api"]
+[gd_scene load_steps=92 format=3 uid="uid://ck8jmxbk38api"]
 
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://addons/fpc/character.tscn" id="1_grb3a"]
 [ext_resource type="Shader" path="res://sky.gdshader" id="2_075gl"]
@@ -53,6 +53,37 @@ alpha_antialiasing_mode = 0
 cull_mode = 2
 albedo_texture = ExtResource("33_5r3e1")
 texture_filter = 0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_gldbr"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_b3ien"]
+seamless = true
+noise = SubResource("FastNoiseLite_gldbr")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hsky4"]
+albedo_color = Color(0.854902, 0.894118, 1, 1)
+albedo_texture = SubResource("NoiseTexture2D_b3ien")
+
+[sub_resource type="SphereMesh" id="SphereMesh_hunck"]
+radius = 2.5
+height = 5.0
+
+[sub_resource type="Gradient" id="Gradient_d7enw"]
+offsets = PackedFloat32Array(0, 0.46114, 0.751295, 1)
+colors = PackedColorArray(0.428405, 0.902497, 1, 1, 0.396078, 0.886275, 1, 1, 0.0431373, 0.717647, 1, 0, 0, 0.698039, 1, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6oipe"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ct27v"]
+color_ramp = SubResource("Gradient_d7enw")
+noise = SubResource("FastNoiseLite_6oipe")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8uo5j"]
+transparency = 1
+albedo_color = Color(0, 0.847059, 1, 1)
+albedo_texture = SubResource("NoiseTexture2D_ct27v")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_3pyaw"]
 
 [sub_resource type="Gradient" id="Gradient_qpyyj"]
 interpolation_mode = 2
@@ -536,6 +567,36 @@ material_override = SubResource("StandardMaterial3D_ro88v")
 mesh = ExtResource("33_6xb4r")
 skeleton = NodePath("../../..")
 
+[node name="EntranceWall4" type="MeshInstance3D" parent="festival"]
+transform = Transform3D(0.132886, 0, 0.544005, 0, 0.56, 0, -0.544005, 0, 0.132886, 40.9547, -5.5, -223.942)
+material_override = SubResource("StandardMaterial3D_ro88v")
+mesh = ExtResource("33_6xb4r")
+skeleton = NodePath("../..")
+
+[node name="Tower27" type="MeshInstance3D" parent="festival"]
+transform = Transform3D(0.0124411, 0, -0.559862, 0, 0.56, 0, 0.559862, 0, 0.0124411, 39.9156, -6, -219.37)
+material_override = SubResource("StandardMaterial3D_7wql0")
+mesh = ExtResource("35_1n53g")
+skeleton = NodePath("../..")
+
+[node name="EntranceWall3" type="MeshInstance3D" parent="festival/Tower27"]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 60.7142, 0.892857, 1.07137)
+material_override = SubResource("StandardMaterial3D_ro88v")
+mesh = ExtResource("33_6xb4r")
+skeleton = NodePath("../../..")
+
+[node name="Tower28" type="MeshInstance3D" parent="festival"]
+transform = Transform3D(0.0124411, 0, -0.559862, 0, 0.56, 0, 0.559862, 0, 0.0124411, 39.9156, -6, -179.811)
+material_override = SubResource("StandardMaterial3D_7wql0")
+mesh = ExtResource("35_1n53g")
+skeleton = NodePath("../..")
+
+[node name="EntranceWall3" type="MeshInstance3D" parent="festival/Tower28"]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 60.7142, 0.892857, 1.07137)
+material_override = SubResource("StandardMaterial3D_ro88v")
+mesh = ExtResource("33_6xb4r")
+skeleton = NodePath("../../..")
+
 [node name="Tower24" type="MeshInstance3D" parent="festival"]
 transform = Transform3D(-0.540918, 0, 0.144939, 0, 0.56, 0, -0.144939, 0, -0.540918, 83.8762, -6, -245.924)
 material_override = SubResource("StandardMaterial3D_7wql0")
@@ -828,7 +889,7 @@ use_collision = true
 size = Vector3(22, 19, 2)
 
 [node name="CSGBox3D74" type="CSGBox3D" parent="festival"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, 8.5, -143.443)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.7527, 8.5, -143.443)
 calculate_tangents = false
 use_collision = true
 size = Vector3(8, 28, 8)
@@ -1182,6 +1243,86 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 55)
 visible = false
 light_color = Color(1, 0.619608, 0.121569, 1)
 omni_range = 9.844
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="festival"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.3331, 5.01971, 0)
+material_override = SubResource("StandardMaterial3D_hsky4")
+mesh = SubResource("SphereMesh_hunck")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="festival/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 5.00898, 0, 0, 0, 1, 0, -5.68131, 0.125178)
+material_override = SubResource("StandardMaterial3D_8uo5j")
+mesh = SubResource("CylinderMesh_3pyaw")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="festival"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.2569, 2.7997, -24.6933)
+material_override = SubResource("StandardMaterial3D_hsky4")
+mesh = SubResource("SphereMesh_hunck")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="festival/MeshInstance3D2"]
+transform = Transform3D(1, 0, 0, 0, 5.00898, 0, 0, 0, 1, 0, -5.68131, 0.125178)
+material_override = SubResource("StandardMaterial3D_8uo5j")
+mesh = SubResource("CylinderMesh_3pyaw")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="festival"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.5308, 3.89818, -14.5145)
+material_override = SubResource("StandardMaterial3D_hsky4")
+mesh = SubResource("SphereMesh_hunck")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="festival/MeshInstance3D3"]
+transform = Transform3D(1, 0, 0, 0, 5.00898, 0, 0, 0, 1, 0, -5.68131, 0.125178)
+material_override = SubResource("StandardMaterial3D_8uo5j")
+mesh = SubResource("CylinderMesh_3pyaw")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="festival"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106.767, 3.89818, -180.62)
+material_override = SubResource("StandardMaterial3D_hsky4")
+mesh = SubResource("SphereMesh_hunck")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="festival/MeshInstance3D4"]
+transform = Transform3D(1, 0, 0, 0, 5.00898, 0, 0, 0, 1, 0, -5.68131, 0.125178)
+material_override = SubResource("StandardMaterial3D_8uo5j")
+mesh = SubResource("CylinderMesh_3pyaw")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="festival"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.2651, 3.89818, -165.044)
+material_override = SubResource("StandardMaterial3D_hsky4")
+mesh = SubResource("SphereMesh_hunck")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="festival/MeshInstance3D5"]
+transform = Transform3D(1, 0, 0, 0, 5.00898, 0, 0, 0, 1, 0, -5.68131, 0.125178)
+material_override = SubResource("StandardMaterial3D_8uo5j")
+mesh = SubResource("CylinderMesh_3pyaw")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="festival"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 67.1014, 9.98119, -207.129)
+material_override = SubResource("StandardMaterial3D_hsky4")
+mesh = SubResource("SphereMesh_hunck")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="festival/MeshInstance3D6"]
+transform = Transform3D(1, 0, 0, 0, 5.00898, 0, 0, 0, 1, 0, -5.68131, 0.125178)
+material_override = SubResource("StandardMaterial3D_8uo5j")
+mesh = SubResource("CylinderMesh_3pyaw")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="festival"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 120.213, 9.98119, -199.853)
+material_override = SubResource("StandardMaterial3D_hsky4")
+mesh = SubResource("SphereMesh_hunck")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="festival/MeshInstance3D7"]
+transform = Transform3D(1, 0, 0, 0, 5.00898, 0, 0, 0, 1, 0, -5.68131, 0.125178)
+material_override = SubResource("StandardMaterial3D_8uo5j")
+mesh = SubResource("CylinderMesh_3pyaw")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="festival"]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 120.213, 2.15226, -159.022)
+material_override = SubResource("StandardMaterial3D_hsky4")
+mesh = SubResource("SphereMesh_hunck")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="festival/MeshInstance3D8"]
+transform = Transform3D(1, 0, 0, 0, 5.00898, 0, 0, 0, 1, 0, -5.68131, 0.125178)
+material_override = SubResource("StandardMaterial3D_8uo5j")
+mesh = SubResource("CylinderMesh_3pyaw")
 
 [node name="Character" parent="." instance=ExtResource("1_grb3a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.54543, 37.9077)
