@@ -5,5 +5,5 @@ Ks 0.000000 0.000000 0.000000
 Tr 0.000000
 illum 0
 Ns 0.000000
-map_Kd texture_0.png
-map_d texture_0.png
+map_Kd 0.png
+map_d 0.png
