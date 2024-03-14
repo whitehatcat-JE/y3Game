@@ -44,6 +44,7 @@ alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 cull_mode = 2
 albedo_texture = ExtResource("35_c2ca4")
+texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ro88v"]
 transparency = 2
@@ -1467,7 +1468,7 @@ shape = SubResource("ConcavePolygonShape3D_ooyy2")
 shape = SubResource("ConcavePolygonShape3D_s0ykh")
 
 [node name="Tower" type="MeshInstance3D" parent="Courtyard/Entrance"]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 73.2142, -4.82143, -16.7857)
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 73.2142, -3.92857, -16.7857)
 material_override = SubResource("StandardMaterial3D_7wql0")
 mesh = ExtResource("35_1n53g")
 skeleton = NodePath("../../..")
@@ -1479,7 +1480,7 @@ visible = false
 shape = SubResource("ConcavePolygonShape3D_6b52f")
 
 [node name="Tower2" type="MeshInstance3D" parent="Courtyard/Entrance"]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -72.3215, -4.82143, -16.7857)
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -72.3215, -3.92857, -16.7857)
 material_override = SubResource("StandardMaterial3D_7wql0")
 mesh = ExtResource("35_1n53g")
 skeleton = NodePath("../../..")
