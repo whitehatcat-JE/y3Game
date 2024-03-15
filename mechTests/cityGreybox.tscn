@@ -1436,7 +1436,7 @@ texture_filter = 0
 texture = ExtResource("12_btngs")
 
 [node name="fountain" type="MeshInstance3D" parent="Courtyard"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5473, 0.259516, 28.622)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4767, 0.259516, 28.1017)
 material_override = SubResource("StandardMaterial3D_46pwq")
 mesh = ExtResource("11_ojs8s")
 skeleton = NodePath("../..")
@@ -1524,7 +1524,7 @@ skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_1qdou")
 
 [node name="NewPavilion" type="MeshInstance3D" parent="Courtyard"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.2258, 0.359045, 43.4435)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.0498, 0.359045, 43.463)
 material_override = SubResource("StandardMaterial3D_7u6n3")
 mesh = ExtResource("29_wny2v")
 skeleton = NodePath("../..")
@@ -1541,7 +1541,7 @@ mesh = ExtResource("23_rbheq")
 skeleton = NodePath("../../..")
 
 [node name="NewPavilion2" type="MeshInstance3D" parent="Courtyard"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.1313, 0.359045, 43.4435)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.1313, 0.359045, 43.463)
 material_override = SubResource("StandardMaterial3D_7u6n3")
 mesh = ExtResource("29_wny2v")
 skeleton = NodePath("../..")
