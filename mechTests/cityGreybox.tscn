@@ -1404,8 +1404,56 @@ mesh = ExtResource("10_ny6o8")
 skeleton = NodePath("../..")
 
 [node name="rug" type="Sprite3D" parent="Courtyard/Columns"]
-transform = Transform3D(0.642788, 0.766044, 3.34849e-08, 7.65995e-16, -4.37114e-08, 1, 0.766044, -0.642788, -2.80971e-08, -15.7143, -13.5714, 2.5)
-pixel_size = 0.124
+transform = Transform3D(-1.59135, 0.605725, 2.64771e-08, -6.78745e-16, -4.37114e-08, 1, 1.21145, 0.795674, 3.478e-08, 2.30609, -13.5714, 36.1358)
+pixel_size = 0.04
+shaded = true
+alpha_cut = 2
+texture_filter = 0
+texture = ExtResource("12_btngs")
+
+[node name="rug5" type="Sprite3D" parent="Courtyard/Columns"]
+transform = Transform3D(0.181646, -1.4938, -4.35307e-08, 6.85155e-16, -6.55671e-08, 1, -1.99173, -0.136235, -3.97e-09, -5.25847, -13.5714, 14.6275)
+pixel_size = 0.04
+shaded = true
+alpha_cut = 2
+texture_filter = 0
+texture = ExtResource("12_btngs")
+
+[node name="rug6" type="Sprite3D" parent="Courtyard/Columns"]
+transform = Transform3D(-1.60632, -0.595762, -2.60416e-08, -1.74666e-14, -4.37114e-08, 1, -1.19152, 0.803162, 3.51073e-08, 1.97365, -13.5714, 3.5976)
+pixel_size = 0.04
+shaded = true
+alpha_cut = 2
+texture_filter = 0
+texture = ExtResource("12_btngs")
+
+[node name="rug7" type="Sprite3D" parent="Courtyard/Columns"]
+transform = Transform3D(-1.60632, -0.595762, -2.60416e-08, -1.74666e-14, -4.37114e-08, 1, -1.19152, 0.803162, 3.51073e-08, -24.8064, -13.5714, 8.08195)
+pixel_size = 0.04
+shaded = true
+alpha_cut = 2
+texture_filter = 0
+texture = ExtResource("12_btngs")
+
+[node name="rug8" type="Sprite3D" parent="Courtyard/Columns"]
+transform = Transform3D(-0.751577, -0.926706, -4.05076e-08, -1.70082e-14, -4.37114e-08, 1, -1.85341, 0.375789, 1.64262e-08, -6.02055, -13.5714, -6.44283)
+pixel_size = 0.04
+shaded = true
+alpha_cut = 2
+texture_filter = 0
+texture = ExtResource("12_btngs")
+
+[node name="rug9" type="Sprite3D" parent="Courtyard/Columns"]
+transform = Transform3D(-1.11888, -0.828871, -3.62311e-08, -1.99477e-14, -4.37114e-08, 1, -1.65774, 0.55944, 2.44539e-08, -17.7859, -13.5714, 1.05555)
+pixel_size = 0.025
+shaded = true
+alpha_cut = 2
+texture_filter = 0
+texture = ExtResource("12_btngs")
+
+[node name="rug2" type="Sprite3D" parent="Courtyard/Columns"]
+transform = Transform3D(-0.564079, 0.959403, 4.19368e-08, 2.28363e-15, -4.37114e-08, 1, 1.91881, 0.282039, 1.23283e-08, 10.6203, -13.5714, 41.7656)
+pixel_size = 0.03
 shaded = true
 alpha_cut = 2
 texture_filter = 0
@@ -1436,7 +1484,7 @@ texture_filter = 0
 texture = ExtResource("12_btngs")
 
 [node name="fountain" type="MeshInstance3D" parent="Courtyard"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4767, 0.259516, 28.1017)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.477, 0.26, 28.112)
 material_override = SubResource("StandardMaterial3D_46pwq")
 mesh = ExtResource("11_ojs8s")
 skeleton = NodePath("../..")
