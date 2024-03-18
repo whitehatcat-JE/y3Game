@@ -155,7 +155,6 @@ sky_material = SubResource("ShaderMaterial_fobon")
 background_mode = 2
 sky = SubResource("Sky_5a4rh")
 tonemap_mode = 2
-ssao_enabled = true
 ssil_enabled = true
 sdfgi_enabled = true
 sdfgi_read_sky_light = false
@@ -163,7 +162,6 @@ fog_enabled = true
 fog_light_color = Color(0.607843, 0.490196, 0.262745, 1)
 fog_density = 0.002
 fog_sky_affect = 0.0
-volumetric_fog_enabled = true
 volumetric_fog_density = 0.0075
 volumetric_fog_albedo = Color(1, 0.815686, 0.537255, 1)
 
