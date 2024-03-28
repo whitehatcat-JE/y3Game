@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Part" load_steps=2 format=3 uid="uid://72dgfl0qj0sq"]
+
+[ext_resource type="Script" path="res://combat/resources/part.gd" id="1_6kjst"]
+
+[resource]
+script = ExtResource("1_6kjst")
+name = ""
+type = 0
+description = ""
+maxDurability = 0
+currentDurability = 0
+damage = 0
+armorRating = 0
+speedRating = 0
+range = 0
+splash = 0

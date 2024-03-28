@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Part" load_steps=3 format=3 uid="uid://c5eswtj7s7u1b"]
+
+[ext_resource type="Script" path="res://combat/resources/part.gd" id="1_74u5d"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_aajj6"]
+
+[resource]
+script = ExtResource("1_74u5d")
+name = "Basic chestplate"
+type = 2
+model = SubResource("BoxMesh_aajj6")
+description = "It'll get the job done"
+maxDurability = 150
+currentDurability = 150
+damage = 12
+armorRating = 2
+speedRating = -1
+range = 2
+splash = 0
