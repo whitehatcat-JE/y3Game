@@ -1,17 +1,17 @@
 [gd_resource type="Resource" script_class="Part" load_steps=3 format=3 uid="uid://c5eswtj7s7u1b"]
 
-[ext_resource type="Script" path="res://combat/resources/part.gd" id="1_74u5d"]
+[ext_resource type="Script" path="res://combat/resources/part.gd" id="1_1ml1l"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_aajj6"]
 
 [resource]
-script = ExtResource("1_74u5d")
+script = ExtResource("1_1ml1l")
 name = "Basic chestplate"
 type = 2
 model = SubResource("BoxMesh_aajj6")
 description = "It'll get the job done"
-maxDurability = 150
-currentDurability = 150
+maxDurability = 80
+currentDurability = 40
 damage = 12
 armorRating = 2
 speedRating = -1

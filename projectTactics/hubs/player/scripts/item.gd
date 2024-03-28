@@ -24,6 +24,7 @@ func _validate_property(property: Dictionary):
 		property.usage = PROPERTY_USAGE_NO_EDITOR
 
 func refreshItem(_refreshValue = false):
+	if !has_node("mesh"): return;
 	if itemType == 0:
 		if part != null:
 			if part.model != null:

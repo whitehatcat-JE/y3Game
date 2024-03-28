@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="Part" load_steps=3 format=3 uid="uid://cpg0bodkw866e"]
 
-[ext_resource type="Script" path="res://combat/resources/part.gd" id="1_uyeu5"]
+[ext_resource type="Script" path="res://combat/resources/part.gd" id="1_n8sf2"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_wngs4"]
 
 [resource]
-script = ExtResource("1_uyeu5")
+script = ExtResource("1_n8sf2")
 name = ""
 type = 0
 model = SubResource("CylinderMesh_wngs4")
