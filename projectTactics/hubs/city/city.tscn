@@ -27,7 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://blwoqmiktayp3" path="res://hubs/city/assets/courtyard/decorations/solarShadeEmission.png" id="29_asb4d"]
 [ext_resource type="Texture2D" uid="uid://c37vy2yd44u64" path="res://hubs/city/assets/courtyard/structures/pavilion.png" id="30_70rqm"]
 [ext_resource type="ArrayMesh" uid="uid://bxuuger6nhio6" path="res://hubs/city/assets/courtyard/structures/pavilion.obj" id="31_seumq"]
-[ext_resource type="Script" path="res://hubs/player/scripts/interactable.gd" id="32_8n2l5"]
+[ext_resource type="Script" path="res://hubs/player/scripts/item.gd" id="32_8n2l5"]
 [ext_resource type="Script" path="res://hubs/player/scripts/player.gd" id="32_373hi"]
 [ext_resource type="Texture2D" uid="uid://bidgaiosk31v6" path="res://placeholder/icon.svg" id="32_cmv43"]
 [ext_resource type="ArrayMesh" uid="uid://ctwtto7gbsoeh" path="res://hubs/city/assets/courtyard/decorations/solarShade.obj" id="32_jytqt"]
@@ -1916,7 +1916,7 @@ visible = false
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("32_cmv43")
 
-[node name="interactable" type="Area3D" parent="."]
+[node name="item" type="Area3D" parent="."]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -12.8973, 0.73555, 20.3538)
 collision_layer = 2
 collision_mask = 0
@@ -1924,78 +1924,78 @@ input_ray_pickable = false
 monitoring = false
 script = ExtResource("32_8n2l5")
 
-[node name="hitbox" type="CollisionShape3D" parent="interactable"]
+[node name="hitbox" type="CollisionShape3D" parent="item"]
 shape = SubResource("BoxShape3D_bfxyo")
 
-[node name="mesh" type="MeshInstance3D" parent="interactable"]
+[node name="mesh" type="MeshInstance3D" parent="item"]
 mesh = SubResource("BoxMesh_ymsn1")
 
-[node name="interactable2" type="Area3D" parent="."]
-transform = Transform3D(0.180002, 0, -0.35721, 0, 0.4, 0, 0.35721, 0, 0.180002, -12.112, 0.73555, 22.4439)
+[node name="item2" type="Area3D" parent="."]
+transform = Transform3D(0.2, 0, 0.34641, 0, 0.4, 0, -0.34641, 0, 0.2, -12.8973, 0.73555, 22.518)
 collision_layer = 2
 collision_mask = 0
 input_ray_pickable = false
 monitoring = false
 script = ExtResource("32_8n2l5")
 
-[node name="hitbox" type="CollisionShape3D" parent="interactable2"]
+[node name="hitbox" type="CollisionShape3D" parent="item2"]
 shape = SubResource("BoxShape3D_bfxyo")
 
-[node name="mesh" type="MeshInstance3D" parent="interactable2"]
+[node name="mesh" type="MeshInstance3D" parent="item2"]
 mesh = SubResource("BoxMesh_ymsn1")
 
-[node name="interactable3" type="Area3D" parent="."]
-transform = Transform3D(0.180002, 0, -0.35721, 0, 0.4, 0, 0.35721, 0, 0.180002, -11.0587, 0.73555, 22.7343)
+[node name="item3" type="Area3D" parent="."]
+transform = Transform3D(-0.2, 0, 0.34641, 0, 0.4, 0, -0.34641, 0, -0.2, -11.5617, 0.73555, 22.6871)
 collision_layer = 2
 collision_mask = 0
 input_ray_pickable = false
 monitoring = false
 script = ExtResource("32_8n2l5")
 
-[node name="hitbox" type="CollisionShape3D" parent="interactable3"]
+[node name="hitbox" type="CollisionShape3D" parent="item3"]
 shape = SubResource("BoxShape3D_bfxyo")
 
-[node name="mesh" type="MeshInstance3D" parent="interactable3"]
+[node name="mesh" type="MeshInstance3D" parent="item3"]
 mesh = SubResource("BoxMesh_ymsn1")
 
-[node name="interactable4" type="Area3D" parent="."]
-transform = Transform3D(0.399999, 0, 0.000712097, 0, 0.4, 0, -0.000712097, 0, 0.399999, -11.8137, 0.735551, 23.8984)
+[node name="item4" type="Area3D" parent="."]
+transform = Transform3D(-0.34641, 0, 0.2, 0, 0.4, 0, -0.2, 0, -0.34641, -12.203, 0.73555, 23.2844)
 collision_layer = 2
 collision_mask = 0
 input_ray_pickable = false
 monitoring = false
 script = ExtResource("32_8n2l5")
 
-[node name="hitbox" type="CollisionShape3D" parent="interactable4"]
+[node name="hitbox" type="CollisionShape3D" parent="item4"]
 shape = SubResource("BoxShape3D_bfxyo")
 
-[node name="mesh" type="MeshInstance3D" parent="interactable4"]
+[node name="mesh" type="MeshInstance3D" parent="item4"]
 mesh = SubResource("BoxMesh_ymsn1")
 
-[node name="interactable5" type="Area3D" parent="."]
-transform = Transform3D(0.399999, 0, 0.000712097, 0, 0.4, 0, -0.000712097, 0, 0.399999, -11.7879, 0.735551, 23.1332)
+[node name="item5" type="Area3D" parent="."]
+transform = Transform3D(-0.399162, 0, 0.0258826, 0, 0.4, 0, -0.0258826, 0, -0.399162, -12.2273, 0.73555, 21.9429)
 collision_layer = 2
 collision_mask = 0
 input_ray_pickable = false
 monitoring = false
 script = ExtResource("32_8n2l5")
 
-[node name="hitbox" type="CollisionShape3D" parent="interactable5"]
+[node name="hitbox" type="CollisionShape3D" parent="item5"]
 shape = SubResource("BoxShape3D_bfxyo")
 
-[node name="mesh" type="MeshInstance3D" parent="interactable5"]
+[node name="mesh" type="MeshInstance3D" parent="item5"]
 mesh = SubResource("BoxMesh_ymsn1")
 
-[node name="interactable6" type="Area3D" parent="."]
-transform = Transform3D(0.336484, 0, 0.216284, 0, 0.4, 0, -0.216284, 0, 0.336484, -10.8155, 0.73555, 24.3065)
+[node name="item6" type="Area3D" parent="."]
+transform = Transform3D(-0.399162, 0, 0.0258826, 0, 0.4, 0, -0.0258826, 0, -0.399162, -11.7659, 0.73555, 24.5026)
 collision_layer = 2
 collision_mask = 0
 input_ray_pickable = false
 monitoring = false
 script = ExtResource("32_8n2l5")
 
-[node name="hitbox" type="CollisionShape3D" parent="interactable6"]
+[node name="hitbox" type="CollisionShape3D" parent="item6"]
 shape = SubResource("BoxShape3D_bfxyo")
 
-[node name="mesh" type="MeshInstance3D" parent="interactable6"]
+[node name="mesh" type="MeshInstance3D" parent="item6"]
 mesh = SubResource("BoxMesh_ymsn1")

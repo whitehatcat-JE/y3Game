@@ -23,6 +23,8 @@ window/size/resizable=false
 [file_customization]
 
 folder_colors={
+"res://city/assets/": "blue",
+"res://city/scripts/": "green",
 "res://hubs/city/assets/": "blue",
 "res://hubs/city/scripts/": "green",
 "res://hubs/player/scripts/": "green",

@@ -12,7 +12,7 @@ const GRAVITY:float = 10.5
 const TERMINAL_VELOCITY:float = 7.0
 # State variables
 var cameraAngle:float = 0
-var unlockedInteractions:Array[String] = ["monitor", "passcode", "crt", "piano"]
+var unlockedKeys:Array[String] = ["general"]
 
 var verticalVel:float = 0.0
 
@@ -22,7 +22,10 @@ var isSprinting:bool = false
 func _ready() -> void: Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
 
 func _process(delta):
-	%interactIcon.visible = %interactRay.is_colliding()
+	%interactIcon.visible = false
+	if %interactRay.is_colliding():
+		if %interactRay.get_collider().interactionKey in unlockedKeys:
+			%interactIcon.visible = true
 
 func _physics_process(delta):
 	move(delta)
@@ -30,7 +33,7 @@ func _physics_process(delta):
 #region Movement
 func _input(event) -> void:
 	if event is InputEventMouseMotion: # Used for mouse movement detection
-		event.relative = -event.relative * MOUSE_SENSITIVITY
+		event.relative *= -MOUSE_SENSITIVITY
 		rotate_y(event.relative.x)
 		%playerCam.rotation.x = clamp(%playerCam.rotation.x + event.relative.y, -PI / 2.0, PI / 2.0)
 
