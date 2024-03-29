@@ -1,7 +1,7 @@
 @tool
 extends Node
 
-const INTERACTION_TYPE : String = "item"
+var interactionType : String = "item"
 @export_category("Item Data")
 @export_enum("Part", "Misc") var itemType : int = 0 :
 	set(value):

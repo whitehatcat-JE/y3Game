@@ -19,13 +19,26 @@ var verticalVel:float = 0.0
 var storedDirection:Vector3 = Vector3()
 var isSprinting:bool = false
 
+var currentlySelected : Node = null
+@onready var outlineMaterial : ShaderMaterial = preload("res://hubs/interactions/shaders/outlineMat.tres")
+
 func _ready() -> void: Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
 
 func _process(delta):
-	%interactIcon.visible = false
 	if %interactRay.is_colliding():
-		if %interactRay.get_collider().interactionKey in unlockedKeys:
-			%interactIcon.visible = true
+		if %interactRay.get_collider() != currentlySelected:
+			if currentlySelected != null and currentlySelected.has_node("mesh"):
+				currentlySelected.get_node("mesh").material_overlay = null
+			currentlySelected = %interactRay.get_collider()
+			if currentlySelected.interactionType == "item":
+				%interactIcon.visible = true
+				currentlySelected.get_node("mesh").material_overlay = outlineMaterial
+	elif currentlySelected != null:
+		%interactIcon.visible = false
+		if currentlySelected.has_node("mesh"):
+			currentlySelected.get_node("mesh").material_overlay = null
+		currentlySelected = null
+		
 
 func _physics_process(delta):
 	move(delta)

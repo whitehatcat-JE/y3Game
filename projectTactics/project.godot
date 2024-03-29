@@ -28,6 +28,7 @@ folder_colors={
 "res://combat/parts/temp/": "red",
 "res://hubs/city/assets/": "blue",
 "res://hubs/city/scripts/": "green",
+"res://hubs/interactions/scripts/": "green",
 "res://hubs/player/scripts/": "green",
 "res://placeholder/addons/": "green",
 "res://placeholder/conceptArt/": "blue",
