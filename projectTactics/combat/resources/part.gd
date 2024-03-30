@@ -5,6 +5,7 @@ class_name Part
 @export var name : String = ""
 @export_enum("Arm", "Leg", "Chest", "Core", "Head") var type = 0
 @export var model : Mesh
+@export var cost : int = 0
 
 @export_subgroup("Flavour Text")
 @export_multiline var description : String = ""

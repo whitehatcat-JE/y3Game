@@ -19,26 +19,35 @@ var verticalVel:float = 0.0
 var storedDirection:Vector3 = Vector3()
 var isSprinting:bool = false
 
+var itemMenuDisplayed:bool = false
 var currentlySelected : Node = null
 @onready var outlineMaterial : ShaderMaterial = preload("res://hubs/interactions/shaders/outlineMat.tres")
 
 func _ready() -> void: Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
 
 func _process(delta):
+	if Input.is_action_just_pressed("quit"): get_tree().quit()
 	if %interactRay.is_colliding():
 		if %interactRay.get_collider() != currentlySelected:
 			if currentlySelected != null and currentlySelected.has_node("mesh"):
 				currentlySelected.get_node("mesh").material_overlay = null
+				if currentlySelected.interactionType == "item" and itemMenuDisplayed:
+					%itemMenuAnims.play("disappear")
+					itemMenuDisplayed = false
 			currentlySelected = %interactRay.get_collider()
 			if currentlySelected.interactionType == "item":
 				%interactIcon.visible = true
+				%itemMenuInteractionTimer.start()
 				currentlySelected.get_node("mesh").material_overlay = outlineMaterial
 	elif currentlySelected != null:
 		%interactIcon.visible = false
+		%itemMenuInteractionTimer.stop()
+		if currentlySelected.interactionType == "item" and itemMenuDisplayed:
+			itemMenuDisplayed = false
+			%itemMenuAnims.play("disappear")
 		if currentlySelected.has_node("mesh"):
 			currentlySelected.get_node("mesh").material_overlay = null
 		currentlySelected = null
-		
 
 func _physics_process(delta):
 	move(delta)
@@ -49,6 +58,7 @@ func _input(event) -> void:
 		event.relative *= -MOUSE_SENSITIVITY
 		rotate_y(event.relative.x)
 		%playerCam.rotation.x = clamp(%playerCam.rotation.x + event.relative.y, -PI / 2.0, PI / 2.0)
+		if !%itemMenuInteractionTimer.is_stopped(): %itemMenuInteractionTimer.start();
 
 func move(delta):
 	# Add the gravity.
@@ -85,3 +95,16 @@ func move(delta):
 		velocity.y = verticalVel
 	move_and_slide()
 #endregion
+
+func triggerItemMenu():
+	itemMenuDisplayed = true
+	%itemMenuName.text = currentlySelected.part.name
+	%itemMenuCost.set_text("[center][color=#f8f644][u]" + str(currentlySelected.part.cost
+		) + " [img=12]placeholder/goldIcon.png[/img]")
+	%itemMenuDamage.text = str(currentlySelected.part.damage)
+	%itemMenuArmor.text = str(currentlySelected.part.armorRating)
+	%itemMenuSpeed.text = str(currentlySelected.part.speedRating)
+	%itemMenuRange.text = str(currentlySelected.part.range)
+	%itemMenuSplash.text = str(currentlySelected.part.splash)
+	%itemMenuSplashIcon.visible = currentlySelected.part.splash > 0
+	%itemMenuAnims.play("appear")
