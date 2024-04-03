@@ -25,29 +25,33 @@ var isSprinting:bool = false
 
 var itemMenuDisplayed:bool = false
 var itemBuyProgress:float = 0.0
-var itemCount : int = 0
-var preexistingAmt : int = 2
-var bankAmt : int = 12000
+var purchaseCount : int = 0
 var bulkSpeed:float = 1.0
 var currentlySelected:Node = null
+
 @onready var outlineMaterial:ShaderMaterial = preload("res://hubs/interactions/shaders/outlineMat.tres")
+
+@export var playerInfo:PlayerData
 
 func _ready() -> void: Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
 
+func _input(event):
+	if event is InputEventMouseMotion: updateCam(event);
+	if Input.is_action_just_pressed("pause"): pause();
+	if Input.is_action_just_pressed("quit"): get_tree().quit();
+
 func _process(delta):
-	if Input.is_action_just_pressed("quit"): get_tree().quit()
 	interact(delta)
 
 func _physics_process(delta):
 	move(delta)
 
 #region Movement
-func _input(event) -> void:
-	if event is InputEventMouseMotion: # Used for mouse movement detection
-		event.relative *= -MOUSE_SENSITIVITY
-		rotate_y(event.relative.x)
-		%playerCam.rotation.x = clamp(%playerCam.rotation.x + event.relative.y, -PI / 2.0, PI / 2.0)
-		if !%itemMenuInteractionTimer.is_stopped(): %itemMenuInteractionTimer.start();
+func updateCam(event):
+	event.relative *= -MOUSE_SENSITIVITY
+	rotate_y(event.relative.x)
+	%playerCam.rotation.x = clamp(%playerCam.rotation.x + event.relative.y, -PI / 2.0, PI / 2.0)
+	if !%itemMenuInteractionTimer.is_stopped(): %itemMenuInteractionTimer.start();
 
 func move(delta):
 	# Add the gravity.
@@ -100,14 +104,14 @@ func interact(delta):
 			if currentlySelected.interactionType == "item":
 				%interactIcon.visible = false
 				%deniedIcon.visible = false
-				if bankAmt >= currentlySelected.part.cost:
+				if playerInfo.balance >= currentlySelected.part.cost:
 					%interactIcon.visible = true
 				else:
 					%deniedIcon.visible = true
 				%itemMenuInteractionTimer.start()
 				currentlySelected.get_node("mesh").material_overlay = outlineMaterial
 		elif itemMenuDisplayed:
-			if Input.is_action_pressed("interact") and bankAmt >= currentlySelected.part.cost:
+			if Input.is_action_pressed("interact") and playerInfo.balance >= currentlySelected.part.cost:
 				itemBuyProgress += BUY_SPEED * delta * bulkSpeed
 				if itemBuyProgress >= 100.0:
 					if bulkSpeed == 1.0: itemBuyProgress = -50.0;
@@ -131,36 +135,36 @@ func interact(delta):
 		currentlySelected = null
 
 func buyItem():
-	if itemCount + preexistingAmt == 0:
+	playerInfo.balance -= currentlySelected.part.cost
+	playerInfo.addToInventory(currentlySelected.part)
+	if purchaseCount + playerInfo.getInventoryCount(currentlySelected.part) == 0:
 		%itemMenuInventoryCount.visible_ratio = 0.0
 		%itemMenuAnims.play("revealInventory")
-	itemCount += 1
-	if preexistingAmt == 0:
+	purchaseCount += 1
+	if playerInfo.getInventoryCount(currentlySelected.part) == 0:
 		%itemMenuInventoryCount.text = str(
-			itemCount) + " In Inventory"
+			purchaseCount) + " In Inventory"
 	else:
-		%itemMenuInventoryCount.text = str(itemCount + preexistingAmt
-		) + " In Inventory (+" + str(itemCount) + ")"
-	bankAmt -= currentlySelected.part.cost
-	%itemMenuBank.text = "[center][color=#f8c53a]" + str(bankAmt) + " [img=12]placeholder/goldIcon.png[/img]"
+		%itemMenuInventoryCount.text = str(playerInfo.getInventoryCount(currentlySelected.part)
+		) + " In Inventory (+" + str(purchaseCount) + ")"
+	%itemMenuBank.text = "[center][color=#f8c53a]" + str(playerInfo.balance) + " [img=12]placeholder/goldIcon.png[/img]"
 	%interactIcon.visible = false
-	if bankAmt >= currentlySelected.part.cost:
-		%interactIcon.visible = true
-	else:
+	if playerInfo.balance < currentlySelected.part.cost:
+		%interactIcon.visible = false
 		%deniedIcon.visible = true
 		%itemMenuBank.self_modulate = Color.RED
 
 func triggerItemMenu():
 	itemMenuDisplayed = true
-	if bankAmt >= currentlySelected.part.cost: %itemMenuBank.self_modulate = Color.WHITE;
+	if playerInfo.balance >= currentlySelected.part.cost: %itemMenuBank.self_modulate = Color.WHITE;
 	else: %itemMenuBank.self_modulate = Color.RED;
 	%itemMenuName.text = currentlySelected.part.name
-	itemCount = 0
-	%itemMenuInventoryCount.text = "" if preexistingAmt == 0 else str(
-		preexistingAmt) + " In Inventory"
+	purchaseCount = 0
+	%itemMenuInventoryCount.text = "" if playerInfo.getInventoryCount(currentlySelected.part) == 0 else str(
+		playerInfo.getInventoryCount(currentlySelected.part)) + " In Inventory"
 	%itemMenuCost.set_text("[center][color=#f8f644][u]" + str(currentlySelected.part.cost
 		) + " [img=12]placeholder/goldIcon.png[/img]")
-	%itemMenuBank.text = "[center][color=#f8c53a]" + str(bankAmt) + " [img=12]placeholder/goldIcon.png[/img]"
+	%itemMenuBank.text = "[center][color=#f8c53a]" + str(playerInfo.balance) + " [img=12]placeholder/goldIcon.png[/img]"
 	%itemMenuDamage.text = str(currentlySelected.part.damage)
 	%itemMenuArmor.text = str(currentlySelected.part.armorRating)
 	%itemMenuSpeed.text = str(currentlySelected.part.speedRating)
@@ -168,4 +172,24 @@ func triggerItemMenu():
 	%itemMenuSplash.text = str(currentlySelected.part.splash)
 	%itemMenuSplashIcon.visible = currentlySelected.part.splash > 0
 	%itemMenuAnims.play("appear")
+#endregion
+
+#region Pause
+func pause():
+	if %pauseMenu.visible: return;
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	get_tree().paused = true
+	%pauseMenu.visible = true
+	%pauseMenu.openInventory()
+	%interactIcon.visible = false
+	%deniedIcon.visible = false
+	%itemMenuInteractionTimer.stop()
+	if currentlySelected != null:
+		if currentlySelected.interactionType == "item" and itemMenuDisplayed:
+			itemMenuDisplayed = false
+			itemBuyProgress = 0
+			%itemMenuAnims.play("disappear")
+		if currentlySelected.has_node("mesh"):
+			currentlySelected.get_node("mesh").material_overlay = null
+		currentlySelected = null
 #endregion
