@@ -15,6 +15,10 @@ run/main_scene="res://hubs/city/city.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://placeholder/icon.svg"
 
+[autoload]
+
+FileManager="*res://autoloads/fileManager.gd"
+
 [display]
 
 window/size/mode=4
