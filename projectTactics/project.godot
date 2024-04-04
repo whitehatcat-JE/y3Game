@@ -22,7 +22,6 @@ FileManager="*res://autoloads/fileManager.gd"
 [display]
 
 window/size/mode=4
-window/size/resizable=false
 
 [file_customization]
 

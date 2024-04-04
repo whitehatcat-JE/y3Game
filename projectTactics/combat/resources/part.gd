@@ -4,6 +4,7 @@ class_name Part
 
 @export var name : String = ""
 @export_enum("Arm", "Leg", "Chest", "Core", "Head") var type = 0
+var strType : Array = ["Arm", "Leg", "Chest", "Core", "Head"]
 @export var model : Mesh
 @export var icon : Texture2D
 @export var cost : int = 0
