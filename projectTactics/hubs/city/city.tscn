@@ -1,4 +1,4 @@
-[gd_scene load_steps=163 format=3 uid="uid://ck8jmxbk38api"]
+[gd_scene load_steps=165 format=3 uid="uid://ck8jmxbk38api"]
 
 [ext_resource type="Texture2D" uid="uid://cljmnog7b3xxl" path="res://hubs/city/assets/courtyard/structures/tower.png" id="1_ct8p1"]
 [ext_resource type="ArrayMesh" uid="uid://guvyatflewix" path="res://hubs/city/assets/courtyard/structures/tower.obj" id="2_2mjru"]
@@ -50,6 +50,7 @@
 [ext_resource type="Texture2D" uid="uid://dww2h4g166cl5" path="res://placeholder/splashButton.png" id="40_hntpq"]
 [ext_resource type="Texture2D" uid="uid://ff4cketo6hti" path="res://placeholder/robot/testRobotSpritemapGlow.png" id="40_xmf2f"]
 [ext_resource type="Texture2D" uid="uid://dk3vexomlxufs" path="res://placeholder/itemIcon.png" id="44_6myra"]
+[ext_resource type="Shader" path="res://hubs/player/scripts/blur.gdshader" id="44_32nyl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7wql0"]
 transparency = 2
@@ -719,6 +720,10 @@ font_size = 24
 
 [sub_resource type="LabelSettings" id="LabelSettings_6tdxm"]
 font_size = 12
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t88bi"]
+shader = ExtResource("44_32nyl")
+shader_parameter/lod = 1.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6n7l7"]
 bg_color = Color(0, 0, 0, 0.188235)
@@ -2597,6 +2602,17 @@ grow_vertical = 2
 script = ExtResource("35_n6w0e")
 playerInfo = ExtResource("34_h7eum")
 
+[node name="backdrop" type="ColorRect" parent="player/UI/pauseMenu"]
+material = SubResource("ShaderMaterial_t88bi")
+custom_minimum_size = Vector2(700, 400)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.117647)
+
 [node name="clearSelectionButton" type="Button" parent="player/UI/pauseMenu"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
@@ -2605,6 +2621,7 @@ offset_bottom = 649.0
 
 [node name="inventoryMenu" type="GridContainer" parent="player/UI/pauseMenu"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2777,6 +2794,45 @@ offset_bottom = 11.0
 text = "1"
 horizontal_alignment = 1
 
+[node name="saveMenu" type="GridContainer" parent="player/UI/pauseMenu"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.5
+offset_top = -56.0
+offset_right = 104.5
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="saveGameButton" type="Button" parent="player/UI/pauseMenu/saveMenu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Manual Save"
+
+[node name="spacer1" type="HSeparator" parent="player/UI/pauseMenu/saveMenu"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="mainMenuButton" type="Button" parent="player/UI/pauseMenu/saveMenu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Quit to Main Menu"
+
+[node name="spacer2" type="HSeparator" parent="player/UI/pauseMenu/saveMenu"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="desktopButton" type="Button" parent="player/UI/pauseMenu/saveMenu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Quit to Desktop"
+
 [node name="options" type="GridContainer" parent="player/UI/pauseMenu"]
 layout_mode = 1
 anchors_preset = 4
@@ -2787,6 +2843,13 @@ offset_top = -87.0
 offset_right = 259.0
 offset_bottom = 87.0
 grow_vertical = 2
+
+[node name="pauseMenuBalance" type="RichTextLabel" parent="player/UI/pauseMenu/options"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+bbcode_enabled = true
+text = "1000G"
 
 [node name="inventoryButton" type="Button" parent="player/UI/pauseMenu/options"]
 layout_mode = 2
@@ -2810,6 +2873,55 @@ layout_mode = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Save and Quit"
+
+[node name="settingsMenu" type="GridContainer" parent="player/UI/pauseMenu"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -229.0
+offset_right = 300.0
+offset_bottom = 229.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="settingsOptions" type="GridContainer" parent="player/UI/pauseMenu/settingsMenu"]
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 3
+
+[node name="inventoryButton" type="Button" parent="player/UI/pauseMenu/settingsMenu/settingsOptions"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "Audio"
+
+[node name="inventoryButton2" type="Button" parent="player/UI/pauseMenu/settingsMenu/settingsOptions"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "Graphics"
+
+[node name="inventoryButton3" type="Button" parent="player/UI/pauseMenu/settingsMenu/settingsOptions"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "Keybinds"
+
+[node name="settingsSubMenus" type="Control" parent="player/UI/pauseMenu/settingsMenu"]
+layout_mode = 2
+
+[node name="backdrop" type="ColorRect" parent="player/UI/pauseMenu/settingsMenu/settingsSubMenus"]
+custom_minimum_size = Vector2(600, 400)
+layout_mode = 2
+offset_right = 600.0
+offset_bottom = 400.0
+color = Color(0, 0, 0, 0.313726)
 
 [node name="item" type="Area3D" parent="."]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -12.8973, 0.73555, 20.3538)
@@ -3403,6 +3515,9 @@ mesh = SubResource("ArrayMesh_t1oaq")
 
 [connection signal="timeout" from="player/UI/HUD/shop/itemMenu/itemMenuInteractionTimer" to="player" method="triggerItemMenu"]
 [connection signal="item_selected" from="player/UI/pauseMenu/inventoryMenu/inventory" to="player/UI/pauseMenu" method="inventoryItemSelected"]
+[connection signal="button_up" from="player/UI/pauseMenu/saveMenu/saveGameButton" to="player/UI/pauseMenu" method="saveGamePressed"]
+[connection signal="button_up" from="player/UI/pauseMenu/saveMenu/mainMenuButton" to="player/UI/pauseMenu" method="mainMenuPressed"]
+[connection signal="button_up" from="player/UI/pauseMenu/saveMenu/desktopButton" to="player/UI/pauseMenu" method="desktopPressed"]
 [connection signal="button_up" from="player/UI/pauseMenu/options/inventoryButton" to="player/UI/pauseMenu" method="openInventory"]
 [connection signal="button_up" from="player/UI/pauseMenu/options/settingsButton" to="player/UI/pauseMenu" method="openSettings"]
 [connection signal="button_up" from="player/UI/pauseMenu/options/quitButton" to="player/UI/pauseMenu" method="openQuit"]

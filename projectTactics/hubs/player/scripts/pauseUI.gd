@@ -15,8 +15,12 @@ func unpause():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func openInventory():
+	%pauseMenuBalance.set_text("[center][color=#f8f644]" + str(playerInfo.balance
+		) + " [img=12]placeholder/goldIcon.png[/img]")
 	clearDisplayedItem()
 	%inventoryMenu.visible = true
+	%saveMenu.visible = false
+	%settingsMenu.visible = false
 	%inventory.clear()
 	for item in playerInfo.inventory.values():
 		%inventory.add_item("x" + str(playerInfo.itemCounts[item]), item.icon)
@@ -35,9 +39,14 @@ func clearDisplayedItem():
 func openSettings():
 	%inventoryMenu.visible = false
 	%inventoryItemModel.visible = false
+	%saveMenu.visible = false
+	%settingsMenu.visible = true
 
 func openQuit():
-	get_tree().quit()
+	%inventoryMenu.visible = false
+	%inventoryItemModel.visible = false
+	%saveMenu.visible = true
+	%settingsMenu.visible = false
 
 func inventoryItemSelected(index):
 	%inventoryItemModel.visible = true
@@ -65,3 +74,14 @@ func inventoryItemSelected(index):
 	%inventorySplash.text = str(playerInfo.inventory[index].splash)
 	
 	
+
+
+func saveGamePressed():
+	pass # Replace with function body.
+
+func mainMenuPressed():
+	get_tree().paused = false
+	get_tree().reload_current_scene()
+
+func desktopPressed():
+	get_tree().quit()
