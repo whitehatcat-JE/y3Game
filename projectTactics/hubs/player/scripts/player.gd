@@ -38,7 +38,6 @@ func _ready() -> void: Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
 func _input(event):
 	if event is InputEventMouseMotion: updateCam(event);
 	if Input.is_action_just_pressed("pause"): pause();
-	if Input.is_action_just_pressed("quit"): get_tree().quit();
 
 func _process(delta):
 	interact(delta)

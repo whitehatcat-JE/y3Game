@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="Project Tactics"
-run/main_scene="res://hubs/city/city.tscn"
+run/main_scene="res://general/UI/mainMenu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://placeholder/icon.svg"
 
 [autoload]
 
-FileManager="*res://autoloads/fileManager.gd"
+FileManager="*res://general/autoloads/fileManager.gd"
+GameState="*res://general/autoloads/gameState.gd"
 
 [display]
 

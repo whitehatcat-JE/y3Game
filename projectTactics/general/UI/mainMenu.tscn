@@ -1,0 +1,82 @@
+[gd_scene load_steps=6 format=3 uid="uid://jve6laga0kwo"]
+
+[ext_resource type="Texture2D" uid="uid://c0mmmnw4or4jb" path="res://placeholder/mainMenuBackground.png" id="1_i5o2u"]
+[ext_resource type="Script" path="res://general/UI/scripts/mainMenu.gd" id="1_rvynx"]
+[ext_resource type="Shader" path="res://hubs/player/scripts/blur.gdshader" id="3_yd77q"]
+[ext_resource type="PackedScene" uid="uid://7p08th6jln4e" path="res://general/UI/settingsMenu.tscn" id="4_s6bh7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e4dko"]
+shader = ExtResource("3_yd77q")
+shader_parameter/lod = 1.0
+
+[node name="mainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rvynx")
+
+[node name="background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_i5o2u")
+expand_mode = 3
+
+[node name="backdrop" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_e4dko")
+custom_minimum_size = Vector2(700, 400)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.117647)
+
+[node name="optionsMenu" type="GridContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -106.0
+offset_right = 221.0
+offset_bottom = 106.0
+grow_vertical = 2
+
+[node name="newButton" type="Button" parent="optionsMenu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "New Game"
+
+[node name="loadButton" type="Button" parent="optionsMenu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Load Game"
+
+[node name="settingsButton" type="Button" parent="optionsMenu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Settings"
+
+[node name="quitButton" type="Button" parent="optionsMenu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Quit"
+
+[node name="settingsMenu" parent="." instance=ExtResource("4_s6bh7")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[connection signal="button_up" from="optionsMenu/newButton" to="." method="newGamePressed"]
+[connection signal="button_up" from="optionsMenu/loadButton" to="." method="loadGamePressed"]
+[connection signal="button_up" from="optionsMenu/settingsButton" to="." method="settingsPressed"]
+[connection signal="pressed" from="optionsMenu/quitButton" to="." method="quitPressed"]
