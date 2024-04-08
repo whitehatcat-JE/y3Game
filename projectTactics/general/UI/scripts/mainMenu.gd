@@ -1,4 +1,10 @@
-extends Control
+extends Control 
+
+@export var defaultPlayerData : PlayerData
+
+func _ready():
+	FM.playerData = defaultPlayerData
+	FM.loadGame()
 
 func newGamePressed():
 	get_tree().change_scene_to_file("res://hubs/city/city.tscn")

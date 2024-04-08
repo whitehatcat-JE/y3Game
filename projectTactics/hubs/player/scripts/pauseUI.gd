@@ -16,6 +16,7 @@ func unpause():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func openInventory():
+	FM.saveGame()
 	%pauseMenuBalance.set_text("[center][color=#f8f644]" + str(playerInfo.balance
 		) + " [img=12]placeholder/goldIcon.png[/img]")
 	clearDisplayedItem()

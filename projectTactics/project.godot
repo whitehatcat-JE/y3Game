@@ -17,12 +17,13 @@ config/icon="res://placeholder/icon.svg"
 
 [autoload]
 
-FileManager="*res://general/autoloads/fileManager.gd"
-GameState="*res://general/autoloads/gameState.gd"
+FM="*res://general/autoloads/fileManager.gd"
+GS="*res://general/autoloads/gameState.gd"
+Music="*res://general/autoloads/music.tscn"
 
 [display]
 
-window/size/mode=4
+window/size/mode=3
 
 [file_customization]
 
