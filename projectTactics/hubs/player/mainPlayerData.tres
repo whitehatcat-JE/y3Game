@@ -5,3 +5,5 @@
 [resource]
 script = ExtResource("1_tevc4")
 balance = 50500
+inventory = {}
+itemCounts = {}

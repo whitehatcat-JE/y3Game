@@ -4,6 +4,9 @@ var freezeButtons : bool = false
 
 @export var playerInfo : PlayerData
 
+func _ready():
+	playerInfo = FM.playerData
+
 func _input(event):
 	if Input.is_action_just_pressed("pause"): unpause();
 

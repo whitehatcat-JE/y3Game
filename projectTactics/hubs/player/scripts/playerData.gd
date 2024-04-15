@@ -22,6 +22,8 @@ func addToInventory(item):
 			inventory[idx] = item
 			itemCounts[item] = 1
 			return
+	
+	FM.saveGame()
 
 func removeFromInventory(item, amt = 1000000):
 	if inventory.find_key(item) == null:
@@ -31,6 +33,8 @@ func removeFromInventory(item, amt = 1000000):
 	if itemCounts[item] <= 0:
 		itemCounts.erase(item)
 		inventory.erase(inventory.find_key(item))
+	
+	FM.saveGame()
 
 func getInventoryCount(item):
 	if item in itemCounts: return itemCounts[item];

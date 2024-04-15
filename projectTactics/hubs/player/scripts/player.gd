@@ -33,7 +33,9 @@ var currentlySelected:Node = null
 
 @export var playerInfo:PlayerData
 
-func _ready() -> void: Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
+func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	playerInfo = FM.playerData
 
 func _input(event):
 	if event is InputEventMouseMotion: updateCam(event);
