@@ -79,6 +79,241 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 1
 
+[node name="loadMenu" type="GridContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -229.0
+offset_right = 300.0
+offset_bottom = 229.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="settingsOptions" type="GridContainer" parent="loadMenu"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="audioSettingsButton" type="Button" parent="loadMenu/settingsOptions"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_font_sizes/font_size = 30
+button_mask = 0
+text = "Game Saves"
+
+[node name="settingsSubMenus" type="Control" parent="loadMenu"]
+layout_mode = 2
+
+[node name="clearSelectionButton" type="Button" parent="loadMenu/settingsSubMenus"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+offset_top = -54.0
+offset_right = 600.0
+offset_bottom = -46.0
+focus_mode = 0
+mouse_filter = 2
+
+[node name="backdrop" type="ColorRect" parent="loadMenu/settingsSubMenus"]
+custom_minimum_size = Vector2(600, 400)
+layout_mode = 2
+offset_right = 600.0
+offset_bottom = 400.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.313726)
+
+[node name="saveMenu" type="GridContainer" parent="loadMenu/settingsSubMenus"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(580, 0)
+layout_mode = 1
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 590.0
+offset_bottom = 151.0
+
+[node name="saveName1" type="Button" parent="loadMenu/settingsSubMenus/saveMenu"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "     Player1"
+alignment = 0
+
+[node name="saveText" type="Label" parent="loadMenu/settingsSubMenus/saveMenu/saveName1"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+offset_left = 298.0
+offset_top = 4.0
+offset_right = 575.0
+offset_bottom = 27.0
+size_flags_horizontal = 0
+text = "4h 32m | City | 7:46pm - 21/02/2024"
+horizontal_alignment = 2
+
+[node name="saveName2" type="Button" parent="loadMenu/settingsSubMenus/saveMenu"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "     Player1"
+alignment = 0
+
+[node name="saveText" type="Label" parent="loadMenu/settingsSubMenus/saveMenu/saveName2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+offset_left = 298.0
+offset_top = 4.0
+offset_right = 575.0
+offset_bottom = 27.0
+size_flags_horizontal = 0
+text = "4h 32m | City | 7:46pm - 21/02/2024"
+horizontal_alignment = 2
+
+[node name="saveName3" type="Button" parent="loadMenu/settingsSubMenus/saveMenu"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "     Player1"
+alignment = 0
+
+[node name="saveText" type="Label" parent="loadMenu/settingsSubMenus/saveMenu/saveName3"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+offset_left = 298.0
+offset_top = 4.0
+offset_right = 575.0
+offset_bottom = 27.0
+size_flags_horizontal = 0
+text = "4h 32m | City | 7:46pm - 21/02/2024"
+horizontal_alignment = 2
+
+[node name="saveName4" type="Button" parent="loadMenu/settingsSubMenus/saveMenu"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "     Player1"
+alignment = 0
+
+[node name="saveText" type="Label" parent="loadMenu/settingsSubMenus/saveMenu/saveName4"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+offset_left = 298.0
+offset_top = 4.0
+offset_right = 575.0
+offset_bottom = 27.0
+size_flags_horizontal = 0
+text = "4h 32m | City | 7:46pm - 21/02/2024"
+horizontal_alignment = 2
+
+[node name="saveName5" type="Button" parent="loadMenu/settingsSubMenus/saveMenu"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "     Player1"
+alignment = 0
+
+[node name="saveText" type="Label" parent="loadMenu/settingsSubMenus/saveMenu/saveName5"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+offset_left = 298.0
+offset_top = 4.0
+offset_right = 575.0
+offset_bottom = 27.0
+size_flags_horizontal = 0
+text = "4h 32m | City | 7:46pm - 21/02/2024"
+horizontal_alignment = 2
+
+[node name="saveName6" type="Button" parent="loadMenu/settingsSubMenus/saveMenu"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "     Player1"
+alignment = 0
+
+[node name="saveText" type="Label" parent="loadMenu/settingsSubMenus/saveMenu/saveName6"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+offset_left = 298.0
+offset_top = 4.0
+offset_right = 575.0
+offset_bottom = 27.0
+size_flags_horizontal = 0
+text = "4h 32m | City | 7:46pm - 21/02/2024"
+horizontal_alignment = 2
+
+[node name="saveName7" type="Button" parent="loadMenu/settingsSubMenus/saveMenu"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "     Player1"
+alignment = 0
+
+[node name="saveText" type="Label" parent="loadMenu/settingsSubMenus/saveMenu/saveName7"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+offset_left = 298.0
+offset_top = 4.0
+offset_right = 575.0
+offset_bottom = 27.0
+size_flags_horizontal = 0
+text = "4h 32m | City | 7:46pm - 21/02/2024"
+horizontal_alignment = 2
+
+[node name="saveName8" type="Button" parent="loadMenu/settingsSubMenus/saveMenu"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "     Player1"
+alignment = 0
+
+[node name="saveText" type="Label" parent="loadMenu/settingsSubMenus/saveMenu/saveName8"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+offset_left = 298.0
+offset_top = 4.0
+offset_right = 575.0
+offset_bottom = 27.0
+size_flags_horizontal = 0
+text = "4h 32m | City | 7:46pm - 21/02/2024"
+horizontal_alignment = 2
+
+[node name="saveName9" type="Button" parent="loadMenu/settingsSubMenus/saveMenu"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "     Player1"
+alignment = 0
+
+[node name="saveText" type="Label" parent="loadMenu/settingsSubMenus/saveMenu/saveName9"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+offset_left = 298.0
+offset_top = 4.0
+offset_right = 575.0
+offset_bottom = 27.0
+size_flags_horizontal = 0
+text = "4h 32m | City | 7:46pm - 21/02/2024"
+horizontal_alignment = 2
+
+[node name="saveName10" type="Button" parent="loadMenu/settingsSubMenus/saveMenu"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "     Player1"
+alignment = 0
+
+[node name="saveText" type="Label" parent="loadMenu/settingsSubMenus/saveMenu/saveName10"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+offset_left = 298.0
+offset_top = 4.0
+offset_right = 575.0
+offset_bottom = 27.0
+size_flags_horizontal = 0
+text = "4h 32m | City | 7:46pm - 21/02/2024"
+horizontal_alignment = 2
+
 [node name="FileManager" type="Node" parent="."]
 script = ExtResource("5_fbuwu")
 

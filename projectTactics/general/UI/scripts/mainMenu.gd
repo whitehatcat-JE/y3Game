@@ -11,8 +11,10 @@ func newGamePressed():
 
 func loadGamePressed():
 	%settingsMenu.visible = false
+	%loadMenu.visible = true
 
 func settingsPressed():
 	%settingsMenu.visible = true
+	%loadMenu.visible = false
 
 func quitPressed(): get_tree().quit();

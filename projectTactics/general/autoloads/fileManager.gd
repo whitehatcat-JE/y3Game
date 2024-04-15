@@ -20,6 +20,7 @@ func saveGame():
 
 func loadGame():
 	var newPlayerData : PlayerData = PlayerData.new()
+	
 	if ResourceLoader.exists(saveFilePath + saveID + ".tres"):
 		newPlayerData  = ResourceLoader.load(saveFilePath + saveID + ".tres").duplicate(true)
 	playerData.constructor(newPlayerData)
