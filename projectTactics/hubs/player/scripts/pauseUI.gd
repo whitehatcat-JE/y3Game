@@ -80,7 +80,12 @@ func inventoryItemSelected(index):
 	%inventorySplash.text = str(playerInfo.inventory[index].splash)
 
 func saveGamePressed():
-	pass # Replace with function body.
+	FM.saveGame()
+	%saveGameButton.text = "Saved!"
+	%saveGameButton.disabled = true
+	await get_tree().create_timer(1.0).timeout
+	%saveGameButton.text = "Manual Save"
+	%saveGameButton.disabled = false
 
 func mainMenuPressed():
 	get_tree().paused = false

@@ -8,10 +8,16 @@ const INVENTORY_SIZE:int = 100
 @export var inventory:Dictionary = {}
 @export var itemCounts:Dictionary = {}
 
+@export var playerName:String = "Player"
+@export var playTime:int = 0
+
+
 func constructor(values : PlayerData):
 	balance = values.balance
 	inventory = values.inventory
 	itemCounts = values.itemCounts
+	playerName = values.playerName
+	playTime = values.playTime
 
 func addToInventory(item):
 	if inventory.find_key(item) != null:

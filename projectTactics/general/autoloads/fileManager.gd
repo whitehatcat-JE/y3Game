@@ -8,6 +8,7 @@ var loadedGlobalData : GlobalData
 var activeSaveID : String = "0"
 
 var playerData : PlayerData = PlayerData.new()
+var lastSaveTime : int
 
 func _ready():
 	DirAccess.make_dir_absolute(saveFilePath)
@@ -34,6 +35,9 @@ func createGame():
 	loadAndEnterGame(activeSaveID)
 
 func saveGame():
+	var currentTime : int = Time.get_unix_time_from_system()
+	playerData.playTime += currentTime - lastSaveTime
+	lastSaveTime = currentTime
 	ResourceSaver.save(playerData, saveFilePath + activeSaveID + ".tres")
 
 func loadGame():
@@ -43,8 +47,16 @@ func loadGame():
 	else:
 		newPlayerData = PlayerData.new()
 	playerData.constructor(newPlayerData)
+	lastSaveTime = Time.get_unix_time_from_system()
+
+func getGame(saveID):
+	if ResourceLoader.exists(saveFilePath + saveID + ".tres"):
+		return ResourceLoader.load(saveFilePath + saveID + ".tres").duplicate(true)
+	else:
+		return PlayerData.new()
 
 func loadAndEnterGame(saveID):
 	activeSaveID = saveID
 	loadGame()
+	saveGame()
 	get_tree().change_scene_to_file("res://hubs/city/city.tscn")
