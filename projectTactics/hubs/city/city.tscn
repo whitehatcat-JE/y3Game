@@ -1,6 +1,7 @@
-[gd_scene load_steps=168 format=3 uid="uid://ck8jmxbk38api"]
+[gd_scene load_steps=134 format=3 uid="uid://ck8jmxbk38api"]
 
 [ext_resource type="Texture2D" uid="uid://cljmnog7b3xxl" path="res://hubs/city/assets/courtyard/structures/tower.png" id="1_ct8p1"]
+[ext_resource type="PackedScene" uid="uid://bpoag1rko7t2q" path="res://hubs/player/player.tscn" id="1_dxhrs"]
 [ext_resource type="ArrayMesh" uid="uid://guvyatflewix" path="res://hubs/city/assets/courtyard/structures/tower.obj" id="2_2mjru"]
 [ext_resource type="Texture2D" uid="uid://c4th2d27fqdlb" path="res://hubs/city/assets/courtyard/structures/entranceWall.png" id="3_3g8a0"]
 [ext_resource type="ArrayMesh" uid="uid://bjr6cdk1jkv2k" path="res://hubs/city/assets/courtyard/structures/entranceWall.obj" id="4_0dge3"]
@@ -11,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://bi0fxrjgc2m8x" path="res://hubs/city/assets/courtyard/structures/courtyardSpritemapLighting.png" id="10_awjhm"]
 [ext_resource type="ArrayMesh" uid="uid://dg6o0ilgsf88o" path="res://placeholder/arch.obj" id="11_iggvq"]
 [ext_resource type="ArrayMesh" uid="uid://dv57hnhev4ewt" path="res://hubs/city/assets/courtyard/structures/courtyard.obj" id="12_i7w26"]
-[ext_resource type="PackedScene" uid="uid://7p08th6jln4e" path="res://general/UI/settingsMenu.tscn" id="13_kva24"]
 [ext_resource type="Texture2D" uid="uid://c55u5bvqanl2g" path="res://hubs/city/assets/courtyard/structures/columns.png" id="16_ijsno"]
 [ext_resource type="Texture2D" uid="uid://dp1vx2tm5fcb1" path="res://hubs/city/assets/courtyard/structures/columnsEmission.png" id="17_nbwtr"]
 [ext_resource type="ArrayMesh" uid="uid://os1jany8k015" path="res://hubs/city/assets/courtyard/structures/columns.obj" id="18_2h5cb"]
@@ -29,401 +29,17 @@
 [ext_resource type="Texture2D" uid="uid://c37vy2yd44u64" path="res://hubs/city/assets/courtyard/structures/pavilion.png" id="30_70rqm"]
 [ext_resource type="ArrayMesh" uid="uid://bxuuger6nhio6" path="res://hubs/city/assets/courtyard/structures/pavilion.obj" id="31_seumq"]
 [ext_resource type="Script" path="res://hubs/interactions/scripts/item.gd" id="32_8n2l5"]
-[ext_resource type="Script" path="res://hubs/player/scripts/player.gd" id="32_373hi"]
 [ext_resource type="ArrayMesh" uid="uid://ctwtto7gbsoeh" path="res://hubs/city/assets/courtyard/decorations/solarShade.obj" id="32_jytqt"]
 [ext_resource type="Texture2D" uid="uid://i58qjv2q084g" path="res://placeholder/arch.png" id="33_fj4sc"]
 [ext_resource type="Texture2D" uid="uid://cgr46yrbemllh" path="res://hubs/city/assets/courtyard/structures/entrance.png" id="33_tp04b"]
-[ext_resource type="Texture2D" uid="uid://btqiip1eh0ls7" path="res://placeholder/selectionDot.png" id="34_gww86"]
-[ext_resource type="Resource" uid="uid://jlq0uk01mcbf" path="res://hubs/player/mainPlayerData.tres" id="34_h7eum"]
 [ext_resource type="ArrayMesh" uid="uid://b6mhebuy4ova0" path="res://hubs/city/assets/courtyard/structures/entrance.obj" id="34_o5nv2"]
 [ext_resource type="ArrayMesh" uid="uid://d027jxlpaecng" path="res://placeholder/archs.obj" id="34_uwx6d"]
-[ext_resource type="Texture2D" uid="uid://dkiqu40adxd44" path="res://placeholder/confirmRing.png" id="35_8j00v"]
-[ext_resource type="Texture2D" uid="uid://dm3wnx6pfh76j" path="res://placeholder/deniedDot.png" id="35_8p7b3"]
-[ext_resource type="Script" path="res://hubs/player/scripts/pauseUI.gd" id="35_n6w0e"]
-[ext_resource type="Texture2D" uid="uid://dtqb5saq8xk4e" path="res://placeholder/damageButton.png" id="36_1ca0o"]
 [ext_resource type="Resource" uid="uid://cpg0bodkw866e" path="res://combat/parts/temp/testItemA.tres" id="36_hqwoo"]
-[ext_resource type="Texture2D" uid="uid://cqrr3jwnhmr4f" path="res://placeholder/armorButton.png" id="37_0kvdx"]
 [ext_resource type="Resource" uid="uid://c5eswtj7s7u1b" path="res://combat/parts/temp/armorA.tres" id="37_eklle"]
-[ext_resource type="Texture2D" uid="uid://bwme6erjt1r38" path="res://placeholder/speedButton.png" id="38_6vf1i"]
 [ext_resource type="Script" path="res://combat/resources/part.gd" id="38_fmvdm"]
-[ext_resource type="Texture2D" uid="uid://dvf1svcqoa420" path="res://placeholder/rangeButton.png" id="39_6x15y"]
 [ext_resource type="Texture2D" uid="uid://0ov86xtyumrm" path="res://placeholder/robot/testRobotSpritemap.png" id="39_7l5nf"]
-[ext_resource type="Texture2D" uid="uid://dww2h4g166cl5" path="res://placeholder/splashButton.png" id="40_hntpq"]
 [ext_resource type="Texture2D" uid="uid://ff4cketo6hti" path="res://placeholder/robot/testRobotSpritemapGlow.png" id="40_xmf2f"]
 [ext_resource type="Texture2D" uid="uid://dk3vexomlxufs" path="res://placeholder/itemIcon.png" id="44_6myra"]
-[ext_resource type="Shader" path="res://hubs/player/scripts/blur.gdshader" id="44_32nyl"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uksar"]
-
-[sub_resource type="Animation" id="Animation_oxxec"]
-resource_name = "fall"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(-2, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, -0.1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_txopa"]
-resource_name = "land"
-length = 0.1
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(-2, 1),
-"update": 0,
-"values": [Vector3(0, -0.1, 0), Vector3(0, 0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_uu48b"]
-_data = {
-"fall": SubResource("Animation_oxxec"),
-"land": SubResource("Animation_txopa")
-}
-
-[sub_resource type="Animation" id="Animation_tnh7i"]
-resource_name = "bob"
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("head:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(-2, -2),
-"update": 0,
-"values": [Vector3(0, 0.5, 0), Vector3(0, 0.545, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_q05j1"]
-_data = {
-"bob": SubResource("Animation_tnh7i")
-}
-
-[sub_resource type="Animation" id="Animation_sqv72"]
-resource_name = "appear"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("itemMenuName:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(3, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("itemMenuName:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.333, 1),
-"update": 0,
-"values": [Vector2(-200, -50), Vector2(-200, -110)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("itemMenuCost:visible_ratio")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("itemMenuBank:visible_ratio")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("damageIcon:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(3, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("damageIcon:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.333, 1),
-"update": 0,
-"values": [Vector2(-37, -11), Vector2(-87, -11)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("armorIcon:modulate")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(3, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("armorIcon:position")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.333, 1),
-"update": 0,
-"values": [Vector2(-37, 17), Vector2(-87, 17)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("speedIcon:modulate")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(3, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("speedIcon:position")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.333, 1),
-"update": 0,
-"values": [Vector2(36, -11), Vector2(86, -11)]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("rangeIcon:modulate")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0.00466507, 0.3),
-"transitions": PackedFloat32Array(3, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("rangeIcon:position")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.333, 1),
-"update": 0,
-"values": [Vector2(36, 17), Vector2(86, 17)]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("itemMenuSplashIcon:modulate")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(0.00466507, 0.3),
-"transitions": PackedFloat32Array(3, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("itemMenuSplashIcon:position")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.333, 1),
-"update": 0,
-"values": [Vector2(0, 73), Vector2(0, 48)]
-}
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath(".:modulate")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/15/type = "value"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath(".:position")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/16/type = "value"
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/path = NodePath("itemMenuInventoryCount:visible_ratio")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
-
-[sub_resource type="Animation" id="Animation_woix5"]
-resource_name = "disappear"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(3, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 50)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(0.333, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_mp5ln"]
-resource_name = "revealInventory"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("itemMenuInventoryCount:visible_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_sd8v5"]
-_data = {
-"appear": SubResource("Animation_sqv72"),
-"disappear": SubResource("Animation_woix5"),
-"revealInventory": SubResource("Animation_mp5ln")
-}
-
-[sub_resource type="LabelSettings" id="LabelSettings_iw3gp"]
-font_size = 24
-
-[sub_resource type="LabelSettings" id="LabelSettings_6tdxm"]
-font_size = 12
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_t88bi"]
-shader = ExtResource("44_32nyl")
-shader_parameter/lod = 1.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6n7l7"]
-bg_color = Color(0, 0, 0, 0.188235)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b2pls"]
-bg_color = Color(0, 0, 0, 0.380392)
-
-[sub_resource type="Environment" id="Environment_tr3w1"]
-
-[sub_resource type="World3D" id="World3D_dnxow"]
-environment = SubResource("Environment_tr3w1")
-
-[sub_resource type="Animation" id="Animation_wn4ei"]
-resource_name = "spin"
-length = 10.0
-loop_mode = 1
-step = 1.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("inventoryItemModel:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 10),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_aaux6"]
-_data = {
-"spin": SubResource("Animation_wn4ei")
-}
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uu60h"]
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_86lhy"]
-viewport_path = NodePath("player/UI/pauseMenu/inventoryMenu/inventory/inventoryItemViewport")
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5gfna"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7wql0"]
 transparency = 2
@@ -486,14 +102,14 @@ colors = PackedColorArray(0.156757, 0.670047, 1, 1, 0, 1, 0.898524, 1)
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_sagt4"]
 frequency = 0.0788
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_o02gm"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_msp52"]
 height = 1024
 color_ramp = SubResource("Gradient_7lp2t")
 noise = SubResource("FastNoiseLite_sagt4")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lqyfd"]
 albedo_color = Color(0, 0.784314, 1, 1)
-albedo_texture = SubResource("NoiseTexture2D_o02gm")
+albedo_texture = SubResource("NoiseTexture2D_msp52")
 emission = Color(0.00784314, 0.564706, 0.670588, 1)
 texture_filter = 0
 
@@ -524,7 +140,7 @@ interpolation_mode = 2
 offsets = PackedFloat32Array(0, 0.106061, 0.207071)
 colors = PackedColorArray(0.984314, 1, 0.992157, 1, 0.984314, 1, 0.992157, 1, 0.982531, 1, 0.992265, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_n0847"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_woawv"]
 gradient = SubResource("Gradient_qpyyj")
 width = 256
 height = 256
@@ -535,24 +151,24 @@ fill_from = Vector2(0.5, 0.5)
 _data = [Vector2(0, 0), 0.0, 0.797178, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_tpj1h"]
+[sub_resource type="CurveTexture" id="CurveTexture_awvd3"]
 curve = SubResource("Curve_yevs4")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_c6jdl"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_l2gh8"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_w4a8k"]
 seamless = true
 noise = SubResource("FastNoiseLite_c6jdl")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_rqt88"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_if82a"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dp6iq"]
 seamless = true
 noise = SubResource("FastNoiseLite_rqt88")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_a8oqt"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_o034d"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_78dx1"]
 seamless = true
 noise = SubResource("FastNoiseLite_a8oqt")
 
@@ -565,29 +181,29 @@ shader_parameter/clouds_scale = 1.0
 shader_parameter/clouds_smoothness = 0.035
 shader_parameter/clouds_light_color = Color(0.882353, 1, 0.984314, 1)
 shader_parameter/clouds_shadow_intensity = 3.9
-shader_parameter/cloud_shape_sampler = SubResource("NoiseTexture2D_if82a")
-shader_parameter/cloud_noise_sampler = SubResource("NoiseTexture2D_l2gh8")
-shader_parameter/cloud_curves = SubResource("CurveTexture_tpj1h")
+shader_parameter/cloud_shape_sampler = SubResource("NoiseTexture2D_dp6iq")
+shader_parameter/cloud_noise_sampler = SubResource("NoiseTexture2D_w4a8k")
+shader_parameter/cloud_curves = SubResource("CurveTexture_awvd3")
 shader_parameter/high_clouds_density = 0.2
-shader_parameter/high_clouds_sampler = SubResource("NoiseTexture2D_o034d")
+shader_parameter/high_clouds_sampler = SubResource("NoiseTexture2D_78dx1")
 shader_parameter/top_color = Color(0, 0.721569, 1, 1)
 shader_parameter/bottom_color = Color(0, 0.0784314, 1, 1)
 shader_parameter/sun_scatter = Color(0, 0.592157, 1, 1)
 shader_parameter/astro_tint = Color(1, 0.988235, 0.721569, 1)
 shader_parameter/astro_scale = 4.9
 shader_parameter/astro_intensity = 3.0
-shader_parameter/astro_sampler = SubResource("GradientTexture2D_n0847")
+shader_parameter/astro_sampler = SubResource("GradientTexture2D_woawv")
 shader_parameter/stars_intensity = 0.2
 shader_parameter/shooting_stars_intensity = 0.1
 shader_parameter/shooting_star_tint = Color(0.52549, 0.529412, 0.466667, 1)
 shader_parameter/shooting_star_sampler = ExtResource("7_4l0e1")
 
-[sub_resource type="Sky" id="Sky_5a4rh"]
+[sub_resource type="Sky" id="Sky_7t587"]
 sky_material = SubResource("ShaderMaterial_fobon")
 
 [sub_resource type="Environment" id="Environment_mbhlm"]
 background_mode = 2
-sky = SubResource("Sky_5a4rh")
+sky = SubResource("Sky_7t587")
 tonemap_mode = 2
 ssil_enabled = true
 sdfgi_enabled = true
@@ -964,520 +580,7 @@ texture_filter = 0
 [node name="city" type="Node3D"]
 process_mode = 1
 
-[node name="player" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.80221, 37.4239)
-floor_constant_speed = true
-script = ExtResource("32_373hi")
-playerInfo = ExtResource("34_h7eum")
-
-[node name="hitbox" type="CollisionShape3D" parent="player"]
-shape = SubResource("CapsuleShape3D_uksar")
-
-[node name="head" type="Node3D" parent="player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-
-[node name="neck" type="Node3D" parent="player/head"]
-
-[node name="playerCam" type="Camera3D" parent="player/head/neck"]
-unique_name_in_owner = true
-
-[node name="interactRay" type="RayCast3D" parent="player/head/neck/playerCam"]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
-target_position = Vector3(0, -4, 0)
-collision_mask = 2
-hit_from_inside = true
-collide_with_areas = true
-collide_with_bodies = false
-
-[node name="movementAnims" type="AnimationPlayer" parent="player/head/neck"]
-libraries = {
-"": SubResource("AnimationLibrary_uu48b")
-}
-
-[node name="bobAnim" type="AnimationPlayer" parent="player"]
-unique_name_in_owner = true
-libraries = {
-"": SubResource("AnimationLibrary_q05j1")
-}
-autoplay = "bob"
-
-[node name="UI" type="CanvasLayer" parent="player"]
-
-[node name="HUD" type="Control" parent="player/UI"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="crosshairs" type="CenterContainer" parent="player/UI/HUD"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="interactIcon" type="Sprite2D" parent="player/UI/HUD/crosshairs"]
-unique_name_in_owner = true
-visible = false
-texture = ExtResource("34_gww86")
-
-[node name="deniedIcon" type="Sprite2D" parent="player/UI/HUD/crosshairs"]
-unique_name_in_owner = true
-visible = false
-texture = ExtResource("35_8p7b3")
-
-[node name="shop" type="CenterContainer" parent="player/UI/HUD"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="itemMenu" type="Node2D" parent="player/UI/HUD/shop"]
-unique_name_in_owner = true
-
-[node name="itemMenuAnims" type="AnimationPlayer" parent="player/UI/HUD/shop/itemMenu"]
-unique_name_in_owner = true
-process_mode = 3
-libraries = {
-"": SubResource("AnimationLibrary_sd8v5")
-}
-
-[node name="itemMenuName" type="Label" parent="player/UI/HUD/shop/itemMenu"]
-unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0)
-offset_left = -200.0
-offset_top = -50.0
-offset_right = 200.0
-offset_bottom = -16.0
-text = "Basic Chestplate"
-label_settings = SubResource("LabelSettings_iw3gp")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="itemMenuInventoryCount" type="Label" parent="player/UI/HUD/shop/itemMenu"]
-unique_name_in_owner = true
-offset_left = -200.0
-offset_top = -87.0
-offset_right = 200.0
-offset_bottom = -53.0
-label_settings = SubResource("LabelSettings_6tdxm")
-horizontal_alignment = 1
-vertical_alignment = 1
-visible_characters = 0
-visible_ratio = 0.0
-
-[node name="itemMenuCost" type="RichTextLabel" parent="player/UI/HUD/shop/itemMenu"]
-unique_name_in_owner = true
-offset_left = -200.0
-offset_top = -65.0
-offset_right = 200.0
-offset_bottom = -42.0
-theme_override_font_sizes/normal_font_size = 15
-bbcode_enabled = true
-text = "[center][color=#f8f644][u]100 [img=12]placeholder/goldIcon.png[/img]"
-visible_characters = 0
-visible_ratio = 0.0
-
-[node name="itemMenuBank" type="RichTextLabel" parent="player/UI/HUD/shop/itemMenu"]
-unique_name_in_owner = true
-offset_left = -200.0
-offset_top = -49.0
-offset_right = 200.0
-offset_bottom = -24.0
-theme_override_font_sizes/normal_font_size = 15
-bbcode_enabled = true
-text = "[center][color=#f8c53a]65,000 [img=12]placeholder/goldIcon.png[/img]"
-visible_characters = 0
-visible_ratio = 0.0
-
-[node name="itemMenuBuyBar" type="TextureProgressBar" parent="player/UI/HUD/shop/itemMenu"]
-unique_name_in_owner = true
-offset_left = -16.0
-offset_top = -16.0
-offset_right = 16.0
-offset_bottom = 16.0
-pivot_offset = Vector2(16, 16)
-fill_mode = 4
-texture_progress = ExtResource("35_8j00v")
-
-[node name="damageIcon" type="Sprite2D" parent="player/UI/HUD/shop/itemMenu"]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(-37, -11)
-texture = ExtResource("36_1ca0o")
-
-[node name="itemMenuDamage" type="Label" parent="player/UI/HUD/shop/itemMenu/damageIcon"]
-unique_name_in_owner = true
-offset_left = -24.0
-offset_top = -12.0
-offset_right = 40.0
-offset_bottom = 11.0
-text = "12"
-horizontal_alignment = 1
-
-[node name="armorIcon" type="Sprite2D" parent="player/UI/HUD/shop/itemMenu"]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(-37, 17)
-texture = ExtResource("37_0kvdx")
-
-[node name="itemMenuArmor" type="Label" parent="player/UI/HUD/shop/itemMenu/armorIcon"]
-unique_name_in_owner = true
-offset_left = -24.0
-offset_top = -12.0
-offset_right = 40.0
-offset_bottom = 11.0
-text = "5"
-horizontal_alignment = 1
-
-[node name="speedIcon" type="Sprite2D" parent="player/UI/HUD/shop/itemMenu"]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(36, -11)
-texture = ExtResource("38_6vf1i")
-
-[node name="itemMenuSpeed" type="Label" parent="player/UI/HUD/shop/itemMenu/speedIcon"]
-unique_name_in_owner = true
-offset_left = -24.0
-offset_top = -12.0
-offset_right = 40.0
-offset_bottom = 11.0
-text = "-3"
-horizontal_alignment = 1
-
-[node name="rangeIcon" type="Sprite2D" parent="player/UI/HUD/shop/itemMenu"]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(36, 17)
-texture = ExtResource("39_6x15y")
-
-[node name="itemMenuRange" type="Label" parent="player/UI/HUD/shop/itemMenu/rangeIcon"]
-unique_name_in_owner = true
-offset_left = -24.0
-offset_top = -12.0
-offset_right = 40.0
-offset_bottom = 11.0
-text = "8"
-horizontal_alignment = 1
-
-[node name="itemMenuSplashIcon" type="Sprite2D" parent="player/UI/HUD/shop/itemMenu"]
-unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0)
-position = Vector2(0, 73)
-texture = ExtResource("40_hntpq")
-
-[node name="itemMenuSplash" type="Label" parent="player/UI/HUD/shop/itemMenu/itemMenuSplashIcon"]
-unique_name_in_owner = true
-offset_left = -24.0
-offset_top = -12.0
-offset_right = 40.0
-offset_bottom = 11.0
-text = "1"
-horizontal_alignment = 1
-
-[node name="itemMenuInteractionTimer" type="Timer" parent="player/UI/HUD/shop/itemMenu"]
-unique_name_in_owner = true
-wait_time = 0.2
-one_shot = true
-
-[node name="pauseMenu" type="Control" parent="player/UI"]
-unique_name_in_owner = true
-process_mode = 2
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("35_n6w0e")
-playerInfo = ExtResource("34_h7eum")
-
-[node name="backdrop" type="ColorRect" parent="player/UI/pauseMenu"]
-material = SubResource("ShaderMaterial_t88bi")
-custom_minimum_size = Vector2(700, 400)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.117647)
-
-[node name="clearSelectionButton" type="Button" parent="player/UI/pauseMenu"]
-unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_right = 1151.0
-offset_bottom = 649.0
-
-[node name="inventoryMenu" type="GridContainer" parent="player/UI/pauseMenu"]
-unique_name_in_owner = true
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -444.0
-offset_top = -250.0
-offset_right = 444.0
-offset_bottom = 250.0
-grow_horizontal = 2
-grow_vertical = 2
-columns = 4
-
-[node name="spacer1" type="VSeparator" parent="player/UI/pauseMenu/inventoryMenu"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-theme_override_constants/separation = 330
-
-[node name="inventory" type="ItemList" parent="player/UI/pauseMenu/inventoryMenu"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(500, 500)
-layout_mode = 2
-focus_mode = 0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hovered_color = Color(1, 1, 1, 1)
-theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
-theme_override_styles/panel = SubResource("StyleBoxFlat_6n7l7")
-theme_override_styles/hovered = SubResource("StyleBoxFlat_b2pls")
-allow_reselect = true
-allow_search = false
-text_overrun_behavior = 0
-max_columns = 8
-same_column_width = true
-icon_mode = 0
-fixed_icon_size = Vector2i(64, 64)
-
-[node name="inventoryItemViewport" type="SubViewport" parent="player/UI/pauseMenu/inventoryMenu/inventory"]
-own_world_3d = true
-world_3d = SubResource("World3D_dnxow")
-transparent_bg = true
-
-[node name="Camera3D" type="Camera3D" parent="player/UI/pauseMenu/inventoryMenu/inventory/inventoryItemViewport"]
-projection = 1
-
-[node name="inventoryItemModel" type="MeshInstance3D" parent="player/UI/pauseMenu/inventoryMenu/inventory/inventoryItemViewport/Camera3D"]
-unique_name_in_owner = true
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, -1)
-
-[node name="itemAnim" type="AnimationPlayer" parent="player/UI/pauseMenu/inventoryMenu/inventory/inventoryItemViewport/Camera3D"]
-libraries = {
-"": SubResource("AnimationLibrary_aaux6")
-}
-autoplay = "spin"
-
-[node name="sunlight" type="DirectionalLight3D" parent="player/UI/pauseMenu/inventoryMenu/inventory/inventoryItemViewport/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 0.999123, -0.0418757, 0, 0.0418757, 0.999123, 0, 0, -1.5)
-shadow_enabled = true
-
-[node name="spacer2" type="VSeparator" parent="player/UI/pauseMenu/inventoryMenu"]
-layout_mode = 2
-theme_override_constants/separation = 25
-theme_override_styles/separator = SubResource("StyleBoxEmpty_uu60h")
-
-[node name="inventoryItem" type="GridContainer" parent="player/UI/pauseMenu/inventoryMenu"]
-custom_minimum_size = Vector2(180, 200)
-layout_mode = 2
-
-[node name="inventoryItemSprite" type="Sprite2D" parent="player/UI/pauseMenu/inventoryMenu/inventoryItem"]
-unique_name_in_owner = true
-scale = Vector2(0.619141, 0.619141)
-texture = SubResource("ViewportTexture_86lhy")
-offset = Vector2(250, 250)
-
-[node name="itemSpacerV" type="HSeparator" parent="player/UI/pauseMenu/inventoryMenu/inventoryItem"]
-custom_minimum_size = Vector2(310, 0)
-layout_mode = 2
-theme_override_constants/separation = 325
-theme_override_styles/separator = SubResource("StyleBoxEmpty_5gfna")
-
-[node name="inventoryItemName" type="Label" parent="player/UI/pauseMenu/inventoryMenu/inventoryItem"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Standard Chestplate"
-horizontal_alignment = 1
-
-[node name="inventoryItemData" type="RichTextLabel" parent="player/UI/pauseMenu/inventoryMenu/inventoryItem"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/normal_font_size = 10
-bbcode_enabled = true
-text = "[center][color=red]Chest [color=white]- [color=blue]10/12"
-fit_content = true
-
-[node name="inventoryItemDescription" type="RichTextLabel" parent="player/UI/pauseMenu/inventoryMenu/inventoryItem"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/italics_font_size = 10
-bbcode_enabled = true
-text = "[center][i]Standard Chestplate"
-fit_content = true
-
-[node name="inventoryDamageIcon" type="Sprite2D" parent="player/UI/pauseMenu/inventoryMenu/inventoryItem"]
-unique_name_in_owner = true
-position = Vector2(93.5, 407)
-texture = ExtResource("36_1ca0o")
-
-[node name="inventoryDamage" type="Label" parent="player/UI/pauseMenu/inventoryMenu/inventoryItem/inventoryDamageIcon"]
-unique_name_in_owner = true
-offset_left = -24.0
-offset_top = -12.0
-offset_right = 40.0
-offset_bottom = 11.0
-text = "12"
-horizontal_alignment = 1
-
-[node name="inventoryArmorIcon" type="Sprite2D" parent="player/UI/pauseMenu/inventoryMenu/inventoryItem"]
-unique_name_in_owner = true
-position = Vector2(93.5, 435)
-texture = ExtResource("37_0kvdx")
-
-[node name="inventoryArmor" type="Label" parent="player/UI/pauseMenu/inventoryMenu/inventoryItem/inventoryArmorIcon"]
-unique_name_in_owner = true
-offset_left = -24.0
-offset_top = -12.0
-offset_right = 40.0
-offset_bottom = 11.0
-text = "5"
-horizontal_alignment = 1
-
-[node name="inventorySpeedIcon" type="Sprite2D" parent="player/UI/pauseMenu/inventoryMenu/inventoryItem"]
-unique_name_in_owner = true
-position = Vector2(216.5, 407)
-texture = ExtResource("38_6vf1i")
-
-[node name="inventorySpeed" type="Label" parent="player/UI/pauseMenu/inventoryMenu/inventoryItem/inventorySpeedIcon"]
-unique_name_in_owner = true
-offset_left = -24.0
-offset_top = -12.0
-offset_right = 40.0
-offset_bottom = 11.0
-text = "-3"
-horizontal_alignment = 1
-
-[node name="inventoryRangeIcon" type="Sprite2D" parent="player/UI/pauseMenu/inventoryMenu/inventoryItem"]
-unique_name_in_owner = true
-position = Vector2(216.5, 435)
-texture = ExtResource("39_6x15y")
-
-[node name="inventoryRange" type="Label" parent="player/UI/pauseMenu/inventoryMenu/inventoryItem/inventoryRangeIcon"]
-unique_name_in_owner = true
-offset_left = -24.0
-offset_top = -12.0
-offset_right = 40.0
-offset_bottom = 11.0
-text = "8"
-horizontal_alignment = 1
-
-[node name="inventorySplashIcon" type="Sprite2D" parent="player/UI/pauseMenu/inventoryMenu/inventoryItem"]
-unique_name_in_owner = true
-position = Vector2(155.5, 466)
-texture = ExtResource("40_hntpq")
-
-[node name="inventorySplash" type="Label" parent="player/UI/pauseMenu/inventoryMenu/inventoryItem/inventorySplashIcon"]
-unique_name_in_owner = true
-offset_left = -24.0
-offset_top = -12.0
-offset_right = 40.0
-offset_bottom = 11.0
-text = "1"
-horizontal_alignment = 1
-
-[node name="saveMenu" type="GridContainer" parent="player/UI/pauseMenu"]
-unique_name_in_owner = true
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -104.5
-offset_top = -56.0
-offset_right = 104.5
-offset_bottom = 56.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="saveGameButton" type="Button" parent="player/UI/pauseMenu/saveMenu"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Manual Save"
-
-[node name="spacer1" type="HSeparator" parent="player/UI/pauseMenu/saveMenu"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-
-[node name="mainMenuButton" type="Button" parent="player/UI/pauseMenu/saveMenu"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Quit to Main Menu"
-
-[node name="spacer2" type="HSeparator" parent="player/UI/pauseMenu/saveMenu"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-
-[node name="desktopButton" type="Button" parent="player/UI/pauseMenu/saveMenu"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Quit to Desktop"
-
-[node name="options" type="GridContainer" parent="player/UI/pauseMenu"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 50.0
-offset_top = -87.0
-offset_right = 259.0
-offset_bottom = 87.0
-grow_vertical = 2
-
-[node name="pauseMenuBalance" type="RichTextLabel" parent="player/UI/pauseMenu/options"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 25)
-layout_mode = 2
-bbcode_enabled = true
-text = "1000G"
-
-[node name="inventoryButton" type="Button" parent="player/UI/pauseMenu/options"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Inventory"
-
-[node name="spacer1" type="HSeparator" parent="player/UI/pauseMenu/options"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-
-[node name="settingsButton" type="Button" parent="player/UI/pauseMenu/options"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Settings"
-
-[node name="spacer2" type="HSeparator" parent="player/UI/pauseMenu/options"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-
-[node name="quitButton" type="Button" parent="player/UI/pauseMenu/options"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Save and Quit"
-
-[node name="settingsMenu" parent="player/UI/pauseMenu" instance=ExtResource("13_kva24")]
-unique_name_in_owner = true
-layout_mode = 1
-offset_left = -276.0
-offset_right = 324.0
+[node name="player" parent="." instance=ExtResource("1_dxhrs")]
 
 [node name="greyboxing" type="Node3D" parent="."]
 
@@ -3477,12 +2580,3 @@ shape = SubResource("ConcavePolygonShape3D_exh3a")
 [node name="mesh" type="MeshInstance3D" parent="item4"]
 material_override = SubResource("StandardMaterial3D_h35mk")
 mesh = SubResource("ArrayMesh_t1oaq")
-
-[connection signal="timeout" from="player/UI/HUD/shop/itemMenu/itemMenuInteractionTimer" to="player" method="triggerItemMenu"]
-[connection signal="item_selected" from="player/UI/pauseMenu/inventoryMenu/inventory" to="player/UI/pauseMenu" method="inventoryItemSelected"]
-[connection signal="button_up" from="player/UI/pauseMenu/saveMenu/saveGameButton" to="player/UI/pauseMenu" method="saveGamePressed"]
-[connection signal="button_up" from="player/UI/pauseMenu/saveMenu/mainMenuButton" to="player/UI/pauseMenu" method="mainMenuPressed"]
-[connection signal="button_up" from="player/UI/pauseMenu/saveMenu/desktopButton" to="player/UI/pauseMenu" method="desktopPressed"]
-[connection signal="button_up" from="player/UI/pauseMenu/options/inventoryButton" to="player/UI/pauseMenu" method="openInventory"]
-[connection signal="button_up" from="player/UI/pauseMenu/options/settingsButton" to="player/UI/pauseMenu" method="openSettings"]
-[connection signal="button_up" from="player/UI/pauseMenu/options/quitButton" to="player/UI/pauseMenu" method="openQuit"]
