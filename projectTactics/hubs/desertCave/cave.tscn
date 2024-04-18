@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://brhvbncn85nke"]
+[gd_scene load_steps=36 format=3 uid="uid://brhvbncn85nke"]
 
 [ext_resource type="PackedScene" uid="uid://bpoag1rko7t2q" path="res://hubs/player/player.tscn" id="1_v2pkq"]
 [ext_resource type="Texture2D" uid="uid://dxk7wv5lmb01u" path="res://hubs/city/assets/courtyard/structures/courtyardSpritemap.png" id="2_3dpdr"]
@@ -44,7 +44,6 @@ sky = SubResource("Sky_1f538")
 tonemap_mode = 2
 ssil_enabled = true
 sdfgi_enabled = true
-sdfgi_read_sky_light = false
 fog_enabled = true
 fog_light_color = Color(0.266667, 0.556863, 0.607843, 1)
 fog_density = 0.002
@@ -52,30 +51,47 @@ fog_sky_affect = 0.0
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.02
 volumetric_fog_albedo = Color(0.372549, 1, 0.941176, 1)
+volumetric_fog_emission = Color(0, 0.0980392, 0.141176, 1)
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_4463m"]
 dof_blur_far_distance = 9.01
 dof_blur_far_transition = 257.09
 
-[sub_resource type="Gradient" id="Gradient_4rxaj"]
-colors = PackedColorArray(0.156757, 0.670047, 1, 1, 0, 1, 0.898524, 1)
+[sub_resource type="Gradient" id="Gradient_ln0kh"]
+colors = PackedColorArray(0.0324536, 0.138721, 0.207031, 1, 0, 1, 0.898524, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_5q1ap"]
 frequency = 0.0788
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_o02gm"]
 height = 1024
-color_ramp = SubResource("Gradient_4rxaj")
+color_ramp = SubResource("Gradient_ln0kh")
 noise = SubResource("FastNoiseLite_5q1ap")
+
+[sub_resource type="Gradient" id="Gradient_ruyuq"]
+colors = PackedColorArray(0, 0.297363, 0.742188, 1, 0, 0.894939, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_nq3ty"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vcvyr"]
+height = 1024
+seamless = true
+color_ramp = SubResource("Gradient_ruyuq")
+noise = SubResource("FastNoiseLite_nq3ty")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v6ab7"]
 albedo_color = Color(0, 0.784314, 1, 1)
 albedo_texture = SubResource("NoiseTexture2D_o02gm")
 emission_enabled = true
 emission = Color(0, 0.396078, 0.521569, 1)
+emission_energy_multiplier = 0.5
+emission_texture = SubResource("NoiseTexture2D_vcvyr")
 texture_filter = 0
 
 [sub_resource type="QuadMesh" id="QuadMesh_whc2f"]
+
+[sub_resource type="Gradient" id="Gradient_4rxaj"]
+colors = PackedColorArray(0.156757, 0.670047, 1, 1, 0, 1, 0.898524, 1)
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_p6ia3"]
 width = 128
@@ -133,6 +149,12 @@ albedo_color = Color(0.45098, 0.45098, 0.45098, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_056u7"]
 flip_faces = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_m8hyi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kde21"]
+shading_mode = 0
+albedo_color = Color(0, 0.945098, 1, 1)
 
 [node name="cave" type="Node3D"]
 
@@ -233,41 +255,6 @@ size = Vector3(12, 12, 22)
 transform = Transform3D(0.999999, 0, 1.19209e-07, 0, 1, 0, -1.19209e-07, 0, 0.999999, 8.25355, 5.4, 58.1109)
 use_collision = true
 size = Vector3(11, 12, 16)
-
-[node name="CSGBox3D72" type="CSGBox3D" parent="greyboxing"]
-transform = Transform3D(-0.999999, 0, 0, 0, 3.6, 0, 0, 0, -0.999999, -59.8397, 39.0943, 22.0013)
-use_collision = true
-size = Vector3(6, 24, 5)
-
-[node name="CSGBox3D73" type="CSGBox3D" parent="greyboxing"]
-transform = Transform3D(-0.999999, 0, 0, 0, 3.6, 0, 0, 0, -0.999999, -26.8397, 39.0943, 25.0013)
-use_collision = true
-size = Vector3(6, 24, 5)
-
-[node name="CSGBox3D75" type="CSGBox3D" parent="greyboxing"]
-transform = Transform3D(-0.999999, 0, 0, 0, 3.6, 0, 0, 0, -0.999999, -47.8397, 39.0943, 40.0013)
-use_collision = true
-size = Vector3(6, 24, 5)
-
-[node name="CSGBox3D76" type="CSGBox3D" parent="greyboxing"]
-transform = Transform3D(-0.999999, 0, 0, 0, 3.6, 0, 0, 0, -0.999999, -31.8397, 39.0943, 1.00129)
-use_collision = true
-size = Vector3(6, 24, 5)
-
-[node name="CSGBox3D78" type="CSGBox3D" parent="greyboxing"]
-transform = Transform3D(-0.999999, 0, 0, 0, 3.6, 0, 0, 0, -0.999999, 24.3603, 39.0943, 7.10129)
-use_collision = true
-size = Vector3(6, 24, 5)
-
-[node name="CSGBox3D80" type="CSGBox3D" parent="greyboxing"]
-transform = Transform3D(-0.999999, 0, 0, 0, 3.6, 0, 0, 0, -0.999999, 20.3603, 39.0943, 43.1013)
-use_collision = true
-size = Vector3(6, 24, 5)
-
-[node name="CSGBox3D79" type="CSGBox3D" parent="greyboxing"]
-transform = Transform3D(-0.999999, 0, 0, 0, 3.6, 0, 0, 0, -0.999999, 51.3603, 33.3343, 38.1013)
-use_collision = true
-size = Vector3(6, 24, 5)
 
 [node name="CSGBox3D40" type="CSGBox3D" parent="greyboxing"]
 transform = Transform3D(0.707106, 0, 0.707106, 0, 1, 0, -0.707106, 0, 0.707106, 11.4711, 5.4, 53.7929)
@@ -462,28 +449,457 @@ visible = false
 shape = SubResource("ConcavePolygonShape3D_v134x")
 
 [node name="CaveWalls2" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.56, 0, 0, 0, -0.56, 0, 0, 0, 0.56, -2.8, 78.5, -1)
+transform = Transform3D(0.56, 0, 0, 0, -0.56, 0, 0, 0, 0.56, -2.8, 94.375, -1)
 material_override = SubResource("StandardMaterial3D_smkyt")
 mesh = ExtResource("7_go6g5")
-metadata/_edit_lock_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CaveWalls2"]
-transform = Transform3D(1000, 0, 0, 0, 164.835, 0, 0, 0, 1000, 0, 82.1429, 0)
+transform = Transform3D(1000, 0, 0, 0, 164.835, 0, 0, 0, 1000, 0, 130.357, 0)
 material_override = SubResource("StandardMaterial3D_w2vej")
 mesh = SubResource("BoxMesh_056u7")
 metadata/_edit_lock_ = true
 
 [node name="CaveWalls3" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, -1.50996e-07, 0, -1, 0, 1.50996e-07, 0, 1, -2.8, 107.5, -37)
+transform = Transform3D(1, 0, -1.50996e-07, 0, -1, 0, 1.50996e-07, 0, 1, -3.8, 116.5, -36)
 material_override = SubResource("StandardMaterial3D_smkyt")
 mesh = ExtResource("7_go6g5")
 
 [node name="CaveWalls4" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.5, 0, -2.26494e-07, 0, -1.5, 0, 2.26494e-07, 0, 1.5, 52.2, 148.5, -64)
+transform = Transform3D(1.5, 0, -2.26494e-07, 0, -1.5, 0, 2.26494e-07, 0, 1.5, 52.2, 154.5, -64)
 material_override = SubResource("StandardMaterial3D_smkyt")
 mesh = ExtResource("7_go6g5")
 
 [node name="CaveWalls5" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8, -15.5, -16)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -30.8, -40.5, -65)
 material_override = SubResource("StandardMaterial3D_smkyt")
 mesh = ExtResource("7_go6g5")
+
+[node name="CaveWalls6" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.844655, 0, 0.535311, 0, 1, 0, -0.535311, 0, -0.844655, -43.2369, -43.2684, 32.9542)
+material_override = SubResource("StandardMaterial3D_smkyt")
+mesh = ExtResource("7_go6g5")
+
+[node name="CaveWalls7" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.469619, 0, 0.171633, 0, 1, 0, -0.171633, 0, -0.469619, -13.9604, -43.2684, 5.25188)
+material_override = SubResource("StandardMaterial3D_smkyt")
+mesh = ExtResource("7_go6g5")
+
+[node name="CaveWalls8" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.171633, 0, 0.469619, 0, 1, 0, -0.469619, 0, 0.171633, 34.3541, -43.2684, -24.4596)
+material_override = SubResource("StandardMaterial3D_smkyt")
+mesh = ExtResource("7_go6g5")
+
+[node name="tempLights" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="tempLights"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -26, 5, -10.5858)
+mesh = SubResource("BoxMesh_m8hyi")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="tempLights/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -2.44727, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="tempLights/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7205, -4.26684, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="tempLights/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7149, -1.68093, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="tempLights/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6106, 0.0591259, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="tempLights/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.87125, -1.9097, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="tempLights/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.43971, 3.17178, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="tempLights/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.3798, -7.7248, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="tempLights/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.3258, -4.9493, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="tempLights/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.478, -9.13478, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="tempLights"]
+transform = Transform3D(0.0817567, -0.0575833, 0, 0.0575833, 0.0817567, 0, 0, 0, 0.1, -20.0999, 13.6542, 45.9373)
+mesh = SubResource("BoxMesh_m8hyi")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="tempLights/MeshInstance3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -2.44727, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="tempLights/MeshInstance3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7205, -4.26684, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="tempLights/MeshInstance3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7149, -1.68093, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="tempLights/MeshInstance3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6106, 0.0591259, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="tempLights/MeshInstance3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.87125, -1.9097, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="tempLights/MeshInstance3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.43971, 3.17178, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="tempLights/MeshInstance3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.3798, -7.7248, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="tempLights/MeshInstance3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.3258, -4.9493, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="tempLights/MeshInstance3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.478, -9.13478, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="tempLights"]
+transform = Transform3D(0.0792513, 0.0609855, 0, -0.0609855, 0.0792513, 0, 0, 0, 0.1, -43.6397, 6.43666, 55.4941)
+mesh = SubResource("BoxMesh_m8hyi")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="tempLights/MeshInstance3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -2.44727, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="tempLights/MeshInstance3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7205, -4.26684, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="tempLights/MeshInstance3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7149, -1.68093, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="tempLights/MeshInstance3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6106, 0.0591259, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="tempLights/MeshInstance3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.87125, -1.9097, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="tempLights/MeshInstance3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.43971, 3.17178, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="tempLights/MeshInstance3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.3798, -7.7248, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="tempLights/MeshInstance3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.3258, -4.9493, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="tempLights/MeshInstance3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.478, -9.13478, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="tempLights"]
+transform = Transform3D(0.098762, -0.0156865, 0, 0.0156865, 0.098762, 0, 0, 0, 0.1, -67.7008, 3.00698, 55.4941)
+mesh = SubResource("BoxMesh_m8hyi")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="tempLights/MeshInstance3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -2.44727, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="tempLights/MeshInstance3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7205, -4.26684, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="tempLights/MeshInstance3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7149, -1.68093, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="tempLights/MeshInstance3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6106, 0.0591259, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="tempLights/MeshInstance3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.87125, -1.9097, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="tempLights/MeshInstance3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.43971, 3.17178, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="tempLights/MeshInstance3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.3798, -7.7248, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="tempLights/MeshInstance3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.3258, -4.9493, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="tempLights/MeshInstance3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.478, -9.13478, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="tempLights"]
+transform = Transform3D(0.0141852, -0.0989888, 0, 0.0989888, 0.0141852, 0, 0, 0, 0.1, -67.7008, 14.6626, 55.4941)
+mesh = SubResource("BoxMesh_m8hyi")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="tempLights/MeshInstance3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -2.44727, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="tempLights/MeshInstance3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7205, -4.26684, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="tempLights/MeshInstance3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7149, -1.68093, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="tempLights/MeshInstance3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6106, 0.0591259, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="tempLights/MeshInstance3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.87125, -1.9097, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="tempLights/MeshInstance3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.43971, 3.17178, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="tempLights/MeshInstance3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.3798, -7.7248, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="tempLights/MeshInstance3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.3258, -4.9493, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="tempLights/MeshInstance3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.478, -9.13478, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="tempLights"]
+transform = Transform3D(-6.20053e-10, 4.32694e-09, -0.1, -0.017088, -0.0985292, -4.15734e-09, -0.0985292, 0.017088, 1.35032e-09, -85.0956, 9.10737, 36.0911)
+mesh = SubResource("BoxMesh_m8hyi")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="tempLights/MeshInstance3D6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -2.44727, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="tempLights/MeshInstance3D6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7205, -4.26684, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="tempLights/MeshInstance3D6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7149, -1.68093, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="tempLights/MeshInstance3D6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6106, 0.0591259, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="tempLights/MeshInstance3D6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.87125, -1.9097, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="tempLights/MeshInstance3D6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.43971, 3.17178, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="tempLights/MeshInstance3D6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.3798, -7.7248, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="tempLights/MeshInstance3D6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.3258, -4.9493, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="tempLights/MeshInstance3D6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.478, -9.13478, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="tempLights"]
+transform = Transform3D(0.0530873, 0.046709, -0.0707107, 0.0660565, -0.0750768, -3.65811e-09, -0.0530873, -0.046709, -0.0707107, -77.9946, 9.10737, 14.779)
+mesh = SubResource("BoxMesh_m8hyi")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="tempLights/MeshInstance3D7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -2.44727, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="tempLights/MeshInstance3D7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7205, -4.26684, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="tempLights/MeshInstance3D7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7149, -1.68093, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="tempLights/MeshInstance3D7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6106, 0.0591259, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="tempLights/MeshInstance3D7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.87125, -1.9097, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="tempLights/MeshInstance3D7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.43971, 3.17178, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="tempLights/MeshInstance3D7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.3798, -7.7248, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="tempLights/MeshInstance3D7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.3258, -4.9493, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="tempLights/MeshInstance3D7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.478, -9.13478, 0)
+mesh = SubResource("BoxMesh_m8hyi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kde21")
