@@ -1,7 +1,8 @@
-[gd_scene load_steps=134 format=3 uid="uid://ck8jmxbk38api"]
+[gd_scene load_steps=137 format=3 uid="uid://ck8jmxbk38api"]
 
 [ext_resource type="Texture2D" uid="uid://cljmnog7b3xxl" path="res://hubs/city/assets/courtyard/structures/tower.png" id="1_ct8p1"]
 [ext_resource type="PackedScene" uid="uid://bpoag1rko7t2q" path="res://hubs/player/player.tscn" id="1_dxhrs"]
+[ext_resource type="Script" path="res://hubs/city/scripts/city.gd" id="1_s2vd7"]
 [ext_resource type="ArrayMesh" uid="uid://guvyatflewix" path="res://hubs/city/assets/courtyard/structures/tower.obj" id="2_2mjru"]
 [ext_resource type="Texture2D" uid="uid://c4th2d27fqdlb" path="res://hubs/city/assets/courtyard/structures/entranceWall.png" id="3_3g8a0"]
 [ext_resource type="ArrayMesh" uid="uid://bjr6cdk1jkv2k" path="res://hubs/city/assets/courtyard/structures/entranceWall.obj" id="4_0dge3"]
@@ -214,6 +215,28 @@ fog_density = 0.002
 fog_sky_affect = 0.0
 volumetric_fog_density = 0.0075
 volumetric_fog_albedo = Color(1, 0.815686, 0.537255, 1)
+
+[sub_resource type="Animation" id="Animation_aihhx"]
+resource_name = "restartSDFGI"
+length = 0.01
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:environment:sdfgi_enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.01),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6yrl4"]
+_data = {
+"restartSDFGI": SubResource("Animation_aihhx")
+}
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hpsr4"]
 
@@ -579,6 +602,7 @@ texture_filter = 0
 
 [node name="city" type="Node3D"]
 process_mode = 1
+script = ExtResource("1_s2vd7")
 
 [node name="player" parent="." instance=ExtResource("1_dxhrs")]
 
@@ -1588,6 +1612,12 @@ shadow_opacity = 0.95
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_mbhlm")
+
+[node name="environmentAnims" type="AnimationPlayer" parent="WorldEnvironment"]
+libraries = {
+"": SubResource("AnimationLibrary_6yrl4")
+}
+autoplay = "restartSDFGI"
 
 [node name="courtyardSprites" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.56, 0, 0, 0, 0.56, 0, 0, 0, 0.56, -6.46647, 0.498935, -4.02833)

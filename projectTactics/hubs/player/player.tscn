@@ -381,8 +381,8 @@ _data = {
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uu60h"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_86lhy"]
-viewport_path = NodePath("player/UI/pauseMenu/inventoryMenu/inventory/inventoryItemViewport")
+[sub_resource type="ViewportTexture" id="ViewportTexture_ipuqb"]
+viewport_path = NodePath("UI/pauseMenu/inventoryMenu/inventory/inventoryItemViewport")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5gfna"]
 
@@ -713,7 +713,7 @@ layout_mode = 2
 [node name="inventoryItemSprite" type="Sprite2D" parent="UI/pauseMenu/inventoryMenu/inventoryItem"]
 unique_name_in_owner = true
 scale = Vector2(0.619141, 0.619141)
-texture = SubResource("ViewportTexture_86lhy")
+texture = SubResource("ViewportTexture_ipuqb")
 offset = Vector2(250, 250)
 
 [node name="itemSpacerV" type="HSeparator" parent="UI/pauseMenu/inventoryMenu/inventoryItem"]
