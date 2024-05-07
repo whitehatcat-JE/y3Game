@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://brhvbncn85nke"]
+[gd_scene load_steps=45 format=3 uid="uid://brhvbncn85nke"]
 
 [ext_resource type="PackedScene" uid="uid://bpoag1rko7t2q" path="res://hubs/player/player.tscn" id="1_v2pkq"]
 [ext_resource type="Texture2D" uid="uid://dxk7wv5lmb01u" path="res://hubs/city/assets/courtyard/structures/courtyardSpritemap.png" id="2_3dpdr"]
@@ -8,8 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://x2xxr6cm01cr" path="res://hubs/desertCave/assets/caveTilemap.png" id="6_o4ld3"]
 [ext_resource type="ArrayMesh" uid="uid://dn5xg1li3q5qc" path="res://hubs/desertCave/assets/caveWalls.obj" id="7_go6g5"]
 [ext_resource type="Texture2D" uid="uid://cmvflby55nd71" path="res://hubs/desertCave/assets/blueFlowers.png" id="8_35jui"]
+[ext_resource type="Texture2D" uid="uid://bw87y38hdkcs7" path="res://hubs/desertCave/assets/caveBridge.png" id="8_ybcin"]
 [ext_resource type="Texture2D" uid="uid://cq4r8r4c6p7n4" path="res://hubs/desertCave/assets/largeRock.png" id="9_rj7ru"]
+[ext_resource type="ArrayMesh" uid="uid://blyodidu1j4fj" path="res://hubs/desertCave/assets/caveBridge.obj" id="9_vhldw"]
 [ext_resource type="ArrayMesh" uid="uid://ba5cdqgq2vnl" path="res://hubs/desertCave/assets/largeRock.obj" id="10_klush"]
+[ext_resource type="Texture2D" uid="uid://bonuwfj3nnoev" path="res://hubs/desertCave/assets/caveBridgeString.png" id="10_ri84x"]
 
 [sub_resource type="Curve" id="Curve_tnl3j"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.502392, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -53,6 +56,7 @@ sky = SubResource("Sky_uhqe0")
 tonemap_mode = 2
 ssil_enabled = true
 sdfgi_enabled = true
+sdfgi_bounce_feedback = 1.5
 fog_enabled = true
 fog_light_color = Color(0.266667, 0.556863, 0.607843, 1)
 fog_density = 0.002
@@ -169,6 +173,17 @@ albedo_texture = ExtResource("6_o4ld3")
 texture_filter = 4
 texture_repeat = false
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qlt2m"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("8_ybcin")
+texture_filter = 0
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_7j6f7"]
+data = PackedVector3Array(15.4998, 0.0004, -1.4999, 10.125, -0.4999, 1.5001, 10.125, -0.4996, -1.4999, 15.4998, 0.0001, 1.5001, 10.125, -0.4999, 1.5001, 15.4998, 0.0004, -1.4999, 15.4998, 2, 1.5, 10.125, -0.4999, 1.5001, 10.125, 1.5, 1.5, 15.4998, 0.0001, 1.5001, 10.125, -0.4999, 1.5001, 15.4998, 2, 1.5, 10.125, 1.5004, -1.4999, 15.4998, 0.0004, -1.4999, 15.4998, 2.0004, -1.4999, 10.125, -0.4996, -1.4999, 15.4998, 0.0004, -1.4999, 10.125, 1.5004, -1.4999, 0, 2.0004, -1.4999, 4.1248, -0.4996, -1.4999, 4.1248, 1.5004, -1.4999, 0, 0.0004, -1.4999, 4.1248, -0.4996, -1.4999, 0, 2.0004, -1.4999, 10.125, 1.5, 1.5, 4.1248, -0.4999, 1.5001, 4.1248, 1.5, 1.5, 10.125, -0.4999, 1.5001, 4.1248, -0.4999, 1.5001, 10.125, 1.5, 1.5, 4.1248, 1.5, 1.5, 0, 0.0001, 1.5001, 0, 2, 1.5, 4.1248, -0.4999, 1.5001, 0, 0.0001, 1.5001, 4.1248, 1.5, 1.5, 4.1248, 1.5004, -1.4999, 10.125, -0.4996, -1.4999, 10.125, 1.5004, -1.4999, 4.1248, -0.4996, -1.4999, 10.125, -0.4996, -1.4999, 4.1248, 1.5004, -1.4999, 4.1248, -0.4996, -1.4999, 0, 0.0001, 1.5001, 0, 0.0004, -1.4999, 4.1248, -0.4999, 1.5001, 0, 0.0001, 1.5001, 4.1248, -0.4996, -1.4999, 10.125, -0.4996, -1.4999, 4.1248, -0.4999, 1.5001, 4.1248, -0.4996, -1.4999, 10.125, -0.4999, 1.5001, 4.1248, -0.4999, 1.5001, 10.125, -0.4996, -1.4999)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0g42l"]
 albedo_texture = ExtResource("9_rj7ru")
 texture_filter = 0
@@ -203,7 +218,7 @@ process_material = SubResource("ParticleProcessMaterial_usd3i")
 draw_pass_1 = SubResource("BoxMesh_bfo0b")
 
 [node name="player" parent="." instance=ExtResource("1_v2pkq")]
-transform = Transform3D(-0.906308, 0, 0.422618, 0, 1, 0, -0.422618, 0, -0.906308, 40, 12.6955, 24.2361)
+transform = Transform3D(-0.906308, 0, 0.422618, 0, 1, 0, -0.422618, 0, -0.906308, 3.86332, 1.53979, 2.32963)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_t4tuk")
@@ -383,18 +398,13 @@ transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 
 use_collision = true
 size = Vector3(5.6, 1, 6)
 
-[node name="CSGBox3D46" type="CSGBox3D" parent="greyboxing"]
-transform = Transform3D(0.866025, 0.25, -0.433013, -7.05131e-08, 0.866025, 0.5, 0.5, -0.433013, 0.75, -11.0711, -1.16506, 14.2841)
-use_collision = true
-size = Vector3(4, 6, 10)
-
 [node name="CSGBox3D49" type="CSGBox3D" parent="greyboxing"]
-transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866026, -12.6721, 0.934937, 20.1021)
+transform = Transform3D(1, 0, 2.98023e-07, 0, 1, 0, 2.08616e-07, 0, 1, -9.03785, -0.216757, 26.9318)
 use_collision = true
 size = Vector3(9, 6, 6)
 
 [node name="CSGBox3D50" type="CSGBox3D" parent="greyboxing"]
-transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866026, -11.507, 2.43494, 23.0841)
+transform = Transform3D(1, 0, 2.98023e-07, 0, 1, 0, 2.08616e-07, 0, 1, -6.53784, 1.28325, 28.9317)
 use_collision = true
 size = Vector3(8, 3, 6)
 
@@ -450,6 +460,46 @@ size = Vector3(7, 1, 10)
 transform = Transform3D(0.56, 0, 0, 0, 0.56, 0, 0, 0, 0.56, -2.8, -0.5, -1)
 material_override = SubResource("StandardMaterial3D_smkyt")
 mesh = ExtResource("7_go6g5")
+
+[node name="CaveBridge" type="MeshInstance3D" parent="CaveWalls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0.258819, 0.965926, -1.13133e-08, 0.965926, -0.258819, -4.2222e-08, -9.17947, 1.72833, 29.5849)
+material_override = SubResource("StandardMaterial3D_qlt2m")
+mesh = ExtResource("9_vhldw")
+skeleton = NodePath("../..")
+
+[node name="caveBridgeString" type="Sprite3D" parent="CaveWalls/CaveBridge"]
+transform = Transform3D(2.82843, -0.707107, 1.28029e-08, 2.82843, 0.707107, -3.09087e-08, 5.12111e-08, 3.09086e-08, 1, -1.32886, 0.519229, -1.498)
+pixel_size = 0.11
+shaded = true
+texture_filter = 0
+texture = ExtResource("10_ri84x")
+
+[node name="caveBridgeString2" type="Sprite3D" parent="CaveWalls/CaveBridge"]
+transform = Transform3D(2.82843, -0.707107, 1.28029e-08, 2.82843, 0.707107, -3.09087e-08, 5.12111e-08, 3.09086e-08, 1, -1.19728, 0.511857, 1.49414)
+pixel_size = 0.11
+shaded = true
+texture_filter = 0
+texture = ExtResource("10_ri84x")
+
+[node name="caveBridgeString3" type="Sprite3D" parent="CaveWalls/CaveBridge"]
+transform = Transform3D(-2, 0.866026, 6.55669e-08, 3.4641, 0.5, -3.78552e-08, -2.62268e-07, 3.78552e-08, -1, 16.3905, 0.183137, 1.49414)
+pixel_size = 0.11
+shaded = true
+texture_filter = 0
+texture = ExtResource("10_ri84x")
+
+[node name="caveBridgeString4" type="Sprite3D" parent="CaveWalls/CaveBridge"]
+transform = Transform3D(-2, 0.866026, 6.55669e-08, 3.4641, 0.5, -3.78552e-08, -2.62268e-07, 3.78552e-08, -1, 16.2615, 0.210074, -1.49801)
+pixel_size = 0.11
+shaded = true
+texture_filter = 0
+texture = ExtResource("10_ri84x")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CaveWalls/CaveBridge"]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CaveWalls/CaveBridge/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_7j6f7")
 
 [node name="flowers" type="Node3D" parent="CaveWalls"]
 
