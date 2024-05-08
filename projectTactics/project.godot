@@ -21,6 +21,10 @@ FM="*res://general/autoloads/fileManager.gd"
 GS="*res://general/autoloads/gameState.gd"
 Music="*res://general/autoloads/music.tscn"
 
+[debug]
+
+settings/stdout/print_fps=true
+
 [display]
 
 window/size/mode=3
