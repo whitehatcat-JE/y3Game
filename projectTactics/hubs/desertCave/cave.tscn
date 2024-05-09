@@ -1673,6 +1673,21 @@ transform = Transform3D(0.425479, 0, 13.9369, 0, 9.38837, 0, -0.904968, 0, 6.552
 size = Vector3(9.05666, 2, 2.40085)
 material = SubResource("FogMaterial_wivqd")
 
+[node name="FogVolume2" type="FogVolume" parent="CaveWalls"]
+transform = Transform3D(0.425479, 0, 13.9369, 0, 9.38837, 0, -0.904968, 0, 6.55256, 2.43742, 6.49117, -7.39086)
+size = Vector3(9.05666, 1.28274, 1.14938)
+material = SubResource("FogMaterial_wivqd")
+
+[node name="FogVolume3" type="FogVolume" parent="CaveWalls"]
+transform = Transform3D(-0.896378, 0, 6.82686, 0, 9.38837, 0, -0.44329, 0, -13.8046, 77.9165, 6.49117, 32.5409)
+size = Vector3(9.05666, 1.28274, 0.937923)
+material = SubResource("FogMaterial_wivqd")
+
+[node name="FogVolume4" type="FogVolume" parent="CaveWalls"]
+transform = Transform3D(-0.974874, 0, 3.43055, 0, 9.38837, 0, -0.222756, 0, -15.0135, 131.317, 28.9976, 64.1237)
+size = Vector3(2.64337, 1.08682, 0.937923)
+material = SubResource("FogMaterial_wivqd")
+
 [node name="waterEntrance" type="MeshInstance3D" parent="CaveWalls"]
 transform = Transform3D(0.707107, 0, -10.8897, 0, 9.38837, 0, 0.707107, 0, 10.8897, 18.3768, 24.3272, 135.168)
 material_override = SubResource("StandardMaterial3D_8o2ne")
@@ -1705,7 +1720,7 @@ skeleton = NodePath("../..")
 [node name="surroundingWalls" type="Node3D" parent="."]
 
 [node name="CaveWalls2" type="MeshInstance3D" parent="surroundingWalls"]
-transform = Transform3D(0.56, 0, 0, 0, -0.56, 0, 0, 0, 0.56, -2.8, 94.375, -1)
+transform = Transform3D(0.56, 0, 0, 0, -0.56, 0, 0, 0, 0.56, -2.8, 108.919, -1)
 material_override = SubResource("StandardMaterial3D_smkyt")
 mesh = ExtResource("7_go6g5")
 skeleton = NodePath("../..")
