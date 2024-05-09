@@ -1,25 +1,17 @@
-[gd_scene load_steps=70 format=3 uid="uid://brhvbncn85nke"]
+[gd_scene load_steps=53 format=3 uid="uid://brhvbncn85nke"]
 
 [ext_resource type="Texture2D" uid="uid://dxaynsv6fgcf5" path="res://hubs/desertCave/assets/individualFlower.png" id="1_j76fw"]
 [ext_resource type="PackedScene" uid="uid://bpoag1rko7t2q" path="res://hubs/player/player.tscn" id="1_v2pkq"]
 [ext_resource type="Texture2D" uid="uid://dxk7wv5lmb01u" path="res://hubs/city/assets/courtyard/structures/courtyardSpritemap.png" id="2_3dpdr"]
-[ext_resource type="Texture2D" uid="uid://c3tyh1cabrr6u" path="res://hubs/shared/assets/water1.png" id="2_j51yj"]
 [ext_resource type="Texture2D" uid="uid://dp1dfhdoexord" path="res://hubs/city/assets/courtyard/structures/courtyardSpritemapRoughness.png" id="3_58ovy"]
-[ext_resource type="Texture2D" uid="uid://d35na4bpku1nj" path="res://hubs/shared/assets/water2.png" id="3_yrkt4"]
 [ext_resource type="Texture2D" uid="uid://bi0fxrjgc2m8x" path="res://hubs/city/assets/courtyard/structures/courtyardSpritemapLighting.png" id="4_aujao"]
-[ext_resource type="Texture2D" uid="uid://dat0j83l4m1rm" path="res://hubs/shared/assets/water3.png" id="4_ruy04"]
 [ext_resource type="ArrayMesh" uid="uid://dg6o0ilgsf88o" path="res://placeholder/arch.obj" id="5_6h00r"]
-[ext_resource type="Texture2D" uid="uid://buqnwcv5cacmv" path="res://hubs/shared/assets/water4.png" id="5_blldn"]
-[ext_resource type="Texture2D" uid="uid://d0yq0unbtnbkv" path="res://hubs/shared/assets/waterTop2.png" id="6_awdd6"]
 [ext_resource type="Texture2D" uid="uid://x2xxr6cm01cr" path="res://hubs/desertCave/assets/caveTilemap.png" id="6_o4ld3"]
-[ext_resource type="Texture2D" uid="uid://bgdj0c7xbfayq" path="res://hubs/shared/assets/waterTop3.png" id="7_502fj"]
 [ext_resource type="ArrayMesh" uid="uid://dn5xg1li3q5qc" path="res://hubs/desertCave/assets/caveWalls.obj" id="7_go6g5"]
 [ext_resource type="Texture2D" uid="uid://cmvflby55nd71" path="res://hubs/desertCave/assets/blueFlowers.png" id="8_35jui"]
-[ext_resource type="Texture2D" uid="uid://c304vi58d5htu" path="res://hubs/shared/assets/waterTop4.png" id="8_gwho7"]
 [ext_resource type="Texture2D" uid="uid://bw87y38hdkcs7" path="res://hubs/desertCave/assets/caveBridge.png" id="8_ybcin"]
 [ext_resource type="Texture2D" uid="uid://cq4r8r4c6p7n4" path="res://hubs/desertCave/assets/largeRock.png" id="9_rj7ru"]
 [ext_resource type="ArrayMesh" uid="uid://blyodidu1j4fj" path="res://hubs/desertCave/assets/caveBridge.obj" id="9_vhldw"]
-[ext_resource type="Texture2D" uid="uid://cai0gswj6v6bv" path="res://hubs/shared/assets/waterTop1.png" id="9_w5bu3"]
 [ext_resource type="Texture2D" uid="uid://b3p86v1ompypy" path="res://hubs/shared/assets/waterfall1.png" id="10_h070s"]
 [ext_resource type="ArrayMesh" uid="uid://ba5cdqgq2vnl" path="res://hubs/desertCave/assets/largeRock.obj" id="10_klush"]
 [ext_resource type="Texture2D" uid="uid://bonuwfj3nnoev" path="res://hubs/desertCave/assets/caveBridgeString.png" id="10_ri84x"]
@@ -27,6 +19,10 @@
 [ext_resource type="Texture2D" uid="uid://vb7dnkd6mcoh" path="res://hubs/shared/assets/waterfall3.png" id="12_vf3cg"]
 [ext_resource type="Texture2D" uid="uid://d2332oomwqls0" path="res://hubs/shared/assets/waterfall4.png" id="13_s6q7y"]
 [ext_resource type="ArrayMesh" uid="uid://dn6yhblqk7fkb" path="res://hubs/desertCave/assets/caveWater.obj" id="16_kjvv3"]
+[ext_resource type="Material" uid="uid://crfxlwwscqie" path="res://hubs/shared/materials/waterFloorMaterial.tres" id="17_g5kwk"]
+[ext_resource type="ArrayMesh" uid="uid://dxxk8qiv7sh3k" path="res://hubs/desertCave/assets/upperWaterFloor.obj" id="17_xkulu"]
+[ext_resource type="ArrayMesh" uid="uid://868j5mv1tjuo" path="res://hubs/desertCave/assets/upperWaterSurface.obj" id="18_3nr2t"]
+[ext_resource type="Material" uid="uid://bp1q0vvd3ps5t" path="res://hubs/shared/materials/waterSurfaceMaterial.tres" id="19_gor2t"]
 [ext_resource type="Texture2D" uid="uid://dffbtcja3fppc" path="res://hubs/shared/assets/waterfall5.png" id="21_8kdqn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ku2gi"]
@@ -110,82 +106,6 @@ _data = {
 "restartSDFGI": SubResource("Animation_aihhx")
 }
 
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_qc7ao"]
-frames = 4
-speed_scale = 3.0
-frame_0/texture = ExtResource("2_j51yj")
-frame_1/texture = ExtResource("3_yrkt4")
-frame_1/duration = 1.0
-frame_2/texture = ExtResource("4_ruy04")
-frame_2/duration = 1.0
-frame_3/texture = ExtResource("5_blldn")
-frame_3/duration = 1.0
-
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_0r61n"]
-frames = 4
-speed_scale = 3.0
-frame_0/texture = ExtResource("2_j51yj")
-frame_1/texture = ExtResource("3_yrkt4")
-frame_1/duration = 1.0
-frame_2/texture = ExtResource("4_ruy04")
-frame_2/duration = 1.0
-frame_3/texture = ExtResource("5_blldn")
-frame_3/duration = 1.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v6ab7"]
-albedo_color = Color(0, 0.784314, 1, 1)
-albedo_texture = SubResource("AnimatedTexture_qc7ao")
-emission_enabled = true
-emission = Color(0, 0.760784, 1, 1)
-emission_energy_multiplier = 0.4
-emission_texture = SubResource("AnimatedTexture_0r61n")
-uv1_scale = Vector3(15, 30, 15)
-texture_filter = 0
-
-[sub_resource type="QuadMesh" id="QuadMesh_whc2f"]
-
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_4knlj"]
-frames = 4
-speed_scale = 3.0
-frame_0/texture = ExtResource("6_awdd6")
-frame_1/texture = ExtResource("7_502fj")
-frame_1/duration = 1.0
-frame_2/texture = ExtResource("8_gwho7")
-frame_2/duration = 1.0
-frame_3/texture = ExtResource("9_w5bu3")
-frame_3/duration = 1.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t2m44"]
-transparency = 1
-albedo_color = Color(0, 0.784314, 1, 0.564706)
-albedo_texture = SubResource("AnimatedTexture_4knlj")
-emission_enabled = true
-emission = Color(0, 0.396078, 0.521569, 1)
-emission_energy_multiplier = 0.37
-emission_texture = SubResource("AnimatedTexture_4knlj")
-subsurf_scatter_skin_mode = true
-uv1_scale = Vector3(15, 30, 15)
-texture_filter = 0
-
-[sub_resource type="Gradient" id="Gradient_4rxaj"]
-colors = PackedColorArray(0.156757, 0.670047, 1, 1, 0, 1, 0.898524, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_5q1ap"]
-frequency = 0.0788
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_p6ia3"]
-width = 128
-height = 256
-color_ramp = SubResource("Gradient_4rxaj")
-noise = SubResource("FastNoiseLite_5q1ap")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c7ytr"]
-albedo_color = Color(0, 0.784314, 1, 1)
-albedo_texture = SubResource("NoiseTexture2D_p6ia3")
-emission_enabled = true
-emission = Color(0, 0.482353, 0.572549, 1)
-texture_filter = 0
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qln17"]
 transparency = 2
 alpha_scissor_threshold = 0.5
@@ -221,69 +141,6 @@ heightmap_max_layers = 32
 heightmap_texture = ExtResource("6_o4ld3")
 texture_filter = 4
 texture_repeat = false
-
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_sb0pu"]
-frames = 4
-speed_scale = 3.0
-frame_0/texture = ExtResource("2_j51yj")
-frame_1/texture = ExtResource("3_yrkt4")
-frame_1/duration = 1.0
-frame_2/texture = ExtResource("4_ruy04")
-frame_2/duration = 1.0
-frame_3/texture = ExtResource("5_blldn")
-frame_3/duration = 1.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l5dwk"]
-albedo_texture = SubResource("AnimatedTexture_sb0pu")
-emission_enabled = true
-emission = Color(0.258824, 0.74902, 0.909804, 1)
-emission_energy_multiplier = 0.4
-emission_texture = SubResource("AnimatedTexture_sb0pu")
-texture_filter = 0
-
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_fxbyk"]
-frames = 4
-speed_scale = 3.0
-frame_0/texture = ExtResource("9_w5bu3")
-frame_1/texture = ExtResource("6_awdd6")
-frame_1/duration = 1.0
-frame_2/texture = ExtResource("7_502fj")
-frame_2/duration = 1.0
-frame_3/texture = ExtResource("8_gwho7")
-frame_3/duration = 1.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4618k"]
-transparency = 1
-albedo_color = Color(1, 1, 1, 0.396078)
-albedo_texture = SubResource("AnimatedTexture_fxbyk")
-emission_enabled = true
-emission = Color(0.258824, 0.74902, 0.909804, 1)
-emission_energy_multiplier = 0.5
-emission_texture = SubResource("AnimatedTexture_fxbyk")
-texture_filter = 0
-
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_yil2x"]
-frames = 5
-speed_scale = 4.0
-frame_0/texture = ExtResource("10_h070s")
-frame_1/texture = ExtResource("11_rr2nh")
-frame_1/duration = 1.0
-frame_2/texture = ExtResource("12_vf3cg")
-frame_2/duration = 1.0
-frame_3/texture = ExtResource("13_s6q7y")
-frame_3/duration = 1.0
-frame_4/texture = ExtResource("21_8kdqn")
-frame_4/duration = 1.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uom8y"]
-albedo_color = Color(0, 0.784314, 1, 1)
-albedo_texture = SubResource("AnimatedTexture_yil2x")
-emission_enabled = true
-emission = Color(0.294118, 0.490196, 0.521569, 1)
-emission_energy_multiplier = 0.5
-emission_texture = SubResource("AnimatedTexture_yil2x")
-uv1_scale = Vector3(5.82, 1, 1)
-texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1xwno"]
 emission_enabled = true
@@ -327,6 +184,31 @@ initial_velocity_max = 0.1
 gravity = Vector3(0, -10, 0)
 scale_max = 2.5
 scale_curve = SubResource("CurveTexture_xfb1y")
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_yil2x"]
+frames = 5
+speed_scale = 4.0
+frame_0/texture = ExtResource("10_h070s")
+frame_1/texture = ExtResource("11_rr2nh")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("12_vf3cg")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("13_s6q7y")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("21_8kdqn")
+frame_4/duration = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uom8y"]
+albedo_color = Color(0, 0.784314, 1, 1)
+albedo_texture = SubResource("AnimatedTexture_yil2x")
+emission_enabled = true
+emission = Color(0.294118, 0.490196, 0.521569, 1)
+emission_energy_multiplier = 0.5
+emission_texture = SubResource("AnimatedTexture_yil2x")
+uv1_scale = Vector3(5.82, 1, 1)
+texture_filter = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_whc2f"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qlt2m"]
 transparency = 2
@@ -384,32 +266,6 @@ visible = false
 [node name="greyboxing" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0750937, 0)
 
-[node name="water" type="MeshInstance3D" parent="greyboxing"]
-transform = Transform3D(-4.37114e-06, 200, 4.37114e-08, 0, -8.74228e-06, 1, 100, 8.74228e-06, 1.91069e-15, -18, -0.5, 28)
-visible = false
-material_override = SubResource("StandardMaterial3D_v6ab7")
-mesh = SubResource("QuadMesh_whc2f")
-skeleton = NodePath("../..")
-
-[node name="water5" type="MeshInstance3D" parent="greyboxing"]
-transform = Transform3D(-4.37114e-06, 200, 4.37114e-08, 0, -8.74228e-06, 1, 100, 8.74228e-06, 1.91069e-15, -18, -0.326169, 28)
-visible = false
-material_override = SubResource("StandardMaterial3D_t2m44")
-mesh = SubResource("QuadMesh_whc2f")
-skeleton = NodePath("../..")
-
-[node name="water3" type="MeshInstance3D" parent="greyboxing"]
-transform = Transform3D(17.6777, 35.3553, 3.09086e-08, -4.44089e-14, -2.18557e-06, 1, 17.6777, -35.3553, -3.09086e-08, 32.9582, 11.466, 46.8739)
-material_override = SubResource("StandardMaterial3D_c7ytr")
-mesh = SubResource("QuadMesh_whc2f")
-skeleton = NodePath("../..")
-
-[node name="water4" type="MeshInstance3D" parent="greyboxing"]
-transform = Transform3D(-4.76837e-06, 50, 4.37114e-08, -4.44089e-14, -2.18557e-06, 1, 25, 9.53674e-06, 5.32907e-15, 32.9582, 11.466, 72.8739)
-material_override = SubResource("StandardMaterial3D_c7ytr")
-mesh = SubResource("QuadMesh_whc2f")
-skeleton = NodePath("../..")
-
 [node name="Courtyard2" type="MeshInstance3D" parent="greyboxing"]
 transform = Transform3D(0.444063, 0, 0.444063, 0, 0.628, 0, -0.444063, 0, 0.444063, 49.3742, 11.5163, 75.7913)
 material_override = SubResource("StandardMaterial3D_qln17")
@@ -431,26 +287,32 @@ transform = Transform3D(0.56, 0, 0, 0, 0.56, 0, 0, 0, 0.56, -2.8, -0.5, -1)
 material_override = SubResource("StandardMaterial3D_smkyt")
 mesh = ExtResource("7_go6g5")
 
+[node name="UpperWaterFloor" type="MeshInstance3D" parent="CaveWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.27, 0)
+material_override = ExtResource("17_g5kwk")
+mesh = ExtResource("17_xkulu")
+skeleton = NodePath("../..")
+
+[node name="UpperWaterSurface" type="MeshInstance3D" parent="CaveWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.27, 0)
+material_override = ExtResource("19_gor2t")
+mesh = ExtResource("18_3nr2t")
+skeleton = NodePath("../..")
+
 [node name="waterLowerFloor" type="MeshInstance3D" parent="CaveWalls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.62007, 0)
-material_override = SubResource("StandardMaterial3D_l5dwk")
+material_override = ExtResource("17_g5kwk")
 mesh = ExtResource("16_kjvv3")
 skeleton = NodePath("../..")
 
 [node name="waterLowerSurface" type="MeshInstance3D" parent="CaveWalls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.03817, 0)
-material_override = SubResource("StandardMaterial3D_4618k")
+material_override = ExtResource("19_gor2t")
 mesh = ExtResource("16_kjvv3")
 skeleton = NodePath("../..")
 
-[node name="waterfall" type="MeshInstance3D" parent="CaveWalls"]
-transform = Transform3D(-44.1942, 0, -1.26269, 0, 21.4286, 0, 44.1942, 0, -1.26269, 49.911, 10.5194, 67.8589)
-material_override = SubResource("StandardMaterial3D_uom8y")
-mesh = SubResource("QuadMesh_whc2f")
-skeleton = NodePath("../..")
-
-[node name="splashes" type="GPUParticles3D" parent="CaveWalls/waterfall"]
-transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 1, -0.277505, -0.455064, 0.0466576)
+[node name="splashes" type="GPUParticles3D" parent="CaveWalls"]
+transform = Transform3D(-44.1941, 0, -1.26269, 0, 21.4286, 0, 44.1941, 0, -1.26269, 61.0897, 0.768019, 54.2697)
 material_override = SubResource("StandardMaterial3D_1xwno")
 amount = 100
 lifetime = 0.5
@@ -459,8 +321,8 @@ interpolate = false
 process_material = SubResource("ParticleProcessMaterial_qnv55")
 draw_pass_1 = SubResource("SphereMesh_jm4lo")
 
-[node name="splashes2" type="GPUParticles3D" parent="CaveWalls/waterfall"]
-transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 1, 0.193707, -0.455064, 0.244759)
+[node name="splashes2" type="GPUParticles3D" parent="CaveWalls"]
+transform = Transform3D(-44.1941, 0, -1.26269, 0, 21.4286, 0, 44.1941, 0, -1.26269, 40.0147, 0.768019, 74.8444)
 material_override = SubResource("StandardMaterial3D_1xwno")
 amount = 100
 lifetime = 0.5
@@ -469,8 +331,8 @@ interpolate = false
 process_material = SubResource("ParticleProcessMaterial_xj7t0")
 draw_pass_1 = SubResource("SphereMesh_jm4lo")
 
-[node name="splashes3" type="GPUParticles3D" parent="CaveWalls/waterfall"]
-transform = Transform3D(0.999997, 0, 0, 0, 1, 0, 0, 0, 1, -0.00887752, -0.455064, -0.0808144)
+[node name="splashes3" type="GPUParticles3D" parent="CaveWalls"]
+transform = Transform3D(-44.1941, 0, -1.26269, 0, 21.4286, 0, 44.1941, 0, -1.26269, 49.3789, 0.768019, 66.3024)
 material_override = SubResource("StandardMaterial3D_1xwno")
 amount = 100
 lifetime = 0.5
@@ -479,8 +341,8 @@ interpolate = false
 process_material = SubResource("ParticleProcessMaterial_ohir0")
 draw_pass_1 = SubResource("SphereMesh_jm4lo")
 
-[node name="splashes4" type="GPUParticles3D" parent="CaveWalls/waterfall"]
-transform = Transform3D(0.999997, 0, 0, 0, 1, 0, 0, 0, 1, 0.429083, -0.455064, 0.117207)
+[node name="splashes4" type="GPUParticles3D" parent="CaveWalls"]
+transform = Transform3D(-44.1941, 0, -1.26269, 0, 21.4286, 0, 44.1941, 0, -1.26269, 29.7735, 0.768019, 85.4077)
 material_override = SubResource("StandardMaterial3D_1xwno")
 amount = 100
 lifetime = 0.5
@@ -488,6 +350,12 @@ fixed_fps = 4
 interpolate = false
 process_material = SubResource("ParticleProcessMaterial_ohir0")
 draw_pass_1 = SubResource("SphereMesh_jm4lo")
+
+[node name="waterfall" type="MeshInstance3D" parent="CaveWalls"]
+transform = Transform3D(-44.5477, 0, -1.26289, 0, 21.429, 0, 44.5477, 0, -1.26289, 48.747, 10.516, 66.75)
+material_override = SubResource("StandardMaterial3D_uom8y")
+mesh = SubResource("QuadMesh_whc2f")
+skeleton = NodePath("../..")
 
 [node name="CaveBridge" type="MeshInstance3D" parent="CaveWalls"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0.258819, 0.965926, -1.13133e-08, 0.965926, -0.258819, -4.2222e-08, -9.179, 1.758, 29.585)
@@ -797,6 +665,70 @@ texture = ExtResource("8_35jui")
 
 [node name="blueFlowers30" type="Sprite3D" parent="CaveWalls/flowers"]
 transform = Transform3D(3.0598e-07, 1, 4.37114e-08, -4.37114e-08, -4.37114e-08, 1, 1, -3.0598e-07, 4.37113e-08, 2.25024, 1.0823, 28.5469)
+pixel_size = 0.124
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("8_35jui")
+
+[node name="blueFlowers37" type="Sprite3D" parent="CaveWalls/flowers"]
+transform = Transform3D(-2.18557e-07, -1, -4.37114e-08, -4.37114e-08, -4.37114e-08, 1, -1, 2.18557e-07, -4.37113e-08, 63.1487, 21.795, 128.266)
+pixel_size = 0.124
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("8_35jui")
+
+[node name="blueFlowers38" type="Sprite3D" parent="CaveWalls/flowers"]
+transform = Transform3D(-1, 2.62268e-07, -4.37113e-08, -4.37114e-08, -4.37114e-08, 1, 2.62268e-07, 1, 4.37114e-08, 57.1903, 21.795, 125.733)
+pixel_size = 0.124
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("8_35jui")
+
+[node name="blueFlowers39" type="Sprite3D" parent="CaveWalls/flowers"]
+transform = Transform3D(1, -3.49691e-07, 4.37113e-08, -4.37114e-08, -4.37114e-08, 1, -3.49691e-07, -1, -4.37114e-08, 47.7752, 21.795, 129.003)
+pixel_size = 0.124
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("8_35jui")
+
+[node name="blueFlowers40" type="Sprite3D" parent="CaveWalls/flowers"]
+transform = Transform3D(3.0598e-07, 1, 4.37114e-08, -4.37114e-08, -4.37114e-08, 1, 1, -3.0598e-07, 4.37113e-08, 61.5531, 21.795, 119.635)
+pixel_size = 0.124
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("8_35jui")
+
+[node name="blueFlowers41" type="Sprite3D" parent="CaveWalls/flowers"]
+transform = Transform3D(1, -1.74846e-07, 4.37113e-08, -4.37114e-08, -4.37114e-08, 1, -1.74846e-07, -1, -4.37114e-08, 77.7632, 21.795, 86.1516)
+pixel_size = 0.124
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("8_35jui")
+
+[node name="blueFlowers44" type="Sprite3D" parent="CaveWalls/flowers"]
+transform = Transform3D(1, -1.74846e-07, 4.37113e-08, -4.37114e-08, -4.37114e-08, 1, -1.74846e-07, -1, -4.37114e-08, 38.8148, 21.795, 97.6136)
+pixel_size = 0.124
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("8_35jui")
+
+[node name="blueFlowers42" type="Sprite3D" parent="CaveWalls/flowers"]
+transform = Transform3D(-2.18557e-07, -1, -4.37114e-08, -4.37114e-08, -4.37114e-08, 1, -1, 2.18557e-07, -4.37113e-08, 85.8065, 21.795, 80.1932)
+pixel_size = 0.124
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("8_35jui")
+
+[node name="blueFlowers43" type="Sprite3D" parent="CaveWalls/flowers"]
+transform = Transform3D(-1, 2.62269e-07, -4.37113e-08, -4.37114e-08, -4.37114e-08, 1, 2.62269e-07, 1, 4.37114e-08, 91.9045, 21.795, 84.556)
 pixel_size = 0.124
 double_sided = false
 alpha_cut = 1
@@ -1668,61 +1600,61 @@ mesh = ExtResource("10_klush")
 skeleton = NodePath("../../..")
 
 [node name="LargeRock76" type="MeshInstance3D" parent="CaveWalls/rocks2"]
-transform = Transform3D(-1.26269, 0.173637, -1.25069, -0.162913, 1.73156, 0.404873, 1.25214, 0.400391, -1.20856, -203.285, -2.073, 21.4934)
+transform = Transform3D(-1.26269, 0.173637, -1.25069, -0.162913, 1.73156, 0.404873, 1.25214, 0.400391, -1.20856, -202.259, -2.073, 22.7596)
 material_override = SubResource("StandardMaterial3D_0g42l")
 mesh = ExtResource("10_klush")
 skeleton = NodePath("../../..")
 
 [node name="LargeRock79" type="MeshInstance3D" parent="CaveWalls/rocks2"]
-transform = Transform3D(1.26269, 0, 1.26269, 0, 1.78571, 0, -1.26269, 0, 1.26269, -181.993, -6.31239, 0.738937)
+transform = Transform3D(1.26269, 0, 1.26269, 0, 1.78571, 0, -1.26269, 0, 1.26269, -180.967, -6.31239, 2.00508)
 material_override = SubResource("StandardMaterial3D_0g42l")
 mesh = ExtResource("10_klush")
 skeleton = NodePath("../../..")
 
 [node name="LargeRock84" type="MeshInstance3D" parent="CaveWalls/rocks2"]
-transform = Transform3D(1.21967, -0.326808, 1.26269, 0.462177, 1.72487, -2.75479e-08, -1.21967, 0.326808, 1.26269, -175.406, -10.4897, -6.46169)
+transform = Transform3D(1.21967, -0.326808, 1.26269, 0.462177, 1.72487, -2.75479e-08, -1.21967, 0.326808, 1.26269, -174.38, -10.4897, -5.19554)
 material_override = SubResource("StandardMaterial3D_0g42l")
 mesh = ExtResource("10_klush")
 skeleton = NodePath("../../..")
 
 [node name="LargeRock81" type="MeshInstance3D" parent="CaveWalls/rocks2"]
-transform = Transform3D(-5.33019e-08, 0.462177, 1.72487, -2.75479e-08, 1.72487, -0.462177, -1.78571, -4.04048e-08, -4.43558e-08, -220.327, -4.14465, 37.3164)
+transform = Transform3D(-5.33022e-08, 0.462177, 1.72487, -2.75479e-08, 1.72487, -0.462177, -1.78571, -4.04048e-08, -4.43558e-08, -219.301, -4.14465, 38.5826)
 material_override = SubResource("StandardMaterial3D_0g42l")
 mesh = ExtResource("10_klush")
 skeleton = NodePath("../../..")
 
 [node name="LargeRock82" type="MeshInstance3D" parent="CaveWalls/rocks2"]
-transform = Transform3D(5.67617e-08, 7.98277e-08, 1.78571, 1.26883e-14, 1.78571, 1.00362e-15, -1.78571, -2.28391e-14, 2.16417e-07, -216.903, -9.85114, 35.3615)
+transform = Transform3D(5.67614e-08, 7.98277e-08, 1.78571, 1.26883e-14, 1.78571, 1.00362e-15, -1.78571, -2.28391e-14, 2.16417e-07, -215.877, -9.85113, 36.6276)
 material_override = SubResource("StandardMaterial3D_0g42l")
 mesh = ExtResource("10_klush")
 skeleton = NodePath("../../..")
 
 [node name="LargeRock83" type="MeshInstance3D" parent="CaveWalls/rocks2"]
-transform = Transform3D(-0.892857, -6.91328e-08, -1.54647, 1.26883e-14, 1.78571, 1.00362e-15, 1.54647, -3.99138e-08, -0.892857, -218.6, -8.04206, 40.1773)
+transform = Transform3D(-0.892857, -6.91327e-08, -1.54647, 1.26883e-14, 1.78571, 1.00362e-15, 1.54647, -3.99138e-08, -0.892857, -217.574, -8.04205, 41.4434)
 material_override = SubResource("StandardMaterial3D_0g42l")
 mesh = ExtResource("10_klush")
 skeleton = NodePath("../../..")
 
 [node name="LargeRock80" type="MeshInstance3D" parent="CaveWalls/rocks2"]
-transform = Transform3D(-1.72487, 4.04048e-08, 0.462177, 0.11962, 1.72487, 0.446429, -0.446429, 0.462177, -1.66609, -183.519, -8.48854, 0.306892)
+transform = Transform3D(-1.72487, 4.04048e-08, 0.462177, 0.11962, 1.72487, 0.446429, -0.446429, 0.462177, -1.66609, -182.493, -8.48853, 1.57301)
 material_override = SubResource("StandardMaterial3D_0g42l")
 mesh = ExtResource("10_klush")
 skeleton = NodePath("../../..")
 
 [node name="LargeRock77" type="MeshInstance3D" parent="CaveWalls/rocks2"]
-transform = Transform3D(1.26269, 0, 1.26269, 0, 1.78571, 0, -1.26269, 0, 1.26269, -200.918, -6.60561, 19.5601)
+transform = Transform3D(1.26269, 0, 1.26269, 0, 1.78571, 0, -1.26269, 0, 1.26269, -199.892, -6.60561, 20.8263)
 material_override = SubResource("StandardMaterial3D_0g42l")
 mesh = ExtResource("10_klush")
 skeleton = NodePath("../../..")
 
 [node name="LargeRock85" type="MeshInstance3D" parent="CaveWalls/rocks2"]
-transform = Transform3D(1.26269, 0, 1.26269, 0, 1.78571, 0, -1.26269, 0, 1.26269, -195.339, -9.44551, 13.6003)
+transform = Transform3D(1.26269, 0, 1.26269, 0, 1.78571, 0, -1.26269, 0, 1.26269, -194.313, -9.4455, 14.8664)
 material_override = SubResource("StandardMaterial3D_0g42l")
 mesh = ExtResource("10_klush")
 skeleton = NodePath("../../..")
 
 [node name="LargeRock78" type="MeshInstance3D" parent="CaveWalls/rocks2"]
-transform = Transform3D(1.72487, 2.66308e-08, 0.462177, 0.11962, 1.72487, -0.446428, -0.446429, 0.462177, 1.66609, -203.486, -9.24738, 22.2939)
+transform = Transform3D(1.72487, 2.66308e-08, 0.462177, 0.11962, 1.72487, -0.446428, -0.446429, 0.462177, 1.66609, -202.46, -9.24737, 23.5601)
 material_override = SubResource("StandardMaterial3D_0g42l")
 mesh = ExtResource("10_klush")
 skeleton = NodePath("../../..")
