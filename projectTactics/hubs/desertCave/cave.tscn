@@ -1,11 +1,9 @@
-[gd_scene load_steps=56 format=3 uid="uid://brhvbncn85nke"]
+[gd_scene load_steps=57 format=3 uid="uid://brhvbncn85nke"]
 
 [ext_resource type="Texture2D" uid="uid://dxaynsv6fgcf5" path="res://hubs/desertCave/assets/individualFlower.png" id="1_j76fw"]
 [ext_resource type="PackedScene" uid="uid://bpoag1rko7t2q" path="res://hubs/player/player.tscn" id="1_v2pkq"]
-[ext_resource type="Texture2D" uid="uid://dxk7wv5lmb01u" path="res://hubs/city/assets/courtyard/structures/courtyardSpritemap.png" id="2_3dpdr"]
 [ext_resource type="Texture2D" uid="uid://dp1dfhdoexord" path="res://hubs/city/assets/courtyard/structures/courtyardSpritemapRoughness.png" id="3_58ovy"]
 [ext_resource type="Texture2D" uid="uid://bi0fxrjgc2m8x" path="res://hubs/city/assets/courtyard/structures/courtyardSpritemapLighting.png" id="4_aujao"]
-[ext_resource type="ArrayMesh" uid="uid://dg6o0ilgsf88o" path="res://placeholder/arch.obj" id="5_6h00r"]
 [ext_resource type="Texture2D" uid="uid://x2xxr6cm01cr" path="res://hubs/desertCave/assets/caveTilemap.png" id="6_o4ld3"]
 [ext_resource type="ArrayMesh" uid="uid://dn5xg1li3q5qc" path="res://hubs/desertCave/assets/caveWalls.obj" id="7_go6g5"]
 [ext_resource type="Texture2D" uid="uid://cmvflby55nd71" path="res://hubs/desertCave/assets/blueFlowers.png" id="8_35jui"]
@@ -24,6 +22,9 @@
 [ext_resource type="ArrayMesh" uid="uid://868j5mv1tjuo" path="res://hubs/desertCave/assets/upperWaterSurface.obj" id="18_3nr2t"]
 [ext_resource type="Material" uid="uid://bp1q0vvd3ps5t" path="res://hubs/shared/materials/waterSurfaceMaterial.tres" id="19_gor2t"]
 [ext_resource type="Texture2D" uid="uid://dffbtcja3fppc" path="res://hubs/shared/assets/waterfall5.png" id="21_8kdqn"]
+[ext_resource type="Texture2D" uid="uid://ckps6byk8q0jf" path="res://hubs/desertCave/assets/cityEntrance.png" id="21_pf2nd"]
+[ext_resource type="ArrayMesh" uid="uid://dgliwm6b4gu63" path="res://hubs/desertCave/assets/cityEntrance.obj" id="24_mkbyw"]
+[ext_resource type="ArrayMesh" uid="uid://r14eyviw1qw3" path="res://hubs/desertCave/assets/caveOuterWalls.obj" id="25_pjvhr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ku2gi"]
 transparency = 2
@@ -105,26 +106,6 @@ tracks/0/keys = {
 _data = {
 "restartSDFGI": SubResource("Animation_aihhx")
 }
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qln17"]
-transparency = 2
-alpha_scissor_threshold = 0.5
-alpha_antialiasing_mode = 0
-cull_mode = 2
-albedo_texture = ExtResource("2_3dpdr")
-roughness_texture = ExtResource("3_58ovy")
-emission_enabled = true
-emission_energy_multiplier = 0.3
-emission_texture = ExtResource("4_aujao")
-normal_texture = ExtResource("3_58ovy")
-anisotropy_flowmap = ExtResource("3_58ovy")
-ao_light_affect = 1.0
-ao_texture = ExtResource("3_58ovy")
-heightmap_scale = -0.2
-heightmap_texture = ExtResource("3_58ovy")
-subsurf_scatter_texture = ExtResource("4_aujao")
-backlight_texture = ExtResource("4_aujao")
-texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_smkyt"]
 transparency = 2
@@ -237,6 +218,24 @@ albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_24uvo"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oi0hy"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("21_pf2nd")
+emission_energy_multiplier = 0.3
+emission_texture = ExtResource("4_aujao")
+normal_texture = ExtResource("3_58ovy")
+anisotropy_flowmap = ExtResource("3_58ovy")
+ao_light_affect = 1.0
+ao_texture = ExtResource("3_58ovy")
+heightmap_scale = -0.2
+heightmap_texture = ExtResource("3_58ovy")
+subsurf_scatter_texture = ExtResource("4_aujao")
+backlight_texture = ExtResource("4_aujao")
+texture_filter = 0
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w2vej"]
 albedo_color = Color(0.45098, 0.45098, 0.45098, 1)
 
@@ -274,12 +273,6 @@ visible = false
 
 [node name="greyboxing" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0750937, 0)
-
-[node name="Courtyard2" type="MeshInstance3D" parent="greyboxing"]
-transform = Transform3D(0.444063, 0, 0.444063, 0, 0.628, 0, -0.444063, 0, 0.444063, 49.3742, 11.5163, 75.7913)
-material_override = SubResource("StandardMaterial3D_qln17")
-mesh = ExtResource("5_6h00r")
-skeleton = NodePath("../../courtyardSprites")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="greyboxing"]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -7.89792, 0, 10.4021)
@@ -1664,6 +1657,7 @@ mesh = ExtResource("10_klush")
 skeleton = NodePath("../../..")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="CaveWalls"]
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CaveWalls/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_ocast")
@@ -1717,12 +1711,132 @@ material_override = SubResource("StandardMaterial3D_8o2ne")
 mesh = SubResource("BoxMesh_24uvo")
 skeleton = NodePath("../..")
 
+[node name="cityEntrance" type="MeshInstance3D" parent="CaveWalls"]
+transform = Transform3D(-0.79297, 0, -0.79297, 0, 1.12143, 0, 0.79297, 0, -0.79297, 98.0576, 23.9395, 118.148)
+material_override = SubResource("StandardMaterial3D_oi0hy")
+mesh = ExtResource("24_mkbyw")
+skeleton = NodePath("")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="CaveWalls/cityEntrance"]
+transform = Transform3D(1.59236, 0, 2.38419e-07, 0, 1.59236, 0, -2.38419e-07, 0, 1.59236, -1.97937, 0.596937, 1.97937)
+visible = false
+light_color = Color(1, 0.498039, 0.0627451, 1)
+light_energy = 0.2
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="CaveWalls/cityEntrance"]
+transform = Transform3D(1.59236, 0, 4.76837e-07, 0, 1.59236, 0, -4.76837e-07, 0, 1.59236, -0.638527, 0.596937, 3.48907)
+visible = false
+light_color = Color(1, 0.498039, 0.0627451, 1)
+light_energy = 0.2
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="CaveWalls/cityEntrance"]
+transform = Transform3D(1.59236, 0, 5.96046e-07, 0, 1.59236, 0, -5.96046e-07, 0, 1.59236, 0.443455, 0.334204, 2.4071)
+visible = false
+light_color = Color(1, 0.498039, 0.0627451, 1)
+light_energy = 0.2
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="CaveWalls/cityEntrance"]
+transform = Transform3D(1.59236, 0, 5.96046e-07, 0, 1.59236, 0, -5.96046e-07, 0, 1.59236, -3.21379, 0.334204, 3.65506)
+visible = false
+light_color = Color(1, 0.498039, 0.0627451, 1)
+light_energy = 0.2
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="CaveWalls/cityEntrance"]
+transform = Transform3D(1.59236, 0, 5.96046e-07, 0, 1.59236, 0, -5.96046e-07, 0, 1.59236, 18.2636, 0.596937, 1.71277)
+visible = false
+light_color = Color(1, 0.498039, 0.0627451, 1)
+light_energy = 0.2
+
+[node name="OmniLight3D9" type="OmniLight3D" parent="CaveWalls/cityEntrance"]
+transform = Transform3D(1.59236, 0, 4.76837e-07, 0, 1.59236, 0, -4.76837e-07, 0, 1.59236, -1.97936, 4.64658, 1.97937)
+visible = false
+light_color = Color(1, 0.498039, 0.0627451, 1)
+light_energy = 0.2
+
+[node name="OmniLight3D10" type="OmniLight3D" parent="CaveWalls/cityEntrance"]
+transform = Transform3D(1.59236, 0, 5.96046e-07, 0, 1.59236, 0, -5.96046e-07, 0, 1.59236, 18.2636, 4.64658, 1.71277)
+visible = false
+light_color = Color(1, 0.498039, 0.0627451, 1)
+light_energy = 0.2
+
+[node name="OmniLight3D11" type="OmniLight3D" parent="CaveWalls/cityEntrance"]
+transform = Transform3D(1.59236, 0, 5.96046e-07, 0, 1.59236, 0, -5.96046e-07, 0, 1.59236, -1.97935, 20.4778, 1.97937)
+visible = false
+light_color = Color(1, 0.498039, 0.0627451, 1)
+light_energy = 0.2
+
+[node name="OmniLight3D12" type="OmniLight3D" parent="CaveWalls/cityEntrance"]
+transform = Transform3D(1.59236, 0, 5.96046e-07, 0, 1.59236, 0, -5.96046e-07, 0, 1.59236, 18.2636, 20.4778, 1.71277)
+visible = false
+light_color = Color(1, 0.498039, 0.0627451, 1)
+light_energy = 0.2
+
+[node name="OmniLight3D13" type="OmniLight3D" parent="CaveWalls/cityEntrance"]
+transform = Transform3D(1.59236, 0, 5.96046e-07, 0, 1.59236, 0, -5.96046e-07, 0, 1.59236, -3.71434, 20.4778, 1.66704)
+visible = false
+light_color = Color(1, 0.498039, 0.0627451, 1)
+light_energy = 0.2
+
+[node name="OmniLight3D14" type="OmniLight3D" parent="CaveWalls/cityEntrance"]
+transform = Transform3D(1.59236, 0, 5.96046e-07, 0, 1.59236, 0, -5.96046e-07, 0, 1.59236, 16.5286, 20.4778, 1.40042)
+visible = false
+light_color = Color(1, 0.498039, 0.0627451, 1)
+light_energy = 0.2
+
+[node name="OmniLight3D15" type="OmniLight3D" parent="CaveWalls/cityEntrance"]
+transform = Transform3D(1.59236, 0, 5.96046e-07, 0, 1.59236, 0, -5.96046e-07, 0, 1.59236, -0.345242, 20.4778, 1.61571)
+visible = false
+light_color = Color(1, 0.498039, 0.0627451, 1)
+light_energy = 0.2
+
+[node name="OmniLight3D16" type="OmniLight3D" parent="CaveWalls/cityEntrance"]
+transform = Transform3D(1.59236, 0, 5.96046e-07, 0, 1.59236, 0, -5.96046e-07, 0, 1.59236, 19.8977, 20.4778, 1.34908)
+visible = false
+light_color = Color(1, 0.498039, 0.0627451, 1)
+light_energy = 0.2
+
+[node name="OmniLight3D17" type="OmniLight3D" parent="CaveWalls/cityEntrance"]
+transform = Transform3D(1.59236, 0, 5.96046e-07, 0, 1.59236, 0, -5.96046e-07, 0, 1.59236, 11.6291, 20.4778, 1.36255)
+visible = false
+light_color = Color(1, 0.498039, 0.0627451, 1)
+light_energy = 0.2
+
+[node name="OmniLight3D18" type="OmniLight3D" parent="CaveWalls/cityEntrance"]
+transform = Transform3D(1.59236, 0, 5.96046e-07, 0, 1.59236, 0, -5.96046e-07, 0, 1.59236, 8.07906, 20.4778, 1.16605)
+visible = false
+light_color = Color(1, 0.498039, 0.0627451, 1)
+light_energy = 0.2
+
+[node name="OmniLight3D19" type="OmniLight3D" parent="CaveWalls/cityEntrance"]
+transform = Transform3D(1.59236, 0, 5.96046e-07, 0, 1.59236, 0, -5.96046e-07, 0, 1.59236, 5.47717, 20.4778, 0.977234)
+visible = false
+light_color = Color(1, 0.498039, 0.0627451, 1)
+light_energy = 0.2
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="CaveWalls/cityEntrance"]
+transform = Transform3D(1.59236, 0, 5.96046e-07, 0, 1.59236, 0, -5.96046e-07, 0, 1.59236, 19.6045, 0.596937, 3.22244)
+visible = false
+light_color = Color(1, 0.498039, 0.0627451, 1)
+light_energy = 0.2
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="CaveWalls/cityEntrance"]
+transform = Transform3D(1.59236, 0, 5.96046e-07, 0, 1.59236, 0, -5.96046e-07, 0, 1.59236, 20.6865, 0.334204, 2.14047)
+visible = false
+light_color = Color(1, 0.498039, 0.0627451, 1)
+light_energy = 0.2
+
+[node name="OmniLight3D8" type="OmniLight3D" parent="CaveWalls/cityEntrance"]
+transform = Transform3D(1.59236, 0, 5.96046e-07, 0, 1.59236, 0, -5.96046e-07, 0, 1.59236, 17.0292, 0.334204, 3.38841)
+visible = false
+light_color = Color(1, 0.498039, 0.0627451, 1)
+light_energy = 0.2
+
 [node name="surroundingWalls" type="Node3D" parent="."]
 
 [node name="CaveWalls2" type="MeshInstance3D" parent="surroundingWalls"]
 transform = Transform3D(0.56, 0, 0, 0, -0.56, 0, 0, 0, 0.56, -2.8, 108.919, -1)
 material_override = SubResource("StandardMaterial3D_smkyt")
-mesh = ExtResource("7_go6g5")
+mesh = ExtResource("25_pjvhr")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="surroundingWalls/CaveWalls2"]
@@ -1734,17 +1848,17 @@ mesh = SubResource("BoxMesh_056u7")
 [node name="CaveWalls3" type="MeshInstance3D" parent="surroundingWalls"]
 transform = Transform3D(1, 0, -1.50996e-07, 0, -1, 0, 1.50996e-07, 0, 1, -3.8, 116.5, -36)
 material_override = SubResource("StandardMaterial3D_smkyt")
-mesh = ExtResource("7_go6g5")
+mesh = ExtResource("25_pjvhr")
 skeleton = NodePath("../..")
 
 [node name="CaveWalls4" type="MeshInstance3D" parent="surroundingWalls"]
 transform = Transform3D(1.5, 0, -2.26494e-07, 0, -1.5, 0, 2.26494e-07, 0, 1.5, 52.2, 154.5, -64)
 material_override = SubResource("StandardMaterial3D_smkyt")
-mesh = ExtResource("7_go6g5")
+mesh = ExtResource("25_pjvhr")
 skeleton = NodePath("../..")
 
 [node name="CaveWalls5" type="MeshInstance3D" parent="surroundingWalls"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -30.8, -40.5, -65)
 material_override = SubResource("StandardMaterial3D_smkyt")
-mesh = ExtResource("7_go6g5")
+mesh = ExtResource("25_pjvhr")
 skeleton = NodePath("../..")
