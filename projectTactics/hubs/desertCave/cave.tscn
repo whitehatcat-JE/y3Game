@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://brhvbncn85nke"]
+[gd_scene load_steps=58 format=3 uid="uid://brhvbncn85nke"]
 
 [ext_resource type="Texture2D" uid="uid://dxaynsv6fgcf5" path="res://hubs/desertCave/assets/individualFlower.png" id="1_j76fw"]
 [ext_resource type="PackedScene" uid="uid://bpoag1rko7t2q" path="res://hubs/player/player.tscn" id="1_v2pkq"]
@@ -23,6 +23,7 @@
 [ext_resource type="Material" uid="uid://bp1q0vvd3ps5t" path="res://hubs/shared/materials/waterSurfaceMaterial.tres" id="19_gor2t"]
 [ext_resource type="Texture2D" uid="uid://dffbtcja3fppc" path="res://hubs/shared/assets/waterfall5.png" id="21_8kdqn"]
 [ext_resource type="Texture2D" uid="uid://ckps6byk8q0jf" path="res://hubs/desertCave/assets/cityEntrance.png" id="21_pf2nd"]
+[ext_resource type="Texture2D" uid="uid://cht1aey2a2fio" path="res://hubs/desertCave/assets/cityEntranceEmission.png" id="24_7cqpl"]
 [ext_resource type="ArrayMesh" uid="uid://dgliwm6b4gu63" path="res://hubs/desertCave/assets/cityEntrance.obj" id="24_mkbyw"]
 [ext_resource type="ArrayMesh" uid="uid://r14eyviw1qw3" path="res://hubs/desertCave/assets/caveOuterWalls.obj" id="25_pjvhr"]
 
@@ -224,8 +225,8 @@ alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 cull_mode = 2
 albedo_texture = ExtResource("21_pf2nd")
-emission_energy_multiplier = 0.3
-emission_texture = ExtResource("4_aujao")
+emission_enabled = true
+emission_texture = ExtResource("24_7cqpl")
 normal_texture = ExtResource("3_58ovy")
 anisotropy_flowmap = ExtResource("3_58ovy")
 ao_light_affect = 1.0
@@ -924,6 +925,30 @@ material_override = SubResource("StandardMaterial3D_0g42l")
 mesh = ExtResource("10_klush")
 skeleton = NodePath("../../..")
 
+[node name="LargeRock42" type="MeshInstance3D" parent="CaveWalls/rocks"]
+transform = Transform3D(-1.72486, 1.3774e-08, -0.462174, 3.86885e-15, 1.78571, 5.32184e-08, 0.462174, 5.1405e-08, -1.72486, 62.059, 20.9185, 128.78)
+material_override = SubResource("StandardMaterial3D_0g42l")
+mesh = ExtResource("10_klush")
+skeleton = NodePath("../../..")
+
+[node name="LargeRock43" type="MeshInstance3D" parent="CaveWalls/rocks"]
+transform = Transform3D(1.38498, -0.187001, 1.11159, 0.100238, 1.77442, 0.173618, -1.12274, -0.0722593, 1.38672, 61.2746, 16.7185, 127.992)
+material_override = SubResource("StandardMaterial3D_0g42l")
+mesh = ExtResource("10_klush")
+skeleton = NodePath("../../..")
+
+[node name="LargeRock44" type="MeshInstance3D" parent="CaveWalls/rocks"]
+transform = Transform3D(-1.39034, 0.334634, 1.06947, 0.163518, 1.74658, -0.333922, -1.10861, -0.162056, -1.3905, 62.5446, 15.1421, 128.045)
+material_override = SubResource("StandardMaterial3D_0g42l")
+mesh = ExtResource("10_klush")
+skeleton = NodePath("../../..")
+
+[node name="LargeRock45" type="MeshInstance3D" parent="CaveWalls/rocks"]
+transform = Transform3D(-1.78266, 3.11077e-09, -0.104383, -7.00207e-16, 1.78571, 5.32184e-08, 0.104383, 5.31274e-08, -1.78266, 52.842, 15.871, 122.928)
+material_override = SubResource("StandardMaterial3D_0g42l")
+mesh = ExtResource("10_klush")
+skeleton = NodePath("../../..")
+
 [node name="LargeRock20" type="MeshInstance3D" parent="CaveWalls/rocks"]
 transform = Transform3D(-1.21085, 0.19539, -1.29786, 0.100238, 1.77442, 0.173618, 1.30865, 0.0448724, -1.21416, -61.6232, -7.07541, 10.4525)
 material_override = SubResource("StandardMaterial3D_0g42l")
@@ -1290,6 +1315,24 @@ material_override = SubResource("StandardMaterial3D_0g42l")
 mesh = ExtResource("10_klush")
 skeleton = NodePath("../../..")
 
+[node name="LargeRock90" type="MeshInstance3D" parent="CaveWalls/rocks2"]
+transform = Transform3D(-1.57807, -2.49066e-08, 0.835725, -2.0456e-15, 1.78571, 5.32184e-08, -0.835725, 4.70304e-08, -1.57807, -192.01, 14.3147, -0.240562)
+material_override = SubResource("StandardMaterial3D_0g42l")
+mesh = ExtResource("10_klush")
+skeleton = NodePath("../../..")
+
+[node name="LargeRock92" type="MeshInstance3D" parent="CaveWalls/rocks2"]
+transform = Transform3D(1.72989, -3.06845e-08, 0.44297, -0.0496078, 1.77448, 0.19373, -0.440183, -0.19998, 1.71901, -225.486, 14.3147, -3.08923)
+material_override = SubResource("StandardMaterial3D_0g42l")
+mesh = ExtResource("10_klush")
+skeleton = NodePath("../../..")
+
+[node name="LargeRock91" type="MeshInstance3D" parent="CaveWalls/rocks2"]
+transform = Transform3D(-1.49647, 2.90378e-08, -0.974347, -1.44035e-15, 1.78571, 5.32184e-08, 0.974347, 4.45983e-08, -1.49647, -192.839, 18.4554, -2.43424)
+material_override = SubResource("StandardMaterial3D_0g42l")
+mesh = ExtResource("10_klush")
+skeleton = NodePath("../../..")
+
 [node name="LargeRock35" type="MeshInstance3D" parent="CaveWalls/rocks2"]
 transform = Transform3D(-1.29031, -0.136706, -1.22686, -0.0195385, 1.77677, -0.177432, 1.2343, -0.114783, -1.28534, -88.6901, -4.82313, 6.17534)
 material_override = SubResource("StandardMaterial3D_0g42l")
@@ -1322,6 +1365,24 @@ skeleton = NodePath("../../..")
 
 [node name="LargeRock41" type="MeshInstance3D" parent="CaveWalls/rocks2"]
 transform = Transform3D(-0.463068, 0.435632, 1.6687, -0.0965517, 1.71855, -0.475439, -1.72192, -0.213515, -0.422097, -62.8287, -10.6004, 34.3035)
+material_override = SubResource("StandardMaterial3D_0g42l")
+mesh = ExtResource("10_klush")
+skeleton = NodePath("../../..")
+
+[node name="LargeRock87" type="MeshInstance3D" parent="CaveWalls/rocks2"]
+transform = Transform3D(1.50087, -0.0617847, 0.965586, -0.348176, 1.6282, 0.645373, -0.902744, -0.730695, 1.35643, -244.041, 13.0775, 7.12429)
+material_override = SubResource("StandardMaterial3D_0g42l")
+mesh = ExtResource("10_klush")
+skeleton = NodePath("../../..")
+
+[node name="LargeRock88" type="MeshInstance3D" parent="CaveWalls/rocks2"]
+transform = Transform3D(1.31852, 0.389348, 1.1396, -0.0965517, 1.71855, -0.475439, -1.2004, 0.289433, 1.28998, -244.041, 16.8118, 7.12429)
+material_override = SubResource("StandardMaterial3D_0g42l")
+mesh = ExtResource("10_klush")
+skeleton = NodePath("../../..")
+
+[node name="LargeRock89" type="MeshInstance3D" parent="CaveWalls/rocks2"]
+transform = Transform3D(-0.463068, 0.435632, 1.6687, -0.0965517, 1.71855, -0.475439, -1.72192, -0.213515, -0.422097, -242.902, 10.9974, 5.62401)
 material_override = SubResource("StandardMaterial3D_0g42l")
 mesh = ExtResource("10_klush")
 skeleton = NodePath("../../..")
@@ -1712,124 +1773,58 @@ mesh = SubResource("BoxMesh_24uvo")
 skeleton = NodePath("../..")
 
 [node name="cityEntrance" type="MeshInstance3D" parent="CaveWalls"]
-transform = Transform3D(-0.79297, 0, -0.79297, 0, 1.12143, 0, 0.79297, 0, -0.79297, 98.0576, 23.9395, 118.148)
+transform = Transform3D(-0.79297, 0, -0.79297, 0, 1.12143, 0, 0.79297, 0, -0.79297, 98.0576, 23.9733, 118.148)
 material_override = SubResource("StandardMaterial3D_oi0hy")
 mesh = ExtResource("24_mkbyw")
 skeleton = NodePath("")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="CaveWalls/cityEntrance"]
-transform = Transform3D(1.59236, 0, 2.38419e-07, 0, 1.59236, 0, -2.38419e-07, 0, 1.59236, -1.97937, 0.596937, 1.97937)
-visible = false
+[node name="candleLight1" type="OmniLight3D" parent="CaveWalls/cityEntrance"]
+transform = Transform3D(1.59236, 0, 2.98023e-07, 0, 1.59235, 0, -2.98023e-07, 0, 1.59236, -3.14934, 2.30068, 0.200241)
 light_color = Color(1, 0.498039, 0.0627451, 1)
 light_energy = 0.2
+light_size = 0.273
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="CaveWalls/cityEntrance"]
-transform = Transform3D(1.59236, 0, 4.76837e-07, 0, 1.59236, 0, -4.76837e-07, 0, 1.59236, -0.638527, 0.596937, 3.48907)
-visible = false
+[node name="candleLight7" type="OmniLight3D" parent="CaveWalls/cityEntrance"]
+transform = Transform3D(1.59236, 0, 2.98023e-07, 0, 1.59235, 0, -2.98023e-07, 0, 1.59236, 3.85055, 2.30068, -3.18044)
 light_color = Color(1, 0.498039, 0.0627451, 1)
 light_energy = 0.2
+light_size = 0.273
 
-[node name="OmniLight3D3" type="OmniLight3D" parent="CaveWalls/cityEntrance"]
-transform = Transform3D(1.59236, 0, 5.96046e-07, 0, 1.59236, 0, -5.96046e-07, 0, 1.59236, 0.443455, 0.334204, 2.4071)
-visible = false
+[node name="candleLight8" type="OmniLight3D" parent="CaveWalls/cityEntrance"]
+transform = Transform3D(1.59236, 0, 2.98023e-07, 0, 1.59235, 0, -2.98023e-07, 0, 1.59236, 13.5592, 2.30068, -3.15811)
 light_color = Color(1, 0.498039, 0.0627451, 1)
 light_energy = 0.2
+light_size = 0.273
 
-[node name="OmniLight3D4" type="OmniLight3D" parent="CaveWalls/cityEntrance"]
-transform = Transform3D(1.59236, 0, 5.96046e-07, 0, 1.59236, 0, -5.96046e-07, 0, 1.59236, -3.21379, 0.334204, 3.65506)
-visible = false
+[node name="candleLight3" type="OmniLight3D" parent="CaveWalls/cityEntrance"]
+transform = Transform3D(1.59236, 0, 2.98023e-07, 0, 1.59235, 0, -2.98023e-07, 0, 1.59236, -4.29156, 0.470322, 1.34624)
 light_color = Color(1, 0.498039, 0.0627451, 1)
-light_energy = 0.2
+light_energy = 0.1
+light_size = 0.273
 
-[node name="OmniLight3D5" type="OmniLight3D" parent="CaveWalls/cityEntrance"]
-transform = Transform3D(1.59236, 0, 5.96046e-07, 0, 1.59236, 0, -5.96046e-07, 0, 1.59236, 18.2636, 0.596937, 1.71277)
-visible = false
+[node name="candleLight4" type="OmniLight3D" parent="CaveWalls/cityEntrance"]
+transform = Transform3D(1.59236, 0, 2.98023e-07, 0, 1.59235, 0, -2.98023e-07, 0, 1.59236, -1.53405, 0.470322, 1.03676)
 light_color = Color(1, 0.498039, 0.0627451, 1)
-light_energy = 0.2
+light_energy = 0.1
+light_size = 0.273
 
-[node name="OmniLight3D9" type="OmniLight3D" parent="CaveWalls/cityEntrance"]
-transform = Transform3D(1.59236, 0, 4.76837e-07, 0, 1.59236, 0, -4.76837e-07, 0, 1.59236, -1.97936, 4.64658, 1.97937)
-visible = false
+[node name="candleLight5" type="OmniLight3D" parent="CaveWalls/cityEntrance"]
+transform = Transform3D(1.59236, 0, 2.98023e-07, 0, 1.59235, 0, -2.98023e-07, 0, 1.59236, 19.5704, 0.470322, 1.23875)
 light_color = Color(1, 0.498039, 0.0627451, 1)
-light_energy = 0.2
+light_energy = 0.1
+light_size = 0.273
 
-[node name="OmniLight3D10" type="OmniLight3D" parent="CaveWalls/cityEntrance"]
-transform = Transform3D(1.59236, 0, 5.96046e-07, 0, 1.59236, 0, -5.96046e-07, 0, 1.59236, 18.2636, 4.64658, 1.71277)
-visible = false
+[node name="candleLight6" type="OmniLight3D" parent="CaveWalls/cityEntrance"]
+transform = Transform3D(1.59236, 0, 2.98023e-07, 0, 1.59235, 0, -2.98023e-07, 0, 1.59236, 22.328, 0.470322, 0.929245)
 light_color = Color(1, 0.498039, 0.0627451, 1)
-light_energy = 0.2
+light_energy = 0.1
+light_size = 0.273
 
-[node name="OmniLight3D11" type="OmniLight3D" parent="CaveWalls/cityEntrance"]
-transform = Transform3D(1.59236, 0, 5.96046e-07, 0, 1.59236, 0, -5.96046e-07, 0, 1.59236, -1.97935, 20.4778, 1.97937)
-visible = false
+[node name="candleLight2" type="OmniLight3D" parent="CaveWalls/cityEntrance"]
+transform = Transform3D(1.59236, 0, 2.98023e-07, 0, 1.59235, 0, -2.98023e-07, 0, 1.59236, 20.6182, 2.30068, 0.516617)
 light_color = Color(1, 0.498039, 0.0627451, 1)
 light_energy = 0.2
-
-[node name="OmniLight3D12" type="OmniLight3D" parent="CaveWalls/cityEntrance"]
-transform = Transform3D(1.59236, 0, 5.96046e-07, 0, 1.59236, 0, -5.96046e-07, 0, 1.59236, 18.2636, 20.4778, 1.71277)
-visible = false
-light_color = Color(1, 0.498039, 0.0627451, 1)
-light_energy = 0.2
-
-[node name="OmniLight3D13" type="OmniLight3D" parent="CaveWalls/cityEntrance"]
-transform = Transform3D(1.59236, 0, 5.96046e-07, 0, 1.59236, 0, -5.96046e-07, 0, 1.59236, -3.71434, 20.4778, 1.66704)
-visible = false
-light_color = Color(1, 0.498039, 0.0627451, 1)
-light_energy = 0.2
-
-[node name="OmniLight3D14" type="OmniLight3D" parent="CaveWalls/cityEntrance"]
-transform = Transform3D(1.59236, 0, 5.96046e-07, 0, 1.59236, 0, -5.96046e-07, 0, 1.59236, 16.5286, 20.4778, 1.40042)
-visible = false
-light_color = Color(1, 0.498039, 0.0627451, 1)
-light_energy = 0.2
-
-[node name="OmniLight3D15" type="OmniLight3D" parent="CaveWalls/cityEntrance"]
-transform = Transform3D(1.59236, 0, 5.96046e-07, 0, 1.59236, 0, -5.96046e-07, 0, 1.59236, -0.345242, 20.4778, 1.61571)
-visible = false
-light_color = Color(1, 0.498039, 0.0627451, 1)
-light_energy = 0.2
-
-[node name="OmniLight3D16" type="OmniLight3D" parent="CaveWalls/cityEntrance"]
-transform = Transform3D(1.59236, 0, 5.96046e-07, 0, 1.59236, 0, -5.96046e-07, 0, 1.59236, 19.8977, 20.4778, 1.34908)
-visible = false
-light_color = Color(1, 0.498039, 0.0627451, 1)
-light_energy = 0.2
-
-[node name="OmniLight3D17" type="OmniLight3D" parent="CaveWalls/cityEntrance"]
-transform = Transform3D(1.59236, 0, 5.96046e-07, 0, 1.59236, 0, -5.96046e-07, 0, 1.59236, 11.6291, 20.4778, 1.36255)
-visible = false
-light_color = Color(1, 0.498039, 0.0627451, 1)
-light_energy = 0.2
-
-[node name="OmniLight3D18" type="OmniLight3D" parent="CaveWalls/cityEntrance"]
-transform = Transform3D(1.59236, 0, 5.96046e-07, 0, 1.59236, 0, -5.96046e-07, 0, 1.59236, 8.07906, 20.4778, 1.16605)
-visible = false
-light_color = Color(1, 0.498039, 0.0627451, 1)
-light_energy = 0.2
-
-[node name="OmniLight3D19" type="OmniLight3D" parent="CaveWalls/cityEntrance"]
-transform = Transform3D(1.59236, 0, 5.96046e-07, 0, 1.59236, 0, -5.96046e-07, 0, 1.59236, 5.47717, 20.4778, 0.977234)
-visible = false
-light_color = Color(1, 0.498039, 0.0627451, 1)
-light_energy = 0.2
-
-[node name="OmniLight3D6" type="OmniLight3D" parent="CaveWalls/cityEntrance"]
-transform = Transform3D(1.59236, 0, 5.96046e-07, 0, 1.59236, 0, -5.96046e-07, 0, 1.59236, 19.6045, 0.596937, 3.22244)
-visible = false
-light_color = Color(1, 0.498039, 0.0627451, 1)
-light_energy = 0.2
-
-[node name="OmniLight3D7" type="OmniLight3D" parent="CaveWalls/cityEntrance"]
-transform = Transform3D(1.59236, 0, 5.96046e-07, 0, 1.59236, 0, -5.96046e-07, 0, 1.59236, 20.6865, 0.334204, 2.14047)
-visible = false
-light_color = Color(1, 0.498039, 0.0627451, 1)
-light_energy = 0.2
-
-[node name="OmniLight3D8" type="OmniLight3D" parent="CaveWalls/cityEntrance"]
-transform = Transform3D(1.59236, 0, 5.96046e-07, 0, 1.59236, 0, -5.96046e-07, 0, 1.59236, 17.0292, 0.334204, 3.38841)
-visible = false
-light_color = Color(1, 0.498039, 0.0627451, 1)
-light_energy = 0.2
+light_size = 0.273
 
 [node name="surroundingWalls" type="Node3D" parent="."]
 
