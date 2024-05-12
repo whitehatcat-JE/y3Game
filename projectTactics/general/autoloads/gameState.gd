@@ -1,5 +1,9 @@
 extends Node
 
+signal event(identifier:String, value)
+
+signal eventFinished
+
 func _ready():
 	self.process_mode = Node.PROCESS_MODE_ALWAYS
 

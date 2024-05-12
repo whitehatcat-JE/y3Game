@@ -22,6 +22,7 @@ var verticalVel:float = 0.0
 
 var storedDirection:Vector3 = Vector3()
 var isSprinting:bool = false
+var isStopped:bool = false
 
 var itemMenuDisplayed:bool = false
 var itemBuyProgress:float = 0.0
@@ -38,11 +39,14 @@ func _ready() -> void:
 	playerInfo = FM.playerData
 
 func _input(event):
-	if event is InputEventMouseMotion: updateCam(event);
+	if event is InputEventMouseMotion and !isStopped: updateCam(event);
 	if Input.is_action_just_pressed("pause"): pause();
 
 func _process(delta):
-	interact(delta)
+	if !isStopped: interact(delta);
+	else:
+		%interactIcon.visible = false
+		%deniedIcon.visible = false
 
 func _physics_process(delta):
 	move(delta)
@@ -65,7 +69,7 @@ func move(delta):
 	var aim:Vector3 = Vector3(1, 0, 1)
 	var direction:Vector3 = Vector3(0, -1, 0)
 	
-	if is_on_floor():
+	if is_on_floor() and !isStopped:
 		var inputVec:Vector2 = Input.get_vector("moveLeft", "moveRight", "moveUp", "moveDown")
 		if inputVec.x != 0 and inputVec.y != 0: inputVec *= 0.709;
 		direction.x = aim.x * inputVec.x
@@ -75,7 +79,7 @@ func move(delta):
 	else: direction = storedDirection;
 	
 	# Move player in calculated direction
-	if direction.dot(velocity) == 0 and velocity.length() > 0.1:
+	if (direction.dot(velocity) == 0 and velocity.length() > 0.1) or isStopped:
 		velocity *= DECELERATION * delta
 	else:
 		velocity = direction.normalized() * PLAYER_SPEED
@@ -92,6 +96,12 @@ func move(delta):
 
 #region Interaction
 func interact(delta):
+	if %dialogueRay.is_colliding():
+		%interactIcon.visible = true
+		%deniedIcon.visible = false
+		if Input.is_action_just_pressed("interact"):
+			startDialogue("caveMerchantIntro")
+		return
 	if %interactRay.is_colliding():
 		if %interactRay.get_collider() != currentlySelected:
 			if currentlySelected != null and currentlySelected.has_node("mesh"):
@@ -123,9 +133,8 @@ func interact(delta):
 				bulkSpeed = 1.0
 				itemBuyProgress = 0
 			%itemMenuBuyBar.value = itemBuyProgress
-	elif currentlySelected != null:
-		%interactIcon.visible = false
-		%deniedIcon.visible = false
+		return
+	if currentlySelected != null:
 		%itemMenuInteractionTimer.stop()
 		if currentlySelected.interactionType == "item" and itemMenuDisplayed:
 			itemMenuDisplayed = false
@@ -134,6 +143,15 @@ func interact(delta):
 		if currentlySelected.has_node("mesh"):
 			currentlySelected.get_node("mesh").material_overlay = null
 		currentlySelected = null
+	%interactIcon.visible = false
+	%deniedIcon.visible = false
+
+func startDialogue(identifier:String):
+	isStopped = true
+	%bobAnim.speed_scale = 0.1
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	%dialogueMenu.startDialogue(identifier)
+	%dialogueMenu.process_mode = Node.PROCESS_MODE_PAUSABLE
 
 func buyItem():
 	playerInfo.balance -= currentlySelected.part.cost
@@ -194,3 +212,7 @@ func pause():
 			currentlySelected.get_node("mesh").material_overlay = null
 		currentlySelected = null
 #endregion
+
+func dialogueEnded():
+	isStopped = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

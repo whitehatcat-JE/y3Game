@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bpoag1rko7t2q"]
+[gd_scene load_steps=41 format=3 uid="uid://bpoag1rko7t2q"]
 
 [ext_resource type="Script" path="res://hubs/player/scripts/player.gd" id="1_rqkst"]
 [ext_resource type="Resource" uid="uid://jlq0uk01mcbf" path="res://hubs/player/mainPlayerData.tres" id="2_0c2xc"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://hubs/player/scripts/pauseUI.gd" id="11_7tsis"]
 [ext_resource type="Shader" path="res://hubs/player/scripts/blur.gdshader" id="12_ti0yg"]
 [ext_resource type="PackedScene" uid="uid://7p08th6jln4e" path="res://general/UI/settingsMenu.tscn" id="13_55kmc"]
+[ext_resource type="Script" path="res://hubs/player/scripts/dialogueUI.gd" id="14_bkpgj"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uksar"]
 
@@ -341,6 +342,14 @@ font_size = 24
 [sub_resource type="LabelSettings" id="LabelSettings_6tdxm"]
 font_size = 12
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5gtqt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lbxy6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fq1qp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jd4ku"]
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t88bi"]
 shader = ExtResource("12_ti0yg")
 shader_parameter/lod = 1.0
@@ -408,6 +417,15 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 target_position = Vector3(0, -4, 0)
 collision_mask = 2
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="dialogueRay" type="RayCast3D" parent="head/neck/playerCam"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+target_position = Vector3(0, -4, 0)
+collision_mask = 8
 hit_from_inside = true
 collide_with_areas = true
 collide_with_bodies = false
@@ -607,6 +625,213 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 wait_time = 0.2
 one_shot = true
+
+[node name="dialogueMenu" type="Control" parent="UI"]
+unique_name_in_owner = true
+process_mode = 4
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("14_bkpgj")
+
+[node name="dialogueLayout" type="GridContainer" parent="UI/dialogueMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 3
+
+[node name="HSeparator" type="HSeparator" parent="UI/dialogueMenu/dialogueLayout"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_5gtqt")
+
+[node name="HSeparator2" type="HSeparator" parent="UI/dialogueMenu/dialogueLayout"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_5gtqt")
+
+[node name="HSeparator3" type="HSeparator" parent="UI/dialogueMenu/dialogueLayout"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_5gtqt")
+
+[node name="HSeparator4" type="HSeparator" parent="UI/dialogueMenu/dialogueLayout"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_5gtqt")
+
+[node name="HSeparator5" type="HSeparator" parent="UI/dialogueMenu/dialogueLayout"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_5gtqt")
+
+[node name="HSeparator6" type="HSeparator" parent="UI/dialogueMenu/dialogueLayout"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_5gtqt")
+
+[node name="VSeparator" type="VSeparator" parent="UI/dialogueMenu/dialogueLayout"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_lbxy6")
+
+[node name="background" type="ColorRect" parent="UI/dialogueMenu/dialogueLayout"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0, 0, 0.482353)
+
+[node name="dialogueTextGrid" type="GridContainer" parent="UI/dialogueMenu/dialogueLayout/background"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 3
+
+[node name="HSeparator" type="HSeparator" parent="UI/dialogueMenu/dialogueLayout/background/dialogueTextGrid"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_fq1qp")
+
+[node name="HSeparator2" type="HSeparator" parent="UI/dialogueMenu/dialogueLayout/background/dialogueTextGrid"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_fq1qp")
+
+[node name="HSeparator3" type="HSeparator" parent="UI/dialogueMenu/dialogueLayout/background/dialogueTextGrid"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_fq1qp")
+
+[node name="VSeparator" type="VSeparator" parent="UI/dialogueMenu/dialogueLayout/background/dialogueTextGrid"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_jd4ku")
+
+[node name="dialogueText" type="RichTextLabel" parent="UI/dialogueMenu/dialogueLayout/background/dialogueTextGrid"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+scroll_active = false
+
+[node name="VSeparator2" type="VSeparator" parent="UI/dialogueMenu/dialogueLayout/background/dialogueTextGrid"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_jd4ku")
+
+[node name="dialogueResponseGrid" type="GridContainer" parent="UI/dialogueMenu/dialogueLayout/background"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 3
+
+[node name="VSeparator" type="VSeparator" parent="UI/dialogueMenu/dialogueLayout/background/dialogueResponseGrid"]
+custom_minimum_size = Vector2(25, 30)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_jd4ku")
+
+[node name="VSeparator2" type="VSeparator" parent="UI/dialogueMenu/dialogueLayout/background/dialogueResponseGrid"]
+custom_minimum_size = Vector2(25, 30)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_jd4ku")
+
+[node name="VSeparator11" type="VSeparator" parent="UI/dialogueMenu/dialogueLayout/background/dialogueResponseGrid"]
+custom_minimum_size = Vector2(25, 30)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_jd4ku")
+
+[node name="VSeparator3" type="VSeparator" parent="UI/dialogueMenu/dialogueLayout/background/dialogueResponseGrid"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_jd4ku")
+
+[node name="response1" type="Button" parent="UI/dialogueMenu/dialogueLayout/background/dialogueResponseGrid"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Nevermind"
+alignment = 0
+
+[node name="VSeparator4" type="VSeparator" parent="UI/dialogueMenu/dialogueLayout/background/dialogueResponseGrid"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_jd4ku")
+
+[node name="VSeparator5" type="VSeparator" parent="UI/dialogueMenu/dialogueLayout/background/dialogueResponseGrid"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_jd4ku")
+
+[node name="response2" type="Button" parent="UI/dialogueMenu/dialogueLayout/background/dialogueResponseGrid"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Talk"
+alignment = 0
+
+[node name="VSeparator6" type="VSeparator" parent="UI/dialogueMenu/dialogueLayout/background/dialogueResponseGrid"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_jd4ku")
+
+[node name="VSeparator7" type="VSeparator" parent="UI/dialogueMenu/dialogueLayout/background/dialogueResponseGrid"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_jd4ku")
+
+[node name="response3" type="Button" parent="UI/dialogueMenu/dialogueLayout/background/dialogueResponseGrid"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Sell"
+alignment = 0
+
+[node name="VSeparator8" type="VSeparator" parent="UI/dialogueMenu/dialogueLayout/background/dialogueResponseGrid"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_jd4ku")
+
+[node name="VSeparator9" type="VSeparator" parent="UI/dialogueMenu/dialogueLayout/background/dialogueResponseGrid"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_jd4ku")
+
+[node name="response4" type="Button" parent="UI/dialogueMenu/dialogueLayout/background/dialogueResponseGrid"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Assemble Unit"
+alignment = 0
+
+[node name="VSeparator10" type="VSeparator" parent="UI/dialogueMenu/dialogueLayout/background/dialogueResponseGrid"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_jd4ku")
+
+[node name="VSeparator2" type="VSeparator" parent="UI/dialogueMenu/dialogueLayout"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_lbxy6")
+
+[node name="HSeparator10" type="HSeparator" parent="UI/dialogueMenu/dialogueLayout"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_5gtqt")
 
 [node name="pauseMenu" type="Control" parent="UI"]
 unique_name_in_owner = true
@@ -902,6 +1127,11 @@ offset_left = -276.0
 offset_right = 324.0
 
 [connection signal="timeout" from="UI/HUD/shop/itemMenu/itemMenuInteractionTimer" to="." method="triggerItemMenu"]
+[connection signal="dialogueEnded" from="UI/dialogueMenu" to="." method="dialogueEnded"]
+[connection signal="button_up" from="UI/dialogueMenu/dialogueLayout/background/dialogueResponseGrid/response1" to="UI/dialogueMenu" method="response1Pressed"]
+[connection signal="button_up" from="UI/dialogueMenu/dialogueLayout/background/dialogueResponseGrid/response2" to="UI/dialogueMenu" method="response2Pressed"]
+[connection signal="button_up" from="UI/dialogueMenu/dialogueLayout/background/dialogueResponseGrid/response3" to="UI/dialogueMenu" method="response3Pressed"]
+[connection signal="button_up" from="UI/dialogueMenu/dialogueLayout/background/dialogueResponseGrid/response4" to="UI/dialogueMenu" method="response4Pressed"]
 [connection signal="item_selected" from="UI/pauseMenu/inventoryMenu/inventory" to="UI/pauseMenu" method="inventoryItemSelected"]
 [connection signal="button_up" from="UI/pauseMenu/saveMenu/saveGameButton" to="UI/pauseMenu" method="saveGamePressed"]
 [connection signal="button_up" from="UI/pauseMenu/saveMenu/mainMenuButton" to="UI/pauseMenu" method="mainMenuPressed"]
