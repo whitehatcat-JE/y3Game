@@ -33,15 +33,21 @@ var currentlySelected:Node = null
 @onready var outlineMaterial:ShaderMaterial = preload("res://hubs/interactions/shaders/outlineMat.tres")
 
 @export var playerInfo:PlayerData
+@export var secondaryEntrances:Node3D = null
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	playerInfo = FM.playerData
+	
+	if secondaryEntrances != null and secondaryEntrances.get_node_or_null(GS.entranceName) != null:
+		var targetNode:Node3D = secondaryEntrances.get_node(GS.entranceName)
+		global_position = targetNode.global_position + Vector3(0.0, 1.0, 0.0)
+		global_rotation = targetNode.global_rotation
 
 func _input(event):
 	if event is InputEventMouseMotion and !isStopped: updateCam(event);
 	if Input.is_action_just_pressed("pause"): pause();
-
+ 
 func _process(delta):
 	if !isStopped: interact(delta);
 	else:
@@ -109,6 +115,7 @@ func interact(delta):
 					self.global_rotation = interactionNode.teleportNode.global_rotation
 					self.position.y += 1.0
 				3:
+					GS.entranceName = interactionNode.entranceName
 					get_tree().change_scene_to_file(interactionNode.scene)
 		return
 	if %itemRay.is_colliding():

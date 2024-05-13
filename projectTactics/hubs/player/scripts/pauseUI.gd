@@ -2,6 +2,8 @@ extends Control
 
 var freezeButtons : bool = false
 
+var selectedItemIdx : int = 0
+
 @export var playerInfo : PlayerData
 
 func _ready():
@@ -40,6 +42,7 @@ func clearDisplayedItem():
 	%inventorySpeedIcon.visible = false
 	%inventoryRangeIcon.visible = false
 	%inventorySplashIcon.visible = false
+	%deleteButton.visible = false
 
 func openSettings():
 	%inventoryMenu.visible = false
@@ -78,6 +81,10 @@ func inventoryItemSelected(index):
 	%inventoryRange.text = str(playerInfo.inventory[index].range)
 	%inventorySplashIcon.visible = playerInfo.inventory[index].splash > 0
 	%inventorySplash.text = str(playerInfo.inventory[index].splash)
+	
+	%deleteButton.visible = true
+	
+	selectedItemIdx = index
 
 func saveGamePressed():
 	FM.saveGame()
@@ -93,3 +100,20 @@ func mainMenuPressed():
 
 func desktopPressed():
 	get_tree().quit()
+
+func deleteItemPressed():
+	var item : Part = playerInfo.inventory[selectedItemIdx]
+	playerInfo.inventory.erase(selectedItemIdx)
+	playerInfo.itemCounts.erase(item)
+	
+	var items : Array = playerInfo.inventory.values()
+	var newInventory : Dictionary = {}
+	for newItemIdx in range(len(items)):
+		newInventory[newItemIdx] = items[newItemIdx]
+	
+	playerInfo.inventory = newInventory
+	
+	clearDisplayedItem()
+	openInventory()
+	
+	FM.saveGame()

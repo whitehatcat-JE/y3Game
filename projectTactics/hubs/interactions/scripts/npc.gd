@@ -8,16 +8,9 @@ extends Area3D
 		notify_property_list_changed()
 		updateChildren()
 
-@export_file() var scene:String = "" :
-	set(value):
-		var file = value.get_file()
-		if file != "":
-			var fileName = file.get_slice(".", 0)
-			if fileName in NodeBuffer.queuedNodes.keys():
-				NodeBuffer.queuedNodes[fileName].append("a")
-			else:
-				NodeBuffer.queuedNodes[fileName] = ["a"]
-		scene = value
+@export_category("Scene")
+@export_file() var scene:String = ""
+@export var entranceName:String = ""
 
 @export_category("Dialogue Identifiers")
 @export var introduction:String = ""
@@ -33,6 +26,8 @@ func _validate_property(property: Dictionary):
 	elif property.name == "standard" and type != 0:
 		property.usage = PROPERTY_USAGE_NO_EDITOR
 	elif property.name == "scene" and type != 3:
+		property.usage = PROPERTY_USAGE_NO_EDITOR
+	elif property.name == "entranceName" and type != 3:
 		property.usage = PROPERTY_USAGE_NO_EDITOR
 
 func updateChildren():

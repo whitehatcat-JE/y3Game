@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://bpoag1rko7t2q"]
+[gd_scene load_steps=42 format=3 uid="uid://bpoag1rko7t2q"]
 
 [ext_resource type="Script" path="res://hubs/player/scripts/player.gd" id="1_rqkst"]
 [ext_resource type="Resource" uid="uid://jlq0uk01mcbf" path="res://hubs/player/mainPlayerData.tres" id="2_0c2xc"]
@@ -394,6 +394,8 @@ _data = {
 viewport_path = NodePath("UI/pauseMenu/inventoryMenu/inventory/inventoryItemViewport")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5gfna"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_70jjf"]
 
 [node name="player" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.80221, 37.4239)
@@ -942,7 +944,7 @@ texture = SubResource("ViewportTexture_ipuqb")
 offset = Vector2(250, 250)
 
 [node name="itemSpacerV" type="HSeparator" parent="UI/pauseMenu/inventoryMenu/inventoryItem"]
-custom_minimum_size = Vector2(310, 0)
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme_override_constants/separation = 325
 theme_override_styles/separator = SubResource("StyleBoxEmpty_5gfna")
@@ -1039,6 +1041,17 @@ offset_bottom = 11.0
 text = "1"
 horizontal_alignment = 1
 
+[node name="VSeparator" type="HSeparator" parent="UI/pauseMenu/inventoryMenu/inventoryItem"]
+layout_mode = 2
+theme_override_constants/separation = 100
+theme_override_styles/separator = SubResource("StyleBoxEmpty_70jjf")
+
+[node name="deleteButton" type="Button" parent="UI/pauseMenu/inventoryMenu/inventoryItem"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Trash"
+
 [node name="saveMenu" type="GridContainer" parent="UI/pauseMenu"]
 unique_name_in_owner = true
 visible = false
@@ -1133,6 +1146,7 @@ offset_right = 324.0
 [connection signal="button_up" from="UI/dialogueMenu/dialogueLayout/background/dialogueResponseGrid/response3" to="UI/dialogueMenu" method="response3Pressed"]
 [connection signal="button_up" from="UI/dialogueMenu/dialogueLayout/background/dialogueResponseGrid/response4" to="UI/dialogueMenu" method="response4Pressed"]
 [connection signal="item_selected" from="UI/pauseMenu/inventoryMenu/inventory" to="UI/pauseMenu" method="inventoryItemSelected"]
+[connection signal="button_up" from="UI/pauseMenu/inventoryMenu/inventoryItem/deleteButton" to="UI/pauseMenu" method="deleteItemPressed"]
 [connection signal="button_up" from="UI/pauseMenu/saveMenu/saveGameButton" to="UI/pauseMenu" method="saveGamePressed"]
 [connection signal="button_up" from="UI/pauseMenu/saveMenu/mainMenuButton" to="UI/pauseMenu" method="mainMenuPressed"]
 [connection signal="button_up" from="UI/pauseMenu/saveMenu/desktopButton" to="UI/pauseMenu" method="desktopPressed"]

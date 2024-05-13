@@ -20,7 +20,6 @@ config/icon="res://placeholder/icon.svg"
 FM="*res://general/autoloads/fileManager.gd"
 GS="*res://general/autoloads/gameState.gd"
 Music="*res://general/autoloads/music.tscn"
-NodeBuffer="*res://general/autoloads/nodeBuffer.gd"
 
 [display]
 
