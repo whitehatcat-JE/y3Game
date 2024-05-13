@@ -1,8 +1,9 @@
-[gd_scene load_steps=130 format=3 uid="uid://brhvbncn85nke"]
+[gd_scene load_steps=131 format=3 uid="uid://brhvbncn85nke"]
 
 [ext_resource type="Script" path="res://hubs/desertCave/scripts/cave.gd" id="1_j6xu3"]
 [ext_resource type="Texture2D" uid="uid://dxaynsv6fgcf5" path="res://hubs/desertCave/assets/individualFlower.png" id="1_j76fw"]
 [ext_resource type="PackedScene" uid="uid://bpoag1rko7t2q" path="res://hubs/player/player.tscn" id="1_v2pkq"]
+[ext_resource type="Script" path="res://general/autoloads/nodeBuffer.gd" id="2_xtrq5"]
 [ext_resource type="Texture2D" uid="uid://dp1dfhdoexord" path="res://hubs/city/assets/courtyard/structures/courtyardSpritemapRoughness.png" id="3_58ovy"]
 [ext_resource type="Texture2D" uid="uid://bi0fxrjgc2m8x" path="res://hubs/city/assets/courtyard/structures/courtyardSpritemapLighting.png" id="4_aujao"]
 [ext_resource type="Texture2D" uid="uid://x2xxr6cm01cr" path="res://hubs/desertCave/assets/caveTilemap.png" id="6_o4ld3"]
@@ -463,6 +464,9 @@ _surfaces = [{
 
 [node name="cave" type="Node3D"]
 script = ExtResource("1_j6xu3")
+
+[node name="SCENE ENTRANCES" type="Node3D" parent="."]
+script = ExtResource("2_xtrq5")
 
 [node name="ambientParticlesBottom" type="GPUParticles3D" parent="."]
 transform = Transform3D(-0.999567, 0, -0.029422, 0, 1, 0, 0.029422, 0, -0.999567, 10.1625, 17.2411, 34.11)
@@ -2896,7 +2900,6 @@ mesh = SubResource("BoxMesh_kn01q")
 [node name="caveLowerPath" parent="shop" instance=ExtResource("36_6tfbb")]
 transform = Transform3D(-0.099991, 0, -0.00134557, 0, 0.1, 0, 0.00134557, 0, -0.099991, 35.4859, 3.43583, 13.8931)
 type = 1
-scene = ""
 
 [node name="hitbox" parent="shop/caveLowerPath" index="0"]
 transform = Transform3D(0.728263, 0, -0.685298, 0, 1, 0, 0.685298, 0, 0.728263, -36.2316, -4.53843, -7.82474)
@@ -2915,7 +2918,6 @@ shape = SubResource("BoxShape3D_clk1u")
 [node name="caveUpperPath" parent="shop" instance=ExtResource("36_6tfbb")]
 transform = Transform3D(-0.099991, 0, -0.00134557, 0, 0.1, 0, 0.00134557, 0, -0.099991, 65.2506, 15.8661, 32.3429)
 type = 1
-scene = ""
 
 [node name="hitbox" parent="shop/caveUpperPath" index="0"]
 transform = Transform3D(0.973343, 0, -0.229354, 0, 1, 0, 0.229354, 0, 0.973343, -55.2996, -4.53844, -22.4963)
@@ -2929,8 +2931,6 @@ transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866026, 0, -0.5, 291.873,
 
 [node name="cityEntrance" parent="shop" instance=ExtResource("36_6tfbb")]
 transform = Transform3D(-0.099991, 0, -0.00134557, 0, 0.1, 0, 0.00134557, 0, -0.099991, 43.2441, 15.9963, 67.2444)
-type = 3
-scene = "res://hubs/city/city.tscn"
 
 [node name="hitbox" parent="shop/cityEntrance" index="0"]
 transform = Transform3D(0.728263, 0, -0.685298, 0, 1, 0, 0.685298, 0, 0.728263, -58.2666, -5.6424, -26.5559)

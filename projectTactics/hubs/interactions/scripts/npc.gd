@@ -8,7 +8,16 @@ extends Area3D
 		notify_property_list_changed()
 		updateChildren()
 
-@export_file() var scene:String = ""
+@export_file() var scene:String = "" :
+	set(value):
+		var file = value.get_file()
+		if file != "":
+			var fileName = file.get_slice(".", 0)
+			if fileName in NodeBuffer.queuedNodes.keys():
+				NodeBuffer.queuedNodes[fileName].append("a")
+			else:
+				NodeBuffer.queuedNodes[fileName] = ["a"]
+		scene = value
 
 @export_category("Dialogue Identifiers")
 @export var introduction:String = ""
