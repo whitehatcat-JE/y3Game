@@ -412,7 +412,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 [node name="playerCam" type="Camera3D" parent="head/neck"]
 unique_name_in_owner = true
 
-[node name="interactRay" type="RayCast3D" parent="head/neck/playerCam"]
+[node name="itemRay" type="RayCast3D" parent="head/neck/playerCam"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 target_position = Vector3(0, -4, 0)
@@ -421,7 +421,7 @@ hit_from_inside = true
 collide_with_areas = true
 collide_with_bodies = false
 
-[node name="dialogueRay" type="RayCast3D" parent="head/neck/playerCam"]
+[node name="interactRay" type="RayCast3D" parent="head/neck/playerCam"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 target_position = Vector3(0, -4, 0)

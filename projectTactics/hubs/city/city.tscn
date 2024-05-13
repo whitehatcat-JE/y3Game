@@ -1,4 +1,4 @@
-[gd_scene load_steps=138 format=3 uid="uid://ck8jmxbk38api"]
+[gd_scene load_steps=140 format=3 uid="uid://ck8jmxbk38api"]
 
 [ext_resource type="Texture2D" uid="uid://cljmnog7b3xxl" path="res://hubs/city/assets/courtyard/structures/tower.png" id="1_ct8p1"]
 [ext_resource type="PackedScene" uid="uid://bpoag1rko7t2q" path="res://hubs/player/player.tscn" id="1_dxhrs"]
@@ -40,6 +40,7 @@
 [ext_resource type="Script" path="res://combat/resources/part.gd" id="38_fmvdm"]
 [ext_resource type="Texture2D" uid="uid://0ov86xtyumrm" path="res://placeholder/robot/testRobotSpritemap.png" id="39_7l5nf"]
 [ext_resource type="Texture2D" uid="uid://ff4cketo6hti" path="res://placeholder/robot/testRobotSpritemapGlow.png" id="40_xmf2f"]
+[ext_resource type="PackedScene" uid="uid://i4t6tqlf6sba" path="res://hubs/interactions/resources/interactable.tscn" id="42_djb53"]
 [ext_resource type="Texture2D" uid="uid://dk3vexomlxufs" path="res://placeholder/itemIcon.png" id="44_6myra"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7wql0"]
@@ -614,6 +615,9 @@ albedo_texture = ExtResource("16_ijsno")
 emission_enabled = true
 emission_texture = ExtResource("17_nbwtr")
 texture_filter = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4sj0u"]
+size = Vector3(21.02, 49.973, 33.8752)
 
 [node name="city" type="Node3D"]
 process_mode = 1
@@ -2626,3 +2630,18 @@ shape = SubResource("ConcavePolygonShape3D_exh3a")
 [node name="mesh" type="MeshInstance3D" parent="item4"]
 material_override = SubResource("StandardMaterial3D_h35mk")
 mesh = SubResource("ArrayMesh_t1oaq")
+
+[node name="caveEntrance" parent="." instance=ExtResource("42_djb53")]
+transform = Transform3D(-0.099991, 0, -0.00134557, 0, 0.1, 0, 0.00134557, 0, -0.099991, -1.47854, 2.65457, 37.1492)
+type = 3
+scene = "res://hubs/desertCave/cave.tscn"
+
+[node name="hitbox" parent="caveEntrance" index="0"]
+transform = Transform3D(-4.47035e-08, 0, -1, 0, 1, 0, 1, 0, -4.47035e-08, -14.3426, 24.6761, -18.996)
+shape = SubResource("BoxShape3D_4sj0u")
+
+[node name="interactableModel" parent="caveEntrance" index="1"]
+transform = Transform3D(1, 0, -2.79397e-09, 0, 1, 0, 2.79397e-09, 0, 1, 0, 0, 0)
+visible = false
+
+[editable path="caveEntrance"]

@@ -96,14 +96,23 @@ func move(delta):
 
 #region Interaction
 func interact(delta):
-	if %dialogueRay.is_colliding():
+	if %interactRay.is_colliding():
 		%interactIcon.visible = true
 		%deniedIcon.visible = false
 		if Input.is_action_just_pressed("interact"):
-			startDialogue("caveMerchantIntro")
+			var interactionNode:Area3D = %interactRay.get_collider()
+			match interactionNode.type:
+				0:
+					startDialogue(interactionNode.getIdentifier())
+				1:
+					self.global_position = interactionNode.teleportNode.global_position
+					self.global_rotation = interactionNode.teleportNode.global_rotation
+					self.position.y += 1.0
+				3:
+					get_tree().change_scene_to_file(interactionNode.scene)
 		return
-	if %interactRay.is_colliding():
-		if %interactRay.get_collider() != currentlySelected:
+	if %itemRay.is_colliding():
+		if %itemRay.get_collider() != currentlySelected:
 			if currentlySelected != null and currentlySelected.has_node("mesh"):
 				currentlySelected.get_node("mesh").material_overlay = null
 				if currentlySelected.interactionType == "item" and itemMenuDisplayed:
@@ -111,7 +120,7 @@ func interact(delta):
 					itemMenuDisplayed = false
 					itemBuyProgress = 0
 					bulkSpeed = 1.0
-			currentlySelected = %interactRay.get_collider()
+			currentlySelected = %itemRay.get_collider()
 			if currentlySelected.interactionType == "item":
 				%interactIcon.visible = false
 				%deniedIcon.visible = false

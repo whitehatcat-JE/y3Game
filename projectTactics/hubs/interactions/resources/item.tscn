@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dw3l561qcg1h3"]
+
+[ext_resource type="Script" path="res://hubs/interactions/scripts/item.gd" id="1_wj28b"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_erhaa"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_s4hxu"]
+
+[node name="item" type="Area3D"]
+transform = Transform3D(0.397102, 0, 0.0480619, 0, 0.4, 0, -0.0480619, 0, 0.397102, -3.70051, 2.93061, 30.397)
+collision_layer = 2
+collision_mask = 0
+input_ray_pickable = false
+monitoring = false
+script = ExtResource("1_wj28b")
+
+[node name="hitbox" type="CollisionShape3D" parent="."]
+shape = SubResource("ConcavePolygonShape3D_erhaa")
+
+[node name="mesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_s4hxu")
