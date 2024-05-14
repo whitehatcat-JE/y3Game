@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bb1n5yf54oa7u"
+path="res://.godot/imported/romanMuscleLowerArm.obj-7c2a15ff87913489fadac235ed52820e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/romanMuscleLowerArm.obj-7c2a15ff87913489fadac235ed52820e.mesh"]
+
+source_file="res://combat/parts/arm/romanMuscleLowerArm.obj"
+dest_files=["res://.godot/imported/romanMuscleLowerArm.obj-7c2a15ff87913489fadac235ed52820e.mesh", "res://.godot/imported/romanMuscleLowerArm.obj-7c2a15ff87913489fadac235ed52820e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
