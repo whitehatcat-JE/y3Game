@@ -354,12 +354,6 @@ font_size = 12
 shader = ExtResource("12_ti0yg")
 shader_parameter/lod = 1.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6n7l7"]
-bg_color = Color(0, 0, 0, 0.188235)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b2pls"]
-bg_color = Color(0, 0, 0, 0.380392)
-
 [sub_resource type="Environment" id="Environment_tr3w1"]
 
 [sub_resource type="World3D" id="World3D_dnxow"]
@@ -388,10 +382,16 @@ _data = {
 "spin": SubResource("Animation_wn4ei")
 }
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uu60h"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yeky0"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ipuqb"]
-viewport_path = NodePath("UI/pauseMenu/inventoryMenu/inventory/inventoryItemViewport")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tmej"]
+bg_color = Color(0.466667, 0.466667, 0.466667, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w2bpg"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ukbvr"]
+viewport_path = NodePath("UI/pauseMenu/inventoryMenu/inventoryItemViewport")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5gfna"]
 
@@ -868,83 +868,216 @@ offset_bottom = 649.0
 
 [node name="inventoryMenu" type="GridContainer" parent="UI/pauseMenu"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -444.0
-offset_top = -250.0
-offset_right = 444.0
-offset_bottom = 250.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-columns = 4
+columns = 6
+
+[node name="inventoryItemViewport" type="SubViewport" parent="UI/pauseMenu/inventoryMenu"]
+unique_name_in_owner = true
+own_world_3d = true
+world_3d = SubResource("World3D_dnxow")
+transparent_bg = true
+
+[node name="Camera3D" type="Camera3D" parent="UI/pauseMenu/inventoryMenu/inventoryItemViewport"]
+projection = 1
+
+[node name="inventoryItemModel" type="MeshInstance3D" parent="UI/pauseMenu/inventoryMenu/inventoryItemViewport/Camera3D"]
+unique_name_in_owner = true
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, -1)
+
+[node name="itemAnim" type="AnimationPlayer" parent="UI/pauseMenu/inventoryMenu/inventoryItemViewport/Camera3D"]
+libraries = {
+"": SubResource("AnimationLibrary_aaux6")
+}
+autoplay = "spin"
+
+[node name="sunlight" type="DirectionalLight3D" parent="UI/pauseMenu/inventoryMenu/inventoryItemViewport/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.999123, -0.0418757, 0, 0.0418757, 0.999123, 0, 0, -1.5)
+shadow_enabled = true
 
 [node name="spacer1" type="VSeparator" parent="UI/pauseMenu/inventoryMenu"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_override_constants/separation = 330
 
-[node name="inventory" type="ItemList" parent="UI/pauseMenu/inventoryMenu"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(500, 500)
+[node name="filterMenu" type="ColorRect" parent="UI/pauseMenu/inventoryMenu"]
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-focus_mode = 0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hovered_color = Color(1, 1, 1, 1)
-theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
-theme_override_styles/panel = SubResource("StyleBoxFlat_6n7l7")
-theme_override_styles/hovered = SubResource("StyleBoxFlat_b2pls")
-allow_reselect = true
-allow_search = false
-text_overrun_behavior = 0
-max_columns = 8
-same_column_width = true
-icon_mode = 0
-fixed_icon_size = Vector2i(64, 64)
+size_flags_vertical = 3
+color = Color(0.0901961, 0.0901961, 0.0901961, 0.662745)
 
-[node name="inventoryItemViewport" type="SubViewport" parent="UI/pauseMenu/inventoryMenu/inventory"]
-own_world_3d = true
-world_3d = SubResource("World3D_dnxow")
-transparent_bg = true
+[node name="filterGrid" type="GridContainer" parent="UI/pauseMenu/inventoryMenu/filterMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="Camera3D" type="Camera3D" parent="UI/pauseMenu/inventoryMenu/inventory/inventoryItemViewport"]
-projection = 1
-
-[node name="inventoryItemModel" type="MeshInstance3D" parent="UI/pauseMenu/inventoryMenu/inventory/inventoryItemViewport/Camera3D"]
-unique_name_in_owner = true
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, -1)
-
-[node name="itemAnim" type="AnimationPlayer" parent="UI/pauseMenu/inventoryMenu/inventory/inventoryItemViewport/Camera3D"]
-libraries = {
-"": SubResource("AnimationLibrary_aaux6")
-}
-autoplay = "spin"
-
-[node name="sunlight" type="DirectionalLight3D" parent="UI/pauseMenu/inventoryMenu/inventory/inventoryItemViewport/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 0.999123, -0.0418757, 0, 0.0418757, 0.999123, 0, 0, -1.5)
-shadow_enabled = true
-
-[node name="spacer2" type="VSeparator" parent="UI/pauseMenu/inventoryMenu"]
+[node name="topSeparator" type="HSeparator" parent="UI/pauseMenu/inventoryMenu/filterMenu/filterGrid"]
 layout_mode = 2
-theme_override_constants/separation = 25
-theme_override_styles/separator = SubResource("StyleBoxEmpty_uu60h")
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_yeky0")
+
+[node name="allFilter" type="Button" parent="UI/pauseMenu/inventoryMenu/filterMenu/filterGrid"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_pressed_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_disabled_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_outline_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_6tmej")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w2bpg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6tmej")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6tmej")
+text = "All"
+flat = true
+
+[node name="partsFilter" type="Button" parent="UI/pauseMenu/inventoryMenu/filterMenu/filterGrid"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_pressed_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_disabled_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_outline_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_6tmej")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w2bpg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6tmej")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6tmej")
+text = "Parts"
+flat = true
+
+[node name="unitsFilter" type="Button" parent="UI/pauseMenu/inventoryMenu/filterMenu/filterGrid"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_pressed_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_disabled_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_outline_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_6tmej")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w2bpg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6tmej")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6tmej")
+text = "Units"
+flat = true
+
+[node name="fishFilter" type="Button" parent="UI/pauseMenu/inventoryMenu/filterMenu/filterGrid"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_pressed_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_disabled_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_outline_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_6tmej")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w2bpg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6tmej")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6tmej")
+text = "Fish"
+flat = true
+
+[node name="bottomSeparator" type="HSeparator" parent="UI/pauseMenu/inventoryMenu/filterMenu/filterGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_yeky0")
+
+[node name="spacer3" type="VSeparator" parent="UI/pauseMenu/inventoryMenu"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="items" type="ColorRect" parent="UI/pauseMenu/inventoryMenu"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0, 0, 0, 0.662745)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UI/pauseMenu/inventoryMenu/items"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="itemGrid" type="GridContainer" parent="UI/pauseMenu/inventoryMenu/items/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="topSeparator" type="HSeparator" parent="UI/pauseMenu/inventoryMenu/items/ScrollContainer/itemGrid"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_yeky0")
+
+[node name="itemTemplate" type="Button" parent="UI/pauseMenu/inventoryMenu/items/ScrollContainer/itemGrid"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_pressed_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_disabled_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_outline_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_6tmej")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w2bpg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6tmej")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6tmej")
+text = "Glowing Sunstone Chestplate"
+flat = true
 
 [node name="inventoryItem" type="GridContainer" parent="UI/pauseMenu/inventoryMenu"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 200)
 layout_mode = 2
 
 [node name="inventoryItemSprite" type="Sprite2D" parent="UI/pauseMenu/inventoryMenu/inventoryItem"]
 unique_name_in_owner = true
+position = Vector2(272.715, 180.715)
 scale = Vector2(0.619141, 0.619141)
-texture = SubResource("ViewportTexture_ipuqb")
+texture = SubResource("ViewportTexture_ukbvr")
 offset = Vector2(250, 250)
 
 [node name="itemSpacerV" type="HSeparator" parent="UI/pauseMenu/inventoryMenu/inventoryItem"]
-custom_minimum_size = Vector2(300, 0)
+custom_minimum_size = Vector2(860, 500)
 layout_mode = 2
 theme_override_constants/separation = 325
 theme_override_styles/separator = SubResource("StyleBoxEmpty_5gfna")
@@ -973,7 +1106,7 @@ fit_content = true
 
 [node name="inventoryDamageIcon" type="Sprite2D" parent="UI/pauseMenu/inventoryMenu/inventoryItem"]
 unique_name_in_owner = true
-position = Vector2(93.5, 407)
+position = Vector2(366.215, 587.715)
 texture = ExtResource("6_5vg7v")
 
 [node name="inventoryDamage" type="Label" parent="UI/pauseMenu/inventoryMenu/inventoryItem/inventoryDamageIcon"]
@@ -987,7 +1120,7 @@ horizontal_alignment = 1
 
 [node name="inventoryArmorIcon" type="Sprite2D" parent="UI/pauseMenu/inventoryMenu/inventoryItem"]
 unique_name_in_owner = true
-position = Vector2(93.5, 435)
+position = Vector2(366.215, 615.715)
 texture = ExtResource("7_ydctm")
 
 [node name="inventoryArmor" type="Label" parent="UI/pauseMenu/inventoryMenu/inventoryItem/inventoryArmorIcon"]
@@ -1001,7 +1134,7 @@ horizontal_alignment = 1
 
 [node name="inventorySpeedIcon" type="Sprite2D" parent="UI/pauseMenu/inventoryMenu/inventoryItem"]
 unique_name_in_owner = true
-position = Vector2(216.5, 407)
+position = Vector2(489.215, 587.715)
 texture = ExtResource("8_73coa")
 
 [node name="inventorySpeed" type="Label" parent="UI/pauseMenu/inventoryMenu/inventoryItem/inventorySpeedIcon"]
@@ -1015,7 +1148,7 @@ horizontal_alignment = 1
 
 [node name="inventoryRangeIcon" type="Sprite2D" parent="UI/pauseMenu/inventoryMenu/inventoryItem"]
 unique_name_in_owner = true
-position = Vector2(216.5, 435)
+position = Vector2(489.215, 615.715)
 texture = ExtResource("9_a3t77")
 
 [node name="inventoryRange" type="Label" parent="UI/pauseMenu/inventoryMenu/inventoryItem/inventoryRangeIcon"]
@@ -1029,7 +1162,7 @@ horizontal_alignment = 1
 
 [node name="inventorySplashIcon" type="Sprite2D" parent="UI/pauseMenu/inventoryMenu/inventoryItem"]
 unique_name_in_owner = true
-position = Vector2(155.5, 466)
+position = Vector2(428.215, 646.715)
 texture = ExtResource("10_7270a")
 
 [node name="inventorySplash" type="Label" parent="UI/pauseMenu/inventoryMenu/inventoryItem/inventorySplashIcon"]
@@ -1135,6 +1268,7 @@ text = "Save and Quit"
 
 [node name="settingsMenu" parent="UI/pauseMenu" instance=ExtResource("13_55kmc")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 offset_left = -276.0
 offset_right = 324.0
@@ -1145,7 +1279,6 @@ offset_right = 324.0
 [connection signal="button_up" from="UI/dialogueMenu/dialogueLayout/background/dialogueResponseGrid/response2" to="UI/dialogueMenu" method="response2Pressed"]
 [connection signal="button_up" from="UI/dialogueMenu/dialogueLayout/background/dialogueResponseGrid/response3" to="UI/dialogueMenu" method="response3Pressed"]
 [connection signal="button_up" from="UI/dialogueMenu/dialogueLayout/background/dialogueResponseGrid/response4" to="UI/dialogueMenu" method="response4Pressed"]
-[connection signal="item_selected" from="UI/pauseMenu/inventoryMenu/inventory" to="UI/pauseMenu" method="inventoryItemSelected"]
 [connection signal="button_up" from="UI/pauseMenu/inventoryMenu/inventoryItem/deleteButton" to="UI/pauseMenu" method="deleteItemPressed"]
 [connection signal="button_up" from="UI/pauseMenu/saveMenu/saveGameButton" to="UI/pauseMenu" method="saveGamePressed"]
 [connection signal="button_up" from="UI/pauseMenu/saveMenu/mainMenuButton" to="UI/pauseMenu" method="mainMenuPressed"]

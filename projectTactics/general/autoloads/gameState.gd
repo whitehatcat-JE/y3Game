@@ -2,6 +2,8 @@ extends Node
 
 signal event(identifier:String, value)
 
+signal triggerDialogue(identifier)
+
 signal eventFinished
 
 var entranceName:String = ""

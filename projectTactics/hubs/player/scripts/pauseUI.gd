@@ -1,13 +1,29 @@
 extends Control
 
+enum ItemTypes {
+	ALL,
+	PART,
+	UNIT,
+	FISH
+}
+
 var freezeButtons : bool = false
 
-var selectedItemIdx : int = 0
+var selectedItem
+var selectedItemType:ItemTypes = ItemTypes.ALL
+
+var spawnedItems:Array[Button] = []
 
 @export var playerInfo : PlayerData
 
 func _ready():
 	playerInfo = FM.playerData
+	
+	%allFilter.button_up.connect(setItemType.bind(ItemTypes.ALL))
+	%partsFilter.button_up.connect(setItemType.bind(ItemTypes.PART))
+	%unitsFilter.button_up.connect(setItemType.bind(ItemTypes.UNIT))
+	%fishFilter.button_up.connect(setItemType.bind(ItemTypes.FISH))
+	
 
 func _input(event):
 	if Input.is_action_just_pressed("pause"): unpause();
@@ -28,9 +44,31 @@ func openInventory():
 	%inventoryMenu.visible = true
 	%saveMenu.visible = false
 	%settingsMenu.visible = false
-	%inventory.clear()
-	for item in playerInfo.inventory.values():
-		%inventory.add_item("x" + str(playerInfo.itemCounts[item]), item.icon)
+	refreshItems()
+
+func refreshItems():
+	for item in spawnedItems: item.queue_free();
+	spawnedItems.clear()
+	
+	var allItems:Array = playerInfo.inventory.keys()
+	var filteredItems:Array = []
+	if selectedItemType == ItemTypes.ALL: filteredItems = allItems;
+	else:
+		for item in allItems:
+			if item.itemType == selectedItemType:
+				filteredItems.append(item)
+	if not selectedItem in filteredItems:
+		clearDisplayedItem()
+		selectedItem = null
+	for item in filteredItems:
+		var newItem:Button = %itemTemplate.duplicate()
+		%itemGrid.add_child(newItem)
+		newItem.text = item.name
+		if playerInfo.inventory[item] > 1:
+			newItem.text += " (" + str(playerInfo.inventory[item]) + ")"
+		newItem.visible = true
+		newItem.button_up.connect(inventoryItemSelected.bind(item))
+		spawnedItems.append(newItem)
 
 func clearDisplayedItem():
 	%inventoryItemName.text = ""
@@ -57,34 +95,35 @@ func openQuit():
 	%saveMenu.visible = true
 	%settingsMenu.visible = false
 
-func inventoryItemSelected(index):
+func inventoryItemSelected(item):
 	%inventoryItemModel.visible = true
-	%inventoryItemModel.mesh = playerInfo.inventory[index].model
-	var modelAABB : Vector3 = playerInfo.inventory[index].model.get_aabb().size
+	%inventoryItemModel.mesh = item.model
+	var modelAABB : Vector3 = item.model.get_aabb().size
 	var divideAmt : float = max(modelAABB.x, modelAABB.y, modelAABB.z)
 	%inventoryItemModel.scale = Vector3(0.8, 0.8, 0.8) / divideAmt
-	%inventoryItemName.text = playerInfo.inventory[index].name
+	%inventoryItemName.text = item.name
+	if playerInfo.inventory[item] > 1:
+		%inventoryItemName.text += " (" + str(playerInfo.inventory[item]) + ")"
 	%inventoryItemData.text = "[center][color=red]%s [color=white]-[color=blue] %s/%s" % [
-		playerInfo.inventory[index].strType[playerInfo.inventory[index].type],
-		str(playerInfo.inventory[index].currentDurability), 
-		str(playerInfo.inventory[index].maxDurability)
+		item.strType[item.type],
+		str(item.currentDurability), 
+		str(item.maxDurability)
 	]
-	%inventoryItemDescription.text = "[center][i]" + playerInfo.inventory[index].description
+	%inventoryItemDescription.text = "[center][i] " + item.description
 	
 	%inventoryDamageIcon.visible = true
-	%inventoryDamage.text = str(playerInfo.inventory[index].damage)
+	%inventoryDamage.text = str(item.damage)
 	%inventoryArmorIcon.visible = true
-	%inventoryArmor.text = str(playerInfo.inventory[index].armorRating)
+	%inventoryArmor.text = str(item.armorRating)
 	%inventorySpeedIcon.visible = true
-	%inventorySpeed.text = str(playerInfo.inventory[index].speedRating)
+	%inventorySpeed.text = str(item.speedRating)
 	%inventoryRangeIcon.visible = true
-	%inventoryRange.text = str(playerInfo.inventory[index].range)
-	%inventorySplashIcon.visible = playerInfo.inventory[index].splash > 0
-	%inventorySplash.text = str(playerInfo.inventory[index].splash)
+	%inventoryRange.text = str(item.range)
+	%inventorySplashIcon.visible = item.splash > 0
+	%inventorySplash.text = str(item.splash)
 	
 	%deleteButton.visible = true
-	
-	selectedItemIdx = index
+	selectedItem = item
 
 func saveGamePressed():
 	FM.saveGame()
@@ -102,18 +141,11 @@ func desktopPressed():
 	get_tree().quit()
 
 func deleteItemPressed():
-	var item : Part = playerInfo.inventory[selectedItemIdx]
-	playerInfo.inventory.erase(selectedItemIdx)
-	playerInfo.itemCounts.erase(item)
-	
-	var items : Array = playerInfo.inventory.values()
-	var newInventory : Dictionary = {}
-	for newItemIdx in range(len(items)):
-		newInventory[newItemIdx] = items[newItemIdx]
-	
-	playerInfo.inventory = newInventory
-	
+	playerInfo.inventory.erase(selectedItem)
 	clearDisplayedItem()
-	openInventory()
-	
+	refreshItems()
 	FM.saveGame()
+
+func setItemType(type:ItemTypes):
+	selectedItemType = type
+	refreshItems()

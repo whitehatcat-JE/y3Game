@@ -171,10 +171,10 @@ func startDialogue(identifier:String):
 
 func buyItem():
 	playerInfo.balance -= currentlySelected.part.cost
-	playerInfo.addToInventory(currentlySelected.part)
 	if purchaseCount + playerInfo.getInventoryCount(currentlySelected.part) == 0:
 		%itemMenuInventoryCount.visible_ratio = 0.0
 		%itemMenuAnims.play("revealInventory")
+	playerInfo.addToInventory(currentlySelected.part)
 	purchaseCount += 1
 	if playerInfo.getInventoryCount(currentlySelected.part) == 0:
 		%itemMenuInventoryCount.text = str(
