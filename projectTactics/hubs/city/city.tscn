@@ -1,4 +1,4 @@
-[gd_scene load_steps=140 format=3 uid="uid://ck8jmxbk38api"]
+[gd_scene load_steps=139 format=3 uid="uid://ck8jmxbk38api"]
 
 [ext_resource type="Texture2D" uid="uid://cljmnog7b3xxl" path="res://hubs/city/assets/courtyard/structures/tower.png" id="1_ct8p1"]
 [ext_resource type="PackedScene" uid="uid://bpoag1rko7t2q" path="res://hubs/player/player.tscn" id="1_dxhrs"]
@@ -41,7 +41,6 @@
 [ext_resource type="Texture2D" uid="uid://0ov86xtyumrm" path="res://placeholder/robot/testRobotSpritemap.png" id="39_7l5nf"]
 [ext_resource type="Texture2D" uid="uid://ff4cketo6hti" path="res://placeholder/robot/testRobotSpritemapGlow.png" id="40_xmf2f"]
 [ext_resource type="PackedScene" uid="uid://i4t6tqlf6sba" path="res://hubs/interactions/resources/interactable.tscn" id="42_djb53"]
-[ext_resource type="Texture2D" uid="uid://dk3vexomlxufs" path="res://placeholder/itemIcon.png" id="44_6myra"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7wql0"]
 transparency = 2
@@ -435,7 +434,6 @@ script = ExtResource("38_fmvdm")
 name = "Red Cylinder"
 type = 4
 model = SubResource("CapsuleMesh_d4ng7")
-icon = ExtResource("44_6myra")
 cost = 10000
 description = ""
 maxDurability = 0
@@ -476,7 +474,6 @@ script = ExtResource("38_fmvdm")
 name = "Mech"
 type = 2
 model = SubResource("ArrayMesh_jtfk3")
-icon = ExtResource("44_6myra")
 cost = 1250
 description = ""
 maxDurability = 15
@@ -542,7 +539,6 @@ script = ExtResource("38_fmvdm")
 name = "Fountain"
 type = 4
 model = SubResource("ArrayMesh_b8sct")
-icon = ExtResource("44_6myra")
 cost = 2500
 description = "A humble fountain"
 maxDurability = 15
@@ -591,7 +587,6 @@ script = ExtResource("38_fmvdm")
 name = "Arch"
 type = 3
 model = SubResource("ArrayMesh_t1oaq")
-icon = ExtResource("44_6myra")
 cost = 500
 description = "A model version of this courtyard
 "

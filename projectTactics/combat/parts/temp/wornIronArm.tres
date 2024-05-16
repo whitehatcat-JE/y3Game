@@ -1,6 +1,5 @@
-[gd_resource type="Resource" script_class="Part" load_steps=6 format=3 uid="uid://cbm4dd2a5lrvk"]
+[gd_resource type="Resource" script_class="Part" load_steps=5 format=3 uid="uid://cbm4dd2a5lrvk"]
 
-[ext_resource type="Texture2D" uid="uid://dk3vexomlxufs" path="res://placeholder/itemIcon.png" id="1_utd30"]
 [ext_resource type="Texture2D" uid="uid://cjp63qomn2msk" path="res://combat/parts/chest/romanMuscleChest.png" id="2_gl8ub"]
 [ext_resource type="Script" path="res://combat/resources/part.gd" id="3_g5521"]
 
@@ -32,7 +31,6 @@ script = ExtResource("3_g5521")
 name = "Worn Iron Arm"
 type = 0
 model = SubResource("ArrayMesh_swysr")
-icon = ExtResource("1_utd30")
 cost = 0
 description = "May have some life left in it"
 maxDurability = 10
