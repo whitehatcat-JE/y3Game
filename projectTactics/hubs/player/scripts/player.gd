@@ -114,6 +114,9 @@ func interact(delta):
 					self.global_position = interactionNode.teleportNode.global_position
 					self.global_rotation = interactionNode.teleportNode.global_rotation
 					self.position.y += 1.0
+				2:
+					GS.entranceName = interactionNode.exitPoint
+					get_tree().change_scene_to_file(interactionNode.map)
 				3:
 					GS.entranceName = interactionNode.entranceName
 					get_tree().change_scene_to_file(interactionNode.scene)

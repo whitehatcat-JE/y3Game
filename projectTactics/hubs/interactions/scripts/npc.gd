@@ -15,6 +15,11 @@ extends Area3D
 @export_category("Dialogue Identifiers")
 @export var introduction:String = ""
 @export var standard:String = ""
+
+@export_category("Map")
+@export_file() var map:String = ""
+@export var exitPoint:String = ""
+
 var hasIntroduced:bool = false
 
 var teleportPos:Vector3 = Vector3()
@@ -28,6 +33,10 @@ func _validate_property(property: Dictionary):
 	elif property.name == "scene" and type != 3:
 		property.usage = PROPERTY_USAGE_NO_EDITOR
 	elif property.name == "entranceName" and type != 3:
+		property.usage = PROPERTY_USAGE_NO_EDITOR
+	elif property.name == "map" and type != 2:
+		property.usage = PROPERTY_USAGE_NO_EDITOR
+	elif property.name == "exitPoint" and type != 2:
 		property.usage = PROPERTY_USAGE_NO_EDITOR
 
 func updateChildren():

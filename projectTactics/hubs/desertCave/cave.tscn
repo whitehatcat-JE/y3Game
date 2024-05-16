@@ -765,6 +765,20 @@ transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 
 enabled = false
 target_position = Vector3(0, 0, -1)
 
+[node name="caveTop" type="Node3D" parent="secondaryEntrances"]
+transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 69.4771, 12.957, 34.1152)
+
+[node name="pointer" type="RayCast3D" parent="secondaryEntrances/caveTop"]
+enabled = false
+target_position = Vector3(0, 0, -1)
+
+[node name="caveBottom" type="Node3D" parent="secondaryEntrances"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 36.2357, 0.487582, 14.9522)
+
+[node name="pointer" type="RayCast3D" parent="secondaryEntrances/caveBottom"]
+enabled = false
+target_position = Vector3(0, 0, -1)
+
 [node name="ambientParticlesBottom" type="GPUParticles3D" parent="."]
 transform = Transform3D(-0.999567, 0, -0.029422, 0, 1, 0, 0.029422, 0, -0.999567, 10.1625, 17.2411, 34.11)
 material_override = SubResource("StandardMaterial3D_ku2gi")
@@ -3094,7 +3108,9 @@ texture = ExtResource("8_35jui")
 
 [node name="caveLowerPath" parent="CaveWalls" instance=ExtResource("36_6tfbb")]
 transform = Transform3D(-0.178555, 0, -0.0024028, 0, 0.178571, 0, 0.0024028, 0, -0.178555, 68.3677, 7.02827, 26.5948)
-type = 1
+type = 2
+map = "res://combat/maps/scenes/caveMap.tscn"
+exitPoint = "caveBottom"
 
 [node name="hitbox" parent="CaveWalls/caveLowerPath" index="0"]
 transform = Transform3D(0.728263, 0, -0.685298, 0, 1, 0, 0.685298, 0, 0.728263, -36.2316, -4.53843, -7.82474)
@@ -3103,16 +3119,15 @@ shape = SubResource("BoxShape3D_clk1u")
 [node name="interactableModel" parent="CaveWalls/caveLowerPath" index="1"]
 visible = false
 
-[node name="teleportPosition" parent="CaveWalls/caveLowerPath" index="2"]
-transform = Transform3D(-1.11759e-08, 0, -1, 0, 1, 0, 1, 0, -1.11759e-08, -327.207, 95.0927, -201.704)
-
 [node name="hitbox2" type="CollisionShape3D" parent="CaveWalls/caveLowerPath"]
 transform = Transform3D(0.999538, 0, 0.0303814, 0, 1, 0, -0.0303814, 0, 0.999538, -23.494, -4.53843, -38.9574)
 shape = SubResource("BoxShape3D_clk1u")
 
 [node name="caveUpperPath" parent="CaveWalls" instance=ExtResource("36_6tfbb")]
 transform = Transform3D(-0.178555, 0, -0.0024028, 0, 0.178571, 0, 0.0024028, 0, -0.178555, 121.519, 29.2252, 59.5409)
-type = 1
+type = 2
+map = "res://combat/maps/scenes/caveMap.tscn"
+exitPoint = "caveTop"
 
 [node name="hitbox" parent="CaveWalls/caveUpperPath" index="0"]
 transform = Transform3D(0.973343, 0, -0.229354, 0, 1, 0, 0.229354, 0, 0.973343, -55.2996, -4.53844, -22.4963)
@@ -3120,9 +3135,6 @@ shape = SubResource("BoxShape3D_k0x2v")
 
 [node name="interactableModel" parent="CaveWalls/caveUpperPath" index="1"]
 visible = false
-
-[node name="teleportPosition" parent="CaveWalls/caveUpperPath" index="2"]
-transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866026, 0, -0.5, 291.873, -153.604, 174.224)
 
 [node name="cityEntrance2" parent="CaveWalls" instance=ExtResource("36_6tfbb")]
 transform = Transform3D(-0.178555, 0, -0.0024028, 0, 0.178571, 0, 0.0024028, 0, -0.178555, 82.2216, 29.4577, 121.865)
