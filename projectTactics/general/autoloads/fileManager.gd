@@ -1,5 +1,7 @@
 extends Node
 
+signal gameSaved
+
 var saveFilePath : String = "user://saves/"
 var saveListFilePath : String = "user://saves/saveList.tres"
 
@@ -39,6 +41,7 @@ func saveGame():
 	playerData.playTime += currentTime - lastSaveTime
 	lastSaveTime = currentTime
 	ResourceSaver.save(playerData, saveFilePath + activeSaveID + ".tres")
+	emit_signal("gameSaved")
 
 func loadGame():
 	var newPlayerData : PlayerData

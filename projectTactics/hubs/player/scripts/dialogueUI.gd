@@ -3,6 +3,7 @@ extends Control
 # EVENT = Trigger Event
 # DIALG = Add new dialogue to queue
 # FQUIT = End Dialogue
+# GSELL = Open Generic Sell Menu
 
 signal dialogueEnded
 
@@ -13,13 +14,17 @@ var dialogue:Dictionary = {
 		["Ain't much to chat about down here.",
 		"Sooo.../DIALGcaveMerchant"],
 	"caveMerchant":
-		["How can I help you?/EVENTcaveAssembleUnit/Assemble Unit/EVENTcaveSell/Sell/DIALGcaveMerchantTalk/Small Talk/FQUIT/Nevermind"],
+		["How can I help you?/EVENTcaveAssembleUnit/Assemble Unit/GSELLcaveMerchant/Sell/DIALGcaveMerchantTalk/Small Talk/FQUIT/Nevermind"],
 	"caveAssembleUnitComplete":
 		["Give this a try.",
 		"Moonstone Unit Obtained!/DIALGcaveMerchant"],
 	"caveAssembleUnitFail":
 		["Sorry, looks like you don't have everything needed.",
-		"You need to find 1x Worn Iron Arm/DIALGcaveMerchant"]
+		"You need to find 1x Worn Iron Arm/DIALGcaveMerchant"],
+	"caveMerchantSold":
+		["Nice doing business with you./FQUIT"],
+	"caveMerchantDenied":
+		["If you change your mind feel free to come back anytime./FQUIT"]
 }
 
 var queuedDialogue:Array[String] = []
@@ -77,6 +82,9 @@ func executeAction(action:String):
 			appendDialogue(action.substr(5, -1))
 		"FQUIT":
 			endDialogue()
+		"GSELL":
+			visible = false
+			%sellMenu.enable(action.substr(5, -1))
 
 func endDialogue():
 	visible = false

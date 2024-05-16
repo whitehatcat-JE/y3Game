@@ -7,8 +7,6 @@ enum ItemTypes {
 	FISH
 }
 
-var freezeButtons : bool = false
-
 var selectedItem
 var selectedItemType:ItemTypes = ItemTypes.ALL
 
