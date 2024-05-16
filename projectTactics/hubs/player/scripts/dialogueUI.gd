@@ -14,9 +14,12 @@ var dialogue:Dictionary = {
 		"Sooo.../DIALGcaveMerchant"],
 	"caveMerchant":
 		["How can I help you?/EVENTcaveAssembleUnit/Assemble Unit/EVENTcaveSell/Sell/DIALGcaveMerchantTalk/Small Talk/FQUIT/Nevermind"],
-	"caveMerchantGoodbye":
+	"caveAssembleUnitComplete":
 		["Give this a try.",
-		"Moonstone Unit Obtained!/DIALGcaveMerchant"]
+		"Moonstone Unit Obtained!/DIALGcaveMerchant"],
+	"caveAssembleUnitFail":
+		["Sorry, looks like you don't have everything needed.",
+		"You need to find 1x Worn Iron Arm/DIALGcaveMerchant"]
 }
 
 var queuedDialogue:Array[String] = []
@@ -27,12 +30,7 @@ var canSkip:bool = false
 
 func _ready():
 	GS.eventFinished.connect(nextLine)
-	GS.event.connect(eventTriggered)
-
-func eventTriggered(identifier:String, value):
-	if identifier == "caveAssembleUnit":
-		appendDialogue("caveMerchantGoodbye")
-	nextLine()
+	GS.triggerDialogue.connect(appendDialogue)
 
 func _process(delta):
 	if Input.is_action_just_pressed("interact") and !responseBoxes[0].visible and canSkip:
@@ -42,7 +40,6 @@ func _process(delta):
 func startDialogue(identifier:String):
 	visible = true
 	appendDialogue(identifier)
-	nextLine()
 
 func nextLine():
 	visible = true
@@ -78,7 +75,6 @@ func executeAction(action:String):
 			GS.emit_signal("event", action.substr(5, -1), "")
 		"DIALG":
 			appendDialogue(action.substr(5, -1))
-			nextLine()
 		"FQUIT":
 			endDialogue()
 
@@ -93,6 +89,7 @@ func endDialogue():
 func appendDialogue(identifier:String):
 	for line:String in dialogue[identifier]:
 		queuedDialogue.append(line)
+	nextLine()
 
 func response1Pressed(): executeAction(queuedActions[0]);
 func response2Pressed(): executeAction(queuedActions[1]);
