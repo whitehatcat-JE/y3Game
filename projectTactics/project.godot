@@ -122,11 +122,12 @@ pause={
 3d_physics/layer_2="interact"
 3d_physics/layer_3="trigger"
 3d_physics/layer_4="dialogue"
+3d_physics/layer_5="barriers"
+3d_physics/layer_6="fishing"
 
 [physics]
 
 3d/physics_engine="JoltPhysics3D"
-3d/default_gravity=0.0
 
 [rendering]
 

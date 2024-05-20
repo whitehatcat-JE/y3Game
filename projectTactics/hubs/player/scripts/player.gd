@@ -1,6 +1,16 @@
 extends CharacterBody3D
 # Signals
 signal interacted(interactionName:String)
+
+# Enumurators
+enum FISHING_STATES {
+	inactive,
+	cast,
+	idle,
+	reel,
+	transitioning
+}
+
 # Constants
 const PLAYER_SPEED:float = 6.0
 const PLAYER_SPRINT:float = 1.5  
@@ -30,7 +40,11 @@ var purchaseCount : int = 0
 var bulkSpeed:float = 1.0
 var currentlySelected:Node = null
 
+var fishingState:FISHING_STATES = FISHING_STATES.inactive
+var currentBobber:RigidBody3D = null
+
 @onready var outlineMaterial:ShaderMaterial = preload("res://hubs/interactions/shaders/outlineMat.tres")
+@onready var bobberScene:PackedScene = preload("res://hubs/player/fishingBobber.tscn")
 
 @export var playerInfo:PlayerData
 @export var secondaryEntrances:Node3D = null
@@ -45,11 +59,38 @@ func _ready() -> void:
 		global_rotation = targetNode.global_rotation
 
 func _input(event):
-	if event is InputEventMouseMotion and !isStopped: updateCam(event);
+	if event is InputEventMouseMotion and !isStopped and fishingState == FISHING_STATES.inactive: updateCam(event);
 	if Input.is_action_just_pressed("pause"): pause();
+	if Input.is_action_just_pressed("interact"):
+		match fishingState:
+			FISHING_STATES.inactive:
+				fishingState = FISHING_STATES.transitioning
+				%fishingLine.visible = true
+				%fishingAnims.play("cast")
+				var newBobber:RigidBody3D = bobberScene.instantiate()
+				get_parent().add_child(newBobber)
+				newBobber.global_transform.origin = %bobberSpawnPoint.global_transform.origin
+				newBobber.apply_impulse(Vector3(10, 0, 0).rotated(Vector3.UP, rotation.y + PI * 0.5))
+				currentBobber = newBobber
+				currentBobber.floorContacted.connect(bobberFloorContacted)
+				currentBobber.waterContacted.connect(bobberWaterContacted)
+			FISHING_STATES.idle:
+				fishingState = FISHING_STATES.transitioning
+				%fishingAnims.play("startReel")
+			FISHING_STATES.reel:
+				fishingState = FISHING_STATES.transitioning
+				%fishingAnims.play("reelComplete")
+				currentBobber.queue_free()
+				currentBobber = null
+				%fishingLine.visible = false
+				%fishingLine.scale.z = 1.0
  
 func _process(delta):
-	if !isStopped: interact(delta);
+	if currentBobber != null:
+		%fishingLine.global_transform.origin = %bobberSpawnPoint.global_transform.origin
+		%fishingLine.look_at(currentBobber.global_transform.origin)
+		%fishingLine.scale.z = %fishingLine.global_transform.origin.distance_to(currentBobber.global_transform.origin)
+	elif !isStopped: interact(delta);
 	else:
 		%interactIcon.visible = false
 		%deniedIcon.visible = false
@@ -75,7 +116,7 @@ func move(delta):
 	var aim:Vector3 = Vector3(1, 0, 1)
 	var direction:Vector3 = Vector3(0, -1, 0)
 	
-	if is_on_floor() and !isStopped:
+	if is_on_floor() and !isStopped and fishingState == FISHING_STATES.inactive:
 		var inputVec:Vector2 = Input.get_vector("moveLeft", "moveRight", "moveUp", "moveDown")
 		if inputVec.x != 0 and inputVec.y != 0: inputVec *= 0.709;
 		direction.x = aim.x * inputVec.x
@@ -235,3 +276,26 @@ func pause():
 func dialogueEnded():
 	isStopped = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+func fishingAnimFinished(anim_name):
+	match anim_name:
+		"cast":
+			%fishingAnims.play("idle")
+			fishingState = FISHING_STATES.idle
+		"startReel":
+			%fishingAnims.play("reeling")
+			fishingState = FISHING_STATES.reel
+		"reelComplete":
+			fishingState = FISHING_STATES.inactive
+		"withdraw":
+			fishingState = FISHING_STATES.inactive
+
+func bobberFloorContacted():
+	currentBobber = null
+	%fishingLine.visible = false
+	%fishingAnims.play("withdraw")
+	fishingState = FISHING_STATES.transitioning
+	%fishingLine.scale.z = 1.0
+
+func bobberWaterContacted():
+	pass

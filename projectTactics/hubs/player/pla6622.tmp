@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://bpoag1rko7t2q"]
+[gd_scene load_steps=54 format=3 uid="uid://bpoag1rko7t2q"]
 
 [ext_resource type="Script" path="res://hubs/player/scripts/player.gd" id="1_rqkst"]
 [ext_resource type="Resource" uid="uid://jlq0uk01mcbf" path="res://hubs/player/mainPlayerData.tres" id="2_0c2xc"]
@@ -26,7 +26,7 @@ size = Vector3(0.1, 2, 0.1)
 
 [sub_resource type="Animation" id="Animation_1o4jv"]
 resource_name = "cast"
-length = 0.6
+length = 1.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -34,7 +34,7 @@ tracks/0/path = NodePath(".:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.6),
+"times": PackedFloat32Array(0, 0.8, 1.1),
 "transitions": PackedFloat32Array(-2, -2, 1),
 "update": 0,
 "values": [Vector3(0.261799, 0, 0), Vector3(-0.698132, 0, 0), Vector3(-0.624008, 0, 0)]
@@ -514,12 +514,6 @@ viewport_path = NodePath("UI/pauseMenu/inventoryMenu/inventoryItemViewport")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_70jjf"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xnhbh"]
-albedo_color = Color(0, 0, 0, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_2ev45"]
-size = Vector3(0.01, 0.01, 1)
-
 [node name="player" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.80221, 37.4239)
 collision_layer = 0
@@ -558,12 +552,11 @@ collide_with_areas = true
 collide_with_bodies = false
 
 [node name="hand" type="Node3D" parent="head/neck/playerCam"]
-transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0.463, -0.191891, -0.191719)
+transform = Transform3D(1, 0, 0, 0, 0.965113, -0.261835, 0, 0.261835, 0.965113, 0.463, -0.191891, -0.191719)
 
 [node name="fishingRod" type="MeshInstance3D" parent="head/neck/playerCam/hand"]
 transform = Transform3D(1, 0, 0, 0, 0.958347, 0.285605, 0, -0.285605, 0.958347, 2.76268e-05, -0.0067234, 2.67029e-05)
 material_override = SubResource("StandardMaterial3D_n4b74")
-cast_shadow = 0
 mesh = SubResource("BoxMesh_ahqgw")
 
 [node name="bobberSpawnPoint" type="Node3D" parent="head/neck/playerCam/hand/fishingRod"]
@@ -1762,16 +1755,6 @@ visible = false
 layout_mode = 1
 offset_left = -276.0
 offset_right = 324.0
-
-[node name="fishingLine" type="Node3D" parent="."]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.784645)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="fishingLine"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
-material_override = SubResource("StandardMaterial3D_xnhbh")
-cast_shadow = 0
-mesh = SubResource("BoxMesh_2ev45")
 
 [connection signal="animation_finished" from="head/neck/playerCam/hand/fishingAnims" to="." method="fishingAnimFinished"]
 [connection signal="timeout" from="UI/HUD/shop/itemMenu/itemMenuInteractionTimer" to="." method="triggerItemMenu"]

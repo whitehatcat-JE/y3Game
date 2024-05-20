@@ -793,9 +793,10 @@ visibility_aabb = AABB(-62.634, -20.408, -65.0308, 125.268, 40.816, 130.062)
 process_material = SubResource("ParticleProcessMaterial_3dw7x")
 draw_pass_1 = SubResource("PlaneMesh_i4im5")
 
-[node name="player" parent="." node_paths=PackedStringArray("secondaryEntrances") instance=ExtResource("1_v2pkq")]
+[node name="player" parent="." instance=ExtResource("1_v2pkq")]
 transform = Transform3D(-0.906308, 0, 0.422618, 0, 1, 0, -0.422618, 0, -0.906308, -3.09101, 1.50834, -0.921385)
-secondaryEntrances = NodePath("../secondaryEntrances")
+secondaryEntrances = Object(Node3D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","transform":Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0),"rotation_edit_mode":0,"rotation_order":2,"top_level":false,"visible":true,"visibility_parent":NodePath(""),"script":null)
+
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_t4tuk")
