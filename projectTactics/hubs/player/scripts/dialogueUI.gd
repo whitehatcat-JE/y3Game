@@ -24,7 +24,13 @@ var dialogue:Dictionary = {
 	"caveMerchantSold":
 		["Nice doing business with you./FQUIT"],
 	"caveMerchantDenied":
-		["If you change your mind feel free to come back anytime./FQUIT"]
+		["If you change your mind feel free to come back anytime./FQUIT"],
+	"smallCaveFish":
+		["Small Cave Fish Obtained!"],
+	"mediumCaveFish":
+		["Medium Cave Fish Obtained!"],
+	"largeCaveFish":
+		["Large Cave Fish Obtained!"]
 }
 
 var queuedDialogue:Array[String] = []

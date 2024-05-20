@@ -24,6 +24,15 @@ const TERMINAL_VELOCITY:float = 7.0
 const BUY_SPEED:float = 150.0
 const BULK_INCREASE:float = 0.1
 const MAX_BULK_INCREASE:float = 2.0
+
+const MIN_FISHING_ANGLE:float = -PI / 4.0
+const MAX_FISHING_ANGLE:float = 0.0
+const FISH_INDICATOR_ACCELERATION:float = 10.0
+const FISH_MAX_INDICATOR_SPEED:float = 10.0
+const FISH_DECREASE_SPEED:float = 80.0
+const FISH_INCREASE_SPEED:float = 50.0
+const TARGET_ROTATE_SPEED:float = 1.0
+
 # State variables
 var cameraAngle:float = 0
 var unlockedKeys:Array[String] = ["general"]
@@ -42,6 +51,9 @@ var currentlySelected:Node = null
 
 var fishingState:FISHING_STATES = FISHING_STATES.inactive
 var currentBobber:RigidBody3D = null
+var camTween:Tween = null
+var reelingFish:bool = false
+var fishIndicatorSpeed:float = 0.0
 
 @onready var outlineMaterial:ShaderMaterial = preload("res://hubs/interactions/shaders/outlineMat.tres")
 @onready var bobberScene:PackedScene = preload("res://hubs/player/fishingBobber.tscn")
@@ -61,7 +73,7 @@ func _ready() -> void:
 func _input(event):
 	if event is InputEventMouseMotion and !isStopped and fishingState == FISHING_STATES.inactive: updateCam(event);
 	if Input.is_action_just_pressed("pause"): pause();
-	if Input.is_action_just_pressed("interact"):
+	if Input.is_action_just_pressed("interact") and !reelingFish and !%interactRay.is_colliding() and !%itemRay.is_colliding():
 		match fishingState:
 			FISHING_STATES.inactive:
 				fishingState = FISHING_STATES.transitioning
@@ -69,27 +81,74 @@ func _input(event):
 				%fishingAnims.play("cast")
 				var newBobber:RigidBody3D = bobberScene.instantiate()
 				get_parent().add_child(newBobber)
-				newBobber.global_transform.origin = %bobberSpawnPoint.global_transform.origin
-				newBobber.apply_impulse(Vector3(10, 0, 0).rotated(Vector3.UP, rotation.y + PI * 0.5))
+				newBobber.global_transform.origin = %bobberSpawnPoint.global_transform.origin + Vector3(0.0, 0.1, 0.0)
+				newBobber.apply_impulse(Vector3(10, clamp(%playerCam.rotation.x * 5.0, 0.0, 5.0), 0).rotated(Vector3.UP, rotation.y + PI * 0.5))
 				currentBobber = newBobber
 				currentBobber.floorContacted.connect(bobberFloorContacted)
 				currentBobber.waterContacted.connect(bobberWaterContacted)
+				currentBobber.pulling.connect(fishPulling)
+				currentBobber.surfacing.connect(fishSurfacing)
+				%bobAnim.speed_scale = 0.5
+				if %playerCam.rotation.x > MAX_FISHING_ANGLE or %playerCam.rotation.x < MIN_FISHING_ANGLE:
+					camTween = get_tree().create_tween()
+					camTween.tween_property(%playerCam, "rotation", Vector3(
+						0, %playerCam.rotation.y, %playerCam.rotation.z), 1.0
+						).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
+				
 			FISHING_STATES.idle:
-				fishingState = FISHING_STATES.transitioning
-				%fishingAnims.play("startReel")
-			FISHING_STATES.reel:
-				fishingState = FISHING_STATES.transitioning
-				%fishingAnims.play("reelComplete")
-				currentBobber.queue_free()
-				currentBobber = null
-				%fishingLine.visible = false
-				%fishingLine.scale.z = 1.0
+				if currentBobber.isPulling:
+					fishingState = FISHING_STATES.transitioning
+					currentBobber.isReeling = true
+					%fishingProgress.value = 180.0
+					%fishingIndicatorPivot.rotation_degrees = randf_range(0.0, 359.0)
+					%fishingTargetPivot.rotation_degrees = randf_range(0.0, 359.0)
+					reelingFish = true
+					%fishing.visible = true
+					%fishingAnims.speed_scale = 1.0
+					%fishingAnims.play("startReel")
+				else:
+					disconnectBobber()
+					%fishingAnims.play("withdraw")
  
 func _process(delta):
 	if currentBobber != null:
 		%fishingLine.global_transform.origin = %bobberSpawnPoint.global_transform.origin
-		%fishingLine.look_at(currentBobber.global_transform.origin)
-		%fishingLine.scale.z = %fishingLine.global_transform.origin.distance_to(currentBobber.global_transform.origin)
+		%fishingLine.look_at(currentBobber.getBobber().global_transform.origin)
+		%fishingLine.scale.z = %fishingLine.global_transform.origin.distance_to(
+			currentBobber.getBobber().global_transform.origin)
+		if %floorCast.is_colliding():
+			disconnectBobber()
+			%fishingAnims.play("withdraw")
+		
+		if reelingFish:
+			if Input.is_action_pressed("interact"):
+				fishIndicatorSpeed += delta * FISH_INDICATOR_ACCELERATION
+			else:
+				fishIndicatorSpeed -= delta * FISH_INDICATOR_ACCELERATION
+			fishIndicatorSpeed = clamp(fishIndicatorSpeed, -FISH_MAX_INDICATOR_SPEED, FISH_MAX_INDICATOR_SPEED)
+			%fishingIndicatorPivot.rotation += fishIndicatorSpeed * delta
+			%fishingTargetPivot.rotation += TARGET_ROTATE_SPEED * delta
+			
+			var indicatorAngle:int = wrapf(%fishingIndicatorPivot.rotation_degrees, 0.0, 360.0)
+			var targetAngle:int = wrapf(%fishingTargetPivot.rotation_degrees, 0.0, 360.0)
+			var angleDifference:int = indicatorAngle - targetAngle
+			angleDifference = abs((angleDifference + 180) % 360 - 180)
+			
+			if angleDifference < %fishingTarget.value / 2.0:
+				%fishingProgress.value += FISH_INCREASE_SPEED * delta
+			else:
+				%fishingProgress.value -= FISH_DECREASE_SPEED * delta
+			
+			if %fishingProgress.value >= 360.0:
+				endReeling()
+				if randf_range(0.0, 1.0) > 0.95:
+					startDialogue("largeCaveFish")
+				elif randf_range(0.0, 1.0) > 0.75:
+					startDialogue("mediumCaveFish")
+				else:
+					startDialogue("smallCaveFish")
+			elif %fishingProgress.value <= 0.0:
+				endReeling()
 	elif !isStopped: interact(delta);
 	else:
 		%interactIcon.visible = false
@@ -110,7 +169,8 @@ func move(delta):
 	if !is_on_floor():
 		verticalVel -= GRAVITY * delta
 		verticalVel = clamp(verticalVel, -TERMINAL_VELOCITY, INF)
-	elif Input.is_action_pressed("moveJump"): verticalVel = JUMP_VELOCITY;
+	elif Input.is_action_pressed("moveJump") and !isStopped and fishingState == FISHING_STATES.inactive:
+		verticalVel = JUMP_VELOCITY
 	else: verticalVel = 0;
 	
 	var aim:Vector3 = Vector3(1, 0, 1)
@@ -126,7 +186,7 @@ func move(delta):
 	else: direction = storedDirection;
 	
 	# Move player in calculated direction
-	if (direction.dot(velocity) == 0 and velocity.length() > 0.1) or isStopped:
+	if (direction.dot(velocity) == 0 and velocity.length() > 0.1) or isStopped or fishingState != FISHING_STATES.inactive:
 		velocity *= DECELERATION * delta
 	else:
 		velocity = direction.normalized() * PLAYER_SPEED
@@ -137,7 +197,7 @@ func move(delta):
 		if !is_on_floor(): %bobAnim.speed_scale = 0.0;
 		else: %bobAnim.speed_scale = direction.dot(velocity) - 5.0;
 		
-		velocity.y = verticalVel
+	velocity.y = verticalVel
 	move_and_slide()
 #endregion
 
@@ -290,12 +350,34 @@ func fishingAnimFinished(anim_name):
 		"withdraw":
 			fishingState = FISHING_STATES.inactive
 
+func fishPulling():
+	%fishingAnims.speed_scale = 1.5
+
+func fishSurfacing():
+	%fishingAnims.speed_scale = 1.0
+
 func bobberFloorContacted():
-	currentBobber = null
-	%fishingLine.visible = false
+	disconnectBobber()
 	%fishingAnims.play("withdraw")
-	fishingState = FISHING_STATES.transitioning
-	%fishingLine.scale.z = 1.0
 
 func bobberWaterContacted():
 	pass
+
+func disconnectBobber():
+	if currentBobber != null: currentBobber.queue_free();
+	currentBobber = null
+	%fishingLine.visible = false
+	%fishingLine.scale.z = 1.0
+	fishingState = FISHING_STATES.transitioning
+	%fishingAnims.speed_scale = 1.0
+	if camTween != null:
+		camTween.kill()
+
+func endReeling():
+	%fishingIndicatorPivot.rotation = 0.0
+	%fishingTargetPivot.rotation = 0.0
+	fishIndicatorSpeed = 0
+	disconnectBobber()
+	%fishingAnims.play("reelComplete")
+	%fishing.visible = false
+	reelingFish = false
