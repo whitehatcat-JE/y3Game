@@ -1,7 +1,7 @@
 extends RigidBody3D
 
 const MIN_WAIT_TIME:float = 3.0
-const MAX_WAIT_TIME:float = 15.0
+const MAX_WAIT_TIME:float = 10.0
 
 const PULL_TIME:float = 1.0
 
@@ -43,8 +43,8 @@ func bobberAnimFinished(anim_name):
 			await get_tree().create_timer(PULL_TIME).timeout
 			if isReeling: return;
 			$bobberAnims.play("surface")
-			isPulling = false
 			emit_signal("surfacing")
 		"surface":
 			$bobberAnims.play("float")
+			isPulling = false
 			startWaitPeriod()

@@ -29,9 +29,9 @@ const MIN_FISHING_ANGLE:float = -PI / 4.0
 const MAX_FISHING_ANGLE:float = 0.0
 const FISH_INDICATOR_ACCELERATION:float = 10.0
 const FISH_MAX_INDICATOR_SPEED:float = 10.0
-const FISH_DECREASE_SPEED:float = 80.0
-const FISH_INCREASE_SPEED:float = 50.0
-const TARGET_ROTATE_SPEED:float = 1.0
+const FISH_DECREASE_SPEED:float = 150.0
+const FISH_INCREASE_SPEED:float = 125.0
+const FISH_TURN_SPEED:float = 5.0
 
 # State variables
 var cameraAngle:float = 0
@@ -53,13 +53,19 @@ var fishingState:FISHING_STATES = FISHING_STATES.inactive
 var currentBobber:RigidBody3D = null
 var camTween:Tween = null
 var reelingFish:bool = false
+var fishCapturing:Fish = null
 var fishIndicatorSpeed:float = 0.0
+var timeTillDirectionChange:float = 0.0
+var movingClockwise:bool = true
+var fishSpeed:float = 0.0
 
 @onready var outlineMaterial:ShaderMaterial = preload("res://hubs/interactions/shaders/outlineMat.tres")
 @onready var bobberScene:PackedScene = preload("res://hubs/player/fishingBobber.tscn")
 
 @export var playerInfo:PlayerData
 @export var secondaryEntrances:Node3D = null
+
+@export var fishingPool:Array[Fish] = []
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -99,9 +105,11 @@ func _input(event):
 				if currentBobber.isPulling:
 					fishingState = FISHING_STATES.transitioning
 					currentBobber.isReeling = true
+					fishCapturing = getFish()
 					%fishingProgress.value = 180.0
 					%fishingIndicatorPivot.rotation_degrees = randf_range(0.0, 359.0)
-					%fishingTargetPivot.rotation_degrees = randf_range(0.0, 359.0)
+					%fishingTargetPivot.rotation_degrees = %fishingIndicatorPivot.rotation_degrees
+					%fishingTarget.value = fishCapturing.size
 					reelingFish = true
 					%fishing.visible = true
 					%fishingAnims.speed_scale = 1.0
@@ -109,11 +117,12 @@ func _input(event):
 				else:
 					disconnectBobber()
 					%fishingAnims.play("withdraw")
- 
+
 func _process(delta):
 	if currentBobber != null:
 		%fishingLine.global_transform.origin = %bobberSpawnPoint.global_transform.origin
-		%fishingLine.look_at(currentBobber.getBobber().global_transform.origin)
+		if %fishingLine.global_transform.origin != currentBobber.getBobber().global_transform.origin:
+			%fishingLine.look_at(currentBobber.getBobber().global_transform.origin)
 		%fishingLine.scale.z = %fishingLine.global_transform.origin.distance_to(
 			currentBobber.getBobber().global_transform.origin)
 		if %floorCast.is_colliding():
@@ -125,9 +134,17 @@ func _process(delta):
 				fishIndicatorSpeed += delta * FISH_INDICATOR_ACCELERATION
 			else:
 				fishIndicatorSpeed -= delta * FISH_INDICATOR_ACCELERATION
+			
+			timeTillDirectionChange -= delta
+			if timeTillDirectionChange <= 0:
+				movingClockwise = randf() > 0.5
+				timeTillDirectionChange = fishCapturing.predictability * randf_range(0.75, 1.25)
+			
 			fishIndicatorSpeed = clamp(fishIndicatorSpeed, -FISH_MAX_INDICATOR_SPEED, FISH_MAX_INDICATOR_SPEED)
 			%fishingIndicatorPivot.rotation += fishIndicatorSpeed * delta
-			%fishingTargetPivot.rotation += TARGET_ROTATE_SPEED * delta
+			fishSpeed = clamp(fishSpeed + fishCapturing.speed * delta * FISH_TURN_SPEED * (
+				1.0 if movingClockwise else -1.0), -fishCapturing.speed, fishCapturing.speed)
+			%fishingTargetPivot.rotation += fishSpeed * delta
 			
 			var indicatorAngle:int = wrapf(%fishingIndicatorPivot.rotation_degrees, 0.0, 360.0)
 			var targetAngle:int = wrapf(%fishingTargetPivot.rotation_degrees, 0.0, 360.0)
@@ -135,18 +152,13 @@ func _process(delta):
 			angleDifference = abs((angleDifference + 180) % 360 - 180)
 			
 			if angleDifference < %fishingTarget.value / 2.0:
-				%fishingProgress.value += FISH_INCREASE_SPEED * delta
+				%fishingProgress.value += FISH_INCREASE_SPEED * delta * fishCapturing.speed
 			else:
-				%fishingProgress.value -= FISH_DECREASE_SPEED * delta
+				%fishingProgress.value -= FISH_DECREASE_SPEED * delta * fishCapturing.speed
 			
 			if %fishingProgress.value >= 360.0:
 				endReeling()
-				if randf_range(0.0, 1.0) > 0.95:
-					startDialogue("largeCaveFish")
-				elif randf_range(0.0, 1.0) > 0.75:
-					startDialogue("mediumCaveFish")
-				else:
-					startDialogue("smallCaveFish")
+				startCustomDialogue([fishCapturing.descriptiveName + " caught!"])
 			elif %fishingProgress.value <= 0.0:
 				endReeling()
 	elif !isStopped: interact(delta);
@@ -273,6 +285,13 @@ func startDialogue(identifier:String):
 	%dialogueMenu.startDialogue(identifier)
 	%dialogueMenu.process_mode = Node.PROCESS_MODE_PAUSABLE
 
+func startCustomDialogue(customDialogue:Array[String]):
+	isStopped = true
+	%bobAnim.speed_scale = 0.1
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	%dialogueMenu.startCustomDialogue(customDialogue)
+	%dialogueMenu.process_mode = Node.PROCESS_MODE_PAUSABLE
+
 func buyItem():
 	playerInfo.balance -= currentlySelected.part.cost
 	if purchaseCount + playerInfo.getInventoryCount(currentlySelected.part) == 0:
@@ -381,3 +400,18 @@ func endReeling():
 	%fishingAnims.play("reelComplete")
 	%fishing.visible = false
 	reelingFish = false
+
+func getFish():
+	var totalFishChance:float = 0.0
+	for fish in fishingPool: totalFishChance += fish.chance;
+	for fish in fishingPool:
+		var minFishChance:float = totalFishChance - fish.chance
+		var selectedChance:float = randf_range(0.0, totalFishChance)
+		if selectedChance > minFishChance:
+			var newFish:Fish = fish.duplicate()
+			newFish.spawn()
+			return newFish
+		totalFishChance -= fish.chance
+	var newFish = fishingPool[0].duplicate()
+	newFish.spawn()
+	return newFish

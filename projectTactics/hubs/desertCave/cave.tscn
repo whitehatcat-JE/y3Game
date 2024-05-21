@@ -1,4 +1,4 @@
-[gd_scene load_steps=164 format=3 uid="uid://brhvbncn85nke"]
+[gd_scene load_steps=166 format=3 uid="uid://brhvbncn85nke"]
 
 [ext_resource type="Script" path="res://hubs/desertCave/scripts/cave.gd" id="1_j6xu3"]
 [ext_resource type="Texture2D" uid="uid://dxaynsv6fgcf5" path="res://hubs/desertCave/assets/individualFlower.png" id="1_j76fw"]
@@ -6,7 +6,9 @@
 [ext_resource type="Resource" uid="uid://c5eswtj7s7u1b" path="res://combat/parts/temp/armorA.tres" id="2_lodci"]
 [ext_resource type="Texture2D" uid="uid://dp1dfhdoexord" path="res://hubs/city/assets/courtyard/structures/courtyardSpritemapRoughness.png" id="3_58ovy"]
 [ext_resource type="Texture2D" uid="uid://bi0fxrjgc2m8x" path="res://hubs/city/assets/courtyard/structures/courtyardSpritemapLighting.png" id="4_aujao"]
+[ext_resource type="Resource" uid="uid://trpekdikveh4" path="res://hubs/player/scenes/moonstoneTrout.tres" id="5_rmug1"]
 [ext_resource type="Texture2D" uid="uid://x2xxr6cm01cr" path="res://hubs/desertCave/assets/caveTilemap.png" id="6_o4ld3"]
+[ext_resource type="Resource" uid="uid://bu8g34n68eo6v" path="res://hubs/player/scenes/crescentBass.tres" id="6_tx74e"]
 [ext_resource type="ArrayMesh" uid="uid://dn5xg1li3q5qc" path="res://hubs/desertCave/assets/caveWalls.obj" id="7_go6g5"]
 [ext_resource type="Texture2D" uid="uid://cmvflby55nd71" path="res://hubs/desertCave/assets/blueFlowers.png" id="8_35jui"]
 [ext_resource type="Texture2D" uid="uid://bw87y38hdkcs7" path="res://hubs/desertCave/assets/caveBridge.png" id="8_ybcin"]
@@ -799,6 +801,7 @@ draw_pass_1 = SubResource("PlaneMesh_i4im5")
 [node name="player" parent="." node_paths=PackedStringArray("secondaryEntrances") instance=ExtResource("1_v2pkq")]
 transform = Transform3D(-0.906308, 0, 0.422618, 0, 1, 0, -0.422618, 0, -0.906308, -3.09101, 1.50834, -0.921385)
 secondaryEntrances = NodePath("../secondaryEntrances")
+fishingPool = Array[Resource("res://hubs/player/resources/fish.gd")]([ExtResource("5_rmug1"), ExtResource("6_tx74e")])
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_t4tuk")

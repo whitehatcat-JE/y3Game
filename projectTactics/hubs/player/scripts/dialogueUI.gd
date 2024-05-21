@@ -24,13 +24,7 @@ var dialogue:Dictionary = {
 	"caveMerchantSold":
 		["Nice doing business with you./FQUIT"],
 	"caveMerchantDenied":
-		["If you change your mind feel free to come back anytime./FQUIT"],
-	"smallCaveFish":
-		["Small Cave Fish Obtained!"],
-	"mediumCaveFish":
-		["Medium Cave Fish Obtained!"],
-	"largeCaveFish":
-		["Large Cave Fish Obtained!"]
+		["If you change your mind feel free to come back anytime./FQUIT"]
 }
 
 var queuedDialogue:Array[String] = []
@@ -102,6 +96,11 @@ func endDialogue():
 
 func appendDialogue(identifier:String):
 	for line:String in dialogue[identifier]:
+		queuedDialogue.append(line)
+	nextLine()
+
+func startCustomDialogue(customDialogue:Array):
+	for line:String in customDialogue:
 		queuedDialogue.append(line)
 	nextLine()
 

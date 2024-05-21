@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Fish" load_steps=2 format=3 uid="uid://bu8g34n68eo6v"]
+
+[ext_resource type="Script" path="res://hubs/player/resources/fish.gd" id="1_i5f8p"]
+
+[resource]
+script = ExtResource("1_i5f8p")
+name = "Crescent Bass"
+minWeight = 4.0
+maxWeight = 8.5
+chance = 1.5
+value = 50
+size = 120
+strength = 1.0
+speed = 0.75
+slippery = 0.1
