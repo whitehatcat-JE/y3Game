@@ -106,7 +106,7 @@ func _input(event):
 					fishingState = FISHING_STATES.transitioning
 					currentBobber.isReeling = true
 					fishCapturing = getFish()
-					%fishingProgress.value = 180.0
+					%fishingProgress.value = 90.0
 					%fishingIndicatorPivot.rotation_degrees = randf_range(0.0, 359.0)
 					%fishingTargetPivot.rotation_degrees = %fishingIndicatorPivot.rotation_degrees
 					%fishingTarget.value = fishCapturing.size
@@ -148,13 +148,16 @@ func _process(delta):
 			
 			var indicatorAngle:int = wrapf(%fishingIndicatorPivot.rotation_degrees, 0.0, 360.0)
 			var targetAngle:int = wrapf(%fishingTargetPivot.rotation_degrees, 0.0, 360.0)
-			var angleDifference:int = indicatorAngle - targetAngle
-			angleDifference = abs((angleDifference + 180) % 360 - 180)
+			var angleDifferenceA:int = abs((indicatorAngle - targetAngle + 180) % 360 - 180)
+			var angleDifferenceB:int = abs((targetAngle - indicatorAngle + 180) % 360 - 180)
+			var smallestAngleDifference:int = angleDifferenceA
+			if angleDifferenceB < angleDifferenceA:
+				smallestAngleDifference = angleDifferenceB
 			
-			if angleDifference < %fishingTarget.value / 2.0:
-				%fishingProgress.value += FISH_INCREASE_SPEED * delta * fishCapturing.speed
+			if smallestAngleDifference < %fishingTarget.value / 2.0:
+				%fishingProgress.value += FISH_INCREASE_SPEED * delta / fishCapturing.strength
 			else:
-				%fishingProgress.value -= FISH_DECREASE_SPEED * delta * fishCapturing.speed
+				%fishingProgress.value -= FISH_DECREASE_SPEED * delta
 			
 			if %fishingProgress.value >= 360.0:
 				endReeling()

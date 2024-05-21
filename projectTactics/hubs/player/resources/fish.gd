@@ -53,7 +53,7 @@ func spawn():
 		descriptiveName = "Emperor " + name
 		value *= 10.0
 		strength *= 2.0
-		speed *= 3.0
+		speed *= 2.0
 		predictability *= 3.0
 		size = clamp(size * 0.333, 1, 100000)
 	descriptiveName += " (" + str(round(weight * 10.0) /10.0) + "kg)"
