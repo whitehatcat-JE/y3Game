@@ -7,6 +7,15 @@ enum ItemTypes {
 	FISH
 }
 
+enum Rarities {
+	COMMON,
+	UNCOMMON,
+	RARE,
+	EXOTIC,
+	LEGENDARY,
+	MYTHIC
+}
+
 var selectedItem
 var selectedItemType:ItemTypes = ItemTypes.ALL
 
@@ -78,6 +87,7 @@ func clearDisplayedItem():
 	%inventorySpeedIcon.visible = false
 	%inventoryRangeIcon.visible = false
 	%inventorySplashIcon.visible = false
+	%itemTrashSpacer.visible = false
 	%deleteButton.visible = false
 
 func openSettings():
@@ -94,6 +104,7 @@ func openQuit():
 	%settingsMenu.visible = false
 
 func inventoryItemSelected(item):
+	clearDisplayedItem()
 	%inventoryItemModel.visible = true
 	%inventoryItemModel.mesh = item.model
 	var modelAABB : Vector3 = item.model.get_aabb().size
@@ -102,24 +113,46 @@ func inventoryItemSelected(item):
 	%inventoryItemName.text = item.name
 	if playerInfo.inventory[item] > 1:
 		%inventoryItemName.text += " (" + str(playerInfo.inventory[item]) + ")"
-	%inventoryItemData.text = "[center][color=red]%s [color=white]-[color=blue] %s/%s" % [
-		item.strType[item.type],
-		str(item.currentDurability), 
-		str(item.maxDurability)
-	]
+		
 	%inventoryItemDescription.text = "[center][i] " + item.description
-	
-	%inventoryDamageIcon.visible = true
-	%inventoryDamage.text = str(item.damage)
-	%inventoryArmorIcon.visible = true
-	%inventoryArmor.text = str(item.armorRating)
-	%inventorySpeedIcon.visible = true
-	%inventorySpeed.text = str(item.speedRating)
-	%inventoryRangeIcon.visible = true
-	%inventoryRange.text = str(item.range)
-	%inventorySplashIcon.visible = item.splash > 0
-	%inventorySplash.text = str(item.splash)
-	
+	if item.itemType == ItemTypes.PART:
+		%inventoryItemData.text = "[center][color=red]%s [color=white]-[color=blue] %s/%s[color=white] - %s [img=12]placeholder/goldIcon.png[/img]" % [
+			item.strType[item.type],
+			str(item.currentDurability), 
+			str(item.maxDurability),
+			str(int(item.cost / 2.0))
+		]
+		%inventoryDamageIcon.visible = true
+		%inventoryDamage.text = str(item.damage)
+		%inventoryArmorIcon.visible = true
+		%inventoryArmor.text = str(item.armorRating)
+		%inventorySpeedIcon.visible = true
+		%inventorySpeed.text = str(item.speedRating)
+		%inventoryRangeIcon.visible = true
+		%inventoryRange.text = str(item.range)
+		%inventorySplashIcon.visible = item.splash > 0
+		%inventorySplash.text = str(item.splash)
+		%itemTrashSpacer.visible = true
+	elif item.itemType == ItemTypes.FISH:
+		var rarityText:String = ""
+		match item.rarity:
+			Rarities.COMMON:
+				rarityText = "Common"
+			Rarities.UNCOMMON:
+				rarityText = "[color=turquoise]Uncommon"
+			Rarities.RARE:
+				rarityText = "[color=tomato]Rare"
+			Rarities.EXOTIC:
+				rarityText = "[color=hotpink]Exotic"
+			Rarities.LEGENDARY:
+				rarityText = "[color=gold]Legendary"
+			Rarities.MYTHIC:
+				rarityText = "[color=purple]Mythic"
+		%inventoryItemData.text = "[center] %s [color=white] - %s [img=12]placeholder/goldIcon.png[/img]" % [
+			rarityText,
+			str(int(item.cost))
+		]
+			
 	%deleteButton.visible = true
 	selectedItem = item
 

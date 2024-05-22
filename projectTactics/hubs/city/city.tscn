@@ -1,7 +1,7 @@
 [gd_scene load_steps=139 format=3 uid="uid://ck8jmxbk38api"]
 
 [ext_resource type="Texture2D" uid="uid://cljmnog7b3xxl" path="res://hubs/city/assets/courtyard/structures/tower.png" id="1_ct8p1"]
-[ext_resource type="PackedScene" uid="uid://bpoag1rko7t2q" path="res://hubs/player/player.tscn" id="1_dxhrs"]
+[ext_resource type="PackedScene" uid="uid://bpoag1rko7t2q" path="res://hubs/player/scenes/player.tscn" id="1_dxhrs"]
 [ext_resource type="Script" path="res://hubs/city/scripts/city.gd" id="1_s2vd7"]
 [ext_resource type="ArrayMesh" uid="uid://guvyatflewix" path="res://hubs/city/assets/courtyard/structures/tower.obj" id="2_2mjru"]
 [ext_resource type="Texture2D" uid="uid://c4th2d27fqdlb" path="res://hubs/city/assets/courtyard/structures/entranceWall.png" id="3_3g8a0"]

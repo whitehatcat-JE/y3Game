@@ -60,7 +60,7 @@ var movingClockwise:bool = true
 var fishSpeed:float = 0.0
 
 @onready var outlineMaterial:ShaderMaterial = preload("res://hubs/interactions/shaders/outlineMat.tres")
-@onready var bobberScene:PackedScene = preload("res://hubs/player/fishingBobber.tscn")
+@onready var bobberScene:PackedScene = preload("res://hubs/player/scenes/fishingBobber.tscn")
 
 @export var playerInfo:PlayerData
 @export var secondaryEntrances:Node3D = null
@@ -122,7 +122,7 @@ func _process(delta):
 	if currentBobber != null:
 		%fishingLine.global_transform.origin = %bobberSpawnPoint.global_transform.origin
 		if %fishingLine.global_transform.origin != currentBobber.getBobber().global_transform.origin:
-			%fishingLine.look_at(currentBobber.getBobber().global_transform.origin)
+			%fishingLine.look_at(currentBobber.getBobber().global_transform.origin + Vector3(0, 0.05, 0))
 		%fishingLine.scale.z = %fishingLine.global_transform.origin.distance_to(
 			currentBobber.getBobber().global_transform.origin)
 		if %floorCast.is_colliding():
@@ -155,13 +155,14 @@ func _process(delta):
 				smallestAngleDifference = angleDifferenceB
 			
 			if smallestAngleDifference < %fishingTarget.value / 2.0:
-				%fishingProgress.value += FISH_INCREASE_SPEED * delta / fishCapturing.strength
+				%fishingProgress.value += FISH_INCREASE_SPEED * delta / fishCapturing.captureTime
 			else:
 				%fishingProgress.value -= FISH_DECREASE_SPEED * delta
 			
 			if %fishingProgress.value >= 360.0:
 				endReeling()
 				startCustomDialogue([fishCapturing.descriptiveName + " caught!"])
+				playerInfo.addToInventory(fishCapturing)
 			elif %fishingProgress.value <= 0.0:
 				endReeling()
 	elif !isStopped: interact(delta);
@@ -411,10 +412,10 @@ func getFish():
 		var minFishChance:float = totalFishChance - fish.chance
 		var selectedChance:float = randf_range(0.0, totalFishChance)
 		if selectedChance > minFishChance:
-			var newFish:Fish = fish.duplicate()
+			var newFish:Fish = fish
 			newFish.spawn()
 			return newFish
 		totalFishChance -= fish.chance
-	var newFish = fishingPool[0].duplicate()
+	var newFish = fishingPool[0]
 	newFish.spawn()
 	return newFish

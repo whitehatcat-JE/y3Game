@@ -1,19 +1,17 @@
-[gd_scene load_steps=12 format=3 uid="uid://c5mrc1cyefdda"]
+[gd_scene load_steps=13 format=3 uid="uid://c5mrc1cyefdda"]
 
-[ext_resource type="Script" path="res://hubs/player/scripts/fishingBobber.gd" id="1_euwro"]
+[ext_resource type="Script" path="res://hubs/player/scripts/fishingBobber.gd" id="1_1oog2"]
+[ext_resource type="Texture2D" uid="uid://6bpr1lcwsqjw" path="res://hubs/player/assets/fishing/fishingBobber.png" id="2_4povw"]
+[ext_resource type="ArrayMesh" uid="uid://drbd3wgla7q0x" path="res://hubs/player/assets/fishing/fishingBobber.obj" id="3_txecf"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wk3sa"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_3dti6"]
-radius = 0.1
+[sub_resource type="BoxShape3D" id="BoxShape3D_qoa6i"]
+size = Vector3(0.13, 0.13, 0.13)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nq21p"]
-emission = Color(1, 1, 0, 1)
-emission_energy_multiplier = 3.0
-
-[sub_resource type="SphereMesh" id="SphereMesh_e2r8e"]
-radius = 0.1
-height = 0.2
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aeqb7"]
+albedo_texture = ExtResource("2_4povw")
+texture_filter = 0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0y5fd"]
 radius = 0.1
@@ -99,15 +97,17 @@ can_sleep = false
 max_contacts_reported = 1
 contact_monitor = true
 constant_force = Vector3(0, -10, 0)
-script = ExtResource("1_euwro")
+script = ExtResource("1_1oog2")
 
 [node name="hitbox" type="CollisionShape3D" parent="."]
-shape = SubResource("SphereShape3D_3dti6")
+shape = SubResource("BoxShape3D_qoa6i")
 
 [node name="bobberMesh" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true
-material_override = SubResource("StandardMaterial3D_nq21p")
-mesh = SubResource("SphereMesh_e2r8e")
+transform = Transform3D(0.333, 0, 0, 0, 0.333, 0, 0, 0, 0.333, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_aeqb7")
+cast_shadow = 0
+mesh = ExtResource("3_txecf")
 
 [node name="floorScanner" type="Area3D" parent="."]
 collision_layer = 0

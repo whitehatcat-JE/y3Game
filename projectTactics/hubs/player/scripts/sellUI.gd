@@ -51,7 +51,10 @@ func cancelPressed():
 
 func confirmPressed():
 	for item in salesQueue.keys():
-		playerInfo.balance += (item.cost / 2) * salesQueue[item]
+		if item.itemType in [ItemTypes.PART, ItemTypes.UNIT]:
+			playerInfo.balance += (item.cost / 2) * salesQueue[item]
+		else:
+			playerInfo.balance += (item.cost) * salesQueue[item]
 		playerInfo.inventory[item] -= salesQueue[item]
 		if playerInfo.inventory[item] <= 0:
 			playerInfo.inventory.erase(item)
@@ -80,7 +83,11 @@ func refreshItems():
 	for item in salesQueue.keys():
 		if playerInfo.inventory[item] - salesQueue[item] <= 0:
 			filteredItems.erase(item)
-		salesAmt += salesQueue[item] * (item.cost / 2)
+		
+		if item.itemType in [ItemTypes.PART, ItemTypes.UNIT]:
+			salesAmt += salesQueue[item] * (item.cost / 2)
+		else:
+			salesAmt += salesQueue[item] * (item.cost)
 	
 	%salesTotalAmt.text = "[p align=right]" + str(playerInfo.balance + salesAmt) + "G"
 	%salesProfitAmt.text = "(+" + str(salesAmt) + "G)"
@@ -95,7 +102,10 @@ func refreshItems():
 		else:
 			if playerInfo.inventory[item] > 1:
 				newItem.text += " (" + str(playerInfo.inventory[item]) + ")"
-		newItem.text += " (" + str(item.cost / 2.0) + "G)"
+		if item.itemType in [ItemTypes.PART, ItemTypes.UNIT]:
+			newItem.text += " (" + str(int(item.cost / 2.0)) + "G)"
+		else:
+			newItem.text += " (" + str(int(item.cost)) + "G)"
 		newItem.visible = true
 		newItem.button_up.connect(inventoryItemSelected.bind(item))
 		spawnedItems.append(newItem)
@@ -109,7 +119,10 @@ func refreshItems():
 		newItem.text = item.name
 		if salesQueue[item] > 1:
 			newItem.text += " (" + str(salesQueue[item]) + ")"
-		newItem.text += " (" + str(item.cost / 2.0) + "G)"
+		if item.itemType in [ItemTypes.PART, ItemTypes.UNIT]:
+			newItem.text += " (" + str(int(item.cost / 2.0)) + "G)"
+		else:
+			newItem.text += " (" + str(int(item.cost)) + "G)"
 		newItem.visible = true
 		newItem.button_up.connect(salesItemSelected.bind(item))
 		spawnedSales.append(newItem)
