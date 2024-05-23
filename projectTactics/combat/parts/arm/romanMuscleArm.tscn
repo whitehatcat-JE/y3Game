@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://0kferanerow1"]
+[gd_scene load_steps=7 format=3 uid="uid://0kferanerow1"]
 
+[ext_resource type="Script" path="res://combat/resources/partModel.gd" id="1_cxofd"]
 [ext_resource type="Texture2D" uid="uid://8hgi1ber57uj" path="res://combat/parts/arm/romanMuscleArm.png" id="1_n1p7d"]
 [ext_resource type="ArrayMesh" uid="uid://b71ipoedr1h5r" path="res://combat/parts/arm/romanMuscleUpperArm.obj" id="2_15pgj"]
 [ext_resource type="ArrayMesh" uid="uid://bb1n5yf54oa7u" path="res://combat/parts/arm/romanMuscleLowerArm.obj" id="3_w4exa"]
@@ -20,7 +21,9 @@ cull_mode = 2
 albedo_texture = ExtResource("1_n1p7d")
 texture_filter = 0
 
-[node name="upperArmPivot" type="Node3D"]
+[node name="romanMuscleArmPivot" type="Node3D"]
+transform = Transform3D(0.96264, -0.270785, 0, 0.270785, 0.96264, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("1_cxofd")
 
 [node name="RomanMuscleUpperArm" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000481877, -0.279758, 1.05621e-05)
@@ -28,7 +31,7 @@ material_override = SubResource("StandardMaterial3D_au48p")
 mesh = ExtResource("2_15pgj")
 
 [node name="lowerArmPivot" type="Node3D" parent="RomanMuscleUpperArm"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.24654, 0.0146806)
+transform = Transform3D(0.950852, 0.263315, -0.162932, -0.309648, 0.808576, -0.500323, 0, 0.526184, 0.850371, 5.96046e-08, -1.24654, 0.0146806)
 
 [node name="RomanMuscleLowerArm" type="MeshInstance3D" parent="RomanMuscleUpperArm/lowerArmPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00312018, -0.248793, -0.0296081)

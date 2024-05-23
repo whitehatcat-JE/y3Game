@@ -1,14 +1,11 @@
-[gd_resource type="Resource" script_class="Part" load_steps=3 format=3 uid="uid://c5eswtj7s7u1b"]
+[gd_resource type="Resource" script_class="Part" load_steps=2 format=3 uid="uid://c5eswtj7s7u1b"]
 
 [ext_resource type="Script" path="res://combat/resources/part.gd" id="1_1ml1l"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_5msf4"]
 
 [resource]
 script = ExtResource("1_1ml1l")
 name = "Cube"
 type = 3
-model = SubResource("BoxMesh_5msf4")
 cost = 50
 description = ""
 maxDurability = 50

@@ -110,15 +110,18 @@ func openQuit():
 func inventoryItemSelected(item):
 	clearDisplayedItem()
 	%inventoryItemModel.visible = true
+	%inventoryItemModel.scale = Vector3(1.0, 1.0, 1.0)
+	var aabbSize:Vector3
 	if item.itemType == ItemTypes.PART:
 		var newModel = item.model.instantiate()
 		%inventoryItemModel.add_child(newModel)
-		newModel.position = Vector3()
+		newModel.position -= newModel.getAABB().position + newModel.getAABB().size / 2.0
+		aabbSize = newModel.getAABB().size
 	else:
 		%inventoryItemMesh.mesh = item.model
-		var modelAABB : Vector3 = item.model.get_aabb().size
-		var divideAmt : float = max(modelAABB.x, modelAABB.y, modelAABB.z)
-		%inventoryItemModel.scale = Vector3(0.8, 0.8, 0.8) / divideAmt
+		aabbSize = item.model.get_aabb().size
+	var divideAmt : float = max(aabbSize.x, aabbSize.y, aabbSize.z)
+	%inventoryItemModel.scale = Vector3(0.8, 0.8, 0.8) / divideAmt
 	%inventoryItemName.text = item.name
 	if playerInfo.inventory[item] > 1:
 		%inventoryItemName.text += " (" + str(playerInfo.inventory[item]) + ")"

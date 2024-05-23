@@ -1,4 +1,4 @@
-[gd_scene load_steps=156 format=3 uid="uid://brhvbncn85nke"]
+[gd_scene load_steps=158 format=3 uid="uid://brhvbncn85nke"]
 
 [ext_resource type="Script" path="res://hubs/desertCave/scripts/cave.gd" id="1_j6xu3"]
 [ext_resource type="Texture2D" uid="uid://dxaynsv6fgcf5" path="res://hubs/desertCave/assets/individualFlower.png" id="1_j76fw"]
@@ -48,6 +48,7 @@
 [ext_resource type="Texture2D" uid="uid://cromal4li104r" path="res://combat/parts/core/romanMuscleCore.png" id="40_b6518"]
 [ext_resource type="PackedScene" uid="uid://0kferanerow1" path="res://combat/parts/arm/romanMuscleArm.tscn" id="41_1dc2b"]
 [ext_resource type="Texture2D" uid="uid://rsjn43t6rk1p" path="res://hubs/desertCave/assets/floatingCandle.png" id="41_1fl3k"]
+[ext_resource type="PackedScene" uid="uid://mm5a10wev6oc" path="res://combat/parts/chest/romanMuscleChest.tscn" id="41_e27ol"]
 [ext_resource type="ArrayMesh" uid="uid://bxcfcgu6askyp" path="res://hubs/desertCave/assets/floatingCandle.obj" id="42_fgk3i"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ku2gi"]
@@ -439,6 +440,21 @@ armorRating = 3
 speedRating = 3
 range = 2
 splash = 0
+
+[sub_resource type="Resource" id="Resource_hxhu0"]
+script = ExtResource("36_45emv")
+name = "Sunstone Chestplate"
+type = 2
+model = ExtResource("41_e27ol")
+cost = 1250
+description = " Lined in raw sunstone"
+maxDurability = 5
+currentDurability = 5
+damage = 1
+armorRating = 1
+speedRating = 1
+range = 1
+splash = 1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e6vcr"]
 transparency = 2
@@ -3077,9 +3093,14 @@ skeleton = NodePath("../..")
 [node name="shop" type="Node3D" parent="."]
 
 [node name="sunstoneArm" parent="shop" instance=ExtResource("33_mdrs7")]
-transform = Transform3D(-0.344346, 0.203013, -0.0145292, -0.0147419, 0.00360093, 0.399712, 0.202998, 0.344634, 0.00438149, -6.04891, 2.91434, 33.2922)
+transform = Transform3D(-0.027408, 0.257325, -0.305012, -0.385755, -0.0953706, -0.045796, -0.102184, 0.291012, 0.254696, -6.04891, 2.84692, 33.2922)
 monitoring = true
 part = SubResource("Resource_km0mc")
+
+[node name="sunstoneChestplate" parent="shop" instance=ExtResource("33_mdrs7")]
+transform = Transform3D(-0.158046, 0.367339, -0.00913887, -0.0147419, 0.00360093, 0.399712, 0.367157, 0.158269, 0.0121151, -4.81223, 2.91434, 32.5359)
+monitoring = true
+part = SubResource("Resource_hxhu0")
 
 [node name="rug5" type="Sprite3D" parent="shop"]
 transform = Transform3D(-0.647743, -0.456845, -1.99693e-08, -2.20978e-15, -2.44784e-08, 0.56, -0.91369, 0.323872, 1.41569e-08, -4.14104, 2.72541, 31.8482)
