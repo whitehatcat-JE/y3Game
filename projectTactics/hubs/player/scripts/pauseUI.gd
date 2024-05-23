@@ -30,7 +30,6 @@ func _ready():
 	%partsFilter.button_up.connect(setItemType.bind(ItemTypes.PART))
 	%unitsFilter.button_up.connect(setItemType.bind(ItemTypes.UNIT))
 	%fishFilter.button_up.connect(setItemType.bind(ItemTypes.FISH))
-	
 
 func _input(event):
 	if Input.is_action_just_pressed("pause"): unpause();
@@ -78,6 +77,7 @@ func refreshItems():
 		spawnedItems.append(newItem)
 
 func clearDisplayedItem():
+	selectedItem = null
 	%inventoryItemName.text = ""
 	%inventoryItemData.text = ""
 	%inventoryItemDescription.text = ""
@@ -108,6 +108,7 @@ func openQuit():
 	%settingsMenu.visible = false
 
 func inventoryItemSelected(item):
+	if item == selectedItem: return;
 	clearDisplayedItem()
 	%inventoryItemModel.visible = true
 	%inventoryItemModel.scale = Vector3(1.0, 1.0, 1.0)
@@ -115,7 +116,7 @@ func inventoryItemSelected(item):
 	if item.itemType == ItemTypes.PART:
 		var newModel = item.model.instantiate()
 		%inventoryItemModel.add_child(newModel)
-		newModel.position -= newModel.getAABB().position + newModel.getAABB().size / 2.0
+		newModel.position = -(newModel.getAABB().position + newModel.getAABB().size / 2.0)
 		aabbSize = newModel.getAABB().size
 	else:
 		%inventoryItemMesh.mesh = item.model

@@ -2,6 +2,8 @@
 extends Resource
 class_name Part
 
+signal partUpdated
+
 enum ItemTypes {
 	ALL,
 	PART,
@@ -20,10 +22,18 @@ enum PartTypes {
 var itemType : ItemTypes = ItemTypes.PART
 
 @export var name : String = ""
-@export var type:PartTypes = PartTypes.ARM
+@export var type:PartTypes = PartTypes.ARM :
+	get: return type;
+	set(value):
+		type = value
+		emit_signal("partUpdated")
 		
 var strType : Array = ["Arm", "Leg", "Chest", "Core", "Head"]
-@export var model : PackedScene
+@export var model : PackedScene :
+	get: return model;
+	set(value):
+		emit_signal("partUpdated")
+		model = value
 @export var cost : int = 0
 
 @export_subgroup("Flavour Text")

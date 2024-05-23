@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtlwund1tijs8"]
+
+[ext_resource type="Script" path="res://combat/resources/partModel.gd" id="1_g3txm"]
+[ext_resource type="Texture2D" uid="uid://cfr6hmniho35x" path="res://combat/parts/head/romanMuscleHelmet.png" id="2_x237a"]
+[ext_resource type="ArrayMesh" uid="uid://dx4uc1agi7leg" path="res://combat/parts/head/romanMuscleHelmet.obj" id="3_r6qr2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ng111"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("2_x237a")
+texture_filter = 0
+
+[node name="romanMuscleHead" type="Node3D"]
+script = ExtResource("1_g3txm")
+type = 4
+
+[node name="head" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25238, 0)
+material_override = SubResource("StandardMaterial3D_ng111")
+mesh = ExtResource("3_r6qr2")

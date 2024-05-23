@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://tdfu3fcexn16"]
+
+[ext_resource type="Script" path="res://combat/resources/partModel.gd" id="1_a383h"]
+[ext_resource type="Texture2D" uid="uid://cromal4li104r" path="res://combat/parts/core/romanMuscleCore.png" id="2_l30h5"]
+[ext_resource type="ArrayMesh" uid="uid://bx7hxuiped18s" path="res://combat/parts/core/romanMuscleCore.obj" id="3_7s55i"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r6ro2"]
+albedo_texture = ExtResource("2_l30h5")
+emission_enabled = true
+emission_texture = ExtResource("2_l30h5")
+
+[node name="romanMuscleCore" type="Node3D"]
+script = ExtResource("1_a383h")
+type = 3
+
+[node name="core" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_r6ro2")
+mesh = ExtResource("3_7s55i")

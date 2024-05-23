@@ -14,8 +14,9 @@ texture_filter = 0
 
 [node name="romanMuscleChestPivot" type="Node3D"]
 script = ExtResource("1_l0wfk")
+type = 2
 
-[node name="RomanMuscleChest" type="MeshInstance3D" parent="."]
+[node name="chest" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.107403, 0)
 mesh = ExtResource("1_ugohk")
 surface_material_override/0 = SubResource("StandardMaterial3D_fbl03")

@@ -1,16 +1,11 @@
-[gd_resource type="Resource" script_class="Part" load_steps=4 format=3 uid="uid://cpg0bodkw866e"]
+[gd_resource type="Resource" script_class="Part" load_steps=2 format=3 uid="uid://cpg0bodkw866e"]
 
-[ext_resource type="Texture2D" uid="uid://dk3vexomlxufs" path="res://placeholder/itemIcon.png" id="1_kbj4r"]
 [ext_resource type="Script" path="res://combat/resources/part.gd" id="1_n8sf2"]
-
-[sub_resource type="PrismMesh" id="PrismMesh_y0k2i"]
 
 [resource]
 script = ExtResource("1_n8sf2")
 name = "Cylinder"
 type = 0
-model = SubResource("PrismMesh_y0k2i")
-icon = ExtResource("1_kbj4r")
 cost = 250
 description = ""
 maxDurability = 15

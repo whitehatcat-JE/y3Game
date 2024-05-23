@@ -11,6 +11,7 @@ var interactionType : String = "item"
 @export var part : Part : 
 	set(value):
 		part = value
+		part.partUpdated.connect(refreshItem)
 		refreshItem()
 @export var misc : int
 
@@ -36,7 +37,7 @@ func refreshItem(_refreshValue = false):
 				self.add_child(newModel)
 				newModel.position = Vector3()
 				for mesh in getAllChildren(newModel):
-					if mesh is MeshInstance3D:
+					if mesh is MeshInstance3D and mesh.mesh != null:
 						var newMeshCollision:CollisionShape3D = CollisionShape3D.new()
 						self.add_child(newMeshCollision)
 						newMeshCollision.set_owner(self)
