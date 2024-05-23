@@ -240,8 +240,8 @@ func interact(delta):
 		return
 	if %itemRay.is_colliding():
 		if %itemRay.get_collider() != currentlySelected:
-			if currentlySelected != null and currentlySelected.has_node("mesh"):
-				currentlySelected.get_node("mesh").material_overlay = null
+			if currentlySelected != null:
+				currentlySelected.setOverlay(null)
 				if currentlySelected.interactionType == "item" and itemMenuDisplayed:
 					%itemMenuAnims.play("disappear")
 					itemMenuDisplayed = false
@@ -256,7 +256,7 @@ func interact(delta):
 				else:
 					%deniedIcon.visible = true
 				%itemMenuInteractionTimer.start()
-				currentlySelected.get_node("mesh").material_overlay = outlineMaterial
+				currentlySelected.setOverlay(outlineMaterial)
 		elif itemMenuDisplayed:
 			if Input.is_action_pressed("interact") and playerInfo.balance >= currentlySelected.part.cost:
 				itemBuyProgress += BUY_SPEED * delta * bulkSpeed
@@ -276,8 +276,7 @@ func interact(delta):
 			itemMenuDisplayed = false
 			itemBuyProgress = 0
 			%itemMenuAnims.play("disappear")
-		if currentlySelected.has_node("mesh"):
-			currentlySelected.get_node("mesh").material_overlay = null
+		currentlySelected.setOverlay(null)
 		currentlySelected = null
 	%interactIcon.visible = false
 	%deniedIcon.visible = false
@@ -351,8 +350,7 @@ func pause():
 			itemMenuDisplayed = false
 			itemBuyProgress = 0
 			%itemMenuAnims.play("disappear")
-		if currentlySelected.has_node("mesh"):
-			currentlySelected.get_node("mesh").material_overlay = null
+		currentlySelected.setOverlay(null)
 		currentlySelected = null
 #endregion
 

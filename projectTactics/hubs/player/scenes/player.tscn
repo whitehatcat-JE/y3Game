@@ -1495,9 +1495,13 @@ transparent_bg = true
 [node name="Camera3D" type="Camera3D" parent="UI/pauseMenu/inventoryMenu/inventoryItemViewport"]
 projection = 1
 
-[node name="inventoryItemModel" type="MeshInstance3D" parent="UI/pauseMenu/inventoryMenu/inventoryItemViewport/Camera3D"]
+[node name="inventoryItemModel" type="Node3D" parent="UI/pauseMenu/inventoryMenu/inventoryItemViewport/Camera3D"]
 unique_name_in_owner = true
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, -1)
+visible = false
+
+[node name="inventoryItemMesh" type="MeshInstance3D" parent="UI/pauseMenu/inventoryMenu/inventoryItemViewport/Camera3D/inventoryItemModel"]
+unique_name_in_owner = true
 
 [node name="itemAnim" type="AnimationPlayer" parent="UI/pauseMenu/inventoryMenu/inventoryItemViewport/Camera3D"]
 libraries = {

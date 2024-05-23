@@ -9,12 +9,21 @@ enum ItemTypes {
 	FISH
 }
 
+enum PartTypes {
+	ARM,
+	LEG,
+	CHEST,
+	CORE,
+	HEAD
+}
+
 var itemType : ItemTypes = ItemTypes.PART
 
 @export var name : String = ""
-@export_enum("Arm", "Leg", "Chest", "Core", "Head") var type = 0
+@export var type:PartTypes = PartTypes.ARM
+		
 var strType : Array = ["Arm", "Leg", "Chest", "Core", "Head"]
-@export var model : Mesh
+@export var model : PackedScene
 @export var cost : int = 0
 
 @export_subgroup("Flavour Text")

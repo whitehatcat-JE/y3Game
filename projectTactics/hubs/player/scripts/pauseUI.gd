@@ -82,6 +82,10 @@ func clearDisplayedItem():
 	%inventoryItemData.text = ""
 	%inventoryItemDescription.text = ""
 	%inventoryItemModel.visible = false
+	%inventoryItemMesh.mesh = null
+	for child in %inventoryItemModel.get_children():
+		if child != %inventoryItemMesh:
+			child.queue_free()
 	%inventoryDamageIcon.visible = false
 	%inventoryArmorIcon.visible = false
 	%inventorySpeedIcon.visible = false
@@ -106,10 +110,15 @@ func openQuit():
 func inventoryItemSelected(item):
 	clearDisplayedItem()
 	%inventoryItemModel.visible = true
-	%inventoryItemModel.mesh = item.model
-	var modelAABB : Vector3 = item.model.get_aabb().size
-	var divideAmt : float = max(modelAABB.x, modelAABB.y, modelAABB.z)
-	%inventoryItemModel.scale = Vector3(0.8, 0.8, 0.8) / divideAmt
+	if item.itemType == ItemTypes.PART:
+		var newModel = item.model.instantiate()
+		%inventoryItemModel.add_child(newModel)
+		newModel.position = Vector3()
+	else:
+		%inventoryItemMesh.mesh = item.model
+		var modelAABB : Vector3 = item.model.get_aabb().size
+		var divideAmt : float = max(modelAABB.x, modelAABB.y, modelAABB.z)
+		%inventoryItemModel.scale = Vector3(0.8, 0.8, 0.8) / divideAmt
 	%inventoryItemName.text = item.name
 	if playerInfo.inventory[item] > 1:
 		%inventoryItemName.text += " (" + str(playerInfo.inventory[item]) + ")"

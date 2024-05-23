@@ -24,12 +24,37 @@ func _validate_property(property: Dictionary):
 		property.usage = PROPERTY_USAGE_NO_EDITOR
 
 func refreshItem(_refreshValue = false):
-	if !has_node("mesh"): return;
+	for child in self.get_children(): child.queue_free();
 	if itemType == 0:
 		if part != null:
 			if part.model != null:
-				$mesh.mesh = part.model
-				$hitbox.shape = $mesh.mesh.create_trimesh_shape()
+				var newModel = part.model.instantiate()
+				self.add_child(newModel)
+				newModel.position = Vector3()
+				for mesh in getAllChildren(newModel):
+					if mesh is MeshInstance3D:
+						mesh.create_trimesh_collision()
+				for collision in getAllChildren(newModel):
+					if collision is CollisionShape3D:
+						collision.get_parent().remove_child(collision)
+						self.add_child(collision)
+				for staticBody in getAllChildren(newModel):
+					if staticBody is StaticBody3D:
+						staticBody.queue_free()
 				return
-		$mesh.mesh = BoxMesh.new()
-		$hitbox.shape = $mesh.mesh.create_trimesh_shape()
+
+func getAllChildren(node):
+	var nodes : Array = []
+
+	for N in node.get_children():
+		if N.get_child_count() > 0:
+			nodes.append(N)
+			nodes.append_array(getAllChildren(N))
+		else:
+			nodes.append(N)
+	return nodes
+
+func setOverlay(overlay:Material):
+	for child in self.get_children(true):
+		if child is MeshInstance3D:
+			child.material_overlay = overlay
