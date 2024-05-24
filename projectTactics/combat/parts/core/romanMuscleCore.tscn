@@ -14,6 +14,6 @@ script = ExtResource("1_a383h")
 type = 3
 
 [node name="core" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_r6ro2")
 mesh = ExtResource("3_7s55i")

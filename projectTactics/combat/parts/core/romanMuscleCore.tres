@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Part" load_steps=3 format=3 uid="uid://bryekcysdnnld"]
+
+[ext_resource type="PackedScene" uid="uid://tdfu3fcexn16" path="res://combat/parts/core/romanMuscleCore.tscn" id="1_0do7d"]
+[ext_resource type="Script" path="res://combat/resources/part.gd" id="2_gaebi"]
+
+[resource]
+script = ExtResource("2_gaebi")
+name = "Sunstone Core"
+type = 3
+model = ExtResource("1_0do7d")
+cost = 2500
+description = " Chunk of sunstone"
+maxDurability = 15
+currentDurability = 15
+damage = 7
+armorRating = 6
+speedRating = 8
+range = 3
+splash = 0

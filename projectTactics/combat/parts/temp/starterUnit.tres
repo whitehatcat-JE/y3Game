@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Unit" load_steps=7 format=3 uid="uid://da6nsf75g0nar"]
+
+[ext_resource type="Script" path="res://combat/resources/unit.gd" id="1_5ng4j"]
+[ext_resource type="Resource" uid="uid://cbpj1oug7kk23" path="res://combat/parts/arm/romanMuscleArm.tres" id="1_u5yux"]
+[ext_resource type="Resource" uid="uid://b32be0mcvnixl" path="res://combat/parts/chest/romanMuscleChestplate.tres" id="2_2q5j3"]
+[ext_resource type="Resource" uid="uid://bryekcysdnnld" path="res://combat/parts/core/romanMuscleCore.tres" id="3_hmoxa"]
+[ext_resource type="Resource" uid="uid://dep220rm3gmj3" path="res://combat/parts/head/romanMuscleHead.tres" id="4_bvu5f"]
+[ext_resource type="Resource" uid="uid://g3ui0cmihgst" path="res://combat/parts/leg/romanMuscleLeg.tres" id="5_dxu65"]
+
+[resource]
+script = ExtResource("1_5ng4j")
+head = ExtResource("4_bvu5f")
+chest = ExtResource("2_2q5j3")
+arm = ExtResource("1_u5yux")
+core = ExtResource("3_hmoxa")
+leg = ExtResource("5_dxu65")

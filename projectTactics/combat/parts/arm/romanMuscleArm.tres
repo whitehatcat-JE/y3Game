@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Part" load_steps=3 format=3 uid="uid://cbpj1oug7kk23"]
+
+[ext_resource type="PackedScene" uid="uid://0kferanerow1" path="res://combat/parts/arm/romanMuscleArm.tscn" id="1_6nnfe"]
+[ext_resource type="Script" path="res://combat/resources/part.gd" id="2_rt2xk"]
+
+[resource]
+script = ExtResource("2_rt2xk")
+name = "Sunstone Arm"
+type = 0
+model = ExtResource("1_6nnfe")
+cost = 750
+description = " Lined in Sunstone"
+maxDurability = 1
+currentDurability = 1
+damage = 3
+armorRating = 3
+speedRating = 3
+range = 2
+splash = 0

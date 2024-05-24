@@ -22,19 +22,19 @@ albedo_texture = ExtResource("1_n1p7d")
 texture_filter = 0
 
 [node name="romanMuscleArmPivot" type="Node3D"]
-transform = Transform3D(0.96264, -0.270785, 0, 0.270785, 0.96264, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(0.999135, -0.0415789, 0, 0.039033, 0.937958, 0.344545, -0.0143258, -0.344247, 0.93877, 0, 0, 0)
 script = ExtResource("1_cxofd")
 
 [node name="RomanMuscleUpperArm" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000481877, -0.279758, 1.05621e-05)
+transform = Transform3D(1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0, 1, 0.000481866, -0.279758, 1.05621e-05)
 material_override = SubResource("StandardMaterial3D_au48p")
 mesh = ExtResource("2_15pgj")
 
 [node name="lowerArmPivot" type="Node3D" parent="RomanMuscleUpperArm"]
-transform = Transform3D(0.950852, 0.263315, -0.162932, -0.309648, 0.808576, -0.500323, 0, 0.526184, 0.850371, 5.96046e-08, -1.24654, 0.0146806)
+transform = Transform3D(0.999225, -0.0132093, -0.0371146, 0.0329942, 0.795371, 0.605225, 0.0215254, -0.605978, 0.79519, 4.88944e-09, -1.24654, 0.0146807)
 
 [node name="RomanMuscleLowerArm" type="MeshInstance3D" parent="RomanMuscleUpperArm/lowerArmPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00312018, -0.248793, -0.0296081)
+transform = Transform3D(1, 1.11759e-08, 0, -2.04891e-08, 1, 1.49012e-08, 0, 0, 1, 0.00312021, -0.248793, -0.0296081)
 material_override = SubResource("StandardMaterial3D_eygen")
 mesh = ExtResource("3_w4exa")
 skeleton = NodePath("../../..")

@@ -22,7 +22,7 @@ albedo_texture = ExtResource("2_45gv0")
 texture_filter = 0
 
 [node name="romaMuscleLeg" type="Node3D"]
-transform = Transform3D(0.993029, -0.114968, 0.0259788, 0.117867, 0.968609, -0.218872, 0, 0.220408, 0.975408, 0, 0, 0)
+transform = Transform3D(0.993029, -0.114968, 0.0259788, 0.103064, 0.9539, 0.281876, -0.057188, -0.277234, 0.959099, 0, 0, 0)
 script = ExtResource("1_cp2fr")
 type = 1
 
@@ -32,7 +32,7 @@ material_override = SubResource("StandardMaterial3D_j4id4")
 mesh = ExtResource("3_5xxn6")
 
 [node name="lowerLegPivot" type="Node3D" parent="upperLeg"]
-transform = Transform3D(0.995794, 0.0916038, -0.00188844, -0.0893701, 0.975642, 0.200342, 0.0201945, -0.19933, 0.979725, 7.45058e-09, -0.676896, 6.70552e-08)
+transform = Transform3D(0.995437, 0.076935, -0.0564581, -0.0896004, 0.957105, -0.275541, 0.0328375, 0.279343, 0.959631, 1.11759e-08, -0.676896, 8.9407e-08)
 
 [node name="lowerLeg" type="MeshInstance3D" parent="upperLeg/lowerLegPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.766621, 0)

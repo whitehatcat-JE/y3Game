@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Part" load_steps=3 format=3 uid="uid://b32be0mcvnixl"]
+
+[ext_resource type="PackedScene" uid="uid://mm5a10wev6oc" path="res://combat/parts/chest/romanMuscleChest.tscn" id="1_qgdj4"]
+[ext_resource type="Script" path="res://combat/resources/part.gd" id="2_fwyh2"]
+
+[resource]
+script = ExtResource("2_fwyh2")
+name = "Sunstone Chestplate"
+type = 2
+model = ExtResource("1_qgdj4")
+cost = 1250
+description = " Lined in raw sunstone"
+maxDurability = 5
+currentDurability = 5
+damage = 1
+armorRating = 1
+speedRating = 1
+range = 1
+splash = 1

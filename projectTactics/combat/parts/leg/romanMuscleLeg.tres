@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Part" load_steps=3 format=3 uid="uid://g3ui0cmihgst"]
+
+[ext_resource type="PackedScene" uid="uid://bm08xuvo836ov" path="res://combat/parts/leg/romanMuscleLeg.tscn" id="1_aqv8o"]
+[ext_resource type="Script" path="res://combat/resources/part.gd" id="2_8l183"]
+
+[resource]
+script = ExtResource("2_8l183")
+name = "Sunstone Leg"
+type = 0
+model = ExtResource("1_aqv8o")
+cost = 700
+description = " Lined in sunstone fragments"
+maxDurability = 3
+currentDurability = 3
+damage = 3
+armorRating = 2
+speedRating = 1
+range = 0
+splash = 2
