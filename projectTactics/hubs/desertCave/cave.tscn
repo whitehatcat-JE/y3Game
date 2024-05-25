@@ -1,14 +1,14 @@
-[gd_scene load_steps=155 format=3 uid="uid://brhvbncn85nke"]
+[gd_scene load_steps=156 format=3 uid="uid://brhvbncn85nke"]
 
 [ext_resource type="Script" path="res://hubs/desertCave/scripts/cave.gd" id="1_j6xu3"]
 [ext_resource type="Texture2D" uid="uid://dxaynsv6fgcf5" path="res://hubs/desertCave/assets/individualFlower.png" id="1_j76fw"]
 [ext_resource type="PackedScene" uid="uid://bpoag1rko7t2q" path="res://hubs/player/scenes/player.tscn" id="1_v2pkq"]
-[ext_resource type="Resource" uid="uid://c5eswtj7s7u1b" path="res://combat/parts/temp/armorA.tres" id="2_lodci"]
 [ext_resource type="Texture2D" uid="uid://dp1dfhdoexord" path="res://hubs/city/assets/courtyard/structures/courtyardSpritemapRoughness.png" id="3_58ovy"]
 [ext_resource type="Texture2D" uid="uid://bi0fxrjgc2m8x" path="res://hubs/city/assets/courtyard/structures/courtyardSpritemapLighting.png" id="4_aujao"]
 [ext_resource type="Resource" uid="uid://trpekdikveh4" path="res://hubs/player/resources/fish/moonstoneBass.tres" id="5_rmug1"]
 [ext_resource type="Texture2D" uid="uid://x2xxr6cm01cr" path="res://hubs/desertCave/assets/caveTilemap.png" id="6_o4ld3"]
 [ext_resource type="Resource" uid="uid://bu8g34n68eo6v" path="res://hubs/player/resources/fish/crescentTrout.tres" id="6_tx74e"]
+[ext_resource type="Script" path="res://combat/resources/unit.gd" id="7_g2txx"]
 [ext_resource type="ArrayMesh" uid="uid://dn5xg1li3q5qc" path="res://hubs/desertCave/assets/caveWalls.obj" id="7_go6g5"]
 [ext_resource type="Resource" uid="uid://cuxgxnjmqapmr" path="res://hubs/player/resources/fish/emperorMoonstoneBass.tres" id="7_nm7fr"]
 [ext_resource type="Texture2D" uid="uid://cmvflby55nd71" path="res://hubs/desertCave/assets/blueFlowers.png" id="8_35jui"]
@@ -62,6 +62,17 @@
 [ext_resource type="ArrayMesh" uid="uid://bb1n5yf54oa7u" path="res://combat/parts/arm/romanMuscleLowerArm.obj" id="57_js2ag"]
 [ext_resource type="ArrayMesh" uid="uid://b4l0weuqlfu56" path="res://combat/parts/leg/romanMuscleUpperLeg.obj" id="59_xl7tn"]
 [ext_resource type="ArrayMesh" uid="uid://dt7hfsppc2gii" path="res://combat/parts/leg/romanMuscleLowerLeg.obj" id="60_3y3fe"]
+
+[sub_resource type="Resource" id="Resource_8f5u6"]
+script = ExtResource("7_g2txx")
+name = "Worn Unit"
+cost = 250
+description = " It seems worn out, but usable"
+head = ExtResource("43_m2thp")
+chest = ExtResource("40_dfyv1")
+arm = ExtResource("39_kwj62")
+core = ExtResource("42_tdlyb")
+leg = ExtResource("41_anhy7")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ku2gi"]
 transparency = 2
@@ -513,7 +524,7 @@ size = Vector3(66.783, 3.55148, 68.6126)
 
 [node name="cave" type="Node3D"]
 script = ExtResource("1_j6xu3")
-wornUnit = ExtResource("2_lodci")
+wornUnit = SubResource("Resource_8f5u6")
 
 [node name="secondaryEntrances" type="Node3D" parent="."]
 

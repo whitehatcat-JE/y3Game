@@ -44,7 +44,6 @@ func getAABB():
 	var meshes:Array[MeshInstance3D] = []
 	for mesh in getAllChildren(self):
 		if mesh is MeshInstance3D:
-			mesh.create_trimesh_collision()
 			meshes.append(mesh)
 	if len(meshes) == 0: return AABB();
 	

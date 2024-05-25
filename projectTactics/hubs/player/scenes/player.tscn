@@ -1204,26 +1204,6 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_6tmej")
 text = "Parts"
 flat = true
 
-[node name="sellUnitsFilter" type="Button" parent="UI/sellMenu/sellLayout/filterMenu/filterGrid"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_colors/font_color = Color(0.690196, 0.690196, 0.690196, 1)
-theme_override_colors/font_pressed_color = Color(0.690196, 0.690196, 0.690196, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/font_focus_color = Color(0.690196, 0.690196, 0.690196, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.690196, 0.690196, 0.690196, 1)
-theme_override_colors/font_disabled_color = Color(0.690196, 0.690196, 0.690196, 1)
-theme_override_colors/font_outline_color = Color(0.690196, 0.690196, 0.690196, 1)
-theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_6tmej")
-theme_override_styles/hover = SubResource("StyleBoxFlat_w2bpg")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_6tmej")
-theme_override_styles/focus = SubResource("StyleBoxFlat_6tmej")
-text = "Units"
-flat = true
-
 [node name="sellFishFilter" type="Button" parent="UI/sellMenu/sellLayout/filterMenu/filterGrid"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 40)

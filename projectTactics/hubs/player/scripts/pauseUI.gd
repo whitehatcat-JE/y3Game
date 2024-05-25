@@ -79,7 +79,7 @@ func refreshItems():
 func clearDisplayedItem():
 	selectedItem = null
 	%inventoryItemName.text = ""
-	%inventoryItemData.text = ""
+	%inventoryItemData.text = " "
 	%inventoryItemDescription.text = ""
 	%inventoryItemModel.visible = false
 	%inventoryItemMesh.mesh = null
@@ -113,28 +113,42 @@ func inventoryItemSelected(item):
 	%inventoryItemModel.visible = true
 	%inventoryItemModel.scale = Vector3(1.0, 1.0, 1.0)
 	var aabbSize:Vector3
-	if item.itemType == ItemTypes.PART:
-		var newModel = item.model.instantiate()
-		%inventoryItemModel.add_child(newModel)
-		newModel.position = -(newModel.getAABB().position + newModel.getAABB().size / 2.0)
-		aabbSize = newModel.getAABB().size
-	else:
-		%inventoryItemMesh.mesh = item.model
-		aabbSize = item.model.get_aabb().size
-	var divideAmt : float = max(aabbSize.x, aabbSize.y, aabbSize.z)
-	%inventoryItemModel.scale = Vector3(0.8, 0.8, 0.8) / divideAmt
+	match item.itemType:
+		ItemTypes.PART:
+			var newModel = item.model.instantiate()
+			%inventoryItemModel.add_child(newModel)
+			newModel.position = -(newModel.getAABB().position + newModel.getAABB().size / 2.0)
+			aabbSize = newModel.getAABB().size
+			var divideAmt : float = max(aabbSize.x, aabbSize.y, aabbSize.z)
+			%inventoryItemModel.scale = Vector3(0.8, 0.8, 0.8) / divideAmt
+		ItemTypes.UNIT:
+			var newModel = Node3D.new()
+			%inventoryItemModel.add_child(newModel)
+			newModel.set_script(load("res://combat/resources/unitAssembler.gd"))
+			newModel.unitParts = item
+			newModel.assembleUnit()
+			newModel.position = -(newModel.getAABB().position + newModel.getAABB().size / 2.0)
+			aabbSize = newModel.getAABB().size
+			var divideAmt : float = max(aabbSize.x, aabbSize.y, aabbSize.z)
+			%inventoryItemModel.scale = Vector3(0.5, 0.5, 0.5) / divideAmt
+		ItemTypes.FISH:
+			%inventoryItemMesh.mesh = item.model
+			aabbSize = item.model.get_aabb().size
+			var divideAmt : float = max(aabbSize.x, aabbSize.y, aabbSize.z)
+			%inventoryItemModel.scale = Vector3(0.8, 0.8, 0.8) / divideAmt
 	%inventoryItemName.text = item.name
 	if playerInfo.inventory[item] > 1:
 		%inventoryItemName.text += " (" + str(playerInfo.inventory[item]) + ")"
 		
 	%inventoryItemDescription.text = "[center][i] " + item.description
-	if item.itemType == ItemTypes.PART:
-		%inventoryItemData.text = "[center][color=red]%s [color=white]-[color=blue] %s/%s[color=white] - %s [img=12]placeholder/goldIcon.png[/img]" % [
-			item.strType[item.type],
-			str(item.currentDurability), 
-			str(item.maxDurability),
-			str(int(item.cost / 2.0))
-		]
+	if item.itemType in [ItemTypes.PART, ItemTypes.UNIT]:
+		if item.itemType == ItemTypes.PART:
+			%inventoryItemData.text = "[center][color=red]%s [color=white]-[color=blue] %s/%s[color=white] - %s [img=12]placeholder/goldIcon.png[/img]" % [
+				item.strType[item.type],
+				str(item.currentDurability), 
+				str(item.maxDurability),
+				str(int(item.cost / 2.0))
+			]
 		%inventoryDamageIcon.visible = true
 		%inventoryDamage.text = str(item.damage)
 		%inventoryArmorIcon.visible = true

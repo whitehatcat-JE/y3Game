@@ -25,7 +25,6 @@ func _ready():
 	
 	%sellAllFilter.button_up.connect(setItemType.bind(ItemTypes.ALL))
 	%sellPartsFilter.button_up.connect(setItemType.bind(ItemTypes.PART))
-	%sellUnitsFilter.button_up.connect(setItemType.bind(ItemTypes.UNIT))
 	%sellFishFilter.button_up.connect(setItemType.bind(ItemTypes.FISH))
 	
 	FM.gameSaved.connect(refreshItems)
@@ -68,7 +67,10 @@ func refreshItems():
 	var allItems:Array = playerInfo.inventory.keys()
 	var filteredItems:Array = []
 	
-	if selectedItemType == ItemTypes.ALL: filteredItems = allItems;
+	if selectedItemType == ItemTypes.ALL:
+		for item in allItems:
+			if item.itemType in [ItemTypes.FISH, ItemTypes.PART]:
+				filteredItems.append(item)
 	else:
 		for item in allItems:
 			if item.itemType == selectedItemType:
