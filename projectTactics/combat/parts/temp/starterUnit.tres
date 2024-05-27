@@ -9,6 +9,9 @@
 
 [resource]
 script = ExtResource("1_5ng4j")
+name = "A"
+cost = 0
+description = " "
 head = ExtResource("4_bvu5f")
 chest = ExtResource("2_2q5j3")
 arm = ExtResource("1_u5yux")

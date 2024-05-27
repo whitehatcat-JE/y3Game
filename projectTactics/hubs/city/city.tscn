@@ -272,14 +272,14 @@ _data = {
 "restartSDFGI": SubResource("Animation_aihhx")
 }
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hpsr4"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_clvj6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ed7fo"]
 transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 cull_mode = 2
-albedo_texture = SubResource("CompressedTexture2D_hpsr4")
+albedo_texture = SubResource("CompressedTexture2D_clvj6")
 texture_filter = 0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_b0rwc"]

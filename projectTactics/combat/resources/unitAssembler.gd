@@ -18,11 +18,12 @@ enum PartTypes {
 @export var assemble:bool : set = assembleUnit;
 
 func assembleUnit(_trigger=true):
-	unitParts.damage = 0
-	unitParts.armorRating = 0
-	unitParts.speedRating = 0
-	unitParts.range = 0
-	unitParts.splash = 0
+	if "damage" in unitParts:
+		unitParts.damage = 0
+		unitParts.armorRating = 0
+		unitParts.speedRating = 0
+		unitParts.range = 0
+		unitParts.splash = 0
 	
 	for childPart in get_children(): childPart.free()
 	if unitParts.chest != null:
@@ -40,12 +41,13 @@ func assembleUnit(_trigger=true):
 		var core:Node3D = createChild(
 			unitParts.core, unitParts.core.name, chest.get_node("corePos"))
 		
-		for part in [unitParts.head, unitParts.arm, unitParts.leg, unitParts.core, unitParts.chest]:
-			unitParts.damage += part.damage
-			unitParts.armorRating += part.armorRating
-			unitParts.speedRating += part.speedRating
-			unitParts.range += part.range
-			unitParts.splash += part.splash
+		if "damage" in unitParts:
+			for part in [unitParts.head, unitParts.arm, unitParts.leg, unitParts.core, unitParts.chest]:
+				unitParts.damage += part.damage
+				unitParts.armorRating += part.armorRating
+				unitParts.speedRating += part.speedRating
+				unitParts.range += part.range
+				unitParts.splash += part.splash
 
 func createChild(childScene, childName, parent=self):
 	var newChild = childScene.model.instantiate()
