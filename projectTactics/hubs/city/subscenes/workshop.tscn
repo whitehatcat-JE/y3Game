@@ -106,7 +106,8 @@ shader_parameter/shooting_star_sampler = ExtResource("7_gvi2e")
 sky_material = SubResource("ShaderMaterial_t32yc")
 
 [sub_resource type="Environment" id="Environment_0jr5i"]
-background_mode = 1
+background_mode = 2
+background_color = Color(0.380392, 0.956863, 1, 1)
 sky = SubResource("Sky_7t587")
 tonemap_mode = 2
 ssil_enabled = true
@@ -1339,9 +1340,12 @@ skeleton = NodePath("../..")
 
 [node name="workshopWindows" type="MeshInstance3D" parent="."]
 transform = Transform3D(-2.44784e-08, 0, 0.56, 0, 0.56, 0, -0.56, 0, -2.44784e-08, -9, -1.5, -22.3)
+visible = false
 material_override = SubResource("StandardMaterial3D_2mr3m")
 cast_shadow = 0
 gi_mode = 0
 mesh = ExtResource("36_7nelh")
+
+[connection signal="dialogueEnded" from="player/UI/dialogueMenu" to="player" method="dialogueEnded"]
 
 [editable path="player"]
