@@ -110,13 +110,17 @@ background_mode = 2
 background_color = Color(0.380392, 0.956863, 1, 1)
 sky = SubResource("Sky_7t587")
 tonemap_mode = 2
+ssao_enabled = true
 ssil_enabled = true
 sdfgi_enabled = true
 sdfgi_read_sky_light = false
+glow_enabled = true
+glow_bloom = 0.02
 fog_enabled = true
 fog_light_color = Color(0.607843, 0.490196, 0.262745, 1)
 fog_density = 0.002
 fog_sky_affect = 0.0
+volumetric_fog_enabled = true
 volumetric_fog_density = 0.0075
 volumetric_fog_albedo = Color(1, 0.815686, 0.537255, 1)
 
@@ -290,7 +294,7 @@ libraries = {
 autoplay = "restartSDFGI"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.0607176, 18.0363, -21.4847)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -7.06072, 12.0363, -21.4847)
 light_color = Color(1, 0.956863, 0.729412, 1)
 light_energy = 1.318
 light_indirect_energy = 8.0
@@ -300,6 +304,7 @@ shadow_opacity = 0.95
 
 [node name="temp" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3, 0, 0)
+visible = false
 
 [node name="CSGSphere3D2" type="CSGSphere3D" parent="temp"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.16313, 2.5, 1.54972e-06)
