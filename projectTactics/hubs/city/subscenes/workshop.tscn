@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://br4cu6ep12cfj"]
+[gd_scene load_steps=71 format=3 uid="uid://br4cu6ep12cfj"]
 
 [ext_resource type="PackedScene" uid="uid://bpoag1rko7t2q" path="res://hubs/player/scenes/player.tscn" id="1_35r8b"]
 [ext_resource type="Resource" uid="uid://bu8g34n68eo6v" path="res://hubs/player/resources/fish/crescentTrout.tres" id="2_ewo3v"]
@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://d0yq0unbtnbkv" path="res://hubs/shared/assets/waterTop2.png" id="31_l40q3"]
 [ext_resource type="Texture2D" uid="uid://bgdj0c7xbfayq" path="res://hubs/shared/assets/waterTop3.png" id="32_4yk5e"]
 [ext_resource type="Texture2D" uid="uid://c304vi58d5htu" path="res://hubs/shared/assets/waterTop4.png" id="33_67a2i"]
+[ext_resource type="Texture2D" uid="uid://cgk5p36qa0si1" path="res://combat/parts/assets/heavy.png" id="34_rf5hw"]
+[ext_resource type="ArrayMesh" uid="uid://3eowet4yvefq" path="res://placeholder/robot/heavyTest.obj" id="35_njk7e"]
 [ext_resource type="Texture2D" uid="uid://ccmyj0peb14c0" path="res://hubs/city/assets/workshop/workshop.png" id="35_wacmg"]
 [ext_resource type="ArrayMesh" uid="uid://dbwx63cfs423d" path="res://hubs/city/assets/workshop/workshopInterior.obj" id="36_7nelh"]
 [ext_resource type="Script" path="res://combat/resources/unitAssembler.gd" id="37_885qh"]
@@ -274,6 +276,14 @@ alpha_antialiasing_mode = 0
 cull_mode = 2
 shading_mode = 0
 albedo_texture = ExtResource("51_33882")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3pppy"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("34_rf5hw")
 texture_filter = 0
 
 [node name="workshop" type="Node3D"]
@@ -1357,5 +1367,10 @@ material_override = SubResource("StandardMaterial3D_2mr3m")
 cast_shadow = 0
 gi_mode = 0
 mesh = ExtResource("36_7nelh")
+
+[node name="HeavyTest" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4974, 3.39706, -19.3764)
+material_override = SubResource("StandardMaterial3D_3pppy")
+mesh = ExtResource("35_njk7e")
 
 [editable path="player"]
