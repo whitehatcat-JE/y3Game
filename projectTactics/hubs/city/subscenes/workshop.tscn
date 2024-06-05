@@ -1369,7 +1369,7 @@ gi_mode = 0
 mesh = ExtResource("36_7nelh")
 
 [node name="HeavyTest" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4974, 3.39706, -19.3764)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5026, 8.05881, -19.3764)
 material_override = SubResource("StandardMaterial3D_3pppy")
 mesh = ExtResource("35_njk7e")
 
