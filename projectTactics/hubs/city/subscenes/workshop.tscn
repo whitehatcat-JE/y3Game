@@ -286,6 +286,7 @@ alpha_antialiasing_mode = 0
 cull_mode = 2
 albedo_texture = ExtResource("34_rf5hw")
 emission_enabled = true
+emission_energy_multiplier = 0.5
 emission_texture = ExtResource("35_rj1t5")
 texture_filter = 0
 
@@ -353,6 +354,7 @@ sides = 16
 
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(-2.44784e-08, 0, 0.56, 0, 0.56, 0, -0.56, 0, -2.44784e-08, -15.5, 1, -8)
+visible = false
 script = ExtResource("37_885qh")
 unitParts = ExtResource("38_1hfkn")
 
@@ -475,6 +477,7 @@ mesh = ExtResource("51_g57ni")
 
 [node name="Node3D2" type="Node3D" parent="."]
 transform = Transform3D(-2.44784e-08, 0, 0.56, 0, 0.56, 0, -0.56, 0, -2.44784e-08, -15.5, 1, -2.3)
+visible = false
 script = ExtResource("37_885qh")
 unitParts = ExtResource("38_1hfkn")
 
@@ -597,6 +600,7 @@ mesh = ExtResource("51_g57ni")
 
 [node name="Node3D3" type="Node3D" parent="."]
 transform = Transform3D(-2.44784e-08, 0, 0.56, 0, 0.56, 0, -0.56, 0, -2.44784e-08, -15.5, 1, -13.4)
+visible = false
 script = ExtResource("37_885qh")
 unitParts = ExtResource("38_1hfkn")
 
@@ -719,6 +723,7 @@ mesh = ExtResource("51_g57ni")
 
 [node name="Node3D4" type="Node3D" parent="."]
 transform = Transform3D(-2.44784e-08, 0, 0.56, 0, 0.56, 0, -0.56, 0, -2.44784e-08, -15.5, 1, -19)
+visible = false
 script = ExtResource("37_885qh")
 unitParts = ExtResource("38_1hfkn")
 
@@ -841,6 +846,7 @@ mesh = ExtResource("51_g57ni")
 
 [node name="Node3D5" type="Node3D" parent="."]
 transform = Transform3D(-2.44784e-08, 0, -0.56, 0, 0.56, 0, 0.56, 0, -2.44784e-08, 5.49196, 1, -13.35)
+visible = false
 script = ExtResource("37_885qh")
 unitParts = ExtResource("38_1hfkn")
 
@@ -963,6 +969,7 @@ mesh = ExtResource("51_g57ni")
 
 [node name="Node3D6" type="Node3D" parent="."]
 transform = Transform3D(-2.44784e-08, 0, -0.56, 0, 0.56, 0, 0.56, 0, -2.44784e-08, 5.49196, 1, -19.05)
+visible = false
 script = ExtResource("37_885qh")
 unitParts = ExtResource("38_1hfkn")
 
@@ -1085,6 +1092,7 @@ mesh = ExtResource("51_g57ni")
 
 [node name="Node3D7" type="Node3D" parent="."]
 transform = Transform3D(-2.44784e-08, 0, -0.56, 0, 0.56, 0, 0.56, 0, -2.44784e-08, 5.49196, 1, -7.95)
+visible = false
 script = ExtResource("37_885qh")
 unitParts = ExtResource("38_1hfkn")
 
@@ -1207,6 +1215,7 @@ mesh = ExtResource("51_g57ni")
 
 [node name="Node3D8" type="Node3D" parent="."]
 transform = Transform3D(-2.44784e-08, 0, -0.56, 0, 0.56, 0, 0.56, 0, -2.44784e-08, 5.49195, 1, -2.35)
+visible = false
 script = ExtResource("37_885qh")
 unitParts = ExtResource("38_1hfkn")
 
