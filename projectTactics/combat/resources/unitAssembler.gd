@@ -27,19 +27,19 @@ func assembleUnit(_trigger=true):
 	
 	for childPart in get_children(): childPart.free()
 	if unitParts.chest != null:
-		var chest:Node3D = createChild(unitParts.chest, unitParts.chest.name)
+		var chest:Node3D = createChild(unitParts.chest)
 		var head:Node3D = createChild(
-			unitParts.head, unitParts.head.name, chest.get_node("headPos"))
+			unitParts.head, chest.get_node("headPos"))
 		var lArm:Node3D = createChild(
-			unitParts.arm, "l" + unitParts.arm.name.capitalize(), chest.get_node("lArmPos"))
+			unitParts.arm, chest.get_node("lArmPos"))
 		var rArm:Node3D = createChild(
-			unitParts.arm, "r" + unitParts.arm.name.capitalize(), chest.get_node("rArmPos"))
+			unitParts.arm, chest.get_node("rArmPos"), true)
 		var lLeg:Node3D = createChild(
-			unitParts.leg, "l" + unitParts.leg.name.capitalize(), chest.get_node("lLegPos"))
+			unitParts.leg, chest.get_node("lLegPos"))
 		var rLeg:Node3D = createChild(
-			unitParts.leg, "r" + unitParts.leg.name.capitalize(), chest.get_node("rLegPos"))
+			unitParts.leg, chest.get_node("rLegPos"), true)
 		var core:Node3D = createChild(
-			unitParts.core, unitParts.core.name, chest.get_node("corePos"))
+			unitParts.core, chest.get_node("corePos"))
 		
 		if "damage" in unitParts:
 			for part in [unitParts.head, unitParts.arm, unitParts.leg, unitParts.core, unitParts.chest]:
@@ -49,13 +49,19 @@ func assembleUnit(_trigger=true):
 				unitParts.range += part.range
 				unitParts.splash += part.splash
 
-func createChild(childScene, childName, parent=self):
+func createChild(childScene, parent=self, inverted:bool = false):
 	var newChild = childScene.model.instantiate()
 	parent.add_child(newChild)
 	makeLocal(newChild)
 	newChild.set_owner(owner)
 	newChild.position = Vector3()
-	newChild.name = childName
+	if newChild.get_node_or_null("inverted") != null:
+		if inverted:
+			var replacementName:String = newChild.get_child(0).name
+			newChild.get_child(0).free()
+			newChild.get_child(0).name = replacementName
+		else:
+			newChild.get_child(1).free()
 	return newChild
 
 func makeLocal(node: Node):

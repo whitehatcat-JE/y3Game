@@ -36,7 +36,6 @@ folder_colors={
 "res://city/assets/": "blue",
 "res://city/scripts/": "green",
 "res://combat/parts/assets/": "blue",
-"res://combat/parts/temp/": "red",
 "res://hubs/city/assets/": "blue",
 "res://hubs/city/scripts/": "green",
 "res://hubs/interactions/scripts/": "green",

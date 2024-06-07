@@ -1,4 +1,4 @@
-[gd_scene load_steps=156 format=3 uid="uid://brhvbncn85nke"]
+[gd_scene load_steps=143 format=3 uid="uid://brhvbncn85nke"]
 
 [ext_resource type="Script" path="res://hubs/desertCave/scripts/cave.gd" id="1_j6xu3"]
 [ext_resource type="Texture2D" uid="uid://dxaynsv6fgcf5" path="res://hubs/desertCave/assets/individualFlower.png" id="1_j76fw"]
@@ -37,42 +37,36 @@
 [ext_resource type="Texture2D" uid="uid://bo5nm5mjuesjj" path="res://hubs/desertCave/assets/lilypadEmission.png" id="27_m65ny"]
 [ext_resource type="ArrayMesh" uid="uid://l4b4womuonen" path="res://hubs/desertCave/assets/lily.obj" id="28_1uyyw"]
 [ext_resource type="Texture2D" uid="uid://bu4lb6sftcjby" path="res://hubs/city/assets/courtyard/decorations/rug.png" id="31_ajy2n"]
-[ext_resource type="PackedScene" uid="uid://dw3l561qcg1h3" path="res://hubs/interactions/resources/item.tscn" id="33_mdrs7"]
-[ext_resource type="Texture2D" uid="uid://cjp63qomn2msk" path="res://combat/parts/chest/romanMuscleChest.png" id="35_7avpg"]
 [ext_resource type="Script" path="res://hubs/interactions/scripts/npc.gd" id="35_xab0n"]
 [ext_resource type="PackedScene" uid="uid://i4t6tqlf6sba" path="res://hubs/interactions/resources/interactable.tscn" id="36_6tfbb"]
-[ext_resource type="Texture2D" uid="uid://c11khfdiruoej" path="res://combat/parts/leg/romanMuscleLeg.png" id="37_6ratj"]
-[ext_resource type="Texture2D" uid="uid://cfr6hmniho35x" path="res://combat/parts/head/romanMuscleHelmet.png" id="37_v2r7y"]
-[ext_resource type="Texture2D" uid="uid://8hgi1ber57uj" path="res://combat/parts/arm/romanMuscleArm.png" id="38_f75wb"]
-[ext_resource type="Resource" uid="uid://cbpj1oug7kk23" path="res://combat/parts/arm/romanMuscleArm.tres" id="39_kwj62"]
-[ext_resource type="Texture2D" uid="uid://cromal4li104r" path="res://combat/parts/core/romanMuscleCore.png" id="40_b6518"]
-[ext_resource type="Resource" uid="uid://b32be0mcvnixl" path="res://combat/parts/chest/romanMuscleChestplate.tres" id="40_dfyv1"]
-[ext_resource type="Texture2D" uid="uid://rsjn43t6rk1p" path="res://hubs/desertCave/assets/floatingCandle.png" id="41_1fl3k"]
-[ext_resource type="Resource" uid="uid://g3ui0cmihgst" path="res://combat/parts/leg/romanMuscleLeg.tres" id="41_anhy7"]
-[ext_resource type="ArrayMesh" uid="uid://bxcfcgu6askyp" path="res://hubs/desertCave/assets/floatingCandle.obj" id="42_fgk3i"]
-[ext_resource type="Resource" uid="uid://bryekcysdnnld" path="res://combat/parts/core/romanMuscleCore.tres" id="42_tdlyb"]
-[ext_resource type="Resource" uid="uid://dep220rm3gmj3" path="res://combat/parts/head/romanMuscleHead.tres" id="43_m2thp"]
-[ext_resource type="ArrayMesh" uid="uid://os5asmk3jwn" path="res://combat/parts/chest/romanMuscleChest.obj" id="49_2jqgk"]
-[ext_resource type="ArrayMesh" uid="uid://bx7hxuiped18s" path="res://combat/parts/core/romanMuscleCore.obj" id="52_2smaa"]
+[ext_resource type="Resource" uid="uid://bopn5b4636caa" path="res://combat/parts/arm/unit01Arm.tres" id="40_0mc0a"]
+[ext_resource type="Resource" uid="uid://dyp6f7kkhjgyw" path="res://combat/parts/chest/unit01Chest.tres" id="41_dmba7"]
+[ext_resource type="Resource" uid="uid://cmgeifhnvfqwr" path="res://combat/parts/core/unit01Core.tres" id="42_fapmj"]
+[ext_resource type="Resource" uid="uid://6hcukn22t205" path="res://combat/parts/head/unit01Head.tres" id="43_1k3ve"]
+[ext_resource type="Resource" uid="uid://d35ssqu7l7ff4" path="res://combat/parts/leg/unit01Leg.tres" id="44_7aqjn"]
+[ext_resource type="Material" uid="uid://cu51qpkgeyfmk" path="res://combat/parts/assets/materials/unit01Mat.tres" id="47_ipfo6"]
+[ext_resource type="ArrayMesh" uid="uid://cby1eo1fslwpt" path="res://combat/parts/assets/unit01/unit01Chest.obj" id="48_cwbh1"]
+[ext_resource type="ArrayMesh" uid="uid://cddv5ts1jmgmu" path="res://combat/parts/assets/unit01/unit01Core.obj" id="49_kfau6"]
+[ext_resource type="ArrayMesh" uid="uid://dh78ue5hm4q11" path="res://combat/parts/assets/unit01/unit01Head.obj" id="50_53elj"]
+[ext_resource type="ArrayMesh" uid="uid://dwb2sivdg57rv" path="res://combat/parts/assets/unit01/unit01UpperArm.obj" id="51_0o0pn"]
+[ext_resource type="ArrayMesh" uid="uid://dv7kgyvhdpsy2" path="res://combat/parts/assets/unit01/unit01LowerArm.obj" id="52_8x1sl"]
 [ext_resource type="Script" path="res://combat/resources/unitAssembler.gd" id="53_g5xja"]
-[ext_resource type="ArrayMesh" uid="uid://dx4uc1agi7leg" path="res://combat/parts/head/romanMuscleHelmet.obj" id="54_pb4qc"]
-[ext_resource type="Resource" uid="uid://da6nsf75g0nar" path="res://combat/parts/temp/starterUnit.tres" id="54_vu506"]
+[ext_resource type="ArrayMesh" uid="uid://p7cpbfvufved" path="res://combat/parts/assets/unit01/unit01UpperArmInverted.obj" id="53_nyri4"]
+[ext_resource type="ArrayMesh" uid="uid://c5y5w35ludc0p" path="res://combat/parts/assets/unit01/unit01UpperLeg.obj" id="54_wglg0"]
+[ext_resource type="ArrayMesh" uid="uid://bontp7gtx1bks" path="res://combat/parts/assets/unit01/unit01LowerLeg.obj" id="55_vy5y3"]
+[ext_resource type="ArrayMesh" uid="uid://bperqvdqdngal" path="res://combat/parts/assets/unit01/unit01Foot.obj" id="56_0vnlo"]
 [ext_resource type="Script" path="res://combat/resources/partModel.gd" id="56_6r84n"]
-[ext_resource type="ArrayMesh" uid="uid://b71ipoedr1h5r" path="res://combat/parts/arm/romanMuscleUpperArm.obj" id="56_x4sk4"]
-[ext_resource type="ArrayMesh" uid="uid://bb1n5yf54oa7u" path="res://combat/parts/arm/romanMuscleLowerArm.obj" id="57_js2ag"]
-[ext_resource type="ArrayMesh" uid="uid://b4l0weuqlfu56" path="res://combat/parts/leg/romanMuscleUpperLeg.obj" id="59_xl7tn"]
-[ext_resource type="ArrayMesh" uid="uid://dt7hfsppc2gii" path="res://combat/parts/leg/romanMuscleLowerLeg.obj" id="60_3y3fe"]
 
-[sub_resource type="Resource" id="Resource_8f5u6"]
+[sub_resource type="Resource" id="Resource_pvj0y"]
 script = ExtResource("7_g2txx")
-name = "Worn Unit"
-cost = 250
-description = " It seems worn out, but usable"
-head = ExtResource("43_m2thp")
-chest = ExtResource("40_dfyv1")
-arm = ExtResource("39_kwj62")
-core = ExtResource("42_tdlyb")
-leg = ExtResource("41_anhy7")
+name = "Reinforced Mech"
+cost = 500
+description = " "
+head = ExtResource("43_1k3ve")
+chest = ExtResource("41_dmba7")
+arm = ExtResource("40_0mc0a")
+core = ExtResource("42_fapmj")
+leg = ExtResource("44_7aqjn")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ku2gi"]
 transparency = 2
@@ -449,72 +443,19 @@ albedo_color = Color(0.45098, 0.45098, 0.45098, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_056u7"]
 flip_faces = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fbl03"]
-transparency = 2
-alpha_scissor_threshold = 0.5
-alpha_antialiasing_mode = 0
-cull_mode = 2
-albedo_texture = ExtResource("35_7avpg")
-texture_filter = 0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r6ro2"]
-albedo_texture = ExtResource("40_b6518")
-emission_enabled = true
-emission_texture = ExtResource("40_b6518")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ng111"]
-transparency = 2
-alpha_scissor_threshold = 0.5
-alpha_antialiasing_mode = 0
-cull_mode = 2
-albedo_texture = ExtResource("37_v2r7y")
-texture_filter = 0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_au48p"]
-transparency = 2
-alpha_scissor_threshold = 0.5
-alpha_antialiasing_mode = 0
-cull_mode = 2
-albedo_texture = ExtResource("38_f75wb")
-texture_filter = 0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eygen"]
-transparency = 2
-alpha_scissor_threshold = 0.5
-alpha_antialiasing_mode = 0
-cull_mode = 2
-albedo_texture = ExtResource("38_f75wb")
-texture_filter = 0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j4id4"]
-transparency = 2
-alpha_scissor_threshold = 0.5
-alpha_antialiasing_mode = 0
-cull_mode = 2
-albedo_texture = ExtResource("37_6ratj")
-texture_filter = 0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7jag5"]
-transparency = 2
-alpha_scissor_threshold = 0.5
-alpha_antialiasing_mode = 0
-cull_mode = 2
-albedo_texture = ExtResource("37_6ratj")
-texture_filter = 0
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_gxp3d"]
-size = Vector3(9.9359, 32.133, 21.1192)
+size = Vector3(4.77637, 5.18457, 6.87097)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uakng"]
-transparency = 2
-alpha_scissor_threshold = 0.5
-alpha_antialiasing_mode = 0
-cull_mode = 2
-albedo_texture = ExtResource("41_1fl3k")
-emission_enabled = true
-emission = Color(1, 0, 0.0666667, 1)
-emission_texture = ExtResource("41_1fl3k")
-texture_filter = 0
+[sub_resource type="Resource" id="Resource_c8kjn"]
+script = ExtResource("7_g2txx")
+name = "Reinforced Mech"
+cost = 0
+description = " Standard issue mech, reinforced with steel plating"
+head = ExtResource("43_1k3ve")
+chest = ExtResource("41_dmba7")
+arm = ExtResource("40_0mc0a")
+core = ExtResource("42_fapmj")
+leg = ExtResource("44_7aqjn")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gbqcg"]
 size = Vector3(66.783, 3.55148, 68.8234)
@@ -524,7 +465,7 @@ size = Vector3(66.783, 3.55148, 68.6126)
 
 [node name="cave" type="Node3D"]
 script = ExtResource("1_j6xu3")
-wornUnit = SubResource("Resource_8f5u6")
+wornUnit = SubResource("Resource_pvj0y")
 
 [node name="secondaryEntrances" type="Node3D" parent="."]
 
@@ -2956,41 +2897,16 @@ skeleton = NodePath("../..")
 
 [node name="shop" type="Node3D" parent="."]
 
-[node name="sunstoneArm" parent="shop" instance=ExtResource("33_mdrs7")]
-transform = Transform3D(-0.027408, 0.257325, -0.305012, -0.385755, -0.0953706, -0.045796, -0.102184, 0.291012, 0.254696, -6.04891, 2.84692, 33.2922)
-monitoring = true
-part = ExtResource("39_kwj62")
-
-[node name="sunstoneChestplate" parent="shop" instance=ExtResource("33_mdrs7")]
-transform = Transform3D(-0.158046, 0.367339, -0.00913887, -0.0147419, 0.00360093, 0.399712, 0.367157, 0.158269, 0.0121151, -4.81223, 2.91434, 32.5359)
-monitoring = true
-part = ExtResource("40_dfyv1")
-
-[node name="sunstoneLeg" parent="shop" instance=ExtResource("33_mdrs7")]
-transform = Transform3D(-0.0284252, 0.396602, 0.0435728, 0.398825, 0.0294947, -0.00827929, -0.0114218, 0.0428571, -0.397533, -4.71332, 2.85673, 33.7973)
-monitoring = true
-part = ExtResource("41_anhy7")
-
-[node name="sunstoneCore" parent="shop" instance=ExtResource("33_mdrs7")]
-transform = Transform3D(-0.0284252, 0.396602, 0.0435728, 0.398825, 0.0294947, -0.00827929, -0.0114218, 0.0428571, -0.397533, -3.03693, 2.90575, 32.0112)
-monitoring = true
-part = ExtResource("42_tdlyb")
-
-[node name="sunstoneHead" parent="shop" instance=ExtResource("33_mdrs7")]
-transform = Transform3D(-0.398825, -0.0294947, 0.00827928, -0.0284252, 0.396602, 0.0435728, -0.0114218, 0.0428571, -0.397533, -4.6269, 2.68889, 31.4293)
-monitoring = true
-part = ExtResource("43_m2thp")
-
 [node name="rug5" type="Sprite3D" parent="shop"]
 transform = Transform3D(-0.647743, -0.456845, -1.99693e-08, -2.20978e-15, -2.44784e-08, 0.56, -0.91369, 0.323872, 1.41569e-08, -4.14104, 2.72541, 31.8482)
 pixel_size = 0.04
 shaded = true
-alpha_cut = 2
+alpha_cut = 1
 texture_filter = 0
 texture = ExtResource("31_ajy2n")
 
 [node name="npc" type="Area3D" parent="shop"]
-transform = Transform3D(-0.099991, 0, -0.00134557, 0, 0.1, 0, 0.00134557, 0, -0.099991, -4.44159, 3.90415, 32.3934)
+transform = Transform3D(-0.999909, 0, -0.0134556, 0, 1, 0, 0.0134556, 0, -0.999909, -4.44159, 3.90415, 32.3934)
 collision_layer = 8
 collision_mask = 0
 input_ray_pickable = false
@@ -2999,147 +2915,145 @@ script = ExtResource("35_xab0n")
 introduction = "caveMerchantIntro"
 standard = "caveMerchant"
 
-[node name="assembledUnit" type="Node3D" parent="shop/npc"]
-transform = Transform3D(1.35896, 0, 4.81178, 0, 5, 0, -4.81178, 0, 1.35896, -22.7606, -1.46414, 16.0745)
-script = ExtResource("53_g5xja")
-unitParts = ExtResource("54_vu506")
+[node name="hitbox" type="CollisionShape3D" parent="shop/npc"]
+transform = Transform3D(0.545912, 0, -0.837843, 0, 1, 0, 0.837843, 0, 0.545912, -0.995276, 1.78852, 0.372826)
+shape = SubResource("BoxShape3D_gxp3d")
 
-[node name="Sunstone Chestplate" type="Node3D" parent="shop/npc/assembledUnit"]
+[node name="unit01" type="Node3D" parent="shop/npc"]
+transform = Transform3D(0.789854, 0.0428143, 0.611798, 0.000955953, 0.997473, -0.0710384, -0.613294, 0.0566948, 0.787818, -1.13218, 2.30263, -0.186913)
+script = ExtResource("53_g5xja")
+unitParts = SubResource("Resource_c8kjn")
+
+[node name="chestPivot" type="Node3D" parent="shop/npc/unit01"]
 script = ExtResource("56_6r84n")
 type = 2
 
-[node name="chest" type="MeshInstance3D" parent="shop/npc/assembledUnit/Sunstone Chestplate"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.107403, 0)
-mesh = ExtResource("49_2jqgk")
-surface_material_override/0 = SubResource("StandardMaterial3D_fbl03")
+[node name="chest" type="MeshInstance3D" parent="shop/npc/unit01/chestPivot"]
+material_override = ExtResource("47_ipfo6")
+mesh = ExtResource("48_cwbh1")
 
-[node name="corePos" type="Node3D" parent="shop/npc/assembledUnit/Sunstone Chestplate"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.253997, 0)
+[node name="corePos" type="Node3D" parent="shop/npc/unit01/chestPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.00531, -0.796356)
 
-[node name="Sunstone Core" type="Node3D" parent="shop/npc/assembledUnit/Sunstone Chestplate/corePos"]
+[node name="corePivot" type="Node3D" parent="shop/npc/unit01/chestPivot/corePos"]
+transform = Transform3D(0.999866, 0.0129971, 0.00997214, -0.0129971, 0.258819, 0.965838, 0.00997214, -0.965838, 0.258953, 0, 0, 0)
 script = ExtResource("56_6r84n")
 type = 3
 
-[node name="core" type="MeshInstance3D" parent="shop/npc/assembledUnit/Sunstone Chestplate/corePos/Sunstone Core"]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_r6ro2")
-mesh = ExtResource("52_2smaa")
+[node name="core" type="MeshInstance3D" parent="shop/npc/unit01/chestPivot/corePos/corePivot"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+material_override = ExtResource("47_ipfo6")
+mesh = ExtResource("49_kfau6")
 
-[node name="headPos" type="Node3D" parent="shop/npc/assembledUnit/Sunstone Chestplate"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.87992, 0)
+[node name="headPos" type="Node3D" parent="shop/npc/unit01/chestPivot"]
+transform = Transform3D(0.999976, -0.00672781, 0.00180255, 0.00672781, 0.866025, -0.499955, 0.00180255, 0.499955, 0.86605, 0, 1.57888, 1.35871)
 
-[node name="Sunstone Helmet" type="Node3D" parent="shop/npc/assembledUnit/Sunstone Chestplate/headPos"]
+[node name="headPivot" type="Node3D" parent="shop/npc/unit01/chestPivot/headPos"]
 script = ExtResource("56_6r84n")
 type = 4
 
-[node name="head" type="MeshInstance3D" parent="shop/npc/assembledUnit/Sunstone Chestplate/headPos/Sunstone Helmet"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25238, 0)
-material_override = SubResource("StandardMaterial3D_ng111")
-mesh = ExtResource("54_pb4qc")
+[node name="head" type="MeshInstance3D" parent="shop/npc/unit01/chestPivot/headPos/headPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.126744, 0.414742)
+material_override = ExtResource("47_ipfo6")
+mesh = ExtResource("50_53elj")
 
-[node name="lArmPos" type="Node3D" parent="shop/npc/assembledUnit/Sunstone Chestplate"]
-transform = Transform3D(0.974668, 0.223658, 0, -0.223658, 0.974668, 0, 0, 0, 1, -1.68059, 0.789787, 0)
+[node name="lArmPos" type="Node3D" parent="shop/npc/unit01/chestPivot"]
+transform = Transform3D(1, 0, 0, 2.32831e-10, 1, 0, 0, 0, 1, 2.36384, 0.982666, -0.465147)
 
-[node name="lSunstone Arm" type="Node3D" parent="shop/npc/assembledUnit/Sunstone Chestplate/lArmPos"]
-transform = Transform3D(0.999135, -0.0415789, 0, 0.039033, 0.937958, 0.344545, -0.0143258, -0.344247, 0.93877, 0, 0, 0)
+[node name="upperArmPivot" type="Node3D" parent="shop/npc/unit01/chestPivot/lArmPos"]
+transform = Transform3D(0.965932, -0.258174, 0.0179316, 0.258109, 0.966098, 0.00588822, -0.0188439, -0.0010593, 0.999822, 0, 0, 0)
 script = ExtResource("56_6r84n")
 
-[node name="RomanMuscleUpperArm" type="MeshInstance3D" parent="shop/npc/assembledUnit/Sunstone Chestplate/lArmPos/lSunstone Arm"]
-transform = Transform3D(1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0, 1, 0.000481866, -0.279758, 1.05621e-05)
-material_override = SubResource("StandardMaterial3D_au48p")
-mesh = ExtResource("56_x4sk4")
+[node name="upperArm" type="MeshInstance3D" parent="shop/npc/unit01/chestPivot/lArmPos/upperArmPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.157654, -0.578744, -0.013899)
+material_override = ExtResource("47_ipfo6")
+mesh = ExtResource("51_0o0pn")
 
-[node name="lowerArmPivot" type="Node3D" parent="shop/npc/assembledUnit/Sunstone Chestplate/lArmPos/lSunstone Arm/RomanMuscleUpperArm"]
-transform = Transform3D(0.999225, -0.0132093, -0.0371146, 0.0329942, 0.795371, 0.605225, 0.0215254, -0.605978, 0.79519, 4.88944e-09, -1.24654, 0.0146807)
+[node name="lowerArmPivot" type="Node3D" parent="shop/npc/unit01/chestPivot/lArmPos/upperArmPivot/upperArm"]
+transform = Transform3D(0.84681, -0.00383809, -0.531882, -0.0333334, 0.997626, -0.0602689, 0.530851, 0.0687657, 0.844671, 1.90735e-06, -0.898735, -7.62939e-06)
 
-[node name="RomanMuscleLowerArm" type="MeshInstance3D" parent="shop/npc/assembledUnit/Sunstone Chestplate/lArmPos/lSunstone Arm/RomanMuscleUpperArm/lowerArmPivot"]
-transform = Transform3D(1, 1.11759e-08, 0, -2.04891e-08, 1, 1.49012e-08, 0, 0, 1, 0.00312021, -0.248793, -0.0296081)
-material_override = SubResource("StandardMaterial3D_eygen")
-mesh = ExtResource("57_js2ag")
-skeleton = NodePath("../../..")
+[node name="lowerArm" type="MeshInstance3D" parent="shop/npc/unit01/chestPivot/lArmPos/upperArmPivot/upperArm/lowerArmPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.758121, 4.44645)
+material_override = ExtResource("47_ipfo6")
+mesh = ExtResource("52_8x1sl")
 
-[node name="rArmPos" type="Node3D" parent="shop/npc/assembledUnit/Sunstone Chestplate"]
-transform = Transform3D(0.989435, -0.144978, 0, 0.144978, 0.989435, 0, 0, 0, 1, 1.68117, 0.789787, 0)
+[node name="rArmPos" type="Node3D" parent="shop/npc/unit01/chestPivot"]
+transform = Transform3D(1, 0, 0, 2.32831e-10, 1, 0, 0, 0, 1, -2.32846, 0.982666, -0.465147)
 
-[node name="rSunstone Arm" type="Node3D" parent="shop/npc/assembledUnit/Sunstone Chestplate/rArmPos"]
-transform = Transform3D(0.999135, -0.0415789, 0, 0.039033, 0.937958, 0.344545, -0.0143258, -0.344247, 0.93877, 0, 0, 0)
+[node name="upperArmPivot" type="Node3D" parent="shop/npc/unit01/chestPivot/rArmPos"]
+transform = Transform3D(0.965932, 0.258109, -0.0188439, -0.258174, 0.966098, -0.00105932, 0.0179316, 0.00588825, 0.999822, 0, 0, 0)
 script = ExtResource("56_6r84n")
 
-[node name="RomanMuscleUpperArm" type="MeshInstance3D" parent="shop/npc/assembledUnit/Sunstone Chestplate/rArmPos/rSunstone Arm"]
-transform = Transform3D(1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0, 1, 0.000481866, -0.279758, 1.05621e-05)
-material_override = SubResource("StandardMaterial3D_au48p")
-mesh = ExtResource("56_x4sk4")
+[node name="upperArm" type="MeshInstance3D" parent="shop/npc/unit01/chestPivot/rArmPos/upperArmPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.166276, -0.578744, -0.013899)
+material_override = ExtResource("47_ipfo6")
+mesh = ExtResource("53_nyri4")
 
-[node name="lowerArmPivot" type="Node3D" parent="shop/npc/assembledUnit/Sunstone Chestplate/rArmPos/rSunstone Arm/RomanMuscleUpperArm"]
-transform = Transform3D(0.999225, -0.0132093, -0.0371146, 0.0329942, 0.795371, 0.605225, 0.0215254, -0.605978, 0.79519, 4.88944e-09, -1.24654, 0.0146807)
+[node name="lowerArmPivot" type="Node3D" parent="shop/npc/unit01/chestPivot/rArmPos/upperArmPivot/upperArm"]
+transform = Transform3D(0.851016, 0.00138604, 0.525137, 0.019217, 0.999244, -0.0337794, -0.524787, 0.0388382, 0.850347, -9.53674e-07, -0.898729, 1.52588e-05)
 
-[node name="RomanMuscleLowerArm" type="MeshInstance3D" parent="shop/npc/assembledUnit/Sunstone Chestplate/rArmPos/rSunstone Arm/RomanMuscleUpperArm/lowerArmPivot"]
-transform = Transform3D(1, 1.11759e-08, 0, -2.04891e-08, 1, 1.49012e-08, 0, 0, 1, 0.00312021, -0.248793, -0.0296081)
-material_override = SubResource("StandardMaterial3D_eygen")
-mesh = ExtResource("57_js2ag")
-skeleton = NodePath("../../..")
+[node name="lowerArm" type="MeshInstance3D" parent="shop/npc/unit01/chestPivot/rArmPos/upperArmPivot/upperArm/lowerArmPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.758121, 4.44645)
+material_override = ExtResource("47_ipfo6")
+mesh = ExtResource("52_8x1sl")
 
-[node name="lLegPos" type="Node3D" parent="shop/npc/assembledUnit/Sunstone Chestplate"]
-transform = Transform3D(0.934122, 0.220294, -0.280867, 0.18452, 0.375551, 0.908247, 0.305561, -0.90024, 0.310162, -0.460529, -1.59379, -1.90735e-06)
+[node name="lLegPos" type="Node3D" parent="shop/npc/unit01/chestPivot"]
+transform = Transform3D(0.965926, -0.0183536, -0.258167, 0.0184186, 0.999828, -0.00216703, 0.258163, -0.00266189, 0.966098, 1.49002, -1.83824, 0.290979)
 
-[node name="lSunstone Leg" type="Node3D" parent="shop/npc/assembledUnit/Sunstone Chestplate/lLegPos"]
-transform = Transform3D(0.993029, -0.114968, 0.0259788, 0.103064, 0.9539, 0.281876, -0.057188, -0.277234, 0.959099, 0, 0, 0)
+[node name="upperLegPivot" type="Node3D" parent="shop/npc/unit01/chestPivot/lLegPos"]
+transform = Transform3D(0.870419, -0.461208, 0.172212, -0.0484744, 0.267815, 0.96225, -0.489918, -0.845909, 0.210754, -8.58307e-06, 0.00512862, 0.000679016)
 script = ExtResource("56_6r84n")
 type = 1
 
-[node name="upperLeg" type="MeshInstance3D" parent="shop/npc/assembledUnit/Sunstone Chestplate/lLegPos/lSunstone Leg"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.51163, 0)
-material_override = SubResource("StandardMaterial3D_j4id4")
-mesh = ExtResource("59_xl7tn")
+[node name="upperLeg" type="MeshInstance3D" parent="shop/npc/unit01/chestPivot/lLegPos/upperLegPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.14755, 0)
+material_override = ExtResource("47_ipfo6")
+mesh = ExtResource("54_wglg0")
 
-[node name="lowerLegPivot" type="Node3D" parent="shop/npc/assembledUnit/Sunstone Chestplate/lLegPos/lSunstone Leg/upperLeg"]
-transform = Transform3D(-0.983521, 0.00621068, -0.180684, 0.00848722, 0.999894, -0.0118308, 0.180592, -0.0131698, -0.98347, 2.67029e-05, -0.676893, 3.8147e-06)
+[node name="lowerLegPivot" type="Node3D" parent="shop/npc/unit01/chestPivot/lLegPos/upperLegPivot/upperLeg"]
+transform = Transform3D(0.999662, -0.00672782, 0.0251063, 0.0067278, -0.866026, -0.499955, 0.0251063, 0.499955, -0.865688, -0.000133276, -1.48925, 0.00990868)
 
-[node name="lowerLeg" type="MeshInstance3D" parent="shop/npc/assembledUnit/Sunstone Chestplate/lLegPos/lSunstone Leg/upperLeg/lowerLegPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.766621, 0)
-material_override = SubResource("StandardMaterial3D_7jag5")
-mesh = ExtResource("60_3y3fe")
+[node name="lowerLeg" type="MeshInstance3D" parent="shop/npc/unit01/chestPivot/lLegPos/upperLegPivot/upperLeg/lowerLegPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.30633, 0)
+material_override = ExtResource("47_ipfo6")
+mesh = ExtResource("55_vy5y3")
 
-[node name="rLegPos" type="Node3D" parent="shop/npc/assembledUnit/Sunstone Chestplate"]
-transform = Transform3D(0.955248, -0.244145, -0.167017, 0.244145, 0.331931, 0.911161, -0.167017, -0.911162, 0.376683, 0.477642, -1.59379, -1.90735e-06)
+[node name="footPivot" type="Node3D" parent="shop/npc/unit01/chestPivot/lLegPos/upperLegPivot/upperLeg/lowerLegPivot/lowerLeg"]
+transform = Transform3D(0.999866, -0.0129971, 0.00997215, 0.0129971, 0.258819, -0.965838, 0.00997214, 0.965838, 0.258953, 0.0209728, -1.30778, 0.0661526)
 
-[node name="rSunstone Leg" type="Node3D" parent="shop/npc/assembledUnit/Sunstone Chestplate/rLegPos"]
-transform = Transform3D(0.993029, -0.114968, 0.0259788, 0.103064, 0.9539, 0.281876, -0.057188, -0.277234, 0.959099, 0, 0, 0)
+[node name="foot" type="MeshInstance3D" parent="shop/npc/unit01/chestPivot/lLegPos/upperLegPivot/upperLeg/lowerLegPivot/lowerLeg/footPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.445993, 0)
+material_override = ExtResource("47_ipfo6")
+mesh = ExtResource("56_0vnlo")
+
+[node name="rLegPos" type="Node3D" parent="shop/npc/unit01/chestPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45552, -1.83824, 0.290979)
+
+[node name="upperLegPivot" type="Node3D" parent="shop/npc/unit01/chestPivot/rLegPos"]
+transform = Transform3D(0.96346, 0.257152, -0.0749475, 0.0053996, 0.261107, 0.965295, 0.267797, -0.930428, 0.250178, 9.05991e-06, -0.00512886, -0.000669479)
 script = ExtResource("56_6r84n")
 type = 1
 
-[node name="upperLeg" type="MeshInstance3D" parent="shop/npc/assembledUnit/Sunstone Chestplate/rLegPos/rSunstone Leg"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.51163, 0)
-material_override = SubResource("StandardMaterial3D_j4id4")
-mesh = ExtResource("59_xl7tn")
+[node name="upperLeg" type="MeshInstance3D" parent="shop/npc/unit01/chestPivot/rLegPos/upperLegPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.14755, 0)
+material_override = ExtResource("47_ipfo6")
+mesh = ExtResource("54_wglg0")
 
-[node name="lowerLegPivot" type="Node3D" parent="shop/npc/assembledUnit/Sunstone Chestplate/rLegPos/rSunstone Leg/upperLeg"]
-transform = Transform3D(-0.997006, 0.0681507, 0.0365428, 0.0684577, 0.997628, 0.00721915, -0.035964, 0.00969861, -0.999307, 0, -0.676898, -4.76837e-07)
+[node name="lowerLegPivot" type="Node3D" parent="shop/npc/unit01/chestPivot/rLegPos/upperLegPivot/upperLeg"]
+transform = Transform3D(0.999662, -0.00672781, 0.0251062, 0.00672781, -0.866025, -0.499955, 0.0251063, 0.499955, -0.865687, 0.000133753, -1.41529, -0.00990868)
 
-[node name="lowerLeg" type="MeshInstance3D" parent="shop/npc/assembledUnit/Sunstone Chestplate/rLegPos/rSunstone Leg/upperLeg/lowerLegPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.766621, 0)
-material_override = SubResource("StandardMaterial3D_7jag5")
-mesh = ExtResource("60_3y3fe")
+[node name="lowerLeg" type="MeshInstance3D" parent="shop/npc/unit01/chestPivot/rLegPos/upperLegPivot/upperLeg/lowerLegPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.30633, 0)
+material_override = ExtResource("47_ipfo6")
+mesh = ExtResource("55_vy5y3")
 
-[node name="hitbox" type="CollisionShape3D" parent="shop/npc"]
-transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, -22.6021, 2.85286, 16.3129)
-shape = SubResource("BoxShape3D_gxp3d")
+[node name="footPivot" type="Node3D" parent="shop/npc/unit01/chestPivot/rLegPos/upperLegPivot/upperLeg/lowerLegPivot/lowerLeg"]
+transform = Transform3D(0.999866, -0.0129971, 0.00997214, 0.0129971, 0.258819, -0.965838, 0.00997213, 0.965838, 0.258953, 0.021488, -1.27842, 0.0278702)
 
-[node name="candleLight2" type="OmniLight3D" parent="shop"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.05179, 5.78007, 30.3398)
-light_color = Color(1, 0.156863, 0, 1)
-
-[node name="floatingCandle5" type="MeshInstance3D" parent="shop"]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -5.69354, 6.05458, 30.7235)
-material_override = SubResource("StandardMaterial3D_uakng")
-mesh = ExtResource("42_fgk3i")
-skeleton = NodePath("../..")
-
-[node name="floatingCandle6" type="MeshInstance3D" parent="shop"]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -3.5117, 6.99151, 31.3314)
-material_override = SubResource("StandardMaterial3D_uakng")
-mesh = ExtResource("42_fgk3i")
-skeleton = NodePath("../..")
+[node name="foot" type="MeshInstance3D" parent="shop/npc/unit01/chestPivot/rLegPos/upperLegPivot/upperLeg/lowerLegPivot/lowerLeg/footPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.445993, 0)
+material_override = ExtResource("47_ipfo6")
+mesh = ExtResource("56_0vnlo")
 
 [node name="fishing" type="Node3D" parent="."]
 

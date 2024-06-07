@@ -12,22 +12,42 @@ enum PartTypes {
 @export var type:PartTypes = PartTypes.ARM :
 	get: return type;
 	set(value):
+		invertedVariant = false
 		type = value
+
+@export var sharedMaterial:Material : set = applyMaterial;
 
 @export var updateChildren:bool = false : set = regenerateChildren;
 
+@export var invertedVariant:bool = false :
+	set(isInverting):
+		if isInverting:
+			if type in [PartTypes.ARM, PartTypes.LEG]:
+				generateInverted()
+				invertedVariant = true
+		elif type in [PartTypes.ARM, PartTypes.LEG] and get_node_or_null("inverted") != null:
+			get_node("inverted").queue_free()
+		invertedVariant = false
+
 func regenerateChildren(_update):
-	for child in self.get_children(): child.queue_free();
+	for child in self.get_children(): child.free();
 	match type:
 		PartTypes.ARM:
+			self.name = "upperArmPivot"
 			createChild(MeshInstance3D, "lowerArm",
-			createChild(Node3D, "lowerArmPivot",
-			createChild(MeshInstance3D, "upperArm")))
+				createChild(Node3D, "lowerArmPivot",
+				createChild(MeshInstance3D, "upperArm"
+			)))
 		PartTypes.LEG:
-			createChild(MeshInstance3D, "lowerLeg",
-			createChild(Node3D, "lowerLegPivot",
-			createChild(MeshInstance3D, "upperLeg")))
+			self.name = "upperLegPivot"
+			createChild(MeshInstance3D, "foot",
+				createChild(Node3D, "footPivot",
+				createChild(MeshInstance3D, "lowerLeg",
+				createChild(Node3D, "lowerLegPivot",
+				createChild(MeshInstance3D, "upperLeg"
+			)))))
 		PartTypes.CHEST:
+			self.name = "chestPivot"
 			createChild(MeshInstance3D, "chest")
 			createChild(Node3D, "corePos")
 			createChild(Node3D, "headPos")
@@ -36,9 +56,25 @@ func regenerateChildren(_update):
 			createChild(Node3D, "lLegPos")
 			createChild(Node3D, "rLegPos")
 		PartTypes.CORE:
+			self.name = "corePivot"
 			createChild(MeshInstance3D, "core")
 		PartTypes.HEAD:
+			self.name = "headPivot"
 			createChild(MeshInstance3D, "head")
+
+func generateInverted():
+	if get_node_or_null("inverted") != null: get_node("inverted").free();
+	var invertedVariant:MeshInstance3D = get_child(0).duplicate()
+	self.add_child(invertedVariant)
+	invertedVariant.set_owner(self)
+	invertedVariant.name = "inverted"
+	for child in getAllChildren(invertedVariant):
+		child.set_owner(self)
+
+func applyMaterial(newMat:Material):
+	for child in getAllChildren(self):
+		if child is MeshInstance3D:
+			child.material_override = newMat
 
 func getAABB():
 	var meshes:Array[MeshInstance3D] = []
@@ -60,7 +96,7 @@ func getAABB():
 func localPosition(node):
 	return node.global_position - self.global_position
 
-func getAllChildren(node):
+func getAllChildren(node=self):
 	var nodes : Array = []
 
 	for N in node.get_children():

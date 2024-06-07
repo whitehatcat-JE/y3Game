@@ -127,10 +127,10 @@ func inventoryItemSelected(item):
 			newModel.set_script(load("res://combat/resources/unitAssembler.gd"))
 			newModel.unitParts = item
 			newModel.assembleUnit()
-			newModel.position = -(newModel.getAABB().position + newModel.getAABB().size / 2.0)
+			newModel.position = Vector3(0.0, -(newModel.getAABB().position + newModel.getAABB().size / 2.0).y, 0.0)
 			aabbSize = newModel.getAABB().size
 			var divideAmt : float = max(aabbSize.x, aabbSize.y, aabbSize.z)
-			%inventoryItemModel.scale = Vector3(0.5, 0.5, 0.5) / divideAmt
+			%inventoryItemModel.scale = Vector3(0.8, 0.8, 0.8) / divideAmt
 		ItemTypes.FISH:
 			%inventoryItemMesh.mesh = item.model
 			aabbSize = item.model.get_aabb().size
