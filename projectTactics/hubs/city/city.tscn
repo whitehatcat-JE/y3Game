@@ -2207,6 +2207,7 @@ mesh = ExtResource("58_w7raf")
 
 [node name="chestPivot3" type="Node3D" parent="."]
 transform = Transform3D(0.0333122, 0, 0.999445, 0, 1, 0, -0.999445, 0, 0.0333122, 14.7282, 4, 9.24102)
+visible = false
 script = ExtResource("48_w0i2i")
 type = 2
 
@@ -2367,6 +2368,7 @@ mesh = ExtResource("58_w7raf")
 
 [node name="chestPivot4" type="Node3D" parent="."]
 transform = Transform3D(0.470873, 0, -0.882201, 0, 1, 0, 0.882201, 0, 0.470873, -12.2718, 4, 4.24102)
+visible = false
 script = ExtResource("48_w0i2i")
 type = 2
 
@@ -2541,6 +2543,7 @@ mesh = ExtResource("58_w7raf")
 
 [node name="chestPivot5" type="Node3D" parent="."]
 transform = Transform3D(-0.73027, 0, -0.683159, 0, 1, 0, 0.683159, 0, -0.73027, 7.12823, 4, 19.941)
+visible = false
 script = ExtResource("48_w0i2i")
 type = 2
 

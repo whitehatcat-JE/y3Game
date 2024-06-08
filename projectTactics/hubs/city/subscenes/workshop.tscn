@@ -315,6 +315,4 @@ cast_shadow = 0
 gi_mode = 0
 mesh = ExtResource("36_7nelh")
 
-[connection signal="dialogueEnded" from="player/UI/dialogueMenu" to="player" method="dialogueEnded"]
-
 [editable path="player"]
