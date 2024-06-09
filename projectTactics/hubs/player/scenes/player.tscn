@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://bpoag1rko7t2q"]
+[gd_scene load_steps=61 format=3 uid="uid://bpoag1rko7t2q"]
 
 [ext_resource type="Script" path="res://hubs/player/scripts/player.gd" id="1_rqkst"]
 [ext_resource type="Resource" uid="uid://jlq0uk01mcbf" path="res://hubs/player/resources/mainPlayerData.tres" id="2_0c2xc"]
@@ -555,6 +555,39 @@ viewport_path = NodePath("UI/pauseMenu/inventoryMenu/inventoryItemViewport")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5gfna"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_70jjf"]
+
+[sub_resource type="Animation" id="Animation_mg0dk"]
+resource_name = "fadeIn"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%fadeRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0ouaf"]
+_data = {
+"fadeIn": SubResource("Animation_mg0dk")
+}
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xnhbh"]
 cull_mode = 2
@@ -1867,6 +1900,31 @@ visible = false
 layout_mode = 1
 offset_left = -276.0
 offset_right = 324.0
+
+[node name="fade" type="Control" parent="UI"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="fadeRect" type="ColorRect" parent="UI/fade"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="fadeInAnim" type="AnimationPlayer" parent="UI/fade"]
+libraries = {
+"": SubResource("AnimationLibrary_0ouaf")
+}
+autoplay = "fadeIn"
 
 [node name="fishingLine" type="Node3D" parent="."]
 unique_name_in_owner = true

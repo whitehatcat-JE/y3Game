@@ -233,10 +233,10 @@ func interact(delta):
 					self.position.y += 1.0
 				2:
 					GS.entranceName = interactionNode.exitPoint
-					get_tree().change_scene_to_file(interactionNode.map)
+					changeScene(interactionNode.map)
 				3:
 					GS.entranceName = interactionNode.entranceName
-					get_tree().change_scene_to_file(interactionNode.scene)
+					changeScene(interactionNode.scene)
 		return
 	if %itemRay.is_colliding():
 		if %itemRay.get_collider() != currentlySelected:
@@ -280,6 +280,19 @@ func interact(delta):
 		currentlySelected = null
 	%interactIcon.visible = false
 	%deniedIcon.visible = false
+
+func changeScene(newScene):
+	get_tree().paused = true
+	%fade.visible = true
+	isStopped = true
+	var fadeTween:Tween = get_tree().create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
+	%fadeRect.color = "00000000"
+	fadeTween.tween_property(%fadeRect, "color", Color.BLACK, 1.0)
+	fadeTween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	await fadeTween.finished
+	get_tree().paused = false
+	%fade.visible = false
+	get_tree().change_scene_to_file(newScene)
 
 func startDialogue(identifier:String):
 	isStopped = true
