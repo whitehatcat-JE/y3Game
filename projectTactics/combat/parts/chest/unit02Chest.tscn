@@ -13,19 +13,19 @@ material_override = ExtResource("2_ljvlb")
 mesh = ExtResource("3_ovhqy")
 
 [node name="corePos" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.155526, 2.19559, -1.30322)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.155526, 2.19559, -0.82947)
 
 [node name="headPos" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0964549, 2.92856, 1.19529)
 
 [node name="lArmPos" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.47553, 0.107096, -0.686412)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.56886, 0.0711506, -0.678117)
 
 [node name="rArmPos" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25539, 0.107096, -0.686412)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.35094, 0.0711506, -0.678117)
 
 [node name="lLegPos" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.44193, -1.88028, 0.318007)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.201, -1.86972, 0.318007)
 
 [node name="rLegPos" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.373, -1.88, 0.318007)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15987, -1.86944, 0.318007)
