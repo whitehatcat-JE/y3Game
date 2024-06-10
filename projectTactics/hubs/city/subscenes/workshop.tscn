@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://br4cu6ep12cfj"]
+[gd_scene load_steps=63 format=3 uid="uid://br4cu6ep12cfj"]
 
 [ext_resource type="PackedScene" uid="uid://bpoag1rko7t2q" path="res://hubs/player/scenes/player.tscn" id="1_35r8b"]
 [ext_resource type="Resource" uid="uid://bu8g34n68eo6v" path="res://hubs/player/resources/fish/crescentTrout.tres" id="2_ewo3v"]
@@ -18,20 +18,23 @@
 [ext_resource type="Script" path="res://hubs/interactions/scripts/npc.gd" id="25_yi3di"]
 [ext_resource type="Texture2D" uid="uid://c3tyh1cabrr6u" path="res://hubs/shared/assets/water1.png" id="26_ygvm4"]
 [ext_resource type="Texture2D" uid="uid://d35na4bpku1nj" path="res://hubs/shared/assets/water2.png" id="27_a1qm3"]
+[ext_resource type="Resource" uid="uid://l25t77irs1hq" path="res://combat/parts/chest/unit02Chest.tres" id="27_ai3wi"]
+[ext_resource type="Resource" uid="uid://b4ui1jrjnwkdn" path="res://combat/parts/chest/unit03Chest.tres" id="28_0w6fj"]
 [ext_resource type="Texture2D" uid="uid://dat0j83l4m1rm" path="res://hubs/shared/assets/water3.png" id="28_p4bvp"]
 [ext_resource type="Texture2D" uid="uid://buqnwcv5cacmv" path="res://hubs/shared/assets/water4.png" id="29_04x70"]
+[ext_resource type="Resource" uid="uid://dcdtjebpxg7f5" path="res://combat/parts/core/unit02Core.tres" id="29_5vbha"]
+[ext_resource type="Resource" uid="uid://dt45elky6m33f" path="res://combat/parts/core/unit03Core.tres" id="30_a6f1j"]
 [ext_resource type="Texture2D" uid="uid://cai0gswj6v6bv" path="res://hubs/shared/assets/waterTop1.png" id="30_e1vn8"]
+[ext_resource type="Resource" uid="uid://d1k1tgax55ub6" path="res://combat/parts/head/unit02Head.tres" id="31_att4v"]
 [ext_resource type="Texture2D" uid="uid://d0yq0unbtnbkv" path="res://hubs/shared/assets/waterTop2.png" id="31_l40q3"]
 [ext_resource type="Texture2D" uid="uid://bgdj0c7xbfayq" path="res://hubs/shared/assets/waterTop3.png" id="32_4yk5e"]
+[ext_resource type="Resource" uid="uid://oee3tarot5sa" path="res://combat/parts/head/unit03Head.tres" id="32_6g0f0"]
 [ext_resource type="Texture2D" uid="uid://c304vi58d5htu" path="res://hubs/shared/assets/waterTop4.png" id="33_67a2i"]
+[ext_resource type="Resource" uid="uid://3mybeu0x33nu" path="res://combat/parts/leg/unit02Leg.tres" id="33_a21lh"]
+[ext_resource type="Resource" uid="uid://bxb83mj7vh7hk" path="res://combat/parts/leg/unit03Leg.tres" id="34_io7o4"]
 [ext_resource type="Texture2D" uid="uid://ccmyj0peb14c0" path="res://hubs/city/assets/workshop/workshop.png" id="35_wacmg"]
 [ext_resource type="ArrayMesh" uid="uid://dbwx63cfs423d" path="res://hubs/city/assets/workshop/workshopInterior.obj" id="36_7nelh"]
 [ext_resource type="Texture2D" uid="uid://6viirmla8lti" path="res://hubs/city/assets/workshop/workshopEmission.png" id="51_33882"]
-
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_25shg"]
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_evvfx"]
-viewport_path = NodePath("UI/pauseMenu/inventoryMenu/inventoryItemViewport")
 
 [sub_resource type="Gradient" id="Gradient_fkofy"]
 interpolation_mode = 2
@@ -230,15 +233,6 @@ radius = 2.9853
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.36266, -3.3)
 fishingPool = Array[Resource("res://hubs/player/resources/fish.gd")]([ExtResource("2_ewo3v"), ExtResource("3_2try4"), ExtResource("4_nah8k"), ExtResource("5_2a7dp")])
 
-[node name="playerCam" parent="player/head/neck" index="0"]
-attributes = SubResource("CameraAttributesPractical_25shg")
-
-[node name="clearSelectionButton" parent="player/UI/unitAssembler" index="1"]
-layout_mode = 0
-
-[node name="inventoryItemSprite" parent="player/UI/pauseMenu/inventoryMenu/inventoryItem" index="0"]
-texture = SubResource("ViewportTexture_evvfx")
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0jr5i")
 
@@ -378,6 +372,38 @@ part = ExtResource("23_8a6d2")
 transform = Transform3D(-0.12783, 0.251488, -0.283572, -0.369044, -0.150806, 0.0326158, -0.0864051, 0.27205, 0.280219, 1.80617, -1.22922, -18.7617)
 part = ExtResource("24_lumhi")
 
+[node name="item8" parent="." instance=ExtResource("19_qh73u")]
+transform = Transform3D(-0.12783, 0.251488, -0.283572, -0.369044, -0.150806, 0.0326158, -0.0864051, 0.27205, 0.280219, 1.80617, -0.22922, -14.7617)
+part = ExtResource("27_ai3wi")
+
+[node name="item9" parent="." instance=ExtResource("19_qh73u")]
+transform = Transform3D(-0.12783, 0.251488, -0.283572, -0.369044, -0.150806, 0.0326158, -0.0864051, 0.27205, 0.280219, 1.80617, -0.22922, -10.7617)
+part = ExtResource("28_0w6fj")
+
+[node name="item10" parent="." instance=ExtResource("19_qh73u")]
+transform = Transform3D(-0.12783, 0.251488, -0.283572, -0.369044, -0.150806, 0.0326158, -0.0864051, 0.27205, 0.280219, 1.80617, -0.22922, -7.7617)
+part = ExtResource("29_5vbha")
+
+[node name="item11" parent="." instance=ExtResource("19_qh73u")]
+transform = Transform3D(-0.12783, 0.251488, -0.283572, -0.369044, -0.150806, 0.0326158, -0.0864051, 0.27205, 0.280219, 1.80617, -0.22922, -6.7617)
+part = ExtResource("30_a6f1j")
+
+[node name="item12" parent="." instance=ExtResource("19_qh73u")]
+transform = Transform3D(-0.12783, 0.251488, -0.283572, -0.369044, -0.150806, 0.0326158, -0.0864051, 0.27205, 0.280219, 1.80617, -0.22922, -4.7617)
+part = ExtResource("31_att4v")
+
+[node name="item13" parent="." instance=ExtResource("19_qh73u")]
+transform = Transform3D(-0.12783, 0.251488, -0.283572, -0.369044, -0.150806, 0.0326158, -0.0864051, 0.27205, 0.280219, -12.1938, -0.22922, -4.7617)
+part = ExtResource("32_6g0f0")
+
+[node name="item14" parent="." instance=ExtResource("19_qh73u")]
+transform = Transform3D(-0.12783, 0.251488, -0.283572, -0.369044, -0.150806, 0.0326158, -0.0864051, 0.27205, 0.280219, -12.1938, -0.22922, -7.7617)
+part = ExtResource("33_a21lh")
+
+[node name="item15" parent="." instance=ExtResource("19_qh73u")]
+transform = Transform3D(-0.12783, 0.251488, -0.283572, -0.369044, -0.150806, 0.0326158, -0.0864051, 0.27205, 0.280219, -12.1938, -0.22922, -10.7617)
+part = ExtResource("34_io7o4")
+
 [node name="unitAssembler" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.34807, -1.46208, -11.3849)
 collision_layer = 8
@@ -391,8 +417,3 @@ standard = "unitAssembler"
 [node name="hitbox" type="CollisionShape3D" parent="unitAssembler"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.87049, 0)
 shape = SubResource("CylinderShape3D_uom5t")
-
-[connection signal="dialogueEnded" from="player/UI/dialogueMenu" to="player" method="dialogueEnded"]
-[connection signal="unitAssemblyComplete" from="player/UI/unitAssembler" to="player" method="unitAssemblyComplete"]
-
-[editable path="player"]

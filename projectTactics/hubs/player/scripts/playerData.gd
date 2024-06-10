@@ -3,7 +3,7 @@ class_name PlayerData
 
 const INVENTORY_SIZE:int = 100
 
-@export var balance:int = 25000
+@export var balance:int = 50000
 
 @export var inventory:Dictionary = {}
 

@@ -29,6 +29,8 @@ enum PartTypes {
 			get_node("inverted").queue_free()
 		invertedVariant = false
 
+@export var scaleModifier:float = 1.0
+
 func regenerateChildren(_update):
 	for child in self.get_children(): child.free();
 	match type:
@@ -38,6 +40,7 @@ func regenerateChildren(_update):
 				createChild(Node3D, "lowerArmPivot",
 				createChild(MeshInstance3D, "upperArm"
 			)))
+			createChild(Node3D, "pivotCenter")
 		PartTypes.LEG:
 			self.name = "upperLegPivot"
 			createChild(MeshInstance3D, "foot",

@@ -435,8 +435,7 @@ func getFish():
 
 func eventTriggered(identifier:String, value):
 	if identifier == "buildUnit":
-		%unitAssembler.visible = true
-		%unitAssembler.updateParts(0)
+		%unitAssembler.startBuilding()
 		GS.emit_signal("eventFinished")
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		isStopped = true

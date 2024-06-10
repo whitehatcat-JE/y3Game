@@ -8,9 +8,10 @@
 
 [node name="upperArmPivot" type="Node3D"]
 script = ExtResource("1_kv0ka")
+scaleModifier = 0.75
 
 [node name="upperArm" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.157654, -0.578744, -0.013899)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.157654, -0.327396, -0.013899)
 material_override = ExtResource("2_g6lay")
 mesh = ExtResource("2_rd7y3")
 
@@ -23,7 +24,7 @@ material_override = ExtResource("2_g6lay")
 mesh = ExtResource("3_4sypr")
 
 [node name="inverted" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.166276, -0.578744, -0.013899)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.166276, -0.327396, -0.013899)
 material_override = ExtResource("2_g6lay")
 mesh = ExtResource("5_hkwkb")
 
@@ -34,3 +35,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.898733, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.758121, 4.44645)
 material_override = ExtResource("2_g6lay")
 mesh = ExtResource("3_4sypr")
+
+[node name="pivotCenter" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.72025)

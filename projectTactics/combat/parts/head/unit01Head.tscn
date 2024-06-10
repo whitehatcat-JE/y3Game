@@ -7,6 +7,7 @@
 [node name="headPivot" type="Node3D"]
 script = ExtResource("1_1davt")
 type = 4
+scaleModifier = 0.9
 
 [node name="head" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.126744, 0.414742)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://bpoag1rko7t2q"]
+[gd_scene load_steps=64 format=3 uid="uid://bpoag1rko7t2q"]
 
 [ext_resource type="Script" path="res://hubs/player/scripts/player.gd" id="1_rqkst"]
 [ext_resource type="Resource" uid="uid://jlq0uk01mcbf" path="res://hubs/player/resources/mainPlayerData.tres" id="2_0c2xc"]
@@ -517,6 +517,12 @@ bg_color = Color(0.466667, 0.466667, 0.466667, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w2bpg"]
 bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qqiov"]
+bg_color = Color(0.129412, 0.262745, 0.380392, 0.427451)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n8f8h"]
+bg_color = Color(0.380392, 0.14902, 0.152941, 0.427451)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fejb1"]
 
@@ -1155,10 +1161,12 @@ color = Color(0, 0, 0, 0.117647)
 
 [node name="clearSelectionButton" type="Button" parent="UI/unitAssembler"]
 modulate = Color(1, 1, 1, 0)
+layout_mode = 0
 offset_right = 1151.0
 offset_bottom = 649.0
 
 [node name="partLayout" type="GridContainer" parent="UI/unitAssembler"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1252,6 +1260,421 @@ layout_mode = 2
 theme_override_constants/separation = 10
 
 [node name="spacer4" type="VSeparator" parent="UI/unitAssembler/partLayout"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="partSelectionLayout" type="GridContainer" parent="UI/unitAssembler"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 7
+
+[node name="spacer1" type="VSeparator" parent="UI/unitAssembler/partSelectionLayout"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="partSelectionMenu" type="ColorRect" parent="UI/unitAssembler/partSelectionLayout"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.0901961, 0.0901961, 0.0901961, 0.662745)
+
+[node name="partGrid" type="GridContainer" parent="UI/unitAssembler/partSelectionLayout/partSelectionMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="topSeparator" type="HSeparator" parent="UI/unitAssembler/partSelectionLayout/partSelectionMenu/partGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_yeky0")
+
+[node name="unitName" type="LineEdit" parent="UI/unitAssembler/partSelectionLayout/partSelectionMenu/partGrid"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+placeholder_text = "myMech"
+alignment = 1
+max_length = 20
+
+[node name="nameDivider" type="HSeparator" parent="UI/unitAssembler/partSelectionLayout/partSelectionMenu/partGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="headButton" type="Button" parent="UI/unitAssembler/partSelectionLayout/partSelectionMenu/partGrid"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_pressed_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_disabled_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_outline_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_6tmej")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w2bpg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6tmej")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6tmej")
+text = "Head"
+flat = true
+
+[node name="armButton" type="Button" parent="UI/unitAssembler/partSelectionLayout/partSelectionMenu/partGrid"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_pressed_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_disabled_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_outline_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_6tmej")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w2bpg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6tmej")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6tmej")
+text = "Arm"
+flat = true
+
+[node name="chestButton" type="Button" parent="UI/unitAssembler/partSelectionLayout/partSelectionMenu/partGrid"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_pressed_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_disabled_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_outline_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_6tmej")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w2bpg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6tmej")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6tmej")
+text = "Chest"
+flat = true
+
+[node name="coreButton" type="Button" parent="UI/unitAssembler/partSelectionLayout/partSelectionMenu/partGrid"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_pressed_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_disabled_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_outline_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_6tmej")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w2bpg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6tmej")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6tmej")
+text = "Core"
+flat = true
+
+[node name="legButton" type="Button" parent="UI/unitAssembler/partSelectionLayout/partSelectionMenu/partGrid"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_pressed_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_disabled_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_outline_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_6tmej")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w2bpg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6tmej")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6tmej")
+text = "Leg"
+flat = true
+
+[node name="noneDivider" type="HSeparator" parent="UI/unitAssembler/partSelectionLayout/partSelectionMenu/partGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="unitConfirmButton" type="Button" parent="UI/unitAssembler/partSelectionLayout/partSelectionMenu/partGrid"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.823529, 1, 0.960784, 1)
+theme_override_colors/font_pressed_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_disabled_color = Color(0.564706, 0.439216, 0.458824, 1)
+theme_override_colors/font_outline_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_qqiov")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qqiov")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qqiov")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_n8f8h")
+theme_override_styles/focus = SubResource("StyleBoxFlat_qqiov")
+disabled = true
+text = "Confirm"
+
+[node name="cancelButton" type="Button" parent="UI/unitAssembler/partSelectionLayout/partSelectionMenu/partGrid"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_pressed_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_disabled_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_outline_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_6tmej")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w2bpg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6tmej")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6tmej")
+text = "Cancel"
+flat = true
+
+[node name="partBottomSeparator" type="HSeparator" parent="UI/unitAssembler/partSelectionLayout/partSelectionMenu/partGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_yeky0")
+
+[node name="itemGrid" type="GridContainer" parent="UI/unitAssembler/partSelectionLayout/partSelectionMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 263.0
+offset_right = 263.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="topSeparator" type="HSeparator" parent="UI/unitAssembler/partSelectionLayout/partSelectionMenu/itemGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_yeky0")
+
+[node name="name" type="LineEdit" parent="UI/unitAssembler/partSelectionLayout/partSelectionMenu/itemGrid"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+focus_mode = 0
+mouse_filter = 2
+theme_override_font_sizes/font_size = 20
+placeholder_text = "myMech"
+alignment = 1
+max_length = 20
+editable = false
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="nameDivider" type="HSeparator" parent="UI/unitAssembler/partSelectionLayout/partSelectionMenu/itemGrid"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="headItemName" type="Button" parent="UI/unitAssembler/partSelectionLayout/partSelectionMenu/itemGrid"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_pressed_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_6tmej")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w2bpg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6tmej")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6tmej")
+disabled = true
+text = "None"
+flat = true
+alignment = 0
+
+[node name="armItemName" type="Button" parent="UI/unitAssembler/partSelectionLayout/partSelectionMenu/itemGrid"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_pressed_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_6tmej")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w2bpg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6tmej")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6tmej")
+disabled = true
+text = "None"
+flat = true
+alignment = 0
+
+[node name="chestItemName" type="Button" parent="UI/unitAssembler/partSelectionLayout/partSelectionMenu/itemGrid"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_pressed_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_6tmej")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w2bpg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6tmej")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6tmej")
+disabled = true
+text = "None"
+flat = true
+alignment = 0
+
+[node name="coreItemName" type="Button" parent="UI/unitAssembler/partSelectionLayout/partSelectionMenu/itemGrid"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_pressed_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_6tmej")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w2bpg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6tmej")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6tmej")
+disabled = true
+text = "None"
+flat = true
+alignment = 0
+
+[node name="legItemName" type="Button" parent="UI/unitAssembler/partSelectionLayout/partSelectionMenu/itemGrid"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_pressed_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_6tmej")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w2bpg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6tmej")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6tmej")
+disabled = true
+text = "None"
+flat = true
+alignment = 0
+
+[node name="noneDivider" type="HSeparator" parent="UI/unitAssembler/partSelectionLayout/partSelectionMenu/itemGrid"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="unitConfirmButton" type="Button" parent="UI/unitAssembler/partSelectionLayout/partSelectionMenu/itemGrid"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.823529, 1, 0.960784, 1)
+theme_override_colors/font_pressed_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_qqiov")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qqiov")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qqiov")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_n8f8h")
+theme_override_styles/focus = SubResource("StyleBoxFlat_qqiov")
+disabled = true
+text = "Confirm"
+
+[node name="cancelButton" type="Button" parent="UI/unitAssembler/partSelectionLayout/partSelectionMenu/itemGrid"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_pressed_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_6tmej")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w2bpg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6tmej")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6tmej")
+disabled = true
+text = "Cancel"
+flat = true
+
+[node name="partBottomSeparator" type="HSeparator" parent="UI/unitAssembler/partSelectionLayout/partSelectionMenu/itemGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_yeky0")
+
+[node name="spacer3" type="VSeparator" parent="UI/unitAssembler/partSelectionLayout"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="spacer4" type="VSeparator" parent="UI/unitAssembler/partSelectionLayout"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_override_constants/separation = 10
@@ -1642,7 +2065,8 @@ visible = false
 [node name="inventoryItemMesh" type="MeshInstance3D" parent="UI/pauseMenu/inventoryMenu/inventoryItemViewport/Camera3D/inventoryItemModel"]
 unique_name_in_owner = true
 
-[node name="itemAnim" type="AnimationPlayer" parent="UI/pauseMenu/inventoryMenu/inventoryItemViewport/Camera3D"]
+[node name="itemRotatorAnim" type="AnimationPlayer" parent="UI/pauseMenu/inventoryMenu/inventoryItemViewport/Camera3D"]
+unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_aaux6")
 }
@@ -2029,6 +2453,7 @@ offset_right = 324.0
 
 [node name="fade" type="Control" parent="UI"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -2076,6 +2501,13 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 
 [connection signal="button_up" from="UI/dialogueMenu/dialogueLayout/background/dialogueResponseGrid/response4" to="UI/dialogueMenu" method="response4Pressed"]
 [connection signal="unitAssemblyComplete" from="UI/unitAssembler" to="." method="unitAssemblyComplete"]
 [connection signal="button_up" from="UI/unitAssembler/partLayout/partMenu/partGrid/noneButton" to="UI/unitAssembler" method="nonePressed"]
+[connection signal="button_up" from="UI/unitAssembler/partSelectionLayout/partSelectionMenu/partGrid/headButton" to="UI/unitAssembler" method="headPressed"]
+[connection signal="button_up" from="UI/unitAssembler/partSelectionLayout/partSelectionMenu/partGrid/armButton" to="UI/unitAssembler" method="armPressed"]
+[connection signal="button_up" from="UI/unitAssembler/partSelectionLayout/partSelectionMenu/partGrid/chestButton" to="UI/unitAssembler" method="chestPressed"]
+[connection signal="button_up" from="UI/unitAssembler/partSelectionLayout/partSelectionMenu/partGrid/coreButton" to="UI/unitAssembler" method="corePressed"]
+[connection signal="button_up" from="UI/unitAssembler/partSelectionLayout/partSelectionMenu/partGrid/legButton" to="UI/unitAssembler" method="legPressed"]
+[connection signal="button_up" from="UI/unitAssembler/partSelectionLayout/partSelectionMenu/partGrid/unitConfirmButton" to="UI/unitAssembler" method="confirmPressed"]
+[connection signal="button_up" from="UI/unitAssembler/partSelectionLayout/partSelectionMenu/partGrid/cancelButton" to="UI/unitAssembler" method="cancelPressed"]
 [connection signal="button_up" from="UI/sellMenu/sellLayout/sellOptions/sellConfirmButton" to="UI/sellMenu" method="confirmPressed"]
 [connection signal="button_up" from="UI/sellMenu/sellLayout/sellOptions/sellCancelButton" to="UI/sellMenu" method="cancelPressed"]
 [connection signal="button_up" from="UI/pauseMenu/inventoryMenu/inventoryItem/deleteButton" to="UI/pauseMenu" method="deleteItemPressed"]

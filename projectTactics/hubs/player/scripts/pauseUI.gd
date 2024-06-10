@@ -113,15 +113,21 @@ func inventoryItemSelected(item):
 	clearDisplayedItem()
 	%inventoryItemModel.visible = true
 	%inventoryItemModel.scale = Vector3(1.0, 1.0, 1.0)
+	%itemRotatorAnim.pause()
+	%inventoryItemModel.rotation.y = 0.0
 	var aabbSize:Vector3
 	match item.itemType:
 		ItemTypes.PART:
 			var newModel = item.model.instantiate()
 			%inventoryItemModel.add_child(newModel)
-			newModel.position = -(newModel.getAABB().position + newModel.getAABB().size / 2.0)
+			if newModel.get_node_or_null("inverted") != null:
+				newModel.get_child(1).free()
+			newModel.position = Vector3(0.0, -(newModel.getAABB().position + newModel.getAABB().size / 2.0).y, 0.0)
+			if newModel.has_node("pivotCenter"):
+				newModel.position.z = -newModel.get_node("pivotCenter").position.z - newModel.position.z
 			aabbSize = newModel.getAABB().size
 			var divideAmt : float = max(aabbSize.x, aabbSize.y, aabbSize.z)
-			%inventoryItemModel.scale = Vector3(0.8, 0.8, 0.8) / divideAmt
+			%inventoryItemModel.scale = Vector3(0.8, 0.8, 0.8) / divideAmt * newModel.scaleModifier
 		ItemTypes.UNIT:
 			var newModel = Node3D.new()
 			%inventoryItemModel.add_child(newModel)
@@ -137,6 +143,7 @@ func inventoryItemSelected(item):
 			aabbSize = item.model.get_aabb().size
 			var divideAmt : float = max(aabbSize.x, aabbSize.y, aabbSize.z)
 			%inventoryItemModel.scale = Vector3(0.8, 0.8, 0.8) / divideAmt
+	%itemRotatorAnim.play()
 	%inventoryItemName.text = item.name
 	if playerInfo.inventory[item] > 1:
 		%inventoryItemName.text += " (" + str(playerInfo.inventory[item]) + ")"

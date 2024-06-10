@@ -1931,6 +1931,7 @@ shape = SubResource("BoxShape3D_6gudp")
 transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -33, 4, 35)
 script = ExtResource("48_w0i2i")
 type = 2
+scaleModifier = null
 
 [node name="_MeshInstance3D_123772" type="MeshInstance3D" parent="chestPivot"]
 material_override = ExtResource("49_626fa")
@@ -1943,6 +1944,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.00531, -0.796356)
 transform = Transform3D(0.999866, 0.0129971, 0.00997214, -0.0129971, 0.258819, 0.965838, 0.00997214, -0.965838, 0.258953, 0, 0, 0)
 script = ExtResource("48_w0i2i")
 type = 3
+scaleModifier = null
 
 [node name="_MeshInstance3D_123774" type="MeshInstance3D" parent="chestPivot/_Node3D_123775/corePivot"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
@@ -1955,6 +1957,7 @@ transform = Transform3D(0.999976, -0.00672781, 0.00180255, 0.00672781, 0.866025,
 [node name="headPivot" type="Node3D" parent="chestPivot/_Node3D_123778"]
 script = ExtResource("48_w0i2i")
 type = 4
+scaleModifier = null
 
 [node name="_MeshInstance3D_123777" type="MeshInstance3D" parent="chestPivot/_Node3D_123778/headPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.126744, 0.414742)
@@ -1967,6 +1970,7 @@ transform = Transform3D(1, 0, 0, 2.32831e-10, 1, 0, 0, 0, 1, 2.36384, 0.982666, 
 [node name="upperArmPivot" type="Node3D" parent="chestPivot/_Node3D_123783"]
 transform = Transform3D(0.965932, -0.258174, 0.0179316, 0.258109, 0.966098, 0.00588822, -0.0188439, -0.0010593, 0.999822, 0, 0, 0)
 script = ExtResource("48_w0i2i")
+scaleModifier = null
 
 [node name="_MeshInstance3D_123782" type="MeshInstance3D" parent="chestPivot/_Node3D_123783/upperArmPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.157654, -0.578744, -0.013899)
@@ -1987,6 +1991,7 @@ transform = Transform3D(1, 0, 0, 2.32831e-10, 1, 0, 0, 0, 1, -2.32846, 0.982666,
 [node name="upperArmPivot" type="Node3D" parent="chestPivot/_Node3D_123788"]
 transform = Transform3D(0.965932, 0.258109, -0.0188439, -0.258174, 0.966098, -0.00105932, 0.0179316, 0.00588825, 0.999822, 0, 0, 0)
 script = ExtResource("48_w0i2i")
+scaleModifier = null
 
 [node name="_MeshInstance3D_123787" type="MeshInstance3D" parent="chestPivot/_Node3D_123788/upperArmPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.166276, -0.578744, -0.013899)
@@ -2008,6 +2013,7 @@ transform = Transform3D(0.965926, -0.0183536, -0.258167, 0.0184186, 0.999828, -0
 transform = Transform3D(0.870419, -0.461208, 0.172212, -0.0484744, 0.267815, 0.96225, -0.489918, -0.845909, 0.210754, -8.58307e-06, 0.00512862, 0.000679016)
 script = ExtResource("48_w0i2i")
 type = 1
+scaleModifier = null
 
 [node name="_MeshInstance3D_123794" type="MeshInstance3D" parent="chestPivot/_Node3D_123795/upperLegPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.14755, 0)
@@ -2037,6 +2043,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45552, -1.83824, 0.290979)
 transform = Transform3D(0.96346, 0.257152, -0.0749475, 0.0053996, 0.261107, 0.965295, 0.267797, -0.930428, 0.250178, 9.05991e-06, -0.00512886, -0.000669479)
 script = ExtResource("48_w0i2i")
 type = 1
+scaleModifier = null
 
 [node name="_MeshInstance3D_123801" type="MeshInstance3D" parent="chestPivot/_Node3D_123802/upperLegPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.14755, 0)
@@ -2063,6 +2070,7 @@ mesh = ExtResource("58_w7raf")
 transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 33, 4, 33)
 script = ExtResource("48_w0i2i")
 type = 2
+scaleModifier = null
 
 [node name="_MeshInstance3D_123772" type="MeshInstance3D" parent="chestPivot2"]
 material_override = ExtResource("49_626fa")
@@ -2075,6 +2083,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.00531, -0.796356)
 transform = Transform3D(0.999866, 0.0129971, 0.00997214, -0.0129971, 0.258819, 0.965838, 0.00997214, -0.965838, 0.258953, 0, 0, 0)
 script = ExtResource("48_w0i2i")
 type = 3
+scaleModifier = null
 
 [node name="_MeshInstance3D_123774" type="MeshInstance3D" parent="chestPivot2/_Node3D_123775/corePivot"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
@@ -2087,6 +2096,7 @@ transform = Transform3D(0.999976, -0.00672781, 0.00180255, 0.00672781, 0.866025,
 [node name="headPivot" type="Node3D" parent="chestPivot2/_Node3D_123778"]
 script = ExtResource("48_w0i2i")
 type = 4
+scaleModifier = null
 
 [node name="_MeshInstance3D_123777" type="MeshInstance3D" parent="chestPivot2/_Node3D_123778/headPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.126744, 0.414742)
@@ -2099,6 +2109,7 @@ transform = Transform3D(1, 0, 0, 2.32831e-10, 1, 0, 0, 0, 1, 2.36384, 0.982666, 
 [node name="upperArmPivot" type="Node3D" parent="chestPivot2/_Node3D_123783"]
 transform = Transform3D(0.965932, -0.258174, 0.0179316, 0.258109, 0.966098, 0.00588822, -0.0188439, -0.0010593, 0.999822, 0, 0, 0)
 script = ExtResource("48_w0i2i")
+scaleModifier = null
 
 [node name="_MeshInstance3D_123782" type="MeshInstance3D" parent="chestPivot2/_Node3D_123783/upperArmPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.157654, -0.578744, -0.013899)
@@ -2119,6 +2130,7 @@ transform = Transform3D(1, 0, 0, 2.32831e-10, 1, 0, 0, 0, 1, -2.32846, 0.982666,
 [node name="upperArmPivot" type="Node3D" parent="chestPivot2/_Node3D_123788"]
 transform = Transform3D(0.965932, 0.258109, -0.0188439, -0.258174, 0.966098, -0.00105932, 0.0179316, 0.00588825, 0.999822, 0, 0, 0)
 script = ExtResource("48_w0i2i")
+scaleModifier = null
 
 [node name="_MeshInstance3D_123787" type="MeshInstance3D" parent="chestPivot2/_Node3D_123788/upperArmPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.166276, -0.578744, -0.013899)
@@ -2140,6 +2152,7 @@ transform = Transform3D(0.965926, -0.0183536, -0.258167, 0.0184186, 0.999828, -0
 transform = Transform3D(0.870419, -0.461208, 0.172212, -0.0484744, 0.267815, 0.96225, -0.489918, -0.845909, 0.210754, -8.58307e-06, 0.00512862, 0.000679016)
 script = ExtResource("48_w0i2i")
 type = 1
+scaleModifier = null
 
 [node name="_MeshInstance3D_123794" type="MeshInstance3D" parent="chestPivot2/_Node3D_123795/upperLegPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.14755, 0)
@@ -2169,6 +2182,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45552, -1.83824, 0.290979)
 transform = Transform3D(0.96346, 0.257152, -0.0749475, 0.0053996, 0.261107, 0.965295, 0.267797, -0.930428, 0.250178, 9.05991e-06, -0.00512886, -0.000669479)
 script = ExtResource("48_w0i2i")
 type = 1
+scaleModifier = null
 
 [node name="_MeshInstance3D_123801" type="MeshInstance3D" parent="chestPivot2/_Node3D_123802/upperLegPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.14755, 0)
@@ -2210,6 +2224,7 @@ transform = Transform3D(0.0333122, 0, 0.999445, 0, 1, 0, -0.999445, 0, 0.0333122
 visible = false
 script = ExtResource("48_w0i2i")
 type = 2
+scaleModifier = null
 
 [node name="_MeshInstance3D_123772" type="MeshInstance3D" parent="chestPivot3"]
 material_override = ExtResource("49_626fa")
@@ -2222,6 +2237,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.00531, -0.796356)
 transform = Transform3D(0.999866, 0.0129971, 0.00997214, -0.0129971, 0.258819, 0.965838, 0.00997214, -0.965838, 0.258953, 0, 0, 0)
 script = ExtResource("48_w0i2i")
 type = 3
+scaleModifier = null
 
 [node name="_MeshInstance3D_123774" type="MeshInstance3D" parent="chestPivot3/_Node3D_123775/corePivot"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
@@ -2234,6 +2250,7 @@ transform = Transform3D(0.999976, -0.00672781, 0.00180255, 0.00672781, 0.866025,
 [node name="headPivot" type="Node3D" parent="chestPivot3/_Node3D_123778"]
 script = ExtResource("48_w0i2i")
 type = 4
+scaleModifier = null
 
 [node name="_MeshInstance3D_123777" type="MeshInstance3D" parent="chestPivot3/_Node3D_123778/headPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.126744, 0.414742)
@@ -2246,6 +2263,7 @@ transform = Transform3D(1, 0, 0, 2.32831e-10, 1, 0, 0, 0, 1, 2.36384, 0.982666, 
 [node name="upperArmPivot" type="Node3D" parent="chestPivot3/_Node3D_123783"]
 transform = Transform3D(0.965932, -0.258174, 0.0179316, 0.258109, 0.966098, 0.00588822, -0.0188439, -0.0010593, 0.999822, 0, 0, 0)
 script = ExtResource("48_w0i2i")
+scaleModifier = null
 
 [node name="_MeshInstance3D_123782" type="MeshInstance3D" parent="chestPivot3/_Node3D_123783/upperArmPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.157654, -0.578744, -0.013899)
@@ -2266,6 +2284,7 @@ transform = Transform3D(1, 0, 0, 2.32831e-10, 1, 0, 0, 0, 1, -2.32846, 0.982666,
 [node name="upperArmPivot" type="Node3D" parent="chestPivot3/_Node3D_123788"]
 transform = Transform3D(0.965932, 0.258109, -0.0188439, -0.258174, 0.966098, -0.00105932, 0.0179316, 0.00588825, 0.999822, 0, 0, 0)
 script = ExtResource("48_w0i2i")
+scaleModifier = null
 
 [node name="_MeshInstance3D_123787" type="MeshInstance3D" parent="chestPivot3/_Node3D_123788/upperArmPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.166276, -0.578744, -0.013899)
@@ -2287,6 +2306,7 @@ transform = Transform3D(0.965926, -0.0183536, -0.258167, 0.0184186, 0.999828, -0
 transform = Transform3D(0.870419, -0.461208, 0.172212, -0.0484744, 0.267815, 0.96225, -0.489918, -0.845909, 0.210754, -8.58307e-06, 0.00512862, 0.000679016)
 script = ExtResource("48_w0i2i")
 type = 1
+scaleModifier = null
 
 [node name="_MeshInstance3D_123794" type="MeshInstance3D" parent="chestPivot3/_Node3D_123795/upperLegPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.14755, 0)
@@ -2316,6 +2336,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45552, -1.83824, 0.290979)
 transform = Transform3D(0.96346, 0.257152, -0.0749475, 0.0053996, 0.261107, 0.965295, 0.267797, -0.930428, 0.250178, 9.05991e-06, -0.00512886, -0.000669479)
 script = ExtResource("48_w0i2i")
 type = 1
+scaleModifier = null
 
 [node name="_MeshInstance3D_123801" type="MeshInstance3D" parent="chestPivot3/_Node3D_123802/upperLegPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.14755, 0)
@@ -2371,6 +2392,7 @@ transform = Transform3D(0.470873, 0, -0.882201, 0, 1, 0, 0.882201, 0, 0.470873, 
 visible = false
 script = ExtResource("48_w0i2i")
 type = 2
+scaleModifier = null
 
 [node name="_MeshInstance3D_123772" type="MeshInstance3D" parent="chestPivot4"]
 material_override = ExtResource("49_626fa")
@@ -2383,6 +2405,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.00531, -0.796356)
 transform = Transform3D(0.999866, 0.0129971, 0.00997214, -0.0129971, 0.258819, 0.965838, 0.00997214, -0.965838, 0.258953, 0, 0, 0)
 script = ExtResource("48_w0i2i")
 type = 3
+scaleModifier = null
 
 [node name="_MeshInstance3D_123774" type="MeshInstance3D" parent="chestPivot4/_Node3D_123775/corePivot"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
@@ -2395,6 +2418,7 @@ transform = Transform3D(0.999976, -0.00672781, 0.00180255, 0.00672781, 0.866025,
 [node name="headPivot" type="Node3D" parent="chestPivot4/_Node3D_123778"]
 script = ExtResource("48_w0i2i")
 type = 4
+scaleModifier = null
 
 [node name="_MeshInstance3D_123777" type="MeshInstance3D" parent="chestPivot4/_Node3D_123778/headPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.126744, 0.414742)
@@ -2407,6 +2431,7 @@ transform = Transform3D(1, 0, 0, 2.32831e-10, 1, 0, 0, 0, 1, 2.36384, 0.982666, 
 [node name="upperArmPivot" type="Node3D" parent="chestPivot4/_Node3D_123783"]
 transform = Transform3D(0.965932, -0.258174, 0.0179316, 0.258109, 0.966098, 0.00588822, -0.0188439, -0.0010593, 0.999822, 0, 0, 0)
 script = ExtResource("48_w0i2i")
+scaleModifier = null
 
 [node name="_MeshInstance3D_123782" type="MeshInstance3D" parent="chestPivot4/_Node3D_123783/upperArmPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.157654, -0.578744, -0.013899)
@@ -2427,6 +2452,7 @@ transform = Transform3D(1, 0, 0, 2.32831e-10, 1, 0, 0, 0, 1, -2.32846, 0.982666,
 [node name="upperArmPivot" type="Node3D" parent="chestPivot4/_Node3D_123788"]
 transform = Transform3D(0.965932, 0.258109, -0.0188439, -0.258174, 0.966098, -0.00105932, 0.0179316, 0.00588825, 0.999822, 0, 0, 0)
 script = ExtResource("48_w0i2i")
+scaleModifier = null
 
 [node name="_MeshInstance3D_123787" type="MeshInstance3D" parent="chestPivot4/_Node3D_123788/upperArmPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.166276, -0.578744, -0.013899)
@@ -2448,6 +2474,7 @@ transform = Transform3D(0.965926, -0.0183536, -0.258167, 0.0184186, 0.999828, -0
 transform = Transform3D(0.870419, -0.461208, 0.172212, -0.0484744, 0.267815, 0.96225, -0.489918, -0.845909, 0.210754, -8.58307e-06, 0.00512862, 0.000679016)
 script = ExtResource("48_w0i2i")
 type = 1
+scaleModifier = null
 
 [node name="_MeshInstance3D_123794" type="MeshInstance3D" parent="chestPivot4/_Node3D_123795/upperLegPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.14755, 0)
@@ -2477,6 +2504,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45552, -1.83824, 0.290979)
 transform = Transform3D(0.96346, 0.257152, -0.0749475, 0.0053996, 0.261107, 0.965295, 0.267797, -0.930428, 0.250178, 9.05991e-06, -0.00512886, -0.000669479)
 script = ExtResource("48_w0i2i")
 type = 1
+scaleModifier = null
 
 [node name="_MeshInstance3D_123801" type="MeshInstance3D" parent="chestPivot4/_Node3D_123802/upperLegPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.14755, 0)
@@ -2546,6 +2574,7 @@ transform = Transform3D(-0.73027, 0, -0.683159, 0, 1, 0, 0.683159, 0, -0.73027, 
 visible = false
 script = ExtResource("48_w0i2i")
 type = 2
+scaleModifier = null
 
 [node name="_MeshInstance3D_123772" type="MeshInstance3D" parent="chestPivot5"]
 material_override = ExtResource("49_626fa")
@@ -2558,6 +2587,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.00531, -0.796356)
 transform = Transform3D(0.999866, 0.0129971, 0.00997214, -0.0129971, 0.258819, 0.965838, 0.00997214, -0.965838, 0.258953, 0, 0, 0)
 script = ExtResource("48_w0i2i")
 type = 3
+scaleModifier = null
 
 [node name="_MeshInstance3D_123774" type="MeshInstance3D" parent="chestPivot5/_Node3D_123775/corePivot"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
@@ -2570,6 +2600,7 @@ transform = Transform3D(0.999976, -0.00672781, 0.00180255, 0.00672781, 0.866025,
 [node name="headPivot" type="Node3D" parent="chestPivot5/_Node3D_123778"]
 script = ExtResource("48_w0i2i")
 type = 4
+scaleModifier = null
 
 [node name="_MeshInstance3D_123777" type="MeshInstance3D" parent="chestPivot5/_Node3D_123778/headPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.126744, 0.414742)
@@ -2582,6 +2613,7 @@ transform = Transform3D(1, 0, 0, 2.32831e-10, 1, 0, 0, 0, 1, 2.36384, 0.982666, 
 [node name="upperArmPivot" type="Node3D" parent="chestPivot5/_Node3D_123783"]
 transform = Transform3D(0.965932, -0.258174, 0.0179316, 0.258109, 0.966098, 0.00588822, -0.0188439, -0.0010593, 0.999822, 0, 0, 0)
 script = ExtResource("48_w0i2i")
+scaleModifier = null
 
 [node name="_MeshInstance3D_123782" type="MeshInstance3D" parent="chestPivot5/_Node3D_123783/upperArmPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.157654, -0.578744, -0.013899)
@@ -2602,6 +2634,7 @@ transform = Transform3D(1, 0, 0, 2.32831e-10, 1, 0, 0, 0, 1, -2.32846, 0.982666,
 [node name="upperArmPivot" type="Node3D" parent="chestPivot5/_Node3D_123788"]
 transform = Transform3D(0.965932, 0.258109, -0.0188439, -0.258174, 0.966098, -0.00105932, 0.0179316, 0.00588825, 0.999822, 0, 0, 0)
 script = ExtResource("48_w0i2i")
+scaleModifier = null
 
 [node name="_MeshInstance3D_123787" type="MeshInstance3D" parent="chestPivot5/_Node3D_123788/upperArmPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.166276, -0.578744, -0.013899)
@@ -2623,6 +2656,7 @@ transform = Transform3D(0.965926, -0.0183536, -0.258167, 0.0184186, 0.999828, -0
 transform = Transform3D(0.870419, -0.461208, 0.172212, -0.0484744, 0.267815, 0.96225, -0.489918, -0.845909, 0.210754, -8.58307e-06, 0.00512862, 0.000679016)
 script = ExtResource("48_w0i2i")
 type = 1
+scaleModifier = null
 
 [node name="_MeshInstance3D_123794" type="MeshInstance3D" parent="chestPivot5/_Node3D_123795/upperLegPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.14755, 0)
@@ -2652,6 +2686,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45552, -1.83824, 0.290979)
 transform = Transform3D(0.96346, 0.257152, -0.0749475, 0.0053996, 0.261107, 0.965295, 0.267797, -0.930428, 0.250178, 9.05991e-06, -0.00512886, -0.000669479)
 script = ExtResource("48_w0i2i")
 type = 1
+scaleModifier = null
 
 [node name="_MeshInstance3D_123801" type="MeshInstance3D" parent="chestPivot5/_Node3D_123802/upperLegPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.14755, 0)
