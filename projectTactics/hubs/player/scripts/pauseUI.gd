@@ -40,7 +40,8 @@ func unpause():
 	await get_tree().process_frame
 	self.visible = false
 	%inventoryMenu.visible = false
-	if !%dialogueMenu.visible and !%sellMenu.visible: Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
+	if !%dialogueMenu.visible and !%sellMenu.visible and !%unitAssembler.visible:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func openInventory():
 	FM.saveGame()

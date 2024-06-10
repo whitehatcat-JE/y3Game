@@ -24,7 +24,11 @@ var dialogue:Dictionary = {
 	"caveMerchantSold":
 		["Nice doing business with you./FQUIT"],
 	"caveMerchantDenied":
-		["If you change your mind feel free to come back anytime./FQUIT"]
+		["If you change your mind feel free to come back anytime./FQUIT"],
+	"unitAssemblerIntro":
+		["The mech assembly system. You can build or deconstruct mechs here./DIALGunitAssembler"],
+	"unitAssembler":
+		["The mech assembly system./EVENTbuildUnit/Build Unit/EVENTdeconstructUnit/Deconstruct Unit/FQUIT/Leave"]
 }
 
 var queuedDialogue:Array[String] = []

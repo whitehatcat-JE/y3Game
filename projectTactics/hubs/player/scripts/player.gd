@@ -75,6 +75,8 @@ func _ready() -> void:
 		var targetNode:Node3D = secondaryEntrances.get_node(GS.entranceName)
 		global_position = targetNode.global_position + Vector3(0.0, 1.0, 0.0)
 		global_rotation = targetNode.global_rotation
+	
+	GS.event.connect(eventTriggered)
 
 func _input(event):
 	if event is InputEventMouseMotion and !isStopped and fishingState == FISHING_STATES.inactive: updateCam(event);
@@ -430,3 +432,16 @@ func getFish():
 	var newFish = fishingPool[0]
 	newFish.spawn()
 	return newFish
+
+func eventTriggered(identifier:String, value):
+	if identifier == "buildUnit":
+		%unitAssembler.visible = true
+		%unitAssembler.updateParts(0)
+		GS.emit_signal("eventFinished")
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		isStopped = true
+
+
+func unitAssemblyComplete():
+	isStopped = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

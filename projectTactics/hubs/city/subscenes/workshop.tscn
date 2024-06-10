@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://br4cu6ep12cfj"]
+[gd_scene load_steps=57 format=3 uid="uid://br4cu6ep12cfj"]
 
 [ext_resource type="PackedScene" uid="uid://bpoag1rko7t2q" path="res://hubs/player/scenes/player.tscn" id="1_35r8b"]
 [ext_resource type="Resource" uid="uid://bu8g34n68eo6v" path="res://hubs/player/resources/fish/crescentTrout.tres" id="2_ewo3v"]
@@ -7,6 +7,15 @@
 [ext_resource type="Resource" uid="uid://trpekdikveh4" path="res://hubs/player/resources/fish/moonstoneBass.tres" id="5_2a7dp"]
 [ext_resource type="Shader" path="res://hubs/city/scripts/sky.gdshader" id="6_yt7p3"]
 [ext_resource type="Texture2D" uid="uid://dr14txfjhgkdy" path="res://placeholder/shooting_star_sampler.png" id="7_gvi2e"]
+[ext_resource type="PackedScene" uid="uid://dw3l561qcg1h3" path="res://hubs/interactions/resources/item.tscn" id="19_qh73u"]
+[ext_resource type="Resource" uid="uid://bopn5b4636caa" path="res://combat/parts/arm/unit01Arm.tres" id="20_8pxea"]
+[ext_resource type="Resource" uid="uid://dyp6f7kkhjgyw" path="res://combat/parts/chest/unit01Chest.tres" id="21_ry43i"]
+[ext_resource type="Resource" uid="uid://ccxjwkb038q6b" path="res://combat/parts/arm/unit02Arm.tres" id="21_yqrly"]
+[ext_resource type="Resource" uid="uid://cmgeifhnvfqwr" path="res://combat/parts/core/unit01Core.tres" id="22_t01qs"]
+[ext_resource type="Resource" uid="uid://b6k5t46xth5x3" path="res://combat/parts/arm/unit03Arm.tres" id="22_tgxmi"]
+[ext_resource type="Resource" uid="uid://6hcukn22t205" path="res://combat/parts/head/unit01Head.tres" id="23_8a6d2"]
+[ext_resource type="Resource" uid="uid://d35ssqu7l7ff4" path="res://combat/parts/leg/unit01Leg.tres" id="24_lumhi"]
+[ext_resource type="Script" path="res://hubs/interactions/scripts/npc.gd" id="25_yi3di"]
 [ext_resource type="Texture2D" uid="uid://c3tyh1cabrr6u" path="res://hubs/shared/assets/water1.png" id="26_ygvm4"]
 [ext_resource type="Texture2D" uid="uid://d35na4bpku1nj" path="res://hubs/shared/assets/water2.png" id="27_a1qm3"]
 [ext_resource type="Texture2D" uid="uid://dat0j83l4m1rm" path="res://hubs/shared/assets/water3.png" id="28_p4bvp"]
@@ -208,6 +217,13 @@ shading_mode = 0
 albedo_texture = ExtResource("51_33882")
 texture_filter = 0
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_1n3bl"]
+size = Vector3(6.50854, 0.642578, 6.49254)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_uom5t"]
+height = 5.63631
+radius = 2.9853
+
 [node name="workshop" type="Node3D"]
 
 [node name="player" parent="." instance=ExtResource("1_35r8b")]
@@ -216,6 +232,9 @@ fishingPool = Array[Resource("res://hubs/player/resources/fish.gd")]([ExtResourc
 
 [node name="playerCam" parent="player/head/neck" index="0"]
 attributes = SubResource("CameraAttributesPractical_25shg")
+
+[node name="clearSelectionButton" parent="player/UI/unitAssembler" index="1"]
+layout_mode = 0
 
 [node name="inventoryItemSprite" parent="player/UI/pauseMenu/inventoryMenu/inventoryItem" index="0"]
 texture = SubResource("ViewportTexture_evvfx")
@@ -276,12 +295,15 @@ material_override = SubResource("StandardMaterial3D_6ou6c")
 mesh = ExtResource("36_7nelh")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="WorkshopInterior"]
-visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WorkshopInterior/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_6nqyi")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="WorkshopInterior/StaticBody3D"]
+[node name="StaticBody3D2" type="StaticBody3D" parent="WorkshopInterior"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="WorkshopInterior/StaticBody3D2"]
 transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 31.4071, 13.2643, 6.41428)
 shape = SubResource("BoxShape3D_37x6y")
 
@@ -314,5 +336,63 @@ material_override = SubResource("StandardMaterial3D_2mr3m")
 cast_shadow = 0
 gi_mode = 0
 mesh = ExtResource("36_7nelh")
+
+[node name="fishing" type="Node3D" parent="."]
+
+[node name="fishingZones" type="Area3D" parent="fishing"]
+collision_layer = 32
+collision_mask = 0
+gravity_point_center = Vector3(0, 1, 0)
+gravity_direction = Vector3(0, 1, 0)
+gravity = 50.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fishing/fishingZones"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.38438, 2.29574, -39.9032)
+shape = SubResource("BoxShape3D_1n3bl")
+
+[node name="item" parent="." instance=ExtResource("19_qh73u")]
+transform = Transform3D(0.00432201, 0.291312, -0.274078, -0.399956, 0.0059339, 0, 0.00406589, 0.274048, 0.291344, 1.04965, -1.2587, -19.9507)
+part = ExtResource("20_8pxea")
+
+[node name="item6" parent="." instance=ExtResource("19_qh73u")]
+transform = Transform3D(-0.0539219, 0.311489, 0.245085, -0.396332, -0.0400816, -0.0362566, -0.00367535, -0.247725, 0.314036, -10.4112, -1.18436, -20.4244)
+part = ExtResource("21_yqrly")
+
+[node name="item7" parent="." instance=ExtResource("19_qh73u")]
+transform = Transform3D(-0.0257564, 0.375975, -0.134088, -0.396332, -0.0400816, -0.0362566, -0.0475151, 0.130524, 0.375108, -12.1242, -1.18436, -18.5987)
+part = ExtResource("22_tgxmi")
+
+[node name="item2" parent="." instance=ExtResource("19_qh73u")]
+transform = Transform3D(-0.129993, 0.362487, -0.108188, 0.00361808, 0.115584, 0.38292, 0.378271, 0.123464, -0.0408415, -11.8895, -1.10606, -22.708)
+part = ExtResource("21_ry43i")
+
+[node name="item3" parent="." instance=ExtResource("19_qh73u")]
+transform = Transform3D(-0.352592, -0.0232566, 0.187451, -0.121516, -0.27598, -0.26281, 0.144612, -0.288607, 0.236206, -0.338196, -1.38081, -19.2601)
+part = ExtResource("22_t01qs")
+
+[node name="item4" parent="." instance=ExtResource("19_qh73u")]
+transform = Transform3D(-0.055672, 0.193572, -0.345587, -0.395103, -0.0519661, 0.0345412, -0.0281816, 0.346164, 0.198435, -12.2848, -1.31666, -20.2698)
+part = ExtResource("23_8a6d2")
+
+[node name="item5" parent="." instance=ExtResource("19_qh73u")]
+transform = Transform3D(-0.12783, 0.251488, -0.283572, -0.369044, -0.150806, 0.0326158, -0.0864051, 0.27205, 0.280219, 1.80617, -1.22922, -18.7617)
+part = ExtResource("24_lumhi")
+
+[node name="unitAssembler" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.34807, -1.46208, -11.3849)
+collision_layer = 8
+collision_mask = 0
+input_ray_pickable = false
+monitoring = false
+script = ExtResource("25_yi3di")
+introduction = "unitAssemblerIntro"
+standard = "unitAssembler"
+
+[node name="hitbox" type="CollisionShape3D" parent="unitAssembler"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.87049, 0)
+shape = SubResource("CylinderShape3D_uom5t")
+
+[connection signal="dialogueEnded" from="player/UI/dialogueMenu" to="player" method="dialogueEnded"]
+[connection signal="unitAssemblyComplete" from="player/UI/unitAssembler" to="player" method="unitAssemblyComplete"]
 
 [editable path="player"]

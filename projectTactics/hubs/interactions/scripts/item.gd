@@ -35,6 +35,9 @@ func refreshItem(_refreshValue = false):
 			if part.model != null:
 				var newModel = part.model.instantiate()
 				self.add_child(newModel)
+				if newModel.get_node_or_null("inverted") != null:
+					if newModel.invertedVariant: newModel.get_child(0).free();
+					else: newModel.get_child(1).free();
 				newModel.position = Vector3()
 				for mesh in getAllChildren(newModel):
 					if mesh is MeshInstance3D and mesh.mesh != null:
