@@ -406,8 +406,7 @@ func disconnectBobber():
 	%fishingLine.scale.z = 1.0
 	fishingState = FISHING_STATES.transitioning
 	%fishingAnims.speed_scale = 1.0
-	if camTween != null:
-		camTween.kill()
+	if camTween != null: camTween.kill();
 
 func endReeling():
 	%fishingIndicatorPivot.rotation = 0.0
@@ -439,8 +438,15 @@ func eventTriggered(identifier:String, value):
 		GS.emit_signal("eventFinished")
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		isStopped = true
+	elif identifier == "deconstructUnit":
+		%unitDisassembler.openDisassembler()
+		GS.emit_signal("eventFinished")
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		isStopped = true
 
-
-func unitAssemblyComplete():
+func uiClosed():
 	isStopped = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+func unitAssemblyComplete(): uiClosed();
+func unitDisassemblyComplete(): uiClosed();

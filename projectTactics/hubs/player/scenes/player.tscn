@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://bpoag1rko7t2q"]
+[gd_scene load_steps=65 format=3 uid="uid://bpoag1rko7t2q"]
 
 [ext_resource type="Script" path="res://hubs/player/scripts/player.gd" id="1_rqkst"]
 [ext_resource type="Resource" uid="uid://jlq0uk01mcbf" path="res://hubs/player/resources/mainPlayerData.tres" id="2_0c2xc"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://7p08th6jln4e" path="res://general/UI/settingsMenu.tscn" id="13_55kmc"]
 [ext_resource type="Script" path="res://hubs/player/scripts/dialogueUI.gd" id="14_bkpgj"]
 [ext_resource type="Script" path="res://hubs/player/scripts/sellUI.gd" id="15_3c183"]
+[ext_resource type="Script" path="res://hubs/player/scripts/unitDisassemblerUI.gd" id="18_vs0o7"]
 [ext_resource type="Script" path="res://hubs/player/scripts/unitAssemblerUI.gd" id="20_loi0c"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uksar"]
@@ -1679,6 +1680,133 @@ modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_override_constants/separation = 10
 
+[node name="unitDisassembler" type="Control" parent="UI"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("18_vs0o7")
+
+[node name="backdrop" type="ColorRect" parent="UI/unitDisassembler"]
+material = SubResource("ShaderMaterial_t88bi")
+custom_minimum_size = Vector2(700, 400)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.117647)
+
+[node name="clearSelectionButton" type="Button" parent="UI/unitDisassembler"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 649.0
+
+[node name="disassemblerLayout" type="GridContainer" parent="UI/unitDisassembler"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 7
+
+[node name="spacer1" type="VSeparator" parent="UI/unitDisassembler/disassemblerLayout"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="disassemblerMenu" type="ColorRect" parent="UI/unitDisassembler/disassemblerLayout"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.0901961, 0.0901961, 0.0901961, 0.662745)
+
+[node name="disassemblerGrid" type="GridContainer" parent="UI/unitDisassembler/disassemblerLayout/disassemblerMenu"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="disassemblerTopSeparator" type="HSeparator" parent="UI/unitDisassembler/disassemblerLayout/disassemblerMenu/disassemblerGrid" groups=["defaultChildren"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_yeky0")
+
+[node name="disassemblerButtonTemplate" type="Button" parent="UI/unitDisassembler/disassemblerLayout/disassemblerMenu/disassemblerGrid" groups=["defaultChildren"]]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_pressed_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_disabled_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_outline_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_6tmej")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w2bpg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6tmej")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6tmej")
+text = "All"
+flat = true
+
+[node name="exitDivider" type="HSeparator" parent="UI/unitDisassembler/disassemblerLayout/disassemblerMenu/disassemblerGrid" groups=["defaultChildren"]]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="exitButton" type="Button" parent="UI/unitDisassembler/disassemblerLayout/disassemblerMenu/disassemblerGrid" groups=["defaultChildren"]]
+modulate = Color(0.329412, 1, 1, 1)
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_pressed_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_hover_color = Color(0.32549, 0.517647, 0.792157, 1)
+theme_override_colors/font_focus_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_disabled_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_colors/font_outline_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_6tmej")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w2bpg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6tmej")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6tmej")
+text = "Exit"
+flat = true
+
+[node name="disassemblerBottomSeparator" type="HSeparator" parent="UI/unitDisassembler/disassemblerLayout/disassemblerMenu/disassemblerGrid" groups=["defaultChildren"]]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_yeky0")
+
+[node name="spacer3" type="VSeparator" parent="UI/unitDisassembler/disassemblerLayout"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="spacer4" type="VSeparator" parent="UI/unitDisassembler/disassemblerLayout"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 10
+
 [node name="sellMenu" type="Control" parent="UI"]
 unique_name_in_owner = true
 process_mode = 1
@@ -2508,6 +2636,8 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 
 [connection signal="button_up" from="UI/unitAssembler/partSelectionLayout/partSelectionMenu/partGrid/legButton" to="UI/unitAssembler" method="legPressed"]
 [connection signal="button_up" from="UI/unitAssembler/partSelectionLayout/partSelectionMenu/partGrid/unitConfirmButton" to="UI/unitAssembler" method="confirmPressed"]
 [connection signal="button_up" from="UI/unitAssembler/partSelectionLayout/partSelectionMenu/partGrid/cancelButton" to="UI/unitAssembler" method="cancelPressed"]
+[connection signal="unitDisassemblyComplete" from="UI/unitDisassembler" to="." method="unitDisassemblyComplete"]
+[connection signal="button_up" from="UI/unitDisassembler/disassemblerLayout/disassemblerMenu/disassemblerGrid/exitButton" to="UI/unitDisassembler" method="exitPressed"]
 [connection signal="button_up" from="UI/sellMenu/sellLayout/sellOptions/sellConfirmButton" to="UI/sellMenu" method="confirmPressed"]
 [connection signal="button_up" from="UI/sellMenu/sellLayout/sellOptions/sellCancelButton" to="UI/sellMenu" method="cancelPressed"]
 [connection signal="button_up" from="UI/pauseMenu/inventoryMenu/inventoryItem/deleteButton" to="UI/pauseMenu" method="deleteItemPressed"]

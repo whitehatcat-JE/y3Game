@@ -17,8 +17,6 @@ enum PartTypes {
 	HEAD
 }
 
-var listedParts:Array = []
-
 var unitBuilding:Unit = null
 var selectingType:PartTypes = PartTypes.ARM
 
@@ -40,11 +38,8 @@ func showParts(type:PartTypes):
 	for child in %partGrid.get_children():
 		if not child.is_in_group("defaultChildren"):
 			child.queue_free()
-	listedParts.clear()
 	for item in FM.playerData.inventory.keys():
 		if item.itemType == ItemTypes.PART and item.type == type:
-			listedParts.append(item)
-			
 			var newOption:Button = %partButtonTemplate.duplicate()
 			%partGrid.add_child(newOption)
 			%partGrid.move_child(newOption, %partBottomSeparator.get_index() - 1)
