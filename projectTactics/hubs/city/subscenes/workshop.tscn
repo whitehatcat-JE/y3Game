@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://br4cu6ep12cfj"]
+[gd_scene load_steps=59 format=3 uid="uid://br4cu6ep12cfj"]
 
 [ext_resource type="PackedScene" uid="uid://bpoag1rko7t2q" path="res://hubs/player/scenes/player.tscn" id="1_35r8b"]
 [ext_resource type="Resource" uid="uid://bu8g34n68eo6v" path="res://hubs/player/resources/fish/crescentTrout.tres" id="2_ewo3v"]
@@ -8,42 +8,26 @@
 [ext_resource type="Shader" path="res://hubs/city/scripts/sky.gdshader" id="6_yt7p3"]
 [ext_resource type="Texture2D" uid="uid://dr14txfjhgkdy" path="res://placeholder/shooting_star_sampler.png" id="7_gvi2e"]
 [ext_resource type="Script" path="res://combat/resources/partModel.gd" id="19_27pl1"]
-[ext_resource type="PackedScene" uid="uid://dw3l561qcg1h3" path="res://hubs/interactions/resources/item.tscn" id="19_qh73u"]
-[ext_resource type="Resource" uid="uid://bopn5b4636caa" path="res://combat/parts/arm/unit01Arm.tres" id="20_8pxea"]
 [ext_resource type="Material" uid="uid://cu51qpkgeyfmk" path="res://combat/parts/assets/materials/unit01Mat.tres" id="20_lr11c"]
-[ext_resource type="Resource" uid="uid://dyp6f7kkhjgyw" path="res://combat/parts/chest/unit01Chest.tres" id="21_ry43i"]
 [ext_resource type="ArrayMesh" uid="uid://cby1eo1fslwpt" path="res://combat/parts/assets/unit01/unit01Chest.obj" id="21_xi6hr"]
-[ext_resource type="Resource" uid="uid://ccxjwkb038q6b" path="res://combat/parts/arm/unit02Arm.tres" id="21_yqrly"]
 [ext_resource type="Material" uid="uid://cpwthuupwouf" path="res://combat/parts/assets/materials/unit02Mat.tres" id="22_jfypg"]
-[ext_resource type="Resource" uid="uid://cmgeifhnvfqwr" path="res://combat/parts/core/unit01Core.tres" id="22_t01qs"]
-[ext_resource type="Resource" uid="uid://b6k5t46xth5x3" path="res://combat/parts/arm/unit03Arm.tres" id="22_tgxmi"]
 [ext_resource type="ArrayMesh" uid="uid://dybv1seoetj18" path="res://combat/parts/assets/unit02/unit02Core.obj" id="23_6gb1x"]
-[ext_resource type="Resource" uid="uid://6hcukn22t205" path="res://combat/parts/head/unit01Head.tres" id="23_8a6d2"]
 [ext_resource type="ArrayMesh" uid="uid://dxnb06nr5qsup" path="res://combat/parts/assets/unit02/unit02Head.obj" id="24_j6jh5"]
-[ext_resource type="Resource" uid="uid://d35ssqu7l7ff4" path="res://combat/parts/leg/unit01Leg.tres" id="24_lumhi"]
 [ext_resource type="ArrayMesh" uid="uid://dwb2sivdg57rv" path="res://combat/parts/assets/unit01/unit01UpperArm.obj" id="25_4oobk"]
 [ext_resource type="Script" path="res://hubs/interactions/scripts/npc.gd" id="25_yi3di"]
 [ext_resource type="ArrayMesh" uid="uid://dv7kgyvhdpsy2" path="res://combat/parts/assets/unit01/unit01LowerArm.obj" id="26_p6ubq"]
 [ext_resource type="Texture2D" uid="uid://c3tyh1cabrr6u" path="res://hubs/shared/assets/water1.png" id="26_ygvm4"]
 [ext_resource type="ArrayMesh" uid="uid://p7cpbfvufved" path="res://combat/parts/assets/unit01/unit01UpperArmInverted.obj" id="27_5h51h"]
 [ext_resource type="Texture2D" uid="uid://d35na4bpku1nj" path="res://hubs/shared/assets/water2.png" id="27_a1qm3"]
-[ext_resource type="Resource" uid="uid://l25t77irs1hq" path="res://combat/parts/chest/unit02Chest.tres" id="27_ai3wi"]
-[ext_resource type="Resource" uid="uid://b4ui1jrjnwkdn" path="res://combat/parts/chest/unit03Chest.tres" id="28_0w6fj"]
 [ext_resource type="Texture2D" uid="uid://dat0j83l4m1rm" path="res://hubs/shared/assets/water3.png" id="28_p4bvp"]
 [ext_resource type="ArrayMesh" uid="uid://c5y5w35ludc0p" path="res://combat/parts/assets/unit01/unit01UpperLeg.obj" id="28_xxtrt"]
 [ext_resource type="ArrayMesh" uid="uid://bontp7gtx1bks" path="res://combat/parts/assets/unit01/unit01LowerLeg.obj" id="29_1jmlt"]
 [ext_resource type="Texture2D" uid="uid://buqnwcv5cacmv" path="res://hubs/shared/assets/water4.png" id="29_04x70"]
-[ext_resource type="Resource" uid="uid://dcdtjebpxg7f5" path="res://combat/parts/core/unit02Core.tres" id="29_5vbha"]
-[ext_resource type="Resource" uid="uid://dt45elky6m33f" path="res://combat/parts/core/unit03Core.tres" id="30_a6f1j"]
 [ext_resource type="Texture2D" uid="uid://cai0gswj6v6bv" path="res://hubs/shared/assets/waterTop1.png" id="30_e1vn8"]
 [ext_resource type="ArrayMesh" uid="uid://bperqvdqdngal" path="res://combat/parts/assets/unit01/unit01Foot.obj" id="30_v2lc2"]
-[ext_resource type="Resource" uid="uid://d1k1tgax55ub6" path="res://combat/parts/head/unit02Head.tres" id="31_att4v"]
 [ext_resource type="Texture2D" uid="uid://d0yq0unbtnbkv" path="res://hubs/shared/assets/waterTop2.png" id="31_l40q3"]
 [ext_resource type="Texture2D" uid="uid://bgdj0c7xbfayq" path="res://hubs/shared/assets/waterTop3.png" id="32_4yk5e"]
-[ext_resource type="Resource" uid="uid://oee3tarot5sa" path="res://combat/parts/head/unit03Head.tres" id="32_6g0f0"]
 [ext_resource type="Texture2D" uid="uid://c304vi58d5htu" path="res://hubs/shared/assets/waterTop4.png" id="33_67a2i"]
-[ext_resource type="Resource" uid="uid://3mybeu0x33nu" path="res://combat/parts/leg/unit02Leg.tres" id="33_a21lh"]
-[ext_resource type="Resource" uid="uid://bxb83mj7vh7hk" path="res://combat/parts/leg/unit03Leg.tres" id="34_io7o4"]
 [ext_resource type="Texture2D" uid="uid://ccmyj0peb14c0" path="res://hubs/city/assets/workshop/workshop.png" id="35_wacmg"]
 [ext_resource type="ArrayMesh" uid="uid://dbwx63cfs423d" path="res://hubs/city/assets/workshop/workshopInterior.obj" id="36_7nelh"]
 [ext_resource type="Texture2D" uid="uid://6viirmla8lti" path="res://hubs/city/assets/workshop/workshopEmission.png" id="51_33882"]
@@ -155,14 +139,6 @@ _data = {
 "restartSDFGI": SubResource("Animation_aihhx")
 }
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_67q6h"]
-transparency = 1
-blend_mode = 1
-shading_mode = 0
-albedo_color = Color(1, 0.956863, 0.654902, 0.270588)
-proximity_fade_distance = 5.0
-distance_fade_mode = 1
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ou6c"]
 transparency = 2
 alpha_scissor_threshold = 0.5
@@ -232,10 +208,13 @@ size = Vector3(1, 1.46875, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_1n3bl"]
 size = Vector3(6.50854, 0.642578, 6.49254)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_fbt57"]
+size = Vector3(22.4966, 25, 7)
+
 [node name="workshop" type="Node3D"]
 
 [node name="player" parent="." instance=ExtResource("1_35r8b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.36266, -3.3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.36266, -0.3)
 fishingPool = Array[Resource("res://hubs/player/resources/fish.gd")]([ExtResource("2_ewo3v"), ExtResource("3_2try4"), ExtResource("4_nah8k"), ExtResource("5_2a7dp")])
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -255,38 +234,6 @@ light_indirect_energy = 8.0
 shadow_enabled = true
 shadow_bias = 0.09
 shadow_opacity = 0.95
-
-[node name="temp" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3, 0, 0)
-visible = false
-
-[node name="CSGSphere3D2" type="CSGSphere3D" parent="temp"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.16313, 2.5, 1.54972e-06)
-radius = 2.0
-
-[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="temp"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.16313, 0.5, 0)
-radius = 2.0
-height = 4.0
-sides = 16
-
-[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="temp"]
-transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, 1.16313, 1.5, -7)
-visible = false
-radius = 2.0
-height = 4.0
-sides = 16
-material = SubResource("StandardMaterial3D_67q6h")
-
-[node name="CSGSphere3D3" type="CSGSphere3D" parent="temp"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.32844, 2.5, 1.54972e-06)
-radius = 2.0
-
-[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="temp"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.32844, 0.5, 0)
-radius = 2.0
-height = 4.0
-sides = 16
 
 [node name="WorkshopInterior" type="MeshInstance3D" parent="."]
 transform = Transform3D(-2.44784e-08, 0, 0.56, 0, 0.56, 0, -0.56, 0, -2.44784e-08, -9, -1.5, -22.3)
@@ -496,77 +443,21 @@ gravity = 50.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.38438, 2.29574, -39.9032)
 shape = SubResource("BoxShape3D_1n3bl")
 
-[node name="item" parent="." instance=ExtResource("19_qh73u")]
-transform = Transform3D(0.00432201, 0.291312, -0.274078, -0.399956, 0.0059339, 0, 0.00406589, 0.274048, 0.291344, 1.04965, -1.2587, -19.9507)
-visible = false
-part = ExtResource("20_8pxea")
+[node name="cityEntrance" type="Area3D" parent="."]
+transform = Transform3D(-0.178555, 0, -0.0024028, 0, 0.178571, 0, 0.0024028, 0, -0.178555, -5.43303, 3.57333, 1.66796)
+collision_layer = 8
+collision_mask = 0
+input_ray_pickable = false
+monitoring = false
+script = ExtResource("25_yi3di")
+type = 3
+scene = "res://hubs/city/city.tscn"
+entranceName = "workshop"
 
-[node name="item6" parent="." instance=ExtResource("19_qh73u")]
-transform = Transform3D(-0.0539219, 0.311489, 0.245085, -0.396332, -0.0400816, -0.0362566, -0.00367535, -0.247725, 0.314036, -10.4112, -1.18436, -20.4244)
-visible = false
-part = ExtResource("21_yqrly")
+[node name="hitbox" type="CollisionShape3D" parent="cityEntrance"]
+transform = Transform3D(1, 0, -9.31323e-10, 0, 1, 0, 9.31323e-10, 0, 1, -17.166, -16.16, 7.39943)
+shape = SubResource("BoxShape3D_fbt57")
 
-[node name="item7" parent="." instance=ExtResource("19_qh73u")]
-transform = Transform3D(-0.0257564, 0.375975, -0.134088, -0.396332, -0.0400816, -0.0362566, -0.0475151, 0.130524, 0.375108, -12.1242, -1.18436, -18.5987)
-visible = false
-part = ExtResource("22_tgxmi")
-
-[node name="item2" parent="." instance=ExtResource("19_qh73u")]
-transform = Transform3D(-0.129993, 0.362487, -0.108188, 0.00361808, 0.115584, 0.38292, 0.378271, 0.123464, -0.0408415, -11.8895, -1.10606, -22.708)
-visible = false
-part = ExtResource("21_ry43i")
-
-[node name="item3" parent="." instance=ExtResource("19_qh73u")]
-transform = Transform3D(-0.352592, -0.0232566, 0.187451, -0.121516, -0.27598, -0.26281, 0.144612, -0.288607, 0.236206, -0.338196, -1.38081, -19.2601)
-visible = false
-part = ExtResource("22_t01qs")
-
-[node name="item4" parent="." instance=ExtResource("19_qh73u")]
-transform = Transform3D(-0.055672, 0.193572, -0.345587, -0.395103, -0.0519661, 0.0345412, -0.0281816, 0.346164, 0.198435, -12.2848, -1.31666, -20.2698)
-visible = false
-part = ExtResource("23_8a6d2")
-
-[node name="item5" parent="." instance=ExtResource("19_qh73u")]
-transform = Transform3D(-0.12783, 0.251488, -0.283572, -0.369044, -0.150806, 0.0326158, -0.0864051, 0.27205, 0.280219, 1.80617, -1.22922, -18.7617)
-visible = false
-part = ExtResource("24_lumhi")
-
-[node name="item8" parent="." instance=ExtResource("19_qh73u")]
-transform = Transform3D(-0.12783, 0.251488, -0.283572, -0.369044, -0.150806, 0.0326158, -0.0864051, 0.27205, 0.280219, 1.80617, -0.22922, -14.7617)
-visible = false
-part = ExtResource("27_ai3wi")
-
-[node name="item9" parent="." instance=ExtResource("19_qh73u")]
-transform = Transform3D(-0.12783, 0.251488, -0.283572, -0.369044, -0.150806, 0.0326158, -0.0864051, 0.27205, 0.280219, 1.80617, -0.22922, -10.7617)
-visible = false
-part = ExtResource("28_0w6fj")
-
-[node name="item10" parent="." instance=ExtResource("19_qh73u")]
-transform = Transform3D(-0.12783, 0.251488, -0.283572, -0.369044, -0.150806, 0.0326158, -0.0864051, 0.27205, 0.280219, 1.80617, -0.22922, -7.7617)
-visible = false
-part = ExtResource("29_5vbha")
-
-[node name="item11" parent="." instance=ExtResource("19_qh73u")]
-transform = Transform3D(-0.12783, 0.251488, -0.283572, -0.369044, -0.150806, 0.0326158, -0.0864051, 0.27205, 0.280219, 1.80617, -0.22922, -6.7617)
-visible = false
-part = ExtResource("30_a6f1j")
-
-[node name="item12" parent="." instance=ExtResource("19_qh73u")]
-transform = Transform3D(-0.12783, 0.251488, -0.283572, -0.369044, -0.150806, 0.0326158, -0.0864051, 0.27205, 0.280219, 1.80617, -0.22922, -4.7617)
-visible = false
-part = ExtResource("31_att4v")
-
-[node name="item13" parent="." instance=ExtResource("19_qh73u")]
-transform = Transform3D(-0.12783, 0.251488, -0.283572, -0.369044, -0.150806, 0.0326158, -0.0864051, 0.27205, 0.280219, -12.1938, -0.22922, -4.7617)
-visible = false
-part = ExtResource("32_6g0f0")
-
-[node name="item14" parent="." instance=ExtResource("19_qh73u")]
-transform = Transform3D(-0.12783, 0.251488, -0.283572, -0.369044, -0.150806, 0.0326158, -0.0864051, 0.27205, 0.280219, -12.1938, -0.22922, -7.7617)
-visible = false
-part = ExtResource("33_a21lh")
-
-[node name="item15" parent="." instance=ExtResource("19_qh73u")]
-transform = Transform3D(-0.12783, 0.251488, -0.283572, -0.369044, -0.150806, 0.0326158, -0.0864051, 0.27205, 0.280219, -12.1938, -0.22922, -10.7617)
-visible = false
-part = ExtResource("34_io7o4")
+[node name="hitbox2" type="CollisionShape3D" parent="cityEntrance"]
+transform = Transform3D(1, 0, -9.31323e-10, 0, 1, 0, 9.31323e-10, 0, 1, 16.431, -16.16, 7.85154)
+shape = SubResource("BoxShape3D_fbt57")
