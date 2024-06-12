@@ -19,6 +19,14 @@ var keybindSelected : String = ""
 
 func _ready():
 	updateAllKeybinds()
+	refreshKeybinds()
+	FM.globalLoaded.connect(refreshKeybinds)
+
+func refreshKeybinds():
+	for keybind in FM.loadedGlobalData.updatedKeybinds.keys():
+		InputMap.action_erase_events(keybind)
+		InputMap.action_add_event(keybind, FM.loadedGlobalData.updatedKeybinds[keybind])
+	updateAllKeybinds()
 
 func _input(event):
 	if !visible or !get_parent().get_parent().visible or keybindSelected == "": return;
@@ -35,6 +43,8 @@ func _input(event):
 	get_viewport().set_input_as_handled()
 	InputMap.action_erase_events(keybindSelected)
 	InputMap.action_add_event(keybindSelected, event)
+	FM.loadedGlobalData.updatedKeybinds[keybindSelected] = event
+	FM.saveGlobal()
 	keybindSelected = ""
 	%clearSelectionButton.grab_focus()
 

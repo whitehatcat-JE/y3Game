@@ -96,19 +96,6 @@ offset_right = 575.0
 offset_bottom = 151.0
 columns = 2
 
-[node name="masterLabel" type="Label" parent="settingsSubMenus/audioMenu"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-text = "Master"
-horizontal_alignment = 1
-
-[node name="masterSlider" type="HSlider" parent="settingsSubMenus/audioMenu"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 25)
-layout_mode = 2
-size_flags_horizontal = 3
-value = 50.0
-
 [node name="musicLabel" type="Label" parent="settingsSubMenus/audioMenu"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
@@ -120,7 +107,8 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 size_flags_horizontal = 3
-value = 50.0
+max_value = 5.0
+value = 5.0
 
 [node name="combatLabel" type="Label" parent="settingsSubMenus/audioMenu"]
 custom_minimum_size = Vector2(100, 0)
@@ -133,7 +121,8 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 size_flags_horizontal = 3
-value = 50.0
+max_value = 5.0
+value = 5.0
 
 [node name="uiLabel" type="Label" parent="settingsSubMenus/audioMenu"]
 custom_minimum_size = Vector2(100, 0)
@@ -146,7 +135,8 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 size_flags_horizontal = 3
-value = 50.0
+max_value = 5.0
+value = 5.0
 
 [node name="ambientLabel" type="Label" parent="settingsSubMenus/audioMenu"]
 custom_minimum_size = Vector2(100, 0)
@@ -159,7 +149,8 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 size_flags_horizontal = 3
-value = 50.0
+max_value = 5.0
+value = 5.0
 
 [node name="resetButton" type="Button" parent="settingsSubMenus/audioMenu"]
 layout_mode = 2
@@ -323,11 +314,10 @@ text = "Reset"
 [connection signal="button_up" from="settingsOptions/audioSettingsButton" to="." method="audioPressed"]
 [connection signal="button_up" from="settingsOptions/graphicsSettingsButton" to="." method="graphicsPressed"]
 [connection signal="button_up" from="settingsOptions/keybindsSettingsButton" to="." method="keybindsPressed"]
-[connection signal="drag_ended" from="settingsSubMenus/audioMenu/masterSlider" to="." method="masterAudioUpdated"]
-[connection signal="drag_ended" from="settingsSubMenus/audioMenu/musicSlider" to="." method="musicAudioUpdated"]
-[connection signal="drag_ended" from="settingsSubMenus/audioMenu/combatSlider" to="." method="combatAudioUpdated"]
-[connection signal="drag_ended" from="settingsSubMenus/audioMenu/uiSlider" to="." method="uiAudioUpdated"]
-[connection signal="drag_ended" from="settingsSubMenus/audioMenu/ambientSlider" to="." method="ambientAudioUpdated"]
+[connection signal="value_changed" from="settingsSubMenus/audioMenu/musicSlider" to="." method="musicAudioUpdated"]
+[connection signal="value_changed" from="settingsSubMenus/audioMenu/combatSlider" to="." method="combatAudioUpdated"]
+[connection signal="value_changed" from="settingsSubMenus/audioMenu/uiSlider" to="." method="uiAudioUpdated"]
+[connection signal="value_changed" from="settingsSubMenus/audioMenu/ambientSlider" to="." method="ambientAudioUpdated"]
 [connection signal="button_up" from="settingsSubMenus/audioMenu/resetButton" to="." method="resetAudioPressed"]
 [connection signal="toggled" from="settingsSubMenus/graphicsMenu/fullscreenButton" to="." method="fullscreenToggled"]
 [connection signal="toggled" from="settingsSubMenus/graphicsMenu/vsyncButton" to="." method="vsyncToggled"]

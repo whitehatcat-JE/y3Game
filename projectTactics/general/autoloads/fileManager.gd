@@ -1,6 +1,7 @@
 extends Node
 
 signal gameSaved
+signal globalLoaded
 
 var saveFilePath : String = "user://saves/"
 var saveListFilePath : String = "user://saves/saveList.tres"
@@ -29,6 +30,7 @@ func loadGlobal():
 	else:
 		loadedGlobalData = GlobalData.new()
 		ResourceSaver.save(loadedGlobalData, saveListFilePath)
+	emit_signal("globalLoaded")
 
 func createGame():
 	activeSaveID = str(Time.get_unix_time_from_system()).sha256_text()
@@ -46,7 +48,7 @@ func saveGame():
 func loadGame():
 	var newPlayerData : PlayerData
 	if ResourceLoader.exists(saveFilePath + activeSaveID + ".tres"):
-		newPlayerData  = ResourceLoader.load(saveFilePath + activeSaveID + ".tres").duplicate(true)
+		newPlayerData = ResourceLoader.load(saveFilePath + activeSaveID + ".tres").duplicate(true)
 	else:
 		newPlayerData = PlayerData.new()
 	playerData.constructor(newPlayerData)

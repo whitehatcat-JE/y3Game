@@ -1,12 +1,17 @@
 extends GridContainer
 
-var freezeButtons:bool = false
-
 func _ready():
-	freezeButtons = true
-	%fullscreenButton.button_pressed = DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN
-	%vsyncButton.button_pressed = DisplayServer.window_get_vsync_mode() == DisplayServer.VSYNC_ENABLED
-	freezeButtons = false
+	refreshSettings()
+	FM.globalLoaded.connect(refreshSettings)
+
+func refreshSettings():
+	%musicSlider.value = FM.loadedGlobalData.musicVolume
+	%combatSlider.value = FM.loadedGlobalData.combatVolume
+	%uiSlider.value = FM.loadedGlobalData.uiVolume
+	%ambientSlider.value = FM.loadedGlobalData.ambientVolume
+	
+	%fullscreenButton.button_pressed = FM.loadedGlobalData.fullscreenToggled
+	%vsyncButton.button_pressed = FM.loadedGlobalData.vsyncToggled
 
 func audioPressed():
 	%audioMenu.visible = true
@@ -32,28 +37,40 @@ func keybindsPressed():
 	%graphicsSettingsButton.self_modulate.a = 1
 	%keybindsSettingsButton.self_modulate.a = 0.75
 
-func masterAudioUpdated(value_changed): pass;
-func musicAudioUpdated(value_changed): pass;
-func combatAudioUpdated(value_changed): pass;
-func uiAudioUpdated(value_changed): pass;
-func ambientAudioUpdated(value_changed): pass;
+func musicAudioUpdated(newValue):
+	Music.changeVolume(4 * newValue - 20)
+	FM.loadedGlobalData.musicVolume = newValue
+	FM.saveGlobal()
+
+func combatAudioUpdated(newValue):
+	FM.loadedGlobalData.combatVolume = newValue
+	FM.saveGlobal()
+
+func uiAudioUpdated(newValue):
+	FM.loadedGlobalData.uiVolume = newValue
+	FM.saveGlobal()
+
+func ambientAudioUpdated(newValue):
+	FM.loadedGlobalData.ambientVolume = newValue
+	FM.saveGlobal()
 
 func resetAudioPressed():
-	%masterSlider.value = 100
-	%musicSlider.value = 100
-	%combatSlider.value = 100
-	%uiSlider.value = 100
-	%ambientSlider.value = 100
+	%musicSlider.value = 5
+	%combatSlider.value = 5
+	%uiSlider.value = 5
+	%ambientSlider.value = 5
 
 func fullscreenToggled(toggled_on):
-	if freezeButtons: return;
+	FM.loadedGlobalData.fullscreenToggled = toggled_on
+	FM.saveGlobal()
 	if toggled_on:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 
 func vsyncToggled(toggled_on):
-	if freezeButtons: return;
+	FM.loadedGlobalData.vsyncToggled = toggled_on
+	FM.saveGlobal()
 	if toggled_on:
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
 	else:
