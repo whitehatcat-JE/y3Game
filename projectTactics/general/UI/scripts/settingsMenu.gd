@@ -1,5 +1,7 @@
 extends GridContainer
 
+signal volumeChanged
+
 func _ready():
 	refreshSettings()
 	FM.globalLoaded.connect(refreshSettings)
@@ -41,18 +43,23 @@ func musicAudioUpdated(newValue):
 	Music.changeVolume(4 * newValue - 20)
 	FM.loadedGlobalData.musicVolume = newValue
 	FM.saveGlobal()
+	emit_signal("volumeChanged")
 
 func combatAudioUpdated(newValue):
 	FM.loadedGlobalData.combatVolume = newValue
 	FM.saveGlobal()
+	emit_signal("volumeChanged")
 
 func uiAudioUpdated(newValue):
+	SFX.changeVolume(4 * newValue - 20)
 	FM.loadedGlobalData.uiVolume = newValue
 	FM.saveGlobal()
+	emit_signal("volumeChanged")
 
 func ambientAudioUpdated(newValue):
 	FM.loadedGlobalData.ambientVolume = newValue
 	FM.saveGlobal()
+	emit_signal("volumeChanged")
 
 func resetAudioPressed():
 	%musicSlider.value = 5

@@ -48,6 +48,7 @@ func _process(delta):
 
 func startDialogue(identifier:String):
 	visible = true
+	SFX.playCloseMenu()
 	appendDialogue(identifier)
 
 func nextLine():
@@ -92,6 +93,7 @@ func executeAction(action:String):
 
 func endDialogue():
 	visible = false
+	SFX.playCloseMenu()
 	queuedActions.clear()
 	queuedDialogue.clear()
 	for responseBox in responseBoxes: responseBox.visible = false;

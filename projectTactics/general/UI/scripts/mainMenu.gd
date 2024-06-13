@@ -5,6 +5,9 @@ var loadPageNum : int = 0
 
 var currentGameName:String = ""
 
+func _ready():
+	SFX.connectAllButtons()
+
 func newGamePressed():
 	%gameCreationMenu.visible = true
 	%settingsMenu.visible = false
@@ -112,7 +115,6 @@ func gameNameChanged(newName):
 		%createGameButton.disabled = true
 		return
 	%createGameButton.disabled = false
-
 
 func deleteSave1():
 	FM.deleteSave(loadedSaveIDs[0])

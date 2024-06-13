@@ -11,6 +11,7 @@ enum ItemTypes {
 
 func openDisassembler():
 	visible = true
+	SFX.playCloseMenu()
 	updateUnitList()
 
 func updateUnitList():
@@ -28,6 +29,7 @@ func updateUnitList():
 				newOption.text += "(" + str(FM.playerData.inventory[item]) + ")"
 			newOption.visible = true
 			newOption.button_up.connect(removeUnit.bind(item))
+	SFX.connectAllButtons()
 
 func removeUnit(selectedUnit:Unit):
 	FM.playerData.addToInventory(selectedUnit.head)
@@ -40,4 +42,5 @@ func removeUnit(selectedUnit:Unit):
 
 func exitPressed():
 	visible = false
+	SFX.playCloseMenu()
 	emit_signal("unitDisassemblyComplete")

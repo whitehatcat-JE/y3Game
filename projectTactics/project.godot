@@ -20,6 +20,7 @@ config/icon="res://placeholder/icon.svg"
 FM="*res://general/autoloads/fileManager.gd"
 GS="*res://general/autoloads/gameState.gd"
 Music="*res://general/autoloads/music.tscn"
+SFX="*res://general/autoloads/sfxManager.tscn"
 
 [display]
 

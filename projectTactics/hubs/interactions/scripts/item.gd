@@ -28,6 +28,7 @@ func _validate_property(property: Dictionary):
 
 func refreshItem(_refreshValue = false):
 	await Engine.get_main_loop().process_frame
+	await Engine.get_main_loop().process_frame
 	for child in self.get_children(): child.queue_free();
 	meshes.clear()
 	if itemType == 0:

@@ -77,6 +77,8 @@ func _ready() -> void:
 		global_rotation = targetNode.global_rotation
 	
 	GS.event.connect(eventTriggered)
+	SFX.connectAllButtons()
+	FM.globalLoaded.connect(updateFootstepVolume)
 
 func _input(event):
 	if event is InputEventMouseMotion and !isStopped and fishingState == FISHING_STATES.inactive: updateCam(event);
@@ -196,12 +198,22 @@ func move(delta):
 	
 	if is_on_floor() and !isStopped and fishingState == FISHING_STATES.inactive:
 		var inputVec:Vector2 = Input.get_vector("moveLeft", "moveRight", "moveUp", "moveDown")
-		if inputVec.x != 0 and inputVec.y != 0: inputVec *= 0.709;
+		if inputVec.x != 0 and inputVec.y != 0:
+			inputVec *= 0.709
+		
+		if inputVec.x != 0 or inputVec.y != 0:
+			if !%footstepsSFX.playing:
+					%footstepsSFX.play()
+		else:
+			%footstepsSFX.stop()
 		direction.x = aim.x * inputVec.x
 		direction.z = aim.z * inputVec.y
 		direction = direction.rotated(Vector3.UP, rotation.y)
 		storedDirection = direction
-	else: direction = storedDirection;
+		
+	else:
+		direction = storedDirection
+		%footstepsSFX.stop()
 	
 	# Move player in calculated direction
 	if (direction.dot(velocity) == 0 and velocity.length() > 0.1) or isStopped or fishingState != FISHING_STATES.inactive:
@@ -214,7 +226,6 @@ func move(delta):
 		
 		if !is_on_floor(): %bobAnim.speed_scale = 0.0;
 		else: %bobAnim.speed_scale = direction.dot(velocity) - 5.0;
-		
 	velocity.y = verticalVel
 	move_and_slide()
 #endregion
@@ -360,6 +371,7 @@ func pause():
 	%interactIcon.visible = false
 	%deniedIcon.visible = false
 	%itemMenuInteractionTimer.stop()
+	SFX.playCloseMenu()
 	if currentlySelected != null:
 		if currentlySelected.interactionType == "item" and itemMenuDisplayed:
 			itemMenuDisplayed = false
@@ -447,6 +459,13 @@ func eventTriggered(identifier:String, value):
 func uiClosed():
 	isStopped = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	SFX.playCloseMenu()
 
 func unitAssemblyComplete(): uiClosed();
 func unitDisassemblyComplete(): uiClosed();
+
+func updateFootstepVolume():
+	if FM.loadedGlobalData.ambientVolume > 0:
+		%footstepsSFX.volume_db = 6 * FM.loadedGlobalData.ambientVolume - 44
+	else:
+		%footstepsSFX.volume_db = -80

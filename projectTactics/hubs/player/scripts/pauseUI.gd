@@ -37,6 +37,7 @@ func _input(event):
 func unpause():
 	clearDisplayedItem()
 	get_tree().paused = false
+	SFX.playCloseMenu()
 	await get_tree().process_frame
 	self.visible = false
 	%inventoryMenu.visible = false
@@ -76,6 +77,7 @@ func refreshItems():
 		newItem.visible = true
 		newItem.button_up.connect(inventoryItemSelected.bind(item))
 		spawnedItems.append(newItem)
+	SFX.connectAllButtons()
 
 func clearDisplayedItem():
 	selectedItem = null

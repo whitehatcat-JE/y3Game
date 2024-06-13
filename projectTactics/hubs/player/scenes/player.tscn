@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://bpoag1rko7t2q"]
+[gd_scene load_steps=66 format=3 uid="uid://bpoag1rko7t2q"]
 
 [ext_resource type="Script" path="res://hubs/player/scripts/player.gd" id="1_rqkst"]
 [ext_resource type="Resource" uid="uid://jlq0uk01mcbf" path="res://hubs/player/resources/mainPlayerData.tres" id="2_0c2xc"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dm3wnx6pfh76j" path="res://placeholder/deniedDot.png" id="4_d801r"]
 [ext_resource type="ArrayMesh" uid="uid://bjf5imils381o" path="res://hubs/player/assets/fishing/fishingRod.obj" id="4_f4f2r"]
 [ext_resource type="Texture2D" uid="uid://c2uaraye36w2l" path="res://hubs/player/assets/fishing/progressRing.png" id="5_0kjsg"]
+[ext_resource type="AudioStream" uid="uid://7l18eflunnx1" path="res://hubs/player/sfx/footstepsGravel.mp3" id="5_5xcps"]
 [ext_resource type="Texture2D" uid="uid://dkiqu40adxd44" path="res://placeholder/confirmRing.png" id="5_310ec"]
 [ext_resource type="Texture2D" uid="uid://dtqb5saq8xk4e" path="res://placeholder/damageButton.png" id="6_5vg7v"]
 [ext_resource type="Texture2D" uid="uid://bhirq41fbfjmx" path="res://hubs/player/assets/fishing/progressOuterRing.png" id="6_afx4p"]
@@ -664,6 +665,12 @@ libraries = {
 libraries = {
 "": SubResource("AnimationLibrary_uu48b")
 }
+
+[node name="footstepsSFX" type="AudioStreamPlayer3D" parent="head"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.30858, 0)
+stream = ExtResource("5_5xcps")
+volume_db = -30.0
 
 [node name="bobAnim" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
@@ -2648,3 +2655,4 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 
 [connection signal="button_up" from="UI/pauseMenu/options/inventoryButton" to="UI/pauseMenu" method="openInventory"]
 [connection signal="button_up" from="UI/pauseMenu/options/settingsButton" to="UI/pauseMenu" method="openSettings"]
 [connection signal="button_up" from="UI/pauseMenu/options/quitButton" to="UI/pauseMenu" method="openQuit"]
+[connection signal="volumeChanged" from="UI/pauseMenu/settingsMenu" to="." method="updateFootstepVolume"]

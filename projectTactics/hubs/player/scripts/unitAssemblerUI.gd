@@ -30,6 +30,7 @@ func startBuilding():
 	%chestItemName.text = "None"
 	%unitName.text = ""
 	showPartSelection()
+	SFX.playCloseMenu()
 
 func showParts(type:PartTypes):
 	$partLayout.visible = true
@@ -47,6 +48,7 @@ func showParts(type:PartTypes):
 			newOption.text = item.name
 			newOption.visible = true
 			newOption.button_up.connect(partSelected.bind(item))
+	SFX.connectAllButtons()
 
 func nonePressed():
 	match selectingType:

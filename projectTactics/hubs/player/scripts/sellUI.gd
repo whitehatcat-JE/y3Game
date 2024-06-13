@@ -33,6 +33,7 @@ func enable(identifier:String):
 	merchantIdentifer = identifier
 	isActive = true
 	visible = true
+	SFX.playCloseMenu()
 	refreshItems()
 
 func disable():
@@ -43,6 +44,7 @@ func disable():
 	spawnedSales.clear()
 	isActive = false
 	visible = false
+	SFX.playCloseMenu()
 
 func cancelPressed():
 	disable()
@@ -128,6 +130,7 @@ func refreshItems():
 		newItem.visible = true
 		newItem.button_up.connect(salesItemSelected.bind(item))
 		spawnedSales.append(newItem)
+	SFX.connectAllButtons()
 
 func inventoryItemSelected(item):
 	if item in salesQueue.keys(): salesQueue[item] += 1;
