@@ -2212,63 +2212,63 @@ shape = SubResource("BoxShape3D_n6hcn")
 
 [node name="items" type="Node3D" parent="."]
 
-[node name="gatlingGun" parent="items" instance=ExtResource("59_xhanj")]
+[node name="Gatling Gun" parent="items" instance=ExtResource("59_xhanj")]
 transform = Transform3D(0.00957744, 0.199943, -0.346311, -0.399885, 0.00478871, -0.00829432, -1.51421e-08, 0.34641, 0.2, 12.8367, 0.76649, 20.9122)
 part = ExtResource("60_2eoo2")
 
-[node name="steelSword" parent="items" instance=ExtResource("59_xhanj")]
+[node name="Steel Sword" parent="items" instance=ExtResource("59_xhanj")]
 transform = Transform3D(-0.0585551, -0.380737, -0.107754, 0.39476, -0.048744, -0.0422875, 0.0271202, -0.112532, 0.382885, 7.01933, 0.600338, 24.0849)
 part = ExtResource("61_akrlb")
 
-[node name="brassCannon" parent="items" instance=ExtResource("59_xhanj")]
+[node name="Brass Cannon" parent="items" instance=ExtResource("59_xhanj")]
 transform = Transform3D(0.00145213, -0.399997, 0, 0.399772, 0.00145131, -0.0134226, 0.0134225, 4.87281e-05, 0.399775, -13.8839, 0.650503, 9.81603)
 part = ExtResource("62_xk6n4")
 
-[node name="reinforcedChestplate" parent="items" instance=ExtResource("59_xhanj")]
+[node name="Reinforced Chestplate" parent="items" instance=ExtResource("59_xhanj")]
 transform = Transform3D(0.354652, 0.170342, -0.0721527, 0.0225973, 0.114953, 0.382459, 0.183607, -0.343176, 0.0922976, -8.01283, 0.87334, 25.3944)
 part = ExtResource("63_w87or")
 
-[node name="bulkChestplate" parent="items" instance=ExtResource("59_xhanj")]
+[node name="Bulk Chestplate" parent="items" instance=ExtResource("59_xhanj")]
 transform = Transform3D(0.225825, -0.156883, -0.290501, 1.81751e-09, 0.351956, -0.190072, 0.330156, 0.107307, 0.198701, -12.5924, 1.3154, 21.1068)
 part = ExtResource("64_4382v")
 
-[node name="brassChestplate" parent="items" instance=ExtResource("59_xhanj")]
+[node name="Brass Chestplate" parent="items" instance=ExtResource("59_xhanj")]
 transform = Transform3D(0.282843, 0.273205, -0.0732051, 0, 0.103528, 0.38637, 0.282843, -0.273205, 0.0732051, -24.295, 0.847914, 3.37118)
 part = ExtResource("65_g5w21")
 
-[node name="electricCore" parent="items" instance=ExtResource("59_xhanj")]
+[node name="Electric Core" parent="items" instance=ExtResource("59_xhanj")]
 transform = Transform3D(0.727557, 0, 0.686047, 0, 1, 0, -0.686047, 0, 0.727557, 28.1686, 0.514981, 6.16262)
 part = ExtResource("66_yp31v")
 
-[node name="iceCore" parent="items" instance=ExtResource("59_xhanj")]
+[node name="Ice Core" parent="items" instance=ExtResource("59_xhanj")]
 transform = Transform3D(-0.994934, 0.0984798, -0.0202186, 0.0982862, 0.995104, 0.0103524, 0.0211389, 0.00831271, -0.999742, 25.0024, 0.477397, 2.68848)
 part = ExtResource("67_gqgee")
 
-[node name="corruptedCore" parent="items" instance=ExtResource("59_xhanj")]
+[node name="Corrupted Core" parent="items" instance=ExtResource("59_xhanj")]
 transform = Transform3D(0.345609, 0, -0.938378, 0, 1, 0, 0.938378, 0, 0.345609, 26.528, 0.542674, 4.86377)
 part = ExtResource("68_nnmir")
 
-[node name="rocketLauncher" parent="items" instance=ExtResource("59_xhanj")]
+[node name="Rocket Launcher" parent="items" instance=ExtResource("59_xhanj")]
 transform = Transform3D(-0.00559886, -0.0518039, 0.396592, 0, 0.396631, 0.051809, -0.399961, 0.000725178, -0.00555169, 12.1056, 0.681582, 4.19533)
 part = ExtResource("69_hr1he")
 
-[node name="standardModelHead" parent="items" instance=ExtResource("59_xhanj")]
+[node name="Standard Model Head" parent="items" instance=ExtResource("59_xhanj")]
 transform = Transform3D(-0.344584, -0.00151028, 0.203124, 0, 0.399989, 0.00297401, -0.20313, 0.002562, -0.344575, 12.8501, 0.637095, 5.92711)
 part = ExtResource("70_2dt05")
 
-[node name="brassMissiles" parent="items" instance=ExtResource("59_xhanj")]
+[node name="Brass Missiles" parent="items" instance=ExtResource("59_xhanj")]
 transform = Transform3D(0.396807, 0.00767107, -0.0498513, 0, 0.395347, 0.0608356, 0.050438, -0.06035, 0.392191, -27.5148, 0.667566, 6.93789)
 part = ExtResource("71_xtbxt")
 
-[node name="reinforcedLeg" parent="items" instance=ExtResource("59_xhanj")]
+[node name="Reinforced Leg" parent="items" instance=ExtResource("59_xhanj")]
 transform = Transform3D(0.345801, -0.20027, -0.017703, 0.00182248, -0.0320969, 0.398706, -0.201043, -0.344763, -0.0268354, 13.5651, 0.766044, 8.39927)
 part = ExtResource("72_jbtxd")
 
-[node name="bulkLeg" parent="items" instance=ExtResource("59_xhanj")]
+[node name="Bulk Leg" parent="items" instance=ExtResource("59_xhanj")]
 transform = Transform3D(0.173363, -0.348196, -0.0932989, 0, -0.103528, 0.38637, -0.360479, -0.167456, -0.0448697, 13.5464, 0.630254, 11.7233)
 part = ExtResource("73_dynk7")
 
-[node name="brassLeg" parent="items" instance=ExtResource("59_xhanj")]
+[node name="Brass Leg" parent="items" instance=ExtResource("59_xhanj")]
 transform = Transform3D(-0.0123259, -0.265007, 0.299365, 0.399801, -0.0101439, 0.00748149, 0.00263523, 0.299447, 0.265188, -12.5917, 0.758948, 5.60487)
 part = ExtResource("74_ogshw")
 

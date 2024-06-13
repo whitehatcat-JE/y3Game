@@ -3,22 +3,31 @@ extends Control
 var loadedSaveIDs : Array = []
 var loadPageNum : int = 0
 
+var currentGameName:String = ""
+
 func newGamePressed():
-	FM.createGame()
+	%gameCreationMenu.visible = true
+	%settingsMenu.visible = false
+	%loadMenu.visible = false
+	updateLoadMenu()
 
 func loadGamePressed():
 	%settingsMenu.visible = false
+	%gameCreationMenu.visible = false
 	%loadMenu.visible = true
 	updateLoadMenu()
 
 func settingsPressed():
 	%settingsMenu.visible = true
 	%loadMenu.visible = false
+	%gameCreationMenu.visible = false
 
 func quitPressed(): get_tree().quit();
 
 func updateLoadMenu():
-	for save in range(10): %saveMenu.get_node("saveName" + str(save + 1)).visible = false;
+	for save in range(10):
+		%saveMenu.get_node("saveName" + str(save + 1)).visible = false;
+		%saveMenu.get_node("deleteSave" + str(save + 1)).visible = false;
 	var unorderedSaveIDs : Array = FM.loadedGlobalData.saveIDs
 	var unorderedTimeSaves : Dictionary = {}
 	for save in unorderedSaveIDs:
@@ -31,12 +40,12 @@ func updateLoadMenu():
 	var orderedTimes : Array = unorderedTimeSaves.keys()
 	orderedTimes.sort()
 	orderedTimes.reverse()
-	loadedSaveIDs = []
+	loadedSaveIDs.clear()
 	for time in orderedTimes: loadedSaveIDs.append_array(unorderedTimeSaves[time]);
-	loadedSaveIDs.slice(loadPageNum * 10, (loadPageNum + 1) * 10)
+	loadedSaveIDs = loadedSaveIDs.slice(loadPageNum * 10, (loadPageNum + 1) * 10)
 	for save in range(len(loadedSaveIDs)):
 		var targetNode : Node = %saveMenu.get_node("saveName" + str(save + 1))
-		targetNode.text = loadedSaveIDs[save].substr(0, 25)
+		targetNode.text = loadedSaveIDs[save]
 		targetNode.visible = true
 		
 		var nodeText : String = secToTime(FM.getGame(loadedSaveIDs[save]).playTime)
@@ -44,6 +53,8 @@ func updateLoadMenu():
 		nodeText += toDateTime(Time.get_datetime_dict_from_unix_time(
 			FileAccess.get_modified_time(FM.saveFilePath + loadedSaveIDs[save] + ".tres")))
 		targetNode.get_node("saveText").text = nodeText
+		
+		%saveMenu.get_node("deleteSave" + str(save + 1)).visible = true;
 	
 	%nextButton.visible = false
 	%previousButton.visible = false
@@ -90,4 +101,55 @@ func previousButtonPressed():
 
 func nextButtonPressed():
 	loadPageNum += 1
+	updateLoadMenu()
+
+func createButtonPressed():
+	FM.createGame(currentGameName)
+
+func gameNameChanged(newName):
+	currentGameName = newName
+	if currentGameName in loadedSaveIDs or !currentGameName.is_valid_filename():
+		%createGameButton.disabled = true
+		return
+	%createGameButton.disabled = false
+
+
+func deleteSave1():
+	FM.deleteSave(loadedSaveIDs[0])
+	updateLoadMenu()
+
+func deleteSave2():
+	FM.deleteSave(loadedSaveIDs[1])
+	updateLoadMenu()
+
+func deleteSave3():
+	FM.deleteSave(loadedSaveIDs[2])
+	updateLoadMenu()
+
+func deleteSave4():
+	FM.deleteSave(loadedSaveIDs[3])
+	updateLoadMenu()
+
+func deleteSave5():
+	FM.deleteSave(loadedSaveIDs[4])
+	updateLoadMenu()
+
+func deleteSave6():
+	FM.deleteSave(loadedSaveIDs[5])
+	updateLoadMenu()
+
+func deleteSave7():
+	FM.deleteSave(loadedSaveIDs[6])
+	updateLoadMenu()
+
+func deleteSave8():
+	FM.deleteSave(loadedSaveIDs[7])
+	updateLoadMenu()
+
+func deleteSave9():
+	FM.deleteSave(loadedSaveIDs[8])
+	updateLoadMenu()
+
+func deleteSave10():
+	FM.deleteSave(loadedSaveIDs[9])
 	updateLoadMenu()

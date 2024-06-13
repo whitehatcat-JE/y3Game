@@ -38,8 +38,8 @@ func loadGlobal():
 		ResourceSaver.save(loadedGlobalData, saveListFilePath)
 	emit_signal("globalLoaded")
 
-func createGame():
-	activeSaveID = str(Time.get_unix_time_from_system()).sha256_text()
+func createGame(newGameName):
+	activeSaveID = newGameName
 	loadedGlobalData.saveIDs.append(activeSaveID)
 	saveGlobal()
 	loadAndEnterGame(activeSaveID)
@@ -77,3 +77,7 @@ func loadAndEnterGame(saveID):
 			get_tree().change_scene_to_file("res://hubs/city/city.tscn")
 		Locations.WORKSHOP:
 			get_tree().change_scene_to_file("res://hubs/city/subscenes/workshop.tscn")
+
+func deleteSave(saveID):
+	DirAccess.remove_absolute(saveFilePath + saveID + ".tres")
+	loadedGlobalData.saveIDs.erase(saveID)
