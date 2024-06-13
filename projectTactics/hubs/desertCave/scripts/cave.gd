@@ -9,6 +9,8 @@ func _ready():
 	playerInfo = $player.playerInfo
 	GS.event.connect(eventTriggered)
 	Music.playSong("cave")
+	
+	FM.playerData.changeLocation("cave")
 
 func eventTriggered(identifier:String, value):
 	if identifier == "caveAssembleUnit":

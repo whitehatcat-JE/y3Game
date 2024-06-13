@@ -1,6 +1,12 @@
 extends Resource
 class_name PlayerData
 
+enum Locations {
+	CAVE,
+	CITY,
+	WORKSHOP
+}
+
 const INVENTORY_SIZE:int = 100
 
 @export var balance:int = 50000
@@ -10,12 +16,20 @@ const INVENTORY_SIZE:int = 100
 @export var playerName:String = "Player"
 @export var playTime:int = 0
 
+@export var currentLocation:Locations = Locations.CAVE
+
+var locationStrToEnum:Dictionary = {
+	"cave":Locations.CAVE,
+	"city":Locations.CITY,
+	"workshop":Locations.WORKSHOP
+}
 
 func constructor(values : PlayerData):
 	balance = values.balance
 	inventory = values.inventory
 	playerName = values.playerName
 	playTime = values.playTime
+	currentLocation = values.currentLocation
 
 func addToInventory(item):
 	if item in inventory.keys(): inventory[item] += 1;
@@ -31,3 +45,8 @@ func removeFromInventory(item, amt = 1000000):
 func getInventoryCount(item):
 	if item in inventory.keys(): return inventory[item];
 	return 0
+
+func changeLocation(newLocation:String):
+	if newLocation in locationStrToEnum.keys():
+		currentLocation = locationStrToEnum[newLocation]
+		FM.saveGame()

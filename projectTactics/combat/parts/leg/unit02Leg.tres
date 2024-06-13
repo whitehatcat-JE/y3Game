@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_1vi6r")
-name = "Reinforced Leg"
+name = "Bulk Leg"
 type = 1
 model = ExtResource("1_xj5b5")
 cost = 2500

@@ -47,6 +47,7 @@ func refreshItem(_refreshValue = false):
 						newMeshCollision.shape = mesh.mesh.create_trimesh_shape()
 						newMeshCollision.global_transform = mesh.global_transform
 						meshes.append(mesh)
+				self.name = part.name
 
 func getAllChildren(node):
 	var nodes : Array = []

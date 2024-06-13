@@ -3,6 +3,12 @@ extends Node
 signal gameSaved
 signal globalLoaded
 
+enum Locations {
+	CAVE,
+	CITY,
+	WORKSHOP
+}
+
 var saveFilePath : String = "user://saves/"
 var saveListFilePath : String = "user://saves/saveList.tres"
 
@@ -64,4 +70,10 @@ func loadAndEnterGame(saveID):
 	activeSaveID = saveID
 	loadGame()
 	saveGame()
-	get_tree().change_scene_to_file("res://hubs/city/city.tscn")
+	match playerData.currentLocation:
+		Locations.CAVE:
+			get_tree().change_scene_to_file("res://hubs/desertCave/cave.tscn")
+		Locations.CITY:
+			get_tree().change_scene_to_file("res://hubs/city/city.tscn")
+		Locations.WORKSHOP:
+			get_tree().change_scene_to_file("res://hubs/city/subscenes/workshop.tscn")
