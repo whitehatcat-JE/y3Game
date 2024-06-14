@@ -33,9 +33,9 @@ func constructor(values : PlayerData):
 	currentLocation = values.currentLocation
 	hasFishingRod = values.hasFishingRod
 
-func addToInventory(item):
-	if item in inventory.keys(): inventory[item] += 1;
-	else: inventory[item] = 1;
+func addToInventory(item, count:int = 1):
+	if item in inventory.keys(): inventory[item] += count;
+	else: inventory[item] = count;
 	FM.saveGame()
 
 func removeFromInventory(item, amt = 1000000):

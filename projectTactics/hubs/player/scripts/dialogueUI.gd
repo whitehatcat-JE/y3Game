@@ -8,23 +8,33 @@ extends Control
 signal dialogueEnded
 
 var dialogue:Dictionary = {
-	"caveMerchantIntro":
-		["Oh! Hello there. Don't see many people 'round these parts./DIALGcaveMerchant"],
-	"caveMerchantTalk":
-		["Ain't much to chat about down here.",
-		"Sooo.../DIALGcaveMerchant"],
-	"caveMerchant":
-		["How can I help you?/EVENTcaveAssembleUnit/Ask for help/GSELLcaveMerchant/Sell/DIALGcaveMerchantTalk/Small Talk/FQUIT/Nevermind"],
-	"caveAssembleUnitComplete":
-		["Hmm, I might have something lying around here... Ah, take this.",
-		"Well Worn Mech Obtained!/DIALGcaveMerchant"],
-	"caveAssembleUnitFail":
-		["Sorry, looks like you don't have everything needed.",
-		"You need to find 1x Worn Iron Arm/DIALGcaveMerchant"],
-	"caveMerchantSold":
-		["Nice doing business with you./FQUIT"],
-	"caveMerchantDenied":
-		["If you change your mind feel free to come back anytime./FQUIT"],
+	"caveDwellerIntro":
+		["Ah, you must be new around these parts.",
+		"If you're in need of supplies, there should be some worn down parts scattered throughout this cave.",
+		"Once you've found enough parts to build a mech, come talk to me and I'll see if I can put something together for you."],
+	"caveDwellerCheck":
+		["Let me have a look at what you've got.../EVENTcaveDwellerAssemble"],
+	"caveDwellerFail":
+		["Hmmm, you seem to be missing a few parts.",
+		"Find me 1x Corroded Head, 1x Corroded Chest Plating, 1x Corroded Sword, 1x Corroded Fire Core, and 1x Corroded Leg.",
+		"Then I should be able to put something together for you."],
+	#"caveMerchantIntro":
+		#["Oh! Hello there. Don't see many people 'round these parts./DIALGcaveMerchant"],
+	#"caveMerchantTalk":
+		#["Ain't much to chat about down here.",
+		#"Sooo.../DIALGcaveMerchant"],
+	#"caveMerchant":
+		#["How can I help you?/EVENTcaveAssembleUnit/Ask for help/GSELLcaveMerchant/Sell/DIALGcaveMerchantTalk/Small Talk/FQUIT/Nevermind"],
+	#"caveAssembleUnitComplete":
+		#["Hmm, I might have something lying around here... Ah, take this.",
+		#"Well Worn Mech Obtained!/DIALGcaveMerchant"],
+	#"caveAssembleUnitFail":
+		#["Sorry, looks like you don't have everything needed.",
+		#"You need to find 1x Worn Iron Arm/DIALGcaveMerchant"],
+	#"caveMerchantSold":
+		#["Nice doing business with you./FQUIT"],
+	#"caveMerchantDenied":
+		#["If you change your mind feel free to come back anytime./FQUIT"],
 	"unitAssemblerIntro":
 		["The mech assembly system. You can build or deconstruct mechs here./DIALGunitAssembler"],
 	"unitAssembler":
@@ -34,7 +44,16 @@ var dialogue:Dictionary = {
 		"Here, take my old fishing rod, may it serve you well./EVENTgiveFishingRod",
 		"Fishing Rod Acquired! Press left click when looking at water to begin fishing."],
 	"fisherman":
-		["If you're looking for places to fish, I believe the cave system beneath the city is as good a place as any."]
+		["If you're looking for places to fish, I believe the cave system beneath the city is as good a place as any."],
+	"cityBuyerIntro":
+		["Well hello down there!",
+		"If you're looking to sell goods, you've come to the right place./GSELLcityBuyer/Sell/FQUIT/Nevermind"],
+	"cityBuyer":
+		["Looking to sell?/GSELLcityBuyer/Sell/FQUIT/Nevermind"],
+	"cityBuyerDenied":
+		["Come back anytime!"],
+	"cityBuyerSold":
+		["Pleasure doing business."]
 }
 
 var queuedDialogue:Array[String] = []

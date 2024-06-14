@@ -3,6 +3,7 @@ extends Node3D
 var playerInfo:PlayerData
 
 @export var wornUnit:Unit
+@export var requiredItems:Array[Part] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,17 +16,28 @@ func _ready():
 	updateSFX()
 
 func eventTriggered(identifier:String, value):
-	if identifier == "caveAssembleUnit":
-		playerInfo.addToInventory(wornUnit)
-		GS.emit_signal("triggerDialogue", "caveAssembleUnitComplete")
-		return
-		for item in playerInfo.inventory:
-			if item.name == "Worn Iron Arm":
-				playerInfo.removeFromInventory(item, 1)
-				playerInfo.addToInventory(wornUnit)
-				GS.emit_signal("triggerDialogue", "caveAssembleUnitComplete")
+	if identifier == "caveDwellerAssemble":
+		var smallestItemCount:int = 1000000
+		for item in requiredItems:
+			if item not in playerInfo.inventory.keys():
+				GS.emit_signal("triggerDialogue", "caveDwellerFail")
 				return
-		GS.emit_signal("triggerDialogue", "caveAssembleUnitFail")
+			smallestItemCount = min(smallestItemCount, playerInfo.inventory[item])
+		for item in requiredItems:
+			playerInfo.removeFromInventory(item, smallestItemCount)
+		playerInfo.addToInventory(wornUnit, smallestItemCount)
+		if smallestItemCount == 1:
+			$player/UI/dialogueMenu.startCustomDialogue(
+				["Perfect! Now just give me a moment...",
+				"And hey presto!",
+				"1x Well Worn Mech Acquired!"]
+			)
+		else:
+			$player/UI/dialogueMenu.startCustomDialogue(
+				["Perfect! Now just give me a moment...",
+				"And hey presto!",
+				str(smallestItemCount) + "x Well Worn Mechs Acquired!"]
+			)
 
 func updateSFX():
 	%waterAmbienceSFX.volume_db = 4 * FM.loadedGlobalData.ambientVolume - 30
