@@ -7,6 +7,7 @@ var currentGameName:String = ""
 
 func _ready():
 	SFX.connectAllButtons()
+	Music.playSong("city")
 
 func newGamePressed():
 	%gameCreationMenu.visible = true

@@ -9,7 +9,7 @@
 
 [resource]
 script = ExtResource("1_71ltt")
-name = "Well worn mech"
+name = "Well Worn Mech"
 cost = 0
 description = " It's well worn and falling apart in certain areas, but it looks to still have some life left in it."
 head = ExtResource("4_c2x2i")

@@ -78,7 +78,7 @@ func _ready() -> void:
 	
 	GS.event.connect(eventTriggered)
 	SFX.connectAllButtons()
-	FM.globalLoaded.connect(updateFootstepVolume)
+	FM.globalLoaded.connect(updateSFXVolume)
 
 func _input(event):
 	if event is InputEventMouseMotion and !isStopped and fishingState == FISHING_STATES.inactive: updateCam(event);
@@ -86,6 +86,7 @@ func _input(event):
 	if Input.is_action_just_pressed("interact") and !reelingFish and !%interactRay.is_colliding() and !%itemRay.is_colliding() and playerInfo.hasFishingRod:
 		match fishingState:
 			FISHING_STATES.inactive:
+				%reelSFX.play()
 				fishingState = FISHING_STATES.transitioning
 				%fishingLine.visible = true
 				%fishingAnims.play("cast")
@@ -118,6 +119,7 @@ func _input(event):
 					%fishing.visible = true
 					%fishingAnims.speed_scale = 1.0
 					%fishingAnims.play("startReel")
+					%reelSFX.play()
 				else:
 					disconnectBobber()
 					%fishingAnims.play("withdraw")
@@ -397,6 +399,7 @@ func fishingAnimFinished(anim_name):
 			fishingState = FISHING_STATES.inactive
 		"withdraw":
 			fishingState = FISHING_STATES.inactive
+			%reelSFX.stop()
 
 func fishPulling():
 	%fishingAnims.speed_scale = 1.5
@@ -464,8 +467,10 @@ func uiClosed():
 func unitAssemblyComplete(): uiClosed();
 func unitDisassemblyComplete(): uiClosed();
 
-func updateFootstepVolume():
+func updateSFXVolume():
 	if FM.loadedGlobalData.ambientVolume > 0:
 		%footstepsSFX.volume_db = 6 * FM.loadedGlobalData.ambientVolume - 44
+		%reelSFX.volume_db = 4 * FM.loadedGlobalData.ambientVolume - 15
 	else:
 		%footstepsSFX.volume_db = -80
+		%reelSFX.volume_db = -80

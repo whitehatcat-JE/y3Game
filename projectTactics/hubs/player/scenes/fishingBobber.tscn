@@ -1,8 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://c5mrc1cyefdda"]
+[gd_scene load_steps=15 format=3 uid="uid://c5mrc1cyefdda"]
 
 [ext_resource type="Script" path="res://hubs/player/scripts/fishingBobber.gd" id="1_1oog2"]
 [ext_resource type="Texture2D" uid="uid://6bpr1lcwsqjw" path="res://hubs/player/assets/fishing/fishingBobber.png" id="2_4povw"]
 [ext_resource type="ArrayMesh" uid="uid://drbd3wgla7q0x" path="res://hubs/player/assets/fishing/fishingBobber.obj" id="3_txecf"]
+[ext_resource type="AudioStream" uid="uid://c2w7wfqm5ny5h" path="res://hubs/player/sfx/waterSplash.mp3" id="4_keolf"]
+[ext_resource type="AudioStream" uid="uid://dfendjtg33qwy" path="res://hubs/player/sfx/boySink.mp3" id="5_vuo6q"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wk3sa"]
 
@@ -128,6 +130,15 @@ libraries = {
 "": SubResource("AnimationLibrary_se10d")
 }
 autoplay = "float"
+
+[node name="splashSFX" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_keolf")
+volume_db = -5.0
+
+[node name="sinkSFX" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_vuo6q")
+volume_db = 10.0
+max_db = 6.0
 
 [connection signal="body_entered" from="." to="." method="bodyContacted"]
 [connection signal="area_entered" from="floorScanner" to="." method="areaContacted"]

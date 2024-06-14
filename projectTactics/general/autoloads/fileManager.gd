@@ -2,6 +2,7 @@ extends Node
 
 signal gameSaved
 signal globalLoaded
+signal audioUpdated
 
 enum Locations {
 	CAVE,
@@ -29,6 +30,7 @@ func _ready():
 
 func saveGlobal():
 	ResourceSaver.save(loadedGlobalData, saveListFilePath)
+	emit_signal("audioUpdated")
 
 func loadGlobal():
 	if ResourceLoader.exists(saveListFilePath):

@@ -11,6 +11,8 @@ func _ready():
 	Music.playSong("cave")
 	
 	FM.playerData.changeLocation("cave")
+	FM.audioUpdated.connect(updateSFX)
+	updateSFX()
 
 func eventTriggered(identifier:String, value):
 	if identifier == "caveAssembleUnit":
@@ -24,3 +26,7 @@ func eventTriggered(identifier:String, value):
 				GS.emit_signal("triggerDialogue", "caveAssembleUnitComplete")
 				return
 		GS.emit_signal("triggerDialogue", "caveAssembleUnitFail")
+
+func updateSFX():
+	%waterAmbienceSFX.volume_db = 4 * FM.loadedGlobalData.ambientVolume - 30
+	%waterfallSFX.volume_db = 4 * FM.loadedGlobalData.ambientVolume - 20

@@ -1,4 +1,4 @@
-[gd_scene load_steps=143 format=3 uid="uid://brhvbncn85nke"]
+[gd_scene load_steps=145 format=3 uid="uid://brhvbncn85nke"]
 
 [ext_resource type="Script" path="res://hubs/desertCave/scripts/cave.gd" id="1_j6xu3"]
 [ext_resource type="Texture2D" uid="uid://dxaynsv6fgcf5" path="res://hubs/desertCave/assets/individualFlower.png" id="1_j76fw"]
@@ -52,7 +52,9 @@
 [ext_resource type="Resource" uid="uid://b6k5t46xth5x3" path="res://combat/parts/arm/unit03Arm.tres" id="57_5tuss"]
 [ext_resource type="Material" uid="uid://cpwthuupwouf" path="res://combat/parts/assets/materials/unit02Mat.tres" id="58_dyfaq"]
 [ext_resource type="Resource" uid="uid://b4ui1jrjnwkdn" path="res://combat/parts/chest/unit03Chest.tres" id="58_h3b1h"]
+[ext_resource type="AudioStream" uid="uid://dv8e47gx3uhbh" path="res://hubs/desertCave/sfx/waterAmbience.mp3" id="58_hcf1v"]
 [ext_resource type="Resource" uid="uid://dt45elky6m33f" path="res://combat/parts/core/unit03Core.tres" id="59_5dvqk"]
+[ext_resource type="AudioStream" uid="uid://cyccuqp1n3i02" path="res://hubs/desertCave/sfx/waterfall.mp3" id="59_7lbwp"]
 [ext_resource type="ArrayMesh" uid="uid://co2ulfmjdrmgw" path="res://combat/parts/assets/unit02/unit02Chest.obj" id="59_ihfm1"]
 [ext_resource type="Resource" uid="uid://oee3tarot5sa" path="res://combat/parts/head/unit03Head.tres" id="60_or8ik"]
 [ext_resource type="Resource" uid="uid://bxb83mj7vh7hk" path="res://combat/parts/leg/unit03Leg.tres" id="61_t8r58"]
@@ -3048,6 +3050,20 @@ shape = SubResource("BoxShape3D_gbqcg")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="fishing/fishingZones"]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 40.0295, 9.89312, 69.4859)
 shape = SubResource("BoxShape3D_mdm3m")
+
+[node name="waterAmbienceSFX" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+process_mode = 3
+stream = ExtResource("58_hcf1v")
+volume_db = -10.0
+autoplay = true
+
+[node name="waterfallSFX" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+process_mode = 3
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.7623, 0, 35.9027)
+stream = ExtResource("59_7lbwp")
+autoplay = true
 
 [editable path="CaveWalls/caveLowerPath"]
 [editable path="CaveWalls/caveUpperPath"]
