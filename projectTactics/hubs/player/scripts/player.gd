@@ -83,7 +83,7 @@ func _ready() -> void:
 func _input(event):
 	if event is InputEventMouseMotion and !isStopped and fishingState == FISHING_STATES.inactive: updateCam(event);
 	if Input.is_action_just_pressed("pause"): pause();
-	if Input.is_action_just_pressed("interact") and !reelingFish and !%interactRay.is_colliding() and !%itemRay.is_colliding():
+	if Input.is_action_just_pressed("interact") and !reelingFish and !%interactRay.is_colliding() and !%itemRay.is_colliding() and playerInfo.hasFishingRod:
 		match fishingState:
 			FISHING_STATES.inactive:
 				fishingState = FISHING_STATES.transitioning

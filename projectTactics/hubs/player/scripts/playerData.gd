@@ -17,6 +17,7 @@ const INVENTORY_SIZE:int = 100
 @export var playTime:int = 0
 
 @export var currentLocation:Locations = Locations.CAVE
+@export var hasFishingRod:bool = false
 
 var locationStrToEnum:Dictionary = {
 	"cave":Locations.CAVE,
@@ -30,6 +31,7 @@ func constructor(values : PlayerData):
 	playerName = values.playerName
 	playTime = values.playTime
 	currentLocation = values.currentLocation
+	hasFishingRod = values.hasFishingRod
 
 func addToInventory(item):
 	if item in inventory.keys(): inventory[item] += 1;

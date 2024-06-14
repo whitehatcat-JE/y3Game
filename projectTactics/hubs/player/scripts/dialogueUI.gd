@@ -14,10 +14,10 @@ var dialogue:Dictionary = {
 		["Ain't much to chat about down here.",
 		"Sooo.../DIALGcaveMerchant"],
 	"caveMerchant":
-		["How can I help you?/EVENTcaveAssembleUnit/Assemble Unit/GSELLcaveMerchant/Sell/DIALGcaveMerchantTalk/Small Talk/FQUIT/Nevermind"],
+		["How can I help you?/EVENTcaveAssembleUnit/Ask for help/GSELLcaveMerchant/Sell/DIALGcaveMerchantTalk/Small Talk/FQUIT/Nevermind"],
 	"caveAssembleUnitComplete":
-		["Give this a try.",
-		"Moonstone Unit Obtained!/DIALGcaveMerchant"],
+		["Hmm, I might have something lying around here... Ah, take this.",
+		"Well Worn Mech Obtained!/DIALGcaveMerchant"],
 	"caveAssembleUnitFail":
 		["Sorry, looks like you don't have everything needed.",
 		"You need to find 1x Worn Iron Arm/DIALGcaveMerchant"],
@@ -28,7 +28,13 @@ var dialogue:Dictionary = {
 	"unitAssemblerIntro":
 		["The mech assembly system. You can build or deconstruct mechs here./DIALGunitAssembler"],
 	"unitAssembler":
-		["The mech assembly system./EVENTbuildUnit/Build Unit/EVENTdeconstructUnit/Deconstruct Unit/FQUIT/Leave"]
+		["The mech assembly system./EVENTbuildUnit/Build Unit/EVENTdeconstructUnit/Deconstruct Unit/FQUIT/Leave"],
+	"fishermanIntro":
+		["You look like you have potential.",
+		"Here, take my old fishing rod, may it serve you well./EVENTgiveFishingRod",
+		"Fishing Rod Acquired! Press left click when looking at water to begin fishing."],
+	"fisherman":
+		["If you're looking for places to fish, I believe the cave system beneath the city is as good a place as any."]
 }
 
 var queuedDialogue:Array[String] = []
