@@ -1,6 +1,7 @@
 extends Resource
 class_name Fish
 
+# Enumerators
 enum SizeCategories {
 	SMALL,
 	MEDIUM,
@@ -26,6 +27,7 @@ enum Rarities {
 
 var itemType : ItemTypes = ItemTypes.FISH
 
+# Fish trait variables
 @export_category("General")
 @export var name:String = ""
 @export var cost:int = 0
@@ -56,9 +58,12 @@ var weight:float
 var sizeCategory:SizeCategories
 var descriptiveName:String
 
+# Adjust fish traits to create size variations
 func spawn():
+	# Update weight
 	weight = randf_range(minWeight, maxWeight)
 	var weightVariation:float = maxWeight - minWeight
+	# Update name to include weight category prefix
 	descriptiveName = name
 	if weight < minWeight + weightVariation * 0.25:
 		sizeCategory = SizeCategories.SMALL
