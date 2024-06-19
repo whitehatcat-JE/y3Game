@@ -41,7 +41,6 @@ folder_colors={
 "res://hubs/city/scripts/": "green",
 "res://hubs/interactions/scripts/": "green",
 "res://hubs/player/scripts/": "green",
-"res://placeholder/addons/": "green",
 "res://placeholder/conceptArt/": "blue",
 "res://placeholder/robot/": "blue",
 "res://placeholder/textures/": "blue"

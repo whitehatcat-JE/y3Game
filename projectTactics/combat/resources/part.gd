@@ -3,7 +3,7 @@ extends Resource
 class_name Part
 
 signal partUpdated
-
+# Type Enumerators
 enum ItemTypes {
 	ALL,
 	PART,
@@ -18,9 +18,9 @@ enum PartTypes {
 	CORE,
 	HEAD
 }
-
+# Item type
 var itemType : ItemTypes = ItemTypes.PART
-
+# General metadata
 @export var name : String = ""
 @export var type:PartTypes = PartTypes.ARM :
 	get: return type;
@@ -35,10 +35,10 @@ var strType : Array = ["Arm", "Leg", "Chest", "Core", "Head"]
 		emit_signal("partUpdated")
 		model = value
 @export var cost : int = 0
-
+# Flavour text
 @export_subgroup("Flavour Text")
 @export_multiline var description : String = " "
-
+# Initial durability
 @export_subgroup("Durability")
 @export_range(0, 10000) var maxDurability : int: 
 	get: return maxDurability;
@@ -48,7 +48,7 @@ var strType : Array = ["Arm", "Leg", "Chest", "Core", "Head"]
 @export var currentDurability : int:
 	get: return currentDurability;
 	set(newValue): currentDurability = clamp(newValue, 0, maxDurability);
-	
+# Combat metadata
 @export_subgroup("Combat")
 @export var damage : int = 0
 @export var armorRating : int = 0
